@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Información de contacto enviada por interesados en los cursos.",
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "type": "string",
+          "description": "Nombre completo del interesado"
+        },
+        "correo": {
+          "type": "string",
+          "format": "email",
+          "description": "Correo electrónico de contacto"
+        },
+        "celular": {
+          "type": "string",
+          "description": "Número de teléfono celular"
+        },
+        "curso": {
+          "type": "string",
+          "description": "Curso o carrera de interés"
+        },
+        "mensaje": {
+          "type": "string",
+          "description": "Mensaje adicional opcional"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Fecha de creación del registro"
+        }
+      },
+      "required": [
+        "nombre",
+        "correo",
+        "celular",
+        "curso",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "leads": {
+      "schema": {
+        "$ref": "#/entities/Lead"
+      },
+      "description": "Colección de prospectos interesados."
+    }
+  }
+}
