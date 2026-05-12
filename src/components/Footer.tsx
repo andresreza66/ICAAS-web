@@ -76,7 +76,7 @@ export default function Footer({ id }: { id: string }) {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-gray-800 text-center text-gray-500 text-xs tracking-widest uppercase flex flex-col md:flex-row justify-center items-center gap-4">
-        <span>© {new Date().getFullYear()} ICAAS - ESCUELA DE AVIACIÓN. TODOS LOS DERECHOS RESERVADOS.</span>
+        <span>© {new Date().getFullYear()} ICAAS AVIACIÓN S.A.S. de C.V. TODOS LOS DERECHOS RESERVADOS.</span>
         <span className="text-primary font-bold">PERMISO AFAC F-213</span>
       </div>
 
