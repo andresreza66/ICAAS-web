@@ -43,18 +43,21 @@ export default function Home({ id }: { id: string }) {
       // 1. Save to Google Sheets (if configured)
       const sheetUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
       if (sheetUrl) {
-        const formDataPost = new FormData();
-        formDataPost.append('nombre', nombre);
-        formDataPost.append('correo', correo);
-        formDataPost.append('celular', celular);
-        formDataPost.append('curso', curso);
-        formDataPost.append('mensaje', mensaje || "");
-        formDataPost.append('fecha', new Date().toLocaleString());
+        const urlParams = new URLSearchParams();
+        urlParams.append('nombre', nombre);
+        urlParams.append('correo', correo);
+        urlParams.append('celular', celular);
+        urlParams.append('curso', curso);
+        urlParams.append('mensaje', mensaje || "");
+        urlParams.append('fecha', new Date().toLocaleString());
 
         await fetch(sheetUrl, {
           method: 'POST',
           mode: 'no-cors',
-          body: formDataPost
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: urlParams
         });
       } else {
         // Fallback for demonstration when no backend is connected
