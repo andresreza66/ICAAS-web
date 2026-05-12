@@ -42,6 +42,8 @@ export default function Home({ id }: { id: string }) {
     try {
       // 1. Save to Google Sheets (if configured)
       const sheetUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
+      console.log("Intentando enviar a Google Sheets...", sheetUrl ? "URL Detectada" : "URL NO DETECTADA");
+      
       if (sheetUrl) {
         const urlParams = new URLSearchParams();
         urlParams.append('nombre', nombre);
@@ -52,6 +54,7 @@ export default function Home({ id }: { id: string }) {
         urlParams.append('fecha', new Date().toLocaleString());
 
         try {
+          // Usamos mode: 'no-cors' para evitar errores de seguridad del navegador
           await fetch(sheetUrl, {
             method: 'POST',
             mode: 'no-cors',
@@ -60,14 +63,14 @@ export default function Home({ id }: { id: string }) {
             },
             body: urlParams.toString()
           });
-          console.log("Datos enviados a Google Sheets");
+          console.log("Petición enviada correctamente (modo simple)");
         } catch (fetchError) {
-          console.error("Error al contactar Google Sheets:", fetchError);
+          console.error("Error crítico en fetch:", fetchError);
         }
       } else {
-        console.warn("VITE_GOOGLE_SHEETS_URL no está configurada. El formulario no se guardará en Google Sheets.");
-        // Fallback for demonstration when no backend is connected
-        console.log("Formulario enviado (simulación):", { nombre, correo, celular, curso, mensaje });
+        console.warn("VITE_GOOGLE_SHEETS_URL no está configurada en este entorno.");
+        // Fallback para pruebas
+        console.log("Simulación de envío:", { nombre, correo, celular, curso, mensaje });
       }
       
       setSubmitSuccess(true);
