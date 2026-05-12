@@ -7,8 +7,6 @@ import {
   Check, Mail, Phone, Send, Instagram, Facebook, MessageCircle, X, ChevronLeft, ChevronRight, Plus,
   Building2, Languages, Stethoscope, Users2
 } from 'lucide-react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 // Import images from assets to allow Vite to bundle them correctly
 import heroImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
@@ -42,17 +40,7 @@ export default function Home({ id }: { id: string }) {
     const mensaje = formData.get('mensaje') as string;
     
     try {
-      // 1. Save to Firebase
-      await addDoc(collection(db, 'leads'), {
-        nombre,
-        correo,
-        celular,
-        curso,
-        mensaje: mensaje || "",
-        createdAt: serverTimestamp()
-      });
-
-      // 2. Save to Google Sheets (if configured)
+      // 1. Save to Google Sheets (if configured)
       const sheetUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
       if (sheetUrl) {
         const formDataPost = new FormData();
@@ -79,7 +67,7 @@ export default function Home({ id }: { id: string }) {
       
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
-      handleFirestoreError(error, OperationType.WRITE, 'leads');
+      console.error("Error en el envío:", error);
     } finally {
       setIsSubmitting(false);
     }
