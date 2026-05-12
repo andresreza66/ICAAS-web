@@ -1162,6 +1162,18 @@ export default function Home({ id }: { id: string }) {
       {(!selectedCareer && !selectedCourse) && (
         <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] flex flex-col gap-3 md:gap-4">
           <a 
+            href="https://www.facebook.com/profile.php?id=61587870480575&mibextid=wwXIfr" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-[#1877F2] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group relative"
+            aria-label="Facebook"
+          >
+            <Facebook className="size-6 md:size-7" fill="currentColor" />
+            <span className="absolute right-full mr-4 bg-white text-secondary text-[10px] font-black px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-gray-100 pointer-events-none uppercase tracking-widest hidden md:block">
+              Síguenos en Facebook
+            </span>
+          </a>
+          <a 
             href="https://www.instagram.com/icaascancun?igsh=MWRnN2F4aHcyMWUzcw%3D%3D&utm_source=qr" 
             target="_blank" 
             rel="noopener noreferrer"
