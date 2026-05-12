@@ -51,18 +51,23 @@ export default function Home({ id }: { id: string }) {
         urlParams.append('mensaje', mensaje || "");
         urlParams.append('fecha', new Date().toLocaleString());
 
-        await fetch(sheetUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: urlParams
-        });
+        try {
+          await fetch(sheetUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: urlParams.toString()
+          });
+          console.log("Datos enviados a Google Sheets");
+        } catch (fetchError) {
+          console.error("Error al contactar Google Sheets:", fetchError);
+        }
       } else {
+        console.warn("VITE_GOOGLE_SHEETS_URL no está configurada. El formulario no se guardará en Google Sheets.");
         // Fallback for demonstration when no backend is connected
         console.log("Formulario enviado (simulación):", { nombre, correo, celular, curso, mensaje });
-        // En un entorno real sin Firebase/Sheets, podrías enviar esto a un API endpoint propio
       }
       
       setSubmitSuccess(true);
