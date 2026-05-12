@@ -908,18 +908,22 @@ export default function Home({ id }: { id: string }) {
              <ValueItem 
                title="Responsabilidad" 
                desc="Nos comprometemos a cumplir en tiempo y forma las obligaciones morales y legales, aceptando las consecuencias de nuestros actos." 
+               index={0}
              />
              <ValueItem 
                title="Profesionalismo" 
                desc="Nuestra capacidad de ser eficaces y competentes en la realización de nuestras labores y formación académica." 
+               index={1}
              />
              <ValueItem 
                title="Ética" 
                desc="Base de nuestras acciones como una institución educativa que forma parte del futuro de la aviación en México." 
+               index={2}
              />
              <ValueItem 
                title="Normatividad" 
                desc="Marco que rige nuestra disciplina y procedimientos, garantizando el cumplimiento de los estándares aeronáuticos." 
+               index={3}
              />
           </div>
 
@@ -1243,12 +1247,23 @@ function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = fals
   )
 }
 
-function ValueItem({ title, desc }: { title: string, desc: string }) {
+function ValueItem({ title, desc, index = 0 }: { title: string, desc: string, index?: number }) {
   return (
-    <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-sm hover:border-primary/20 transition-all">
-       <h4 className="text-base md:text-lg lg:text-xl font-bold text-primary mb-2 sm:mb-3 italic">{title}</h4>
+    <motion.div 
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{ y: -12, scale: 1.02 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }}
+      className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-sm hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-default"
+    >
+       <h4 className="text-base md:text-lg lg:text-xl font-bold text-primary mb-2 sm:mb-3 italic group-hover:scale-105 origin-left transition-transform duration-300">{title}</h4>
        <p className="text-gray-500 text-[8px] sm:text-[11px] font-light leading-relaxed">{desc}</p>
-    </div>
+    </motion.div>
   )
 }
 
@@ -1282,19 +1297,20 @@ function BenefitCard({ icon, title, benefit, desc, index = 0 }: { icon: React.Re
     <motion.div 
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{ y: -12, scale: 1.01 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ 
         duration: 0.5, 
         delay: index * 0.1,
         ease: [0.21, 0.47, 0.32, 0.98]
       }}
-      className="bg-neutral p-4 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group"
+      className="bg-neutral p-4 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-gray-100 hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-default"
     >
-       <div className="size-10 sm:size-14 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-sm group-hover:scale-110 transition-transform">
+       <div className="size-10 sm:size-14 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
           {React.cloneElement(icon as React.ReactElement, { size: undefined, className: (icon as React.ReactElement).props.className?.replace('size-6', 'size-5 sm:size-6') })}
        </div>
        <h4 className="text-[8px] sm:text-[10px] uppercase font-black tracking-widest text-gray-400 mb-2">{title}</h4>
-       <div className="text-sm sm:text-xl font-black text-secondary mb-2 sm:mb-3 italic group-hover:text-primary transition-colors">{benefit}</div>
+       <div className="text-sm sm:text-xl font-black text-secondary mb-2 sm:mb-3 italic group-hover:text-primary transition-colors duration-300">{benefit}</div>
        <p className="text-gray-500 text-[9px] sm:text-xs font-light leading-relaxed">{desc}</p>
     </motion.div>
   );
