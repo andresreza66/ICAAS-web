@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Facebook, Instagram, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { trackEvent } from '../lib/analytics';
 
 export default function FloatingButtons() {
   const location = useLocation();
@@ -47,11 +48,18 @@ export default function FloatingButtons() {
   }
 
   let whatsappUrl = "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n.";
+  let careerLabel = "general";
   if (pathname === '/sobrecargo') {
     whatsappUrl = "https://wa.me/529987510172?text=Hola,%20quisiera%20solicitar%20informaci%C3%B3n%20de%20la%20carrera%20de%20Sobrecargo%20de%20Aviaci%C3%B3n.";
+    careerLabel = "sobrecargo";
   } else if (pathname === '/oficial') {
     whatsappUrl = "https://wa.me/529987510172?text=Hola,%20quisiera%20solicitar%20informaci%C3%B3n%20de%20la%20carrera%20de%20Oficial%20de%20Operaciones.";
+    careerLabel = "oficial";
   }
+
+  const handleSocialClick = (platform: string) => {
+    trackEvent('floating_button', 'click_social', `${platform}_${careerLabel}`);
+  };
 
   return (
     <AnimatePresence>
@@ -68,6 +76,7 @@ export default function FloatingButtons() {
             href="https://www.facebook.com/profile.php?id=61587870480575&mibextid=wwXIfr" 
             target="_blank" 
             rel="noopener noreferrer"
+            onClick={() => handleSocialClick('facebook')}
             className="bg-[#1877F2]/90 hover:bg-[#1877F2] text-white w-10 h-10 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group relative border border-white/5 active:scale-95"
             aria-label="Facebook"
           >
@@ -82,6 +91,7 @@ export default function FloatingButtons() {
             href="https://www.instagram.com/icaascancun?igsh=MWRnN2F4aHcyMWUzcw%3D%3D&utm_source=qr" 
             target="_blank" 
             rel="noopener noreferrer"
+            onClick={() => handleSocialClick('instagram')}
             className="bg-gradient-to-tr from-[#f09433]/90 via-[#dc2743]/90 to-[#bc1888]/90 hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] text-white w-10 h-10 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group relative border border-white/5 active:scale-95"
             aria-label="Instagram"
           >
@@ -96,6 +106,7 @@ export default function FloatingButtons() {
             href={whatsappUrl} 
             target="_blank" 
             rel="noopener noreferrer"
+            onClick={() => handleSocialClick('whatsapp')}
             className="bg-[#25D366]/90 hover:bg-[#25D366] text-white w-10 h-10 rounded-full shadow-lg hover:scale-110 transition-transform flex items-center justify-center group relative border border-white/5 active:scale-95"
             aria-label="WhatsApp"
           >

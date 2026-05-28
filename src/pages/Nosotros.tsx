@@ -12,7 +12,7 @@ import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg';
 import fac2Img from '../assets/images/regenerated_image_1777925795640.png';
 import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
 import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
-import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
+import fac5Img from '../assets/images/regenerated_image_1779992817546.png';
 import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
 import fac7Img from '../assets/images/regenerated_image_1777586277135_opt.png';
 

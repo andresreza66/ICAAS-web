@@ -9,6 +9,7 @@ import {
   Building2, Languages, Stethoscope, Users2
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
+import { trackEvent } from '../lib/analytics';
 // Import images from assets to allow Vite to bundle them correctly
 import heroImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
@@ -89,6 +90,9 @@ export default function Home({ id }: { id: string }) {
         console.log("Simulación de envío:", { nombre, correo, celular, curso, mensaje });
       }
       
+      // Track conversion event in Google Analytics
+      trackEvent('lead_form', 'submit_home', curso);
+
       setSubmitSuccess(true);
       (e.target as HTMLFormElement).reset();
       

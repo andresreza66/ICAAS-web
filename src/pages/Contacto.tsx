@@ -5,6 +5,7 @@ import {
   MessageSquare, Facebook, Instagram, MessageCircle, AlertCircle
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
+import { trackEvent } from '../lib/analytics';
 
 export default function Contacto({ id }: { id: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,6 +58,9 @@ export default function Contacto({ id }: { id: string }) {
         console.warn("VITE_GOOGLE_SHEETS_URL no está configurada. Simulación completada.");
         console.log("Simulación de envío:", { nombre, correo, celular, curso, mensaje });
       }
+      
+      // Track conversion event in Google Analytics
+      trackEvent('lead_form', 'submit_contacto', curso);
       
       setSubmitSuccess(true);
       (e.target as HTMLFormElement).reset();
