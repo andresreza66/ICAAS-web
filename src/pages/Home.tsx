@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate, Link } from 'react-router-dom';
 import { 
   ArrowRight, Plane, ShieldCheck, Users, Clock, 
   CheckCircle2, Award, Briefcase, GraduationCap,
@@ -7,6 +8,7 @@ import {
   Check, Mail, Phone, Send, Instagram, Facebook, MessageCircle, X, ChevronLeft, ChevronRight, Plus,
   Building2, Languages, Stethoscope, Users2
 } from 'lucide-react';
+import { LazyMap } from '../components/LazyMap';
 // Import images from assets to allow Vite to bundle them correctly
 import heroImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
@@ -25,8 +27,22 @@ import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
 import fac7Img from '../assets/images/regenerated_image_1777586277135_opt.png';
 
 export default function Home({ id }: { id: string }) {
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  React.useEffect(() => {
+    document.title = "Escuela de aviación en Cancún | ICAAS Aviación";
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Fórmate en ICAAS Aviación en Cancún. Conoce nuestros programas para Sobrecargo y Oficial de Operaciones y empieza tu carrera en la industria aérea.");
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = "Fórmate en ICAAS Aviación en Cancún. Conoce nuestros programas para Sobrecargo y Oficial de Operaciones y empieza tu carrera en la industria aérea.";
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -312,7 +328,6 @@ export default function Home({ id }: { id: string }) {
   ];
 
   const [selectedCareer, setSelectedCareer] = React.useState<null | typeof careers[0]>(null);
-  const [selectedCourse, setSelectedCourse] = React.useState<null | typeof specializedCourses[0]>(null);
   const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
   const [openFAQIndex, setOpenFAQIndex] = React.useState<number | null>(null);
 
@@ -357,6 +372,7 @@ export default function Home({ id }: { id: string }) {
                   <div className="lg:col-span-2 relative min-h-[250px] md:min-h-[300px]">
                     <img 
                       src={selectedCareer.image} 
+                      alt={selectedCareer.title}
                       className="absolute inset-0 w-full h-full object-cover" 
                       fetchPriority="high"
                       decoding="sync"
@@ -443,149 +459,6 @@ export default function Home({ id }: { id: string }) {
         )}
       </AnimatePresence>
 
-      {/* Specialized Course Detail Modal */}
-      <AnimatePresence>
-        {selectedCourse && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedCourse(null)}
-              className="absolute inset-0 bg-secondary/95 backdrop-blur-md"
-            />
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl bg-white rounded-[32px] md:rounded-[40px] shadow-2xl overflow-hidden max-h-[92vh] md:max-h-[90vh] flex flex-col"
-            >
-              <button 
-                onClick={() => setSelectedCourse(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-30 size-10 md:size-12 bg-neutral/80 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all font-black shadow-lg"
-              >
-                ✕
-              </button>
-              
-              <div className="flex-grow overflow-y-auto overscroll-contain">
-                <div className="grid grid-cols-1 lg:grid-cols-5 h-auto">
-                  <div className="lg:col-span-2 relative min-h-[250px] md:min-h-[300px]">
-            <img 
-              src={selectedCourse.image} 
-              className="absolute inset-0 w-full h-full object-cover" 
-              fetchPriority="high"
-              decoding="sync"
-            />
-                    <div className="absolute inset-0 bg-secondary/10" />
-                  </div>
-                  <div className="lg:col-span-3 p-10 md:p-16">
-                    <span className="tag-label text-primary mb-4 block">Curso de Especialización</span>
-                    <h2 className="text-4xl md:text-5xl mb-8 leading-none italic font-black">{selectedCourse.title}</h2>
-                    
-                    <div className="space-y-8">
-                      <section>
-                        <h4 className="text-xs uppercase font-black tracking-widest text-secondary mb-3 flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full" /> Descripción
-                        </h4>
-                        <p className="text-gray-500 font-light leading-relaxed">{selectedCourse.description}</p>
-                      </section>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {selectedCourse.puntosImportantes && selectedCourse.puntosImportantes.length > 0 && (
-                          <section>
-                            <h4 className="text-xs uppercase font-black tracking-widest text-secondary mb-4 text-primary italic flex items-center gap-2">
-                               <CheckCircle2 size={14} /> Puntos Importantes
-                            </h4>
-                            <ul className="space-y-2">
-                              {selectedCourse.puntosImportantes.map((item, idx) => (
-                                <li key={idx} className="text-[10px] sm:text-xs font-bold text-secondary flex gap-2 leading-tight">
-                                  <span className="text-primary">•</span> {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-                        )}
-                        {selectedCourse.planEstudios && selectedCourse.planEstudios.length > 0 && (
-                          <section>
-                            <h4 className="text-xs uppercase font-black tracking-widest text-secondary mb-4 text-primary italic flex items-center gap-2">
-                               <Layers size={14} /> Plan de Estudios
-                            </h4>
-                            <ul className="space-y-2">
-                              {selectedCourse.planEstudios.map((item, idx) => (
-                                <li key={idx} className="text-[10px] sm:text-xs font-bold text-secondary flex gap-2 leading-tight">
-                                  <span className="text-primary">/</span> {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </section>
-                        )}
-                      </div>
-
-                      {selectedCourse.entrenamiento && (
-                        <section className="bg-neutral p-6 rounded-2xl border border-gray-100 mt-8">
-                          <h4 className="text-xs uppercase font-black tracking-widest text-secondary mb-3">Entrenamiento Práctico</h4>
-                          <p className="text-gray-500 text-xs font-light leading-relaxed">{selectedCourse.entrenamiento}</p>
-                        </section>
-                      )}
-
-                      {(selectedCourse as any).nota && (
-                        <section className="bg-amber-50 p-6 rounded-2xl border border-amber-200 mt-8">
-                          <h4 className="text-xs uppercase font-black tracking-widest text-amber-700 mb-3 flex items-center gap-2">
-                            <Info size={14} /> Nota Importante
-                          </h4>
-                          <p className="text-amber-800 text-xs font-medium leading-relaxed">
-                            {(selectedCourse as any).nota}
-                          </p>
-                        </section>
-                      )}
-
-                      {(selectedCourse as any).paquetes && (selectedCourse as any).paquetes.length > 0 && (
-                        <section className="bg-primary/5 p-6 rounded-2xl border border-primary/20 mt-8">
-                          <h4 className="text-xs uppercase font-black tracking-widest text-primary mb-4 italic flex items-center gap-2">
-                             <Sparkles size={14} /> Paquetes de Horas
-                          </h4>
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            {(selectedCourse as any).paquetes.map((pkg: any, idx: number) => (
-                              <div key={idx} className="bg-white p-4 rounded-xl border border-primary/10 shadow-sm flex flex-col items-center text-center">
-                                <span className="text-[10px] uppercase font-black text-gray-400 mb-1">{pkg.label}</span>
-                                <span className="text-lg font-black text-secondary leading-tight italic">{pkg.price.split(' ')[0]}</span>
-                                <span className="text-[9px] font-bold text-primary uppercase">{pkg.price.split(' ').slice(1).join(' ')}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </section>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 sm:p-5 md:px-16 md:py-8 border-t border-gray-100 bg-neutral flex flex-row justify-between items-center gap-4 md:gap-6 shrink-0 z-10">
-                 <div>
-                    <span className="tag-label block mb-1 text-[8px] md:text-[10px]">Duración del Curso</span>
-                    <ul className="flex flex-col gap-1 mt-1">
-                      {selectedCourse.duracion.split(' / ').map((d, i) => (
-                        <li key={i} className="text-xs sm:text-sm md:text-xl font-black text-secondary uppercase italic flex items-center gap-1.5 leading-none">
-                          <Check className="size-3 md:size-4 text-primary shrink-0" />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                 </div>
-                 <a 
-                    href={(selectedCourse as any).whatsapp || "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n."} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="shrink-0 text-center bg-primary text-white px-5 py-3 sm:px-6 sm:py-4 md:px-10 md:py-5 rounded-xl font-black uppercase text-[8px] md:text-[10px] tracking-[0.2em] shadow-primary-glow hover:scale-105 transition-transform"
-                 >
-                    Solicitar Info
-                 </a>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
       {/* Lightbox Modal */}
       <AnimatePresence>
         {lightboxIndex !== null && (
@@ -631,7 +504,7 @@ export default function Home({ id }: { id: string }) {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section id="inicio" className="relative h-[95vh] flex items-center overflow-hidden bg-black">
+      <section id="inicio" className="relative min-h-[95vh] pt-32 pb-20 flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <img
             src={heroImg}
@@ -645,22 +518,21 @@ export default function Home({ id }: { id: string }) {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
+            className="max-w-6xl mx-auto flex flex-col items-center"
           >
-            <span className="text-[10px] text-white/70 tracking-[0.3em] font-bold uppercase mb-4 block">Inscripciones abiertas 2026</span>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl text-white font-bold tracking-tight leading-[0.9] mb-8">
-              Forjando el futuro <br />
-              <span className="text-primary">Aeronáutico.</span>
+            <span className="text-[10px] text-[#ffffff] tracking-[0.3em] font-bold uppercase mb-4 block mt-8">Inscripciones abiertas 2026</span>
+            <h1 className="text-3xl sm:text-4xl md:text-[45px] text-[#EE3E3A] font-bold tracking-tight leading-tight md:leading-[50px] mb-6 md:mb-8 max-w-5xl uppercase">
+              Escuela de aviación en Cancún para futuros <span className="text-[#EE3E3A]">Sobrecargos</span> y <span className="text-[#EE3E3A]">Oficiales de operaciones.</span>
             </h1>
-            <p className="text-gray-200 text-base md:text-lg lg:text-xl mb-10 leading-relaxed font-light">
-              Forjando profesionales con estándares internacionales en México. Despega tu carrera hoy en la mejor escuela de aviación en Cancún.
+            <p className="text-gray-200 text-base sm:text-lg md:text-[20px] leading-relaxed md:leading-[25px] mb-10 font-light max-w-3xl">
+              Fórmate en ICAAS con programas diseñados para jóvenes que quieren trabajar en la industria aérea, crecer profesionalmente y construir una carrera con futuro.
             </p>
-            <div className="flex flex-row gap-3 sm:gap-4">
+            <div className="flex flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a
                 href="https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n."
                 target="_blank"
@@ -674,234 +546,137 @@ export default function Home({ id }: { id: string }) {
                 href="#carreras"
                 className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-3 sm:px-8 sm:py-4 rounded-lg font-bold uppercase tracking-widest text-[10px] sm:text-xs hover:bg-white/20 transition-all text-center flex-1 sm:flex-none"
               >
-                Catálogo
+                Oferta Académica
               </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Carreras Section */}
+      {/* Carreras & Cursos Section */}
       <section id="carreras" className="py-24 bg-white scroll-mt-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12 sm:mb-20">
-            <span className="tag-label text-primary mb-4 block">Programas Profesionales</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-6">Elige tu Carrera</h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-              Selecciona una especialidad para ver el plan de estudios, requisitos y entrenamiento práctico.
-            </p>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">Elige tu carrera o explora nuestros cursos</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-10 gap-3 sm:gap-6">
-            {careers.map((career, index) => (
-              <motion.div
-                key={career.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                onClick={() => setSelectedCareer(career)}
-                className="group relative min-h-[180px] sm:min-h-[280px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer col-span-1 md:col-span-5 border border-secondary shadow-primary-glow/10 hover:shadow-2xl transition-all duration-300"
-              >
-                <img 
-                  src={career.image} 
-                  alt={career.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-secondary/60 group-hover:bg-secondary/40 transition-all duration-500 z-10" />
-                
-                <div className="absolute inset-0 z-20 p-3 sm:p-5 lg:p-6 flex flex-col">
-                  <div className="flex justify-between items-start mb-1 sm:mb-4 relative z-10">
-                    <span className="text-[6px] sm:text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] block text-primary">Carrera Profesional</span>
-                  </div>
+          <div className="mb-12">
+            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block text-center">Carreras Profesionales</span>
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-3 sm:gap-6">
+              {careers.map((career, index) => (
+                <motion.div
+                  key={career.id}
+                  initial={{ opacity: 0.35, scale: 0.96 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => navigate(career.id === 'sobrecargo' ? '/sobrecargo' : '/oficial')}
+                  className="group relative min-h-[180px] sm:min-h-[280px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer col-span-1 md:col-span-5 border border-secondary shadow-primary-glow/10 hover:shadow-2xl transition-all duration-300"
+                >
+                  <img 
+                    src={career.image} 
+                    alt={career.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-secondary/60 group-hover:bg-secondary/40 transition-all duration-500 z-10" />
+                  
+                  <div className="absolute inset-0 z-20 p-3 sm:p-5 lg:p-6 flex flex-col items-center justify-center text-center">
+                    <div className="flex justify-center items-center mb-1 sm:mb-4 relative z-10 w-full">
+                      <span className="text-[6px] sm:text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] block text-primary">Carrera Profesional</span>
+                    </div>
 
-                  <div className="relative z-10 mb-2 sm:mb-4 max-w-lg">
-                    <h3 className="font-black leading-tight group-hover:translate-x-1 transition-transform italic mr-1 text-white text-lg md:text-3xl lg:text-4xl mb-1 sm:mb-2">{career.title}</h3>
-                    <p className="text-[11px] sm:text-sm text-gray-300 line-clamp-3 sm:line-clamp-2 font-light leading-relaxed max-w-xs">
-                      {career.shortDesc}
-                    </p>
-                  </div>
+                    <div className="relative z-10 mb-2 sm:mb-4 max-w-lg flex flex-col items-center">
+                      <h3 className="font-black leading-tight group-hover:scale-105 transition-transform italic text-white text-lg md:text-3xl lg:text-4xl mb-1 sm:mb-2">{career.title}</h3>
+                      <p className="text-[11px] sm:text-sm text-gray-300 line-clamp-3 sm:line-clamp-2 font-light leading-relaxed max-w-xs text-center">
+                        {career.shortDesc}
+                      </p>
+                    </div>
 
-                  <div className="mt-auto relative z-10">
-                    <div className="bg-primary hover:bg-red-600 text-white w-fit px-3 py-2 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl text-[7px] sm:text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-1 sm:gap-2">
-                      Ver ficha <ArrowRight size={10} className="sm:size-3.5" />
+                    <div className="mt-auto md:mt-4 relative z-10 flex justify-center w-full">
+                      <div className="bg-primary hover:bg-red-600 text-white w-fit px-3 py-2 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl text-[7px] sm:text-[10px] font-black uppercase tracking-widest transition-colors flex items-center justify-center gap-1 sm:gap-2 mx-auto">
+                        Ver ficha <ArrowRight size={10} className="sm:size-3.5" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Cursos Section (Merged from Courses.tsx) */}
-      <section id="cursos" className="py-24 bg-neutral scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-4 mb-10 sm:mb-16">
-            <Zap className="text-primary size-6 sm:size-8" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black">Cursos & Especialización</h2>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-10 gap-3 sm:gap-6">
-            {/* Featured Courses First */}
-            <CourseCard 
-              title="Introducción al A320"
-              tagline="Airbus Series"
-              desc="Curso técnico profundo sobre los sistemas, filosofía y operación de la familia A320."
-              icon={Plane}
-              featured={true}
-              image={a320Img}
-              onClick={() => setSelectedCourse(specializedCourses[0])}
-            />
-            <CourseCard 
-              title="Sobrecargo Ejecutivo"
-              tagline="Curso VIP"
-              desc="Aviación privada de lujo. Protocolo VIP, gastronomía y servicio de primera clase."
-              icon={Sparkles}
-              featured={true}
-              image={ejecutivoImg}
-              onClick={() => setSelectedCourse(specializedCourses[1])}
-            />
-
-            {/* Standard Courses */}
-            <CourseCard 
-              title="CFIT"
-              tagline="Controlled Flight"
-              desc="Prevención de impacto contra el terreno sin pérdida de control."
-              icon={ShieldCheck}
-              onClick={() => setSelectedCourse(specializedCourses[3])}
-            />
-            <CourseCard 
-              title="ALAR"
-              tagline="Approach/Landing"
-              desc="Estrategias críticas para la fase más compleja del vuelo."
-              icon={Target}
-              onClick={() => setSelectedCourse(specializedCourses[4])}
-            />
-            <CourseCard 
-              title="CRM"
-              tagline="Resource Mgmt"
-              desc="Optimización del trabajo en equipo y toma de decisiones."
-              icon={Users}
-              onClick={() => setSelectedCourse(specializedCourses[2])}
-            />
-            <CourseCard 
-              title="Hora de Simulador"
-              tagline="Entrenamiento"
-              desc="Horas de vuelo en nuestros entrenadores sintéticos."
-              icon={Target}
-              onClick={() => setSelectedCourse(specializedCourses[5])}
-            />
-            <CourseCard 
-              title="Simulador VR"
-              tagline="Next Gen"
-              desc="Entrenamiento inmersivo en realidad virtual."
-              icon={Zap}
-              onClick={() => setSelectedCourse(specializedCourses[6])}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Beneficios y Convenios Section */}
-      <section id="convenios" className="py-24 bg-white scroll-mt-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-            <div className="max-w-2xl">
-              <span className="tag-label text-primary mb-4 block">Alianzas Estratégicas</span>
-              <h2 className="text-3xl sm:text-5xl font-black text-secondary tracking-tighter">
-                Beneficios <span className="text-primary italic">& Convenios.</span>
-              </h2>
-              <p className="text-gray-500 text-base sm:text-lg font-light mt-6 leading-relaxed">
-                Diseñamos convenios exclusivos para brindarte valor agregado a tu matrícula y facilitar tu camino hacia el éxito aeronáutico.
-              </p>
+                </motion.div>
+              ))}
             </div>
-
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-            <BenefitCard 
-              icon={<Stethoscope className="text-primary size-6" />}
-              title="SkyMedik"
-              benefit="15% de Descuento"
-              desc="En tu examen médico de aptitud psicofísica. Realízalo de manera rápida y eficiente con especialistas."
-              index={0}
-            />
-            <BenefitCard 
-              icon={<Languages className="text-primary size-6" />}
-              title="Inglés Individual"
-              benefit="50% de Descuento"
-              desc="En el curso completo de 12 meses. Domina el idioma indispensable para la aviación internacional."
-              index={1}
-            />
-            <BenefitCard 
-              icon={<Building2 className="text-primary size-6" />}
-              title="Sindicato CTM"
-              benefit="Descuento Especial"
-              desc="Beneficios exclusivos para agremiados y familiares directos en todas nuestras carreras y cursos."
-              index={2}
-            />
-            <BenefitCard 
-              icon={<Users2 className="text-primary size-6" />}
-              title="Sindicato CROC"
-              benefit="Descuento Especial"
-              desc="Tarifas preferenciales para miembros agremiados, apoyando el crecimiento profesional de sus integrantes."
-              index={3}
-            />
-          </div>
-          
-          <div className="mt-12 p-8 bg-neutral rounded-[32px] border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
-             <div className="flex items-center gap-4">
-                <div className="size-12 bg-primary/10 rounded-full flex items-center justify-center">
-                   <Info className="text-primary size-6" />
-                </div>
-                <p className="text-secondary font-bold text-sm md:text-base italic">Consulta términos y condiciones de cada convenio con nuestro equipo de admisiones.</p>
-             </div>
-             <a 
-                href="https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20convenios%20y%20los%20beneficios%20de%20ser%20ICAAS." 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-secondary text-white px-8 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-primary transition-colors whitespace-nowrap shadow-xl"
-             >
-                Solicitar Info
-             </a>
+          <div className="mb-8">
+            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block mt-16 border-t border-gray-100 pt-10 text-center">Cursos y Profesionalización</span>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+              <CourseCard 
+                title="Introducción al A320"
+                tagline="Airbus Series"
+                desc="Curso técnico profundo sobre los sistemas, filosofía y operación de la familia A320."
+                icon={Plane}
+              />
+              <CourseCard 
+                title="Sobrecargo Ejecutivo"
+                tagline="Curso VIP"
+                desc="Aviación privada de lujo. Protocolo VIP, gastronomía y servicio de primera clase."
+                icon={Sparkles}
+              />
+              <CourseCard 
+                title="CFIT"
+                tagline="Controlled Flight"
+                desc="Prevención de impacto contra el terreno sin pérdida de control."
+                icon={ShieldCheck}
+              />
+              <CourseCard 
+                title="ALAR"
+                tagline="Approach/Landing"
+                desc="Estrategias críticas para la fase más compleja del vuelo."
+                icon={Target}
+              />
+              <CourseCard 
+                title="CRM"
+                tagline="Resource Mgmt"
+                desc="Optimización del trabajo en equipo y toma de decisiones."
+                icon={Users}
+              />
+              <CourseCard 
+                title="Hora de Simulador"
+                tagline="Entrenamiento"
+                desc="Horas de vuelo en nuestros entrenadores sintéticos."
+                icon={Target}
+              />
+              <div className="flex flex-col justify-center items-center h-full p-2">
+                <Link to="/cursos" className="flex flex-col text-center items-center justify-center gap-3 bg-primary hover:opacity-90 text-white px-4 py-6 rounded-[24px] sm:rounded-[28px] font-bold uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 text-[10px] sm:text-xs shadow-xl w-full h-full md:min-h-[220px]">
+                  <span>Ver todos los Cursos y Especializaciones</span>
+                  <ArrowRight size={20} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Nosotros Section (Merged from AboutUs.tsx) */}
+      {/* Nosotros Section (Sobre la Escuela) */}
       <section id="nosotros" className="py-24 bg-white scroll-mt-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-24">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="tag-label text-primary mb-6 block">Sobre la escuela</span>
-              <h2 className="text-3xl sm:text-5xl mb-8 leading-[0.9]">
-                Excelencia en el <br /><span className="text-primary italic">Caribe Mexicano.</span>
-              </h2>
-              <p className="text-gray-500 text-base sm:text-lg font-light leading-relaxed">
-                ICAAS nace de la necesidad de dotar al Aeropuerto Internacional de Cancún y a la región de profesionales altamente capacitados bajo estándares de aerolíneas globales.
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="p-5 sm:p-10 bg-neutral rounded-[28px] sm:rounded-[40px] flex flex-col gap-4 sm:gap-6">
-                 <Target className="text-primary size-7 sm:size-10" />
-                 <h4 className="text-lg sm:text-2xl font-black">Misión</h4>
-                 <p className="text-gray-500 text-[9px] sm:text-xs font-light leading-relaxed">Proveer una formación técnica superior basada en la seguridad y profesionalismo internacional.</p>
-              </div>
-              <div className="p-5 sm:p-10 bg-secondary text-white rounded-[28px] sm:rounded-[40px] flex flex-col gap-4 sm:gap-6">
-                 <Eye className="text-primary size-7 sm:size-10" />
-                 <h4 className="text-lg sm:text-2xl font-black text-white">Visión</h4>
-                 <p className="text-white text-[9px] sm:text-xs font-light leading-relaxed">Ser la escuela líder en innovación tecnológica y simulación de vuelo en Latinoamérica.</p>
-              </div>
-            </div>
+          <motion.div
+            initial={{ opacity: 0.35, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center text-center mb-16"
+          >
+            <span className="tag-label text-primary mb-6 block">Sobre la escuela</span>
+            <h2 className="text-3xl sm:text-5xl mb-6 leading-[0.9]">
+              Excelencia en el <br /><span className="text-primary italic">Caribe Mexicano.</span>
+            </h2>
+            <p className="text-gray-500 text-base sm:text-lg font-light leading-relaxed max-w-3xl">
+              ICAAS nace de la necesidad de dotar al Aeropuerto Internacional de Cancún y a la región de profesionales altamente capacitados bajo estándares de aerolíneas globales.
+            </p>
+          </motion.div>
+
+          <div className="mb-10 text-center">
+            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block text-center">Nuestros Valores</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-24">
@@ -927,10 +702,68 @@ export default function Home({ id }: { id: string }) {
              />
           </div>
 
+          {/* Subtema: Beneficios y Convenios */}
+          <div id="convenios" className="mt-20 scroll-mt-16 text-center">
+            <div className="mb-8">
+              <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block mt-16 border-t border-gray-100 pt-10 text-center">Beneficios y Convenios</span>
+              <p className="text-gray-500 text-sm sm:text-base font-light text-center leading-relaxed max-w-2xl mx-auto mb-10">
+                Diseñamos convenios exclusivos para brindarte valor agregado a tu matrícula y facilitar tu camino hacia el éxito aeronáutico.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+              <BenefitCard 
+                icon={<Stethoscope className="text-primary size-6" />}
+                title="SkyMedik"
+                benefit="15% de Descuento"
+                desc="En tu examen médico de aptitud psicofísica. Realízalo de manera rápida y eficiente con especialistas."
+                index={0}
+              />
+              <BenefitCard 
+                icon={<Languages className="text-primary size-6" />}
+                title="Inglés Individual"
+                benefit="50% de Descuento"
+                desc="En el curso completo de 12 meses. Domina el idioma inglés conversacional indispensable para tu carrera en la aviación internacional."
+                index={1}
+              />
+              <BenefitCard 
+                icon={<Building2 className="text-primary size-6" />}
+                title="Sindicato CTM"
+                benefit="Descuento Especial"
+                desc="Beneficios exclusivos para agremiados y familiares directos en todas nuestras carreras y cursos."
+                index={2}
+              />
+              <BenefitCard 
+                icon={<Users2 className="text-primary size-6" />}
+                title="Sindicato CROC"
+                benefit="Descuento Especial"
+                desc="Tarifas preferenciales para miembros agremiados, apoyando el crecimiento profesional de sus integrantes."
+                index={3}
+              />
+            </div>
+            
+            <div className="mt-12 p-8 bg-neutral rounded-[32px] border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
+               <div className="flex items-center gap-4">
+                  <div className="size-12 bg-primary/10 rounded-full flex items-center justify-center">
+                     <Info className="text-primary size-6" />
+                  </div>
+                  <p className="text-secondary font-bold text-sm md:text-base italic text-center md:text-left">Consulta términos y condiciones de cada convenio con nuestro equipo de admisiones.</p>
+               </div>
+               <a 
+                  href="https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20convenios%20y%20los%20beneficios%20de%20ser%20ICAAS." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-secondary text-white px-8 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest hover:bg-primary transition-colors whitespace-nowrap shadow-xl"
+               >
+                  Solicitar Info
+               </a>
+            </div>
+          </div>
+
           {/* New Facilities Subsection */}
-          <div id="instalaciones" className="mt-32 scroll-mt-16">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-              <div className="max-w-2xl">
+          <div id="instalaciones" className="mt-32 scroll-mt-16 text-center">
+            <div className="flex flex-col items-center justify-center gap-8 mb-16">
+              <div className="max-w-2xl flex flex-col items-center">
                 <span className="tag-label text-primary mb-4 block">Entorno Profesional</span>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic">Instalaciones de Vanguardia</h3>
                 <p className="text-gray-500 text-base sm:text-lg font-light mt-6 leading-relaxed">
@@ -1071,7 +904,7 @@ export default function Home({ id }: { id: string }) {
              </div>
 
              <div className="lg:col-span-2 bg-white p-6 md:p-10 rounded-[30px] md:rounded-[40px] shadow-sleek border border-gray-100">
-                <h3 className="text-2xl font-black mb-8 italic">Inicia tu Solicitud</h3>
+                <h3 className="text-2xl font-black mb-8 italic text-center">Inicia tu Solicitud</h3>
                 {submitSuccess ? (
                   <div className="bg-green-50 border border-green-200 text-green-700 p-8 rounded-3xl text-center">
                     <CheckCircle2 size={48} className="mx-auto mb-4 text-green-500" />
@@ -1130,88 +963,42 @@ export default function Home({ id }: { id: string }) {
       </section>
 
       {/* Map Section */}
-    <section className="h-[350px] w-full relative overflow-hidden bg-neutral">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.893874312683!2d-86.8276707!3d21.1566857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2c0617300001%3A0x7d00f72a6a6a6a6a!2sPabellon%20Bonampak!5e0!3m2!1ses-419!2smx!4v1714500000000!5m2!1ses-419!2smx"
-          className="w-full h-full grayscale-[0.8] contrast-[1.2] opacity-80"
-          style={{ border: 0 }}
-          allowFullScreen={true}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-        <div className="absolute top-10 right-10 z-10 hidden md:block">
-           <div className="bg-white/80 backdrop-blur-xl p-8 rounded-[32px] border border-white shadow-2xl max-w-sm">
-              <span className="tag-label text-primary mb-2 block font-black">Nuestra Sede</span>
-              <h3 className="text-2xl font-black text-secondary mb-4 italic">ICAAS</h3>
-              <p className="text-[10px] text-gray-500 font-light leading-relaxed mb-6">Ubicados en Pabellón Bonampak, Av. Sayil, Manzana 5, Lote 2, Locales 205 y 206, Supermanzana 6, Cancún, Quintana Roo.</p>
-              <div className="flex flex-col gap-3">
-                <a href="https://wa.me/529987510172" className="flex items-center gap-3 text-secondary font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
-                  <Phone size={16} className="text-primary" />
-                  998 751 0172
-                </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=Pabellón+Bonampak+Av.+Sayil+Cancun" className="flex items-center gap-3 text-secondary font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
-                   <MapPin size={16} className="text-primary" />
-                   Pabellón Bonampak, Cancún
-                </a>
-              </div>
-           </div>
+      <section className="py-12 bg-transparent relative z-10">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="h-[350px] w-full relative overflow-hidden bg-[#12151d]/40 rounded-[28px] border border-white/5 shadow-xl">
+            <LazyMap 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.189569766952!2d-86.82772592534596!3d21.144863384260935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2c0628287399%3A0x6339d1b6cf0728c3!2sPabell%C3%B3n%20Bonampak!5e0!3m2!1ses-419!2smx!4v1716934523910!5m2!1ses-419!2smx"
+              className="w-full h-full grayscale-[0.8] contrast-[1.2] opacity-80 border-0"
+            />
+            <div className="absolute top-10 right-10 z-10 hidden md:block">
+               <div className="bg-[#12151d]/90 backdrop-blur-xl p-8 rounded-[32px] border border-white/10 shadow-2xl max-w-sm text-white text-left">
+                  <span className="text-[10px] uppercase tracking-widest text-primary mb-2 block font-black">Nuestra Sede</span>
+                  <h3 className="text-2xl font-black text-white mb-4 italic">ICAAS</h3>
+                  <p className="text-[10px] text-gray-400 font-light leading-relaxed mb-6">Ubicados en Pabellón Bonampak, Av. Sayil, Manzana 5, Lote 2, Locales 205 y 206, Supermanzana 6, Cancún, Quintana Roo.</p>
+                  <div className="flex flex-col gap-3">
+                    <a href="https://wa.me/529987510172" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                      <Phone size={16} className="text-primary" />
+                      998 751 0172
+                    </a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pabellón+Bonampak+Av.+Sayil+Cancun" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                       <MapPin size={16} className="text-primary" />
+                       Pabellón Bonampak, Cancún
+                    </a>
+                  </div>
+               </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Floating Buttons */}
-      {(!selectedCareer && !selectedCourse) && (
-        <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] flex flex-col gap-3 md:gap-4">
-          <a 
-            href="https://www.facebook.com/profile.php?id=61587870480575&mibextid=wwXIfr" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-[#1877F2] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group relative"
-            aria-label="Facebook"
-          >
-            <Facebook className="size-6 md:size-7" fill="currentColor" />
-            <span className="absolute right-full mr-4 bg-white text-secondary text-[10px] font-black px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-gray-100 pointer-events-none uppercase tracking-widest hidden md:block">
-              Síguenos en Facebook
-            </span>
-          </a>
-          <a 
-            href="https://www.instagram.com/icaascancun?igsh=MWRnN2F4aHcyMWUzcw%3D%3D&utm_source=qr" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group relative"
-            aria-label="Instagram"
-          >
-            <Instagram className="size-6 md:size-7" />
-            <span className="absolute right-full mr-4 bg-white text-secondary text-[10px] font-black px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-gray-100 pointer-events-none uppercase tracking-widest hidden md:block">
-              Síguenos en Instagram
-            </span>
-          </a>
-          <a 
-            href="https://wa.me/529987510172" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group relative"
-            aria-label="WhatsApp"
-          >
-            <MessageCircle className="size-6 md:size-7" fill="currentColor" />
-            <span className="absolute right-full mr-4 bg-white text-secondary text-[10px] font-black px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-gray-100 pointer-events-none uppercase tracking-widest hidden md:block">
-              Chatea con nosotros
-            </span>
-          </a>
-        </div>
-      )}
     </div>
   );
 }
 
-function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = false, image, onClick }: { title: string, tagline: string, desc: string, icon?: any, featured?: boolean, image?: string, onClick?: () => void }) {
+function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = false, image }: { title: string, tagline: string, desc: string, icon?: any, featured?: boolean, image?: string }) {
   return (
     <div 
-      onClick={onClick}
-      className={`p-3 sm:p-5 lg:p-6 rounded-[24px] sm:rounded-[28px] hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 border group flex flex-col h-full relative overflow-hidden ${
-      featured 
-        ? 'bg-secondary text-white border-secondary shadow-primary-glow/20 col-span-2 md:col-span-5 min-h-[150px] sm:min-h-[280px] cursor-pointer' 
-        : 'bg-white text-secondary border-gray-100 col-span-1 md:col-span-2 md:min-h-[220px]'
-    }`}>
+      className={`p-4 sm:p-5 lg:p-6 rounded-[24px] sm:rounded-[28px] hover:shadow-[0_20px_40px_-15px_rgba(238,62,58,0.2)] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 border-2 group flex flex-col h-full relative overflow-hidden bg-white text-secondary border-gray-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] hover:border-primary/40 cursor-default md:min-h-[220px]`}>
       {featured && image && (
         <>
                 <img 
@@ -1230,29 +1017,25 @@ function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = fals
            <div className="bg-primary text-white text-[6px] sm:text-[8px] font-black px-2 py-1 sm:px-3 sm:py-1.5 rounded uppercase tracking-[0.3em]">Especializado</div>
         </div>
       )}
-      <div className={`flex justify-between items-start relative z-10 ${featured ? 'mb-1 sm:mb-8' : 'mb-4 sm:mb-8'}`}>
-        <span className="text-[6px] sm:text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] block text-primary">{tagline}</span>
-        {!featured && <Icon className="text-gray-200 group-hover:text-primary transition-colors shrink-0 size-3.5 sm:size-5" />}
+      <div className={`flex flex-col items-center justify-center relative z-10 ${featured ? 'mb-1 sm:mb-8' : 'mb-3 sm:mb-6'} w-full`}>
+        <span className="text-[7px] sm:text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] block text-primary bg-primary/5 px-2.5 py-1 rounded-md border border-primary/10 mb-2">{tagline}</span>
+        {!featured && <div className="p-1.5 sm:p-2 bg-gray-50 rounded-lg group-hover:bg-primary/5 transition-colors border border-gray-100 group-hover:border-primary/20"><Icon className="text-gray-400 group-hover:text-primary transition-colors shrink-0 size-4 sm:size-5" /></div>}
       </div>
-      <div className={`relative z-10 ${featured ? 'mb-2 sm:mb-4 max-w-lg' : 'mb-2'}`}>
-        <h3 className={`font-black leading-tight group-hover:translate-x-1 transition-transform italic mr-1 ${
-          featured ? 'text-lg md:text-3xl lg:text-4xl mb-1 sm:mb-2' : 'text-xs sm:text-lg mb-0.5'
+      <div className={`relative z-10 flex flex-col flex-grow items-center text-center ${featured ? 'mb-2 sm:mb-4 max-w-lg mx-auto' : ''}`}>
+        <h3 className={`font-black tracking-tight leading-tight transition-transform italic mr-1 ${
+          featured ? 'text-lg md:text-3xl lg:text-4xl mb-1 sm:mb-2' : 'text-sm sm:text-lg lg:text-xl mb-1 sm:mb-2'
         } ${featured ? 'text-white' : 'text-secondary'}`}>{title}</h3>
-        <p className={`font-light leading-relaxed ${
-          featured ? 'text-[11px] sm:text-sm text-gray-300 line-clamp-3 sm:line-clamp-2' : 'text-[8px] sm:text-[10px] text-gray-500 line-clamp-2 lg:line-clamp-none'
+        <p className={`font-medium leading-relaxed ${
+          featured ? 'text-[11px] sm:text-sm text-gray-300 line-clamp-3 sm:line-clamp-2' : 'text-[9.5px] sm:text-[11px] text-gray-500/90 line-clamp-3'
         }`}>{desc}</p>
       </div>
       
-      {featured ? (
-        <div className="mt-auto flex items-center gap-2 sm:gap-4 relative z-10">
+      {featured && (
+        <div className="mt-auto flex justify-center items-center gap-2 sm:gap-4 relative z-10 w-full">
           <button className="bg-primary hover:bg-red-600 text-white px-3 py-2 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl text-[7px] sm:text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-1 sm:gap-2">
             Ver Plan <ArrowRight size={10} className="sm:size-3.5" />
           </button>
           {!image && <Icon className="absolute -bottom-10 -right-10 text-white/5 size-64 -rotate-12 pointer-events-none" />}
-        </div>
-      ) : (
-        <div className="mt-auto pt-2 sm:pt-4 border-t border-gray-50 opacity-0 group-hover:opacity-100 transition-opacity">
-           <button className="text-primary text-[7px] sm:text-[8px] font-black uppercase tracking-widest flex items-center gap-1">Info <ArrowRight size={8} /></button>
         </div>
       )}
     </div>
@@ -1262,7 +1045,7 @@ function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = fals
 function ValueItem({ title, desc, index = 0 }: { title: string, desc: string, index?: number }) {
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      initial={{ opacity: 0.35, y: 10, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ y: -12, scale: 1.02 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -1271,10 +1054,10 @@ function ValueItem({ title, desc, index = 0 }: { title: string, desc: string, in
         delay: index * 0.1,
         ease: [0.21, 0.47, 0.32, 0.98]
       }}
-      className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-sm hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-default"
+      className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-sm hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-default flex flex-col items-center text-center"
     >
-       <h4 className="text-base md:text-lg lg:text-xl font-bold text-primary mb-2 sm:mb-3 italic group-hover:scale-105 origin-left transition-transform duration-300">{title}</h4>
-       <p className="text-gray-500 text-[8px] sm:text-[11px] font-light leading-relaxed">{desc}</p>
+       <h4 className="text-base md:text-lg lg:text-xl font-bold text-primary mb-2 sm:mb-3 italic group-hover:scale-105 transition-transform duration-300">{title}</h4>
+       <p className="text-gray-500 text-[8px] sm:text-[11px] font-light leading-relaxed text-center">{desc}</p>
     </motion.div>
   )
 }
@@ -1307,7 +1090,7 @@ function ContactInfoCard({ icon, title, detail, sub, href }: { icon: React.React
 function BenefitCard({ icon, title, benefit, desc, index = 0 }: { icon: React.ReactNode, title: string, benefit: string, desc: string, index?: number }) {
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      initial={{ opacity: 0.35, y: 10, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ y: -12, scale: 1.01 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -1316,9 +1099,9 @@ function BenefitCard({ icon, title, benefit, desc, index = 0 }: { icon: React.Re
         delay: index * 0.1,
         ease: [0.21, 0.47, 0.32, 0.98]
       }}
-      className="bg-neutral p-4 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-gray-100 hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-default"
+      className="bg-neutral p-4 sm:p-8 rounded-[24px] sm:rounded-[32px] border border-gray-100 hover:border-primary/30 hover:shadow-2xl transition-all duration-300 group cursor-default flex flex-col items-center text-center"
     >
-       <div className="size-10 sm:size-14 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+       <div className="size-10 sm:size-14 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300 mx-auto">
           {React.cloneElement(icon as React.ReactElement, { size: undefined, className: (icon as React.ReactElement).props.className?.replace('size-6', 'size-5 sm:size-6') })}
        </div>
        <h4 className="text-[8px] sm:text-[10px] uppercase font-black tracking-widest text-gray-400 mb-2">{title}</h4>
@@ -1361,7 +1144,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
     <div className={`transition-all duration-300 rounded-xl p-3.5 sm:p-4 h-fit ${isOpen ? 'bg-secondary text-white ring-2 ring-primary/20' : 'bg-white border border-gray-100 hover:border-primary/20 hover:shadow-lg'}`}>
       <button
         onClick={onToggle}
-        className="w-full flex justify-between items-start text-left gap-2 group"
+        className="w-full flex justify-between items-start text-center gap-2 group"
       >
         <span className={`text-[12px] sm:text-[14px] font-bold leading-tight transition-colors ${isOpen ? 'text-white' : 'text-secondary group-hover:text-primary'}`}>
           {question}

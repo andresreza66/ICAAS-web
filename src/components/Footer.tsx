@@ -9,9 +9,9 @@ export default function Footer({ id }: { id: string }) {
 
   return (
     <footer id={id} className="bg-secondary text-white pt-10 pb-6">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left items-start">
-        <div className="col-span-1 md:col-span-1">
-          <a href="#inicio" className="flex items-center justify-center md:justify-start gap-3 mb-6">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-4 gap-12 text-left items-start">
+        <div className="col-span-1 sm:col-span-1">
+          <a href="/#inicio" className="flex items-center justify-start gap-3 mb-6">
             <img 
               src={logoImg} 
               alt="ICAAS Logo" 
@@ -19,7 +19,7 @@ export default function Footer({ id }: { id: string }) {
               decoding="async"
               referrerPolicy="no-referrer"
             />
-            <div className="leading-none">
+            <div className="leading-none text-left">
               <span className="text-xl font-display font-bold tracking-tight block">ICAAS</span>
               <span className="text-[8px] text-primary uppercase tracking-widest font-black">Escuela de aviación</span>
             </div>
@@ -27,7 +27,7 @@ export default function Footer({ id }: { id: string }) {
           <p className="text-gray-400 text-sm leading-relaxed mb-6">
             Forjando profesionales con estándares internacionales en México. Despega tu carrera hoy en la mejor escuela de aviación en Cancún.
           </p>
-          <div className="flex gap-4 justify-center md:justify-start">
+          <div className="flex gap-4 justify-start">
             <a href="https://www.facebook.com/share/1GbFY4fk4J/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
             <a href="https://www.instagram.com/icaascancun?igsh=MWRnN2F4aHcyMWUzcw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
             <a href="https://maps.app.goo.gl/pMxEbYCbsZqe3RnT9?g_st=ic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Google Maps"><MapPin size={20} /></a>
@@ -35,30 +35,36 @@ export default function Footer({ id }: { id: string }) {
         </div>
 
         <div>
-          <h4 className="text-lg font-bold mb-6 text-white">Políticas de Privacidad</h4>
-          <p className="text-gray-400 text-xs leading-relaxed mb-4">
+          <h4 className="text-lg font-bold mb-6 text-white text-left">Políticas de Privacidad</h4>
+          <p className="text-gray-400 text-xs leading-relaxed mb-4 text-left">
             Comprometidos con la protección de tus datos. Nuestra política garantiza el manejo ético y seguro de tu información personal.
           </p>
-          <button 
-            onClick={() => setIsPrivacyModalOpen(true)}
-            className="text-primary hover:text-white transition-colors text-sm font-bold uppercase tracking-wider cursor-pointer"
-          >
-            Leer políticas completas
-          </button>
+          <div className="text-left font-sans">
+            <button 
+              onClick={() => setIsPrivacyModalOpen(true)}
+              className="text-primary hover:text-white transition-colors text-sm font-bold uppercase tracking-wider cursor-pointer"
+            >
+              Leer políticas completas
+            </button>
+          </div>
         </div>
 
-        <div className="md:justify-self-center">
-          <ul className="flex flex-col gap-3 text-gray-400 text-sm">
-            <li><a href="#carreras" className="hover:text-white transition-colors">Carreras</a></li>
-            <li><a href="#cursos" className="hover:text-white transition-colors">Cursos</a></li>
-            <li><a href="#convenios" className="hover:text-white transition-colors">Beneficios</a></li>
-            <li><a href="#nosotros" className="hover:text-white transition-colors">Nosotros</a></li>
-            <li><a href="#contacto" className="hover:text-white transition-colors">Contacto</a></li>
+        <div className="sm:justify-self-start text-left">
+          <ul className="flex flex-col gap-2 text-gray-400 text-sm">
+            <li className="text-white font-extrabold text-[10px] uppercase tracking-wider mb-1 text-left">Carreras</li>
+            <li><Link to="/sobrecargo" className="hover:text-primary transition-colors text-xs flex items-center justify-start gap-1">Sobrecargo de Aviación</Link></li>
+            <li><Link to="/oficial" className="hover:text-primary transition-colors text-xs flex items-center justify-start gap-1">Oficial de Operaciones</Link></li>
+            <li className="text-white font-extrabold text-[10px] uppercase tracking-wider mt-4 mb-1 text-left">Secciones</li>
+            <li><Link to="/cursos" className="hover:text-white transition-colors">Cursos</Link></li>
+            <li><Link to="/nosotros" className="hover:text-white transition-colors">Beneficios</Link></li>
+            <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+            <li><Link to="/nosotros" className="hover:text-white transition-colors">Nosotros</Link></li>
+            <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
           </ul>
         </div>
 
         <div>
-          <ul className="flex flex-col gap-4 text-gray-400 text-sm">
+          <ul className="flex flex-col gap-4 text-gray-400 text-sm items-start text-left">
             <li className="flex items-start gap-3">
               <MapPin size={20} className="text-primary shrink-0" />
               <span>Av. Bonampak, Cancun, QR 77500, México</span>
@@ -75,7 +81,7 @@ export default function Footer({ id }: { id: string }) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-gray-800 text-center text-gray-500 text-xs tracking-widest uppercase flex flex-col md:flex-row justify-center items-center gap-4">
+      <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-gray-800 text-left text-gray-500 text-xs tracking-widest uppercase flex flex-col sm:flex-row justify-between items-center gap-4">
         <span>© {new Date().getFullYear()} ICAAS AVIACIÓN S.A.S. de C.V. TODOS LOS DERECHOS RESERVADOS.</span>
         <span className="text-primary font-bold">PERMISO AFAC F-213</span>
       </div>

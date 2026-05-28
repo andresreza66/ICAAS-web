@@ -1,6 +1,7 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logoImg from '../assets/images/regenerated_image_1777580804672_opt.png';
 
 export default function Navbar({ id }: { id: string }) {
@@ -9,44 +10,47 @@ export default function Navbar({ id }: { id: string }) {
   const [activeSection, setActiveSection] = useState('inicio');
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentPath = location.pathname;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      // Section detection logic
-      const sections = ['inicio', 'carreras', 'cursos', 'convenios', 'nosotros', 'instalaciones', 'faq', 'contacto'];
-      const scrollPosition = window.scrollY + 150; // Offset for better detection
-
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            // Map sub-sections to 'nosotros' for active state if needed, or just keep them
-            if (['instalaciones', 'faq'].includes(sectionId)) {
-               setActiveSection('nosotros');
-            } else {
-               setActiveSection(sectionId);
-            }
-          }
-        }
-      }
     };
+
+    if (currentPath === '/cursos' || currentPath === '/sobrecargo' || currentPath === '/oficial') {
+      setActiveSection('oferta');
+    } else if (currentPath === '/nosotros') {
+      setActiveSection('nosotros');
+    } else if (currentPath === '/contacto') {
+      setActiveSection('contacto');
+    } else if (currentPath === '/blog') {
+      setActiveSection('blog');
+    } else if (currentPath === '/' || currentPath === '') {
+      setActiveSection('inicio');
+    } else {
+      setActiveSection('');
+    }
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [currentPath]);
 
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>, path: string) => {
+    setIsOpen(false);
     if (path.startsWith('#')) {
+      if (currentPath !== '' && currentPath !== '/') {
+        navigate('/' + path);
+        return;
+      }
       e.preventDefault();
       const id = path.substring(1);
       const element = document.getElementById(id);
       if (element) {
-        setIsOpen(false);
         const offset = 80;
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = element.getBoundingClientRect().top;
@@ -58,32 +62,74 @@ export default function Navbar({ id }: { id: string }) {
           behavior: 'smooth'
         });
       }
+    } else if (path.includes('#')) {
+      const [route, hash] = path.split('#');
+      if (currentPath === route) {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        e.preventDefault();
+        navigate(path);
+      }
+    } else {
+      e.preventDefault();
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: 'instant' as any });
     }
   };
 
   const navLinks = [
-    { name: 'Inicio', id: 'inicio', path: '#inicio' },
-    { name: 'Carreras', id: 'carreras', path: '#carreras' },
-    { name: 'Cursos', id: 'cursos', path: '#cursos' },
-    { name: 'Beneficios', id: 'convenios', path: '#convenios' },
+    { name: 'Inicio', id: 'inicio', path: '/' },
+    { 
+      name: 'Oferta Académica', 
+      id: 'oferta', 
+      path: '#carreras',
+      subItems: [
+        { name: 'Sobrecargo de Aviación', path: '/sobrecargo' },
+        { name: 'Oficial de Operaciones', path: '/oficial' },
+        { name: 'Cursos y especialización', path: '/cursos' },
+      ]
+    },
     { 
       name: 'Nosotros', 
       id: 'nosotros', 
-      path: '#nosotros',
-      subItems: [
-        { name: 'ICAAS (Nosotros)', path: '#nosotros' },
-        { name: 'Instalaciones', path: '#instalaciones' },
-        { name: 'FAQs', path: '#faq' },
-      ]
+      path: '/nosotros'
     },
-    { name: 'Contacto', id: 'contacto', path: '#contacto' },
+    { name: 'Contacto', id: 'contacto', path: '/contacto' },
+    { name: 'Blog', id: 'blog', path: '/blog' },
   ];
 
   return (
-    <nav
-      id={id}
-      className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-500"
-    >
+    <>
+      {/* Backdrop for closing when clicking outside (independent of transformed nav parent) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-40"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      <nav
+        id={id}
+        className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl transition-all duration-500"
+      >
       <div 
         className={`w-full flex justify-between items-center px-5 py-1.5 rounded-2xl transition-all duration-500 border ${
           isScrolled 
@@ -124,7 +170,7 @@ export default function Navbar({ id }: { id: string }) {
               >
                 <a
                   href={link.path}
-                  onClick={(e) => handleLinkClick(e, link.path)}
+                   onClick={(e) => handleLinkClick(e, link.path)}
                   className={`text-[8px] lg:text-[9px] uppercase tracking-[0.2em] font-black transition-all hover:text-primary flex items-center gap-1 py-2 ${
                     isActive 
                       ? 'text-primary' 
@@ -186,21 +232,12 @@ export default function Navbar({ id }: { id: string }) {
       {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Backdrop for closing when clicking outside */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-[-1]"
-              onClick={() => setIsOpen(false)}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              className="absolute top-full mt-4 right-0 w-[80%] max-w-[280px] bg-white rounded-3xl shadow-2xl p-6 flex flex-col gap-2 md:hidden border border-gray-100 max-h-[80vh] overflow-y-auto"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            className="absolute top-full mt-4 right-0 w-[80%] max-w-[280px] bg-white rounded-3xl shadow-2xl p-6 flex flex-col gap-2 md:hidden border border-gray-100 max-h-[80vh] overflow-y-auto"
+          >
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               const hasSubItems = link.subItems && link.subItems.length > 0;
@@ -268,9 +305,9 @@ export default function Navbar({ id }: { id: string }) {
               Inscríbete hoy
             </a>
           </motion.div>
-        </>
         )}
       </AnimatePresence>
     </nav>
+    </>
   );
 }
