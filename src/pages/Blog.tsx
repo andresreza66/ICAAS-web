@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Calendar, X, Tag } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { BlogPost, DEFAULT_BLOGS } from '../data/blogs';
 
 interface BlogProps {
@@ -11,13 +11,30 @@ interface BlogProps {
 
 export default function Blog({ id = "page-blog", isStandalone = true }: BlogProps) {
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isStandalone) {
       window.scrollTo(0, 0);
       document.title = "Blog | ICAAS Aviación";
+
+      const blogId = searchParams.get('id');
+      if (blogId) {
+        const blog = DEFAULT_BLOGS.find(b => b.id === blogId);
+        if (blog) {
+          setSelectedBlog(blog);
+        }
+      }
     }
-  }, [isStandalone]);
+  }, [isStandalone, searchParams]);
+
+  const handleClose = () => {
+    setSelectedBlog(null);
+    if (isStandalone && searchParams.has('id')) {
+      setSearchParams({}, { replace: true });
+    }
+  };
 
   return (
     <div id={id} className={`relative overflow-hidden ${isStandalone ? 'min-h-screen pt-28 md:pt-36 pb-20 bg-gradient-to-b from-[#0F1115] via-[#161922] to-[#0A0B0D] text-white' : 'py-24 bg-neutral border-t border-gray-100'}`}>
@@ -51,7 +68,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
         {/* Read Blog Detail Modal */}
         <AnimatePresence>
           {selectedBlog && (
-            <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedBlog(null)}>
+            <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={handleClose}>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -59,7 +76,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                 onClick={e => e.stopPropagation()}
                 className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col pt-12 sm:pt-16"
               >
-                <button onClick={() => setSelectedBlog(null)} className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors z-10">
+                <button onClick={handleClose} className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors z-10">
                   <X size={24} />
                 </button>
                 
@@ -90,7 +107,13 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                 key={blog.id}
                 whileHover={{ y: -5 }}
                 className="bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col relative group cursor-pointer text-secondary h-full"
-                onClick={() => setSelectedBlog(blog)}
+                onClick={() => {
+                  if (isStandalone) {
+                    setSelectedBlog(blog);
+                  } else {
+                    navigate(`/blog?id=${blog.id}`);
+                  }
+                }}
               >
                 <div className="h-56 relative overflow-hidden">
                   <img src={blog.imageUrl} alt={blog.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
