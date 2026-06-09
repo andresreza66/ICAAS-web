@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
 import { trackEvent } from '../lib/analytics';
+import Blog from './Blog';
+
 // Import images from assets to allow Vite to bundle them correctly
 import heroImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
@@ -33,14 +35,14 @@ export default function Home({ id }: { id: string }) {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   React.useEffect(() => {
-    document.title = "Escuela de aviación en Cancún | ICAAS Aviación";
+    document.title = "ICAAS Aviación | Escuela de Aviación en Cancún ✈️";
     let metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Fórmate en ICAAS Aviación en Cancún. Conoce nuestros programas para Sobrecargo y Oficial de Operaciones y empieza tu carrera en la industria aérea.");
+      metaDescription.setAttribute("content", "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores. ¡Inicia tu carrera hoy!");
     } else {
       const meta = document.createElement('meta');
       meta.name = "description";
-      meta.content = "Fórmate en ICAAS Aviación en Cancún. Conoce nuestros programas para Sobrecargo y Oficial de Operaciones y empieza tu carrera en la industria aérea.";
+      meta.content = "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores. ¡Inicia tu carrera hoy!";
       document.head.appendChild(meta);
     }
   }, []);
@@ -531,7 +533,7 @@ export default function Home({ id }: { id: string }) {
           >
             <span className="text-[10px] text-[#ffffff] tracking-[0.3em] font-bold uppercase mb-4 block mt-8">Inscripciones abiertas 2026</span>
             <h1 className="text-3xl sm:text-4xl md:text-[45px] text-[#EE3E3A] font-bold tracking-tight leading-tight md:leading-[50px] mb-6 md:mb-8 max-w-5xl uppercase">
-              Escuela de aviación en Cancún para futuros <span className="text-[#EE3E3A]">Sobrecargos</span> y <span className="text-[#EE3E3A]">Oficiales de operaciones.</span>
+              ICAAS Escuela de aviación en Cancún.
             </h1>
             <p className="text-gray-200 text-base sm:text-lg md:text-[20px] leading-relaxed md:leading-[25px] mb-10 font-light max-w-3xl">
               Fórmate en ICAAS con programas diseñados para jóvenes que quieren trabajar en la industria aérea, crecer profesionalmente y construir una carrera con futuro.
@@ -871,6 +873,9 @@ export default function Home({ id }: { id: string }) {
           </div>
         </div>
       </section>
+
+      {/* Blog Section */}
+      <Blog id="blog" isStandalone={false} />
 
       {/* Contacto Section (Merged from Contact.tsx) */}
       <section id="contacto" className="py-24 bg-neutral border-t border-gray-100 scroll-mt-16">

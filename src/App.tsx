@@ -15,6 +15,7 @@ const CareerLanding = lazy(() => import('./pages/CareerLanding'));
 const Cursos = lazy(() => import('./pages/Cursos'));
 const Nosotros = lazy(() => import('./pages/Nosotros'));
 const Contacto = lazy(() => import('./pages/Contacto'));
+const Blog = lazy(() => import('./pages/Blog'));
 
 import { initGA, trackPageView } from './lib/analytics';
 
@@ -66,6 +67,7 @@ export default function App() {
               <Route path="/cursos" element={<Cursos id="page-cursos" />} />
               <Route path="/nosotros" element={<Nosotros id="page-nosotros" />} />
               <Route path="/contacto" element={<Contacto id="page-contacto" />} />
+              <Route path="/blog" element={<Blog id="page-blog" isStandalone={true} />} />
               <Route path="*" element={<Home id="page-home" />} />
             </Routes>
           </Suspense>

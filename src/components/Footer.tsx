@@ -57,6 +57,7 @@ export default function Footer({ id }: { id: string }) {
             <li className="text-white font-extrabold text-[10px] uppercase tracking-wider mt-4 mb-1 text-left">Secciones</li>
             <li><Link to="/cursos" className="hover:text-white transition-colors">Cursos</Link></li>
             <li><Link to="/nosotros" className="hover:text-white transition-colors">Beneficios</Link></li>
+            <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
             <li><Link to="/nosotros" className="hover:text-white transition-colors">Nosotros</Link></li>
             <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
           </ul>

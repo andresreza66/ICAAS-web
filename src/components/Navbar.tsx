@@ -25,6 +25,8 @@ export default function Navbar({ id }: { id: string }) {
       setActiveSection('nosotros');
     } else if (currentPath === '/contacto') {
       setActiveSection('contacto');
+    } else if (currentPath === '/blog') {
+      setActiveSection('blog');
     } else if (currentPath === '/' || currentPath === '') {
       setActiveSection('inicio');
     } else {
@@ -106,6 +108,7 @@ export default function Navbar({ id }: { id: string }) {
       path: '/nosotros'
     },
     { name: 'Contacto', id: 'contacto', path: '/contacto' },
+    { name: 'Blog', id: 'blog', path: '/blog' },
   ];
 
   return (
