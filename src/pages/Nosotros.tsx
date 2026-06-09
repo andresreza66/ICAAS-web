@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Award, Shield, Users, ArrowRight, CheckCircle2, Zap,
+import { useSEO } from '../hooks/useSEO';
+import {   Award, Shield, Users, ArrowRight, CheckCircle2, Zap,
   HelpCircle, ChevronDown, Image, Building, School, Info, Star,
   Phone, MapPin
 } from 'lucide-react';
@@ -20,9 +20,21 @@ export default function Nosotros({ id }: { id: string }) {
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
   const [activeImageIdx, setActiveImageIdx] = useState<number | null>(null);
 
+  useSEO({
+    title: "Nosotros y Convenios de Aviación | Escuela ICAAS Cancún",
+    description: "Conoce a ICAAS, escuela de aviación en Cancún liderando el adiestramiento aeronáutico del sureste. Nuestra historia, valores, simuladores y convenios con aerolíneas.",
+    path: "/nosotros",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Acerca de ICAAS Escuela de Aviación",
+      "description": "Detalles históricos, valores de excelencia en adiestramiento aéreo, infraestructura con simuladores e información corporativa de ICAAS.",
+      "url": "https://vuela-caas.com/nosotros"
+    }
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as any });
-    document.title = "Nosotros y Convenios de Aviación | Escuela ICAAS Cancún";
   }, []);
 
   const coreValues = [

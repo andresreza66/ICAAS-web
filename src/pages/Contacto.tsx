@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { 
-  Mail, Phone, Send, Info, CheckCircle2, MapPin, Clock, HelpCircle, 
+import { useSEO } from '../hooks/useSEO';
+import {   Mail, Phone, Send, Info, CheckCircle2, MapPin, Clock, HelpCircle, 
   MessageSquare, Facebook, Instagram, MessageCircle, AlertCircle
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
@@ -11,9 +11,35 @@ export default function Contacto({ id }: { id: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  useSEO({
+    title: "Admisiones y Contacto Directo de Aviación | ICAAS Cancún",
+    description: "Ponte en contacto con ICAAS Aviación. Inicia tu proceso de inscripción para Sobrecargo u Oficial de Operaciones en Cancún. Llámanos o envíanos un mensaje.",
+    path: "/contacto",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Página de Contacto y Admisiones | ICAAS Aviación",
+      "description": "Formularios de contacto, ubicación, teléfonos y proceso de registro para la escuela de aviación ICAAS Cancún.",
+      "url": "https://vuela-caas.com/contacto",
+      "mainEntity": {
+        "@type": "EducationalOrganization",
+        "name": "ICAAS Aviación",
+        "telephone": "+52-998-321-4712",
+        "email": "hola@vuela-caas.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Sayil, Smz 6, Central Sayil, Ofna 303",
+          "addressLocality": "Cancún",
+          "addressRegion": "Quintana Roo",
+          "postalCode": "77503",
+          "addressCountry": "MX"
+        }
+      }
+    }
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as any });
-    document.title = "Admisiones y Contacto Directo de Aviación | ICAAS Cancún";
   }, []);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

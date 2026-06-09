@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useSEO } from '../hooks/useSEO';
 import { 
   Plane, Award, CheckCircle2, Clock, ShieldCheck, 
   Layers, Globe, Users, Check, Plus, ArrowRight, 
@@ -36,27 +37,53 @@ const cinematicFadeIn = {
 
 export default function CareerLanding({ careerKey }: CareerLandingProps) {
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
-  const [activeSection, setActiveSection] = useState('hero');
-
-  // Scroll to top and set document title and meta description on mount or career change
-  useEffect(() => {
+  const [activeSection, setActiveSection] = useState('hero');  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as any });
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-
-    if (careerKey === 'sobrecargo') {
-      document.title = "Sobrecargo de aviacion en Cancún | ICAAS Aviación";
-      metaDescription.setAttribute("content", "Estudia para Sobrecargo en ICAAS Aviación. Aprende Aprende habilidades de seguridad y servicio a bordo para trabajar en la industria aérea.");
-    } else {
-      document.title = "Oficial de operaciones en Cancún | ICAAS Aviación";
-      metaDescription.setAttribute("content", "Fórmate como Oficial de Operaciones en ICAAS Aviación y aprende sobre seguridad operacional coordinación en operaciones aéreas.");
-    }
   }, [careerKey]);
+
+  const seoConfig = careerKey === 'sobrecargo' ? {
+    title: "Sobrecargo de aviación en Cancún | ICAAS Aviación",
+    description: "Estudia para Sobrecargo en ICAAS Aviación. Aprende habilidades de seguridad y servicio a bordo para trabajar en la industria aérea.",
+    path: "/sobrecargo",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Sobrecargo de Aviación (Asistente de Vuelo)",
+      "description": "Fórmate profesionalmente como Sobrecargo de Aviación en Cancún con altos estándares y simulador de cabina de Airbus A320.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "ICAAS Aviación",
+        "sameAs": "https://vuela-caas.com"
+      },
+      "educationalCredentialAwarded": "Licencia de Sobrecargo de Aviación",
+      "offers": {
+        "@type": "Offer",
+        "category": "Education"
+      }
+    }
+  } : {
+    title: "Oficial de operaciones en Cancún | ICAAS Aviación",
+    description: "Fórmate como Oficial de Operaciones en ICAAS Aviación y aprende sobre seguridad operacional y coordinación en operaciones aéreas.",
+    path: "/oficial",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Oficial de Operaciones de Aeronaves (Despachador de Vuelo)",
+      "description": "Capacítate en operaciones de vuelo, despacho de aeronaves, navegación comercial y meteorología aeronáutica en Cancún.",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "ICAAS Aviación",
+        "sameAs": "https://vuela-caas.com"
+      },
+      "educationalCredentialAwarded": "Licencia de Oficial de Operaciones de Aeronaves",
+      "offers": {
+        "@type": "Offer",
+        "category": "Education"
+      }
+    }
+  };
+
+  useSEO(seoConfig);
 
   // Track scroll position to update active section in sidebar
   useEffect(() => {

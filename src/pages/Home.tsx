@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 import { 
   ArrowRight, Plane, ShieldCheck, Users, Clock, 
   CheckCircle2, Award, Briefcase, GraduationCap,
@@ -34,18 +35,61 @@ export default function Home({ id }: { id: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  React.useEffect(() => {
-    document.title = "ICAAS Aviación | Escuela de Aviación en Cancún ✈️";
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores. ¡Inicia tu carrera hoy!");
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores. ¡Inicia tu carrera hoy!";
-      document.head.appendChild(meta);
+  useSEO({
+    title: "ICAAS Aviación | Escuela de Aviación en Cancún ✈️",
+    description: "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores. ¡Inicia tu carrera hoy!",
+    path: "/",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "ICAAS Aviación",
+      "alternateName": "Centro de Adiestramiento Aeronáutico del Sureste",
+      "description": "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores.",
+      "url": "https://vuela-caas.com",
+      "logo": "https://vuela-caas.com/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/caas.cancun",
+        "https://www.instagram.com/caas.cancun"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Sayil, Smz 6, Central Sayil, Ofna 303",
+        "addressLocality": "Cancún",
+        "addressRegion": "Quintana Roo",
+        "postalCode": "77503",
+        "addressCountry": "MX"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-998-321-4712",
+        "contactType": "admissions",
+        "areaServed": "MX",
+        "availableLanguage": "Spanish"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cursos de Aviación",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "Sobrecargo de Aviación",
+              "description": "Fórmate profesionalmente como Sobrecargo de Aviación (Asistente de Vuelo) en Cancún con altos estándares y simulador de cabina de Airbus A320."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Course",
+              "name": "Oficial de Operaciones de Aeronaves",
+              "description": "Capacítate en operaciones de vuelo, despacho de aeronaves, navegación comercial y meteorología aeronáutica en Cancún."
+            }
+          }
+        ]
+      }
     }
-  }, []);
+  });
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

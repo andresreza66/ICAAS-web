@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Plane, ShieldCheck, Target, Users, Sparkles, Zap, 
+import { useSEO } from '../hooks/useSEO';
+import {   Plane, ShieldCheck, Target, Users, Sparkles, Zap, 
   Clock, ArrowRight, CheckCircle2, X, Phone, MessageCircle, 
   HelpCircle, GraduationCap, Award, FileText, CheckCircle, 
   Activity, BookOpen, ShieldAlert, BadgeInfo, Layers, ClipboardList,
@@ -42,9 +42,39 @@ export default function Cursos({ id }: { id: string }) {
   const [selectedCourse, setSelectedCourse] = useState<CourseType | null>(null);
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
 
+  useSEO({
+    title: "Cursos de Adiestramiento y Especialización Aeronáutica | ICAAS Cancún",
+    description: "Explora nuestros cursos de adiestramiento y especialización en aviación en Cancún: Introducción al Airbus A320, Vuelo por Instrumentos, Inglés de Aviación ICAO, Alpa Jet y adiestramiento en simuladores de vuelo interactivos.",
+    path: "/cursos",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Cursos de Adiestramiento y Especialización Aeronáutica | ICAAS Cancún",
+      "description": "Lista de cursos académicos, temarios y programas de entrenamiento aeronáutico avanzado e interactivo en simuladores de vuelo comerciales.",
+      "url": "https://vuela-caas.com/cursos",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Introducción al Airbus A320"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Transición de Cabina de Cristal (CRM, ALPA)"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Inglés de Aviación RTARI (ICAO Level)"
+        }
+      ]
+    }
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as any });
-    document.title = "Cursos de Adiestramiento y Especialización Aeronáutica | ICAAS Cancún";
   }, []);
 
   const coursesList: CourseType[] = [

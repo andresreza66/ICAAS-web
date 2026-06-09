@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Calendar, X, Tag } from 'lucide-react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 import { BlogPost, DEFAULT_BLOGS } from '../data/blogs';
 
 interface BlogProps {
@@ -17,7 +18,6 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
   useEffect(() => {
     if (isStandalone) {
       window.scrollTo(0, 0);
-      document.title = "Blog | ICAAS Aviación";
 
       const blogId = searchParams.get('id');
       if (blogId) {
@@ -28,6 +28,48 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
       }
     }
   }, [isStandalone, searchParams]);
+
+  const blogSEO = {
+    title: selectedBlog 
+      ? `${selectedBlog.title} | Blog ICAAS Aviación` 
+      : "Blog de Aviación y Consejos del Sector Aéreo | ICAAS",
+    description: selectedBlog 
+      ? selectedBlog.excerpt 
+      : "Lee artículos, noticias y guías de aviación con temática para Sobrecargos (Asistentes de Vuelo), Oficiales de Operación de Aeronaves y aspirantes de aviación en Cancún.",
+    path: selectedBlog 
+      ? `/blog?id=${selectedBlog.id}` 
+      : "/blog",
+    structuredData: selectedBlog 
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": selectedBlog.title,
+          "description": selectedBlog.excerpt,
+          "image": selectedBlog.imageUrl,
+          "datePublished": selectedBlog.date,
+          "author": {
+            "@type": "Organization",
+            "name": "ICAAS Aviación"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "ICAAS Aviación",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://vuela-caas.com/logo.png"
+            }
+          }
+        }
+      : {
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Blog de Aviación | ICAAS",
+          "description": "Publicaciones educativas, guías operacionales del sector aeronáutico y noticias de la escuela de aviación ICAAS.",
+          "url": "https://vuela-caas.com/blog"
+        }
+  };
+
+  useSEO(blogSEO);
 
   const handleClose = () => {
     setSelectedBlog(null);
