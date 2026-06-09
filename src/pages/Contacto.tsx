@@ -140,7 +140,7 @@ export default function Contacto({ id }: { id: string }) {
                 title="Visítanos"
                 detail="Pabellón Bonampak"
                 sub="Locales 205-206, Cancún"
-                href="https://www.google.com/maps/search/?api=1&query=Pabellón+Bonampak+Av.+Sayil+Cancun"
+                href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic"
               />
            </div>
 
@@ -208,8 +208,8 @@ export default function Contacto({ id }: { id: string }) {
                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.189569766952!2d-86.82772592534596!3d21.144863384260935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2c0628287399%3A0x6339d1b6cf0728c3!2sPabell%C3%B3n%20Bonampak!5e0!3m2!1ses-419!2smx!4v1716934523910!5m2!1ses-419!2smx"
                className="w-full h-full grayscale-[0.8] contrast-[1.2] opacity-80 border-0"
              />
-             <div className="absolute top-10 right-10 z-10 hidden md:block">
-                <div className="bg-[#12151d]/90 backdrop-blur-xl p-8 rounded-[32px] border border-white/10 shadow-2xl max-w-sm text-white text-left">
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block w-full max-w-sm">
+                <div className="bg-[#12151d]/95 backdrop-blur-xl p-8 rounded-[32px] border border-white/10 shadow-2xl text-white text-left">
                    <span className="text-[10px] uppercase tracking-widest text-primary mb-2 block font-black">Nuestra Sede</span>
                    <h3 className="text-2xl font-black text-white mb-4 italic">ICAAS</h3>
                    <p className="text-[10px] text-gray-400 font-light leading-relaxed mb-6">Ubicados en Pabellón Bonampak, Av. Sayil, Manzana 5, Lote 2, Locales 205 y 206, Supermanzana 6, Cancún, Quintana Roo.</p>
@@ -218,9 +218,18 @@ export default function Contacto({ id }: { id: string }) {
                        <Phone size={16} className="text-primary" />
                        998 751 0172
                      </a>
-                     <a href="https://www.google.com/maps/search/?api=1&query=Pabellón+Bonampak+Av.+Sayil+Cancun" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                     <a href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
                         <MapPin size={16} className="text-primary" />
                         Pabellón Bonampak, Cancún
+                     </a>
+                     <a 
+                       href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="mt-2 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-[10px] font-black uppercase tracking-wider py-3 px-5 rounded-full shadow-lg hover:scale-105 active:scale-[0.98] transition-all duration-300 border border-white/10 text-center"
+                     >
+                       <MapPin size={12} className="text-white" />
+                       Abrir en Google Maps
                      </a>
                    </div>
                 </div>
