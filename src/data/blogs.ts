@@ -118,5 +118,78 @@ export const DEFAULT_BLOGS: BlogPost[] = [
     imageUrl: 'https://cdn.marblism.com/ry-DR85gfBT.webp',
     date: '08 Jun 2026',
     category: 'Carrera'
+  },
+  {
+    id: '1',
+    title: 'Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo',
+    excerpt: 'La seguridad y eficiencia de un vuelo no dependen exclusivamente de la tripulación en cabina. Conoce el papel del Oficial de Operaciones Aeronáuticas (despachador de vuelo).',
+    content: `<h1>Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo</h1>
+<p><img src="https://cdn.marblism.com/YYqNffD2m6Q.jpg" alt="Profesional en centro de control de operaciones aéreas monitoreando rutas de vuelo y clima en pantallas de alta tecnología"></p>
+<p>La seguridad y eficiencia de un vuelo no dependen exclusivamente de la tripulación en cabina. Detrás de cada despegue existe una figura estratégica fundamental: el <strong>Oficial de Operaciones Aeronáuticas</strong> (OOA), también conocido como despachador de vuelos. Este profesional es responsable de la planificación, el control y el seguimiento técnico que garantizan que una aeronave cumpla con los estándares operativos y legales antes de iniciar su trayecto.</p>
+<p>En <strong>ICAAS</strong>, como <strong>escuela de aviación en Cancún</strong>, formamos especialistas capaces de gestionar la complejidad del entorno aeroportuario bajo normativas nacionales e internacionales.</p>
+<h2>1. Definición y Propósito del Oficial de Operaciones</h2>
+<p>El <strong>Oficial de Operaciones Aeronáuticas</strong> es el personal técnico especializado encargado de auxiliar al comandante de una aeronave en la preparación y ejecución del plan de vuelo. Su función es crítica para la <strong>gestión de riesgos</strong> y la optimización de recursos como el combustible y el tiempo.</p>
+<h3>Funciones Principales en Tierra</h3>
+<p>El desempeño de un OOA se rige por procedimientos técnicos estrictos. Sus responsabilidades incluyen:</p>
+<ul>
+<li><strong>Elaboración del Plan de Vuelo:</strong> Determinación de la ruta más segura y eficiente considerando NOTAMs (Notice to Airmen) y restricciones de espacio aéreo.</li>
+<li><strong>Cálculo de Peso y Balance:</strong> Asegurar que la distribución de la carga, pasajeros y combustible se mantenga dentro de los límites de diseño del avión.</li>
+<li><strong>Análisis Meteorológico:</strong> Interpretación de reportes METAR y TAF para prever condiciones adversas que afecten la seguridad.</li>
+<li><strong>Despacho de Aeronaves:</strong> Autorización técnica del vuelo tras verificar que todos los sistemas y documentos están en orden.</li>
+<li><strong>Seguimiento de Vuelo:</strong> Monitoreo constante de la posición y el progreso de la aeronave desde el centro de control terrestre.</li>
+</ul>
+<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal operativo realizando inspección técnica en plataforma aeroportuaria previo al despacho del vuelo"></p>
+<h2>2. Requisitos para Estudiar la Carrera de Oficial de Operaciones</h2>
+<p>Para ingresar al programa de formación profesional en <strong>ICAAS</strong>, el aspirante debe cumplir con una serie de requisitos administrativos y médicos estipulados por la <strong>Agencia Federal de Aviación Civil (AFAC)</strong>.</p>
+<h3>Perfil de Ingreso</h3>
+<ul>
+<li><strong>Edad mínima:</strong> 18 años cumplidos al momento de tramitar la licencia.</li>
+<li><strong>Nivel académico:</strong> Certificado de Bachillerato o equivalente concluido.</li>
+<li><strong>Nacionalidad:</strong> Mexicana por nacimiento.</li>
+<li><strong>Salud:</strong> Obtener la <strong>Constancia de Aptitud Psicofísica Grupo III</strong>, emitida por un médico autorizado por la Secretaría de Infraestructura, Comunicaciones y Transportes (SICT).</li>
+</ul>
+<h3>Aptitudes Técnicas Necesarias</h3>
+<p>El aspirante debe poseer capacidad de <strong>análisis lógico</strong>, habilidades matemáticas básicas para cálculos de rendimiento y una alta resistencia al trabajo bajo presión. El dominio del idioma inglés técnico es un requisito esencial para la interpretación de manuales y cartografía aeronáutica internacional.</p>
+<h2>3. El Proceso de Formación en ICAAS</h2>
+<p><strong>Estudiar aviación en Cancún</strong> ofrece una ventaja estratégica debido al flujo constante de operaciones internacionales en el Caribe Mexicano. El programa educativo se divide en fases teóricas y prácticas diseñadas para cubrir el temario oficial de la AFAC.</p>
+<h3>Módulos de Aprendizaje</h3>
+<ol>
+<li><strong>Navegación Aérea:</strong> Uso de cartas, sistemas de radionavegación y planificación de rutas.</li>
+<li><strong>Meteorología Aeronáutica:</strong> Estudio de fenómenos atmosféricos y su impacto en la aviación comercial.</li>
+<li><strong>Aerodinámica y Sistemas:</strong> Funcionamiento técnico de las aeronaves y limitaciones operativas.</li>
+<li><strong>Telecomunicaciones:</strong> Procedimientos de comunicación por radio y fraseología estándar.</li>
+<li><strong>Reglamentación Aérea:</strong> Marco legal nacional e internacional (OACI).</li>
+</ol>
+<p><img src="https://cdn.marblism.com/HujHNfVLSvU.webp" alt="Instalaciones de aula moderna en ICAAS preparadas para la instrucción teórica en operaciones aeronáuticas"></p>
+<h2>4. Campo Laboral y Sueldos en México (2026)</h2>
+<p>El mercado laboral para un <strong>oficial de operaciones aeronáuticas</strong> es amplio, abarcando desde aerolíneas comerciales de pasajeros hasta empresas de carga y aviación ejecutiva.</p>
+<h3>Perspectiva Salarial</h3>
+<p>En México, el salario de un <strong>Oficial de Operaciones Aeronáuticas</strong> varía desde <strong>$15,000</strong> hasta por encima de <strong>$28,000 mensuales</strong>, dependiendo de la aerolínea y la experiencia del profesional.</p>
+<p>Aerolíneas de bajo costo con bases operativas importantes (como Volaris o Viva Aerobus) suelen ofrecer salarios competitivos, especialmente para personal con certificaciones en equipos específicos como el <strong>Airbus A320</strong>.</p>
+<h2>5. La Importancia de la Tecnología en el Despacho</h2>
+<p>Hoy en día, el oficial de operaciones utiliza sistemas digitales avanzados para el cálculo de performance y monitoreo satelital. En <strong>ICAAS</strong>, integramos herramientas digitales en la formación académica para asegurar que el alumno esté familiarizado con el entorno tecnológico real de un despacho moderno.</p>
+<p><img src="https://cdn.marblism.com/9DM7VAx-LqO.webp" alt="Estaciones de trabajo digitales utilizadas para simulaciones de despacho y planificación de vuelos en ICAAS"></p>
+<h2>6. ¿Por qué elegir ICAAS como tu Escuela de Aviación en Cancún?</h2>
+<p>Seleccionar el centro de adiestramiento adecuado es determinante para la inserción laboral. <strong>ICAAS</strong> ofrece beneficios exclusivos que nos posicionan como líderes en el sureste mexicano:</p>
+<ol>
+<li><strong>Ubicación Estratégica:</strong> Cancún es uno de los centros de conexión aérea más importantes de América Latina, facilitando prácticas y vinculación profesional.</li>
+<li><strong>Instalaciones de Vanguardia:</strong> Contamos con aulas equipadas y estaciones digitales que replican un entorno operativo real.</li>
+<li><strong>Cuerpo Docente:</strong> Instructores activos en la industria aérea con amplia experiencia en despacho y control.</li>
+<li><strong>Convenios Institucionales:</strong> Alianzas con entidades como Inglés Individual para fortalecer el perfil técnico del alumno.</li>
+</ol>
+<p><img src="https://cdn.marblism.com/L6IATLabyUL.webp" alt="Simulador de vuelo avanzado utilizado para comprender la perspectiva de la cabina y optimizar la coordinación entre tierra y aire"></p>
+<h2>7. Instrucciones para Iniciar tu Carrera Profesional</h2>
+<p>Si cumples con los requisitos mencionados y deseas formar parte de la industria aérea como <strong>Oficial de Operaciones Aeronáuticas</strong>, sigue estos pasos:</p>
+<ol>
+<li><strong>Contacto con ICAAS Aviación:</strong> Comunícate primero con nuestro equipo para recibir <strong>asesoría personalizada</strong> sobre el programa, requisitos, documentación y proceso de ingreso.</li>
+<li><strong>Examen Médico:</strong> Realiza el trámite de la <strong>Constancia de Aptitud Psicofísica Grupo III</strong> únicamente después de haber recibido asesoría por parte de <strong>ICAAS Aviación</strong>. Antes de hacer cualquier trámite médico, es necesario hablar con nosotros.</li>
+<li><strong>Verificación de documentos:</strong> Reúne tu certificado de bachillerato original y acta de nacimiento conforme a las indicaciones proporcionadas durante la asesoría.</li>
+<li><strong>Inscripción:</strong> Completa el proceso administrativo para asegurar tu lugar en la próxima promoción.</li>
+</ol>
+<p>El sector aeronáutico demanda profesionales con precisión técnica y compromiso con la seguridad. Inicia tu proceso de formación hoy mismo en el <strong>Centro de Adiestramiento Aeronáutico del Sureste</strong>.</p>
+<p>Para más información sobre nuestros programas de estudio, visita nuestra sección de <a href="/oficial">Carrera de Oficial de Operaciones</a> o consulta nuestro artículo sobre <a href="/sobrecargo">Requisitos para ser Sobrecargo</a> para conocer otras opciones en la industria.</p>`,
+    imageUrl: 'https://cdn.marblism.com/YYqNffD2m6Q.jpg',
+    date: '09 Jun 2026',
+    category: 'Carrera'
   }
 ];
