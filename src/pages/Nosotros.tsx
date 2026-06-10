@@ -89,20 +89,24 @@ export default function Nosotros({ id }: { id: string }) {
 
   const faqs = [
     {
-      q: "¿Cuáles son los requisitos de ingreso para las carreras?",
-      a: "Para ingresar necesitas: Acta de nacimiento original, CURP, INE o pasaporte oficial, Comprobante del último grado de estudios mínimo de bachillerato / preparatoria terminado (Certificado original), y obtener tu Constancia de Aptitud Psicofísica Clase 3 oficial vigente."
+      q: "¿Qué carreras y cursos de aviación ofrecen en Cancún?",
+      a: "En ICAAS somos especialistas en la formación de Sobrecargos de Aviación y Oficiales de Operaciones Aeronáuticas. También contamos con cursos de especialización como Sobrecargo Ejecutivo (aviación VIP), Introducción al A320 y entrenamiento en simuladores con tecnología de vanguardia."
     },
     {
-      q: "¿Cómo tramito mi Constancia Psicofísica clase 3?",
-      a: "El examen psicofísico médico oficial se realiza ante médicos autorizados por la AFAC. En ICAAS te brindamos asesoría paso a paso y contamos con un convenio exclusivo del 15% de descuento directo en SkyMedik para agilizar tu cita médica."
+      q: "¿Cuáles son los requisitos para estudiar la carrera de sobrecargo en ICAAS?",
+      a: "Los requisitos básicos incluyen ser mayor de 18 años (o estar por cumplirlos), contar con bachillerato terminado y obtener el Certificado de Aptitud Psicofísica (examen médico de la AFAC). ¡Nosotros te orientamos en todo el proceso!"
     },
     {
-      q: "¿La escuela cuenta con validez oficial?",
-      a: "Absolutamente. ICAAS es una Escuela de Aviación registrada y regulada formalmente ante la AFAC (Agencia Federal de Aviación Civil) bajo el permiso número F-213, garantizando que tu plan de estudios cumple todos los requisitos de ley para expedir tu licencia oficial."
+      q: "¿Tienen convenios o beneficios para sus alumnos?",
+      a: "¡Sí! Contamos con convenios exclusivos: 50% de descuento en Inglés Individual para que salgas bilingüe, y 15% de descuento en tu examen médico con SkyMedik. También tenemos beneficios especiales para agremiados de la CTM y CROC."
     },
     {
-      q: "¿Cuál es la bolsa de trabajo para egresados?",
-      a: "Las escuelas de aviación en México no pueden garantizar ingresos directos a las aerolíneas. Sin embargo, una gran ventaja de estudiar cerca de uno de los aeropuertos más importantes del país es estar en un entorno con constante crecimiento aeronáutico y una alta demanda de personal capacitado. Esto te permite estar más cerca de oportunidades, conexiones y experiencia dentro de la industria desde el inicio de tu formación."
+      q: "¿Dónde se encuentra ubicada la escuela de aviación?",
+      a: "Estamos en el corazón de Cancún: Pabellón Bonampak (Av. Sayil), locales 205 y 206. Nuestras instalaciones están diseñadas para simular entornos reales de trabajo. ¡Ven a conocernos!"
+    },
+    {
+      q: "¿Es necesario hablar inglés para inscribirme a la carrera?",
+      a: "No es obligatorio para iniciar tu formación, pero es fundamental para trabajar en aerolíneas internacionales. Por eso, en ICAAS te facilitamos el dominio del idioma a través de nuestro convenio con Inglés Individual."
     }
   ];
 

@@ -1015,32 +1015,24 @@ export default function Home({ id }: { id: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               {
-                question: "¿Cuales son los requisitos para la carrera de Sobrecargo de aviación u Oficial de operaciones?",
-                answer: "Acta de nacimiento (18+), Certificado de bachillerato / Preparatoria, 4 fotografías tamaño pasaporte, Constancia de aptitud psicofísicasica clase 3."
+                question: "¿Qué carreras y cursos de aviación ofrecen en Cancún?",
+                answer: "En ICAAS somos especialistas en la formación de Sobrecargos de Aviación y Oficiales de Operaciones Aeronáuticas. También contamos con cursos de especialización como Sobrecargo Ejecutivo (aviación VIP), Introducción al A320 y entrenamiento en simuladores con tecnología de vanguardia."
               },
               {
-                question: "¿Cuál es la duración de las carreras?",
-                answer: "La duración depende de la carrera y de la modalidad que selecciones.\n\nSobrecargo de aviación: 6 o 10 meses.\nOficial de operaciones: 7 o 10 meses."
+                question: "¿Cuáles son los requisitos para estudiar la carrera de sobrecargo en ICAAS?",
+                answer: "Los requisitos básicos incluyen ser mayor de 18 años (o estar por cumplirlos), contar con bachillerato terminado y obtener el Certificado de Aptitud Psicofísica (examen médico de la AFAC). ¡Nosotros te orientamos en todo el proceso!"
               },
               {
-                question: "¿Qué modalidades ofrecen?",
-                answer: "Escolarizado (L - V): 3 horas al día.\nSabatino (solo sábados): 5 horas al día."
+                question: "¿Tienen convenios o beneficios para sus alumnos?",
+                answer: "¡Sí! Contamos con convenios exclusivos: 50% de descuento en Inglés Individual para que salgas bilingüe, y 15% de descuento en tu examen médico con SkyMedik. También tenemos beneficios especiales para agremiados de la CTM y CROC."
               },
               {
-                question: "¿Tienen diferentes opciones de pago?",
-                answer: "Si, tenemos diferentes opciones de método de pago y de modelos de pago para que se ajusten a tus necesidades. Contáctanos para conocer como te podemos ayudar a que cumplas tu sueño aeronáutico."
+                question: "¿Dónde se encuentra ubicada la escuela de aviación?",
+                answer: "Estamos en el corazón de Cancún: Pabellón Bonampak (Av. Sayil), locales 205 y 206. Nuestras instalaciones están diseñadas para simular entornos reales de trabajo. ¡Ven a conocernos!"
               },
               {
-                question: "¿Qué beneficios tienen para los alumnos?",
-                answer: "Tenemos diferentes convenios diseñados para brindarle a nuestros alumnos valor agregado a su matrícula.\n\nConvenio de Inglés: Con Inglés Individual, obtén 50% de descuento en el curso completo.\nConvenio SkyMedic: 15% de descuento en examen médico para realizarlo de manera rápida y eficiente."
-              },
-              {
-                question: "¿Qué costos no están incluidos en la carrera?",
-                answer: "El uniforme, el examen médico y el sinodal práctico no están incluidos en el costo de la carrera."
-              },
-              {
-                question: "¿Cómo puedo recibir más información o agendar una visita a la escuela?",
-                answer: "Nos puedes contactar a nuestro número de teléfono y Whatsapp: (998) 874 58 8, por correo a hola@vuela-caas.com o llenando el formulario en la Sección de contacto."
+                question: "¿Es necesario hablar inglés para inscribirme a la carrera?",
+                answer: "No es obligatorio para iniciar tu formación, pero es fundamental para trabajar en aerolíneas internacionales. Por eso, en ICAAS te facilitamos el dominio del idioma a través de nuestro convenio con Inglés Individual."
               }
             ].map((faq, index) => (
               <FAQItem 
