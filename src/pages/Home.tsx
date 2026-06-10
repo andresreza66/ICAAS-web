@@ -617,7 +617,7 @@ export default function Home({ id }: { id: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-7 space-y-6"
+              className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left"
             >
               <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/15 px-3 py-1.5 rounded-full w-fit inline-block">
                 Tu Futuro en el Aire Comienza Aquí
@@ -627,7 +627,7 @@ export default function Home({ id }: { id: string }) {
                 <span className="text-primary font-bold">Aviación Comercial</span>
               </h2>
               
-              <div className="text-gray-600 text-sm sm:text-base leading-relaxed space-y-4 font-light">
+              <div className="text-gray-600 text-sm sm:text-base leading-relaxed space-y-4 font-light text-center lg:text-left">
                 <p>
                   Si buscas la mejor alternativa para <strong className="font-semibold text-secondary hover:text-primary transition-colors cursor-pointer">estudiar aviación en Cancún</strong>, ICAAS es la <strong className="font-semibold text-secondary">escuela de aviación en Cancún</strong> diseñada para impulsar tu futuro en los cielos de México y el mundo. Nos especializamos en preparar líderes para el sector aeronáutico comercial y privado a través de planes de estudio aprobados y simuladores de última generación.
                 </p>
