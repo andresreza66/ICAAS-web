@@ -45,8 +45,8 @@ export default function Home({ id }: { id: string }) {
       "name": "ICAAS Aviación",
       "alternateName": "Centro de Adiestramiento Aeronáutico del Sureste",
       "description": "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores.",
-      "url": "https://vuela-caas.com",
-      "logo": "https://vuela-caas.com/logo.png",
+      "url": "https://vuela-icaas.com",
+      "logo": "https://vuela-icaas.com/logo.png",
       "sameAs": [
         "https://www.facebook.com/caas.cancun",
         "https://www.instagram.com/caas.cancun"
@@ -382,13 +382,13 @@ export default function Home({ id }: { id: string }) {
   const [openFAQIndex, setOpenFAQIndex] = React.useState<number | null>(null);
 
   const facilitiesImages = [
-    { src: fac1Img, alt: "Simulador de Vuelo" },
-    { src: fac2Img, alt: "Aulas Modernas" },
-    { src: fac3Img, alt: "Entorno Aeronáutico" },
-    { src: fac4Img, alt: "Biblioteca" },
-    { src: fac5Img, alt: "Mantenimiento" },
-    { src: fac6Img, alt: "Instalación adicional 1" },
-    { src: fac7Img, alt: "Instalación adicional 2" },
+    { src: fac1Img, alt: "Entrenamiento en simulador de vuelo ICAAS Cancún" },
+    { src: fac2Img, alt: "Aulas de teoría y clases de aviación en ICAAS Cancún" },
+    { src: fac3Img, alt: "Estudiantes de aviación comercial en la escuela ICAAS Cancún" },
+    { src: fac4Img, alt: "Biblioteca técnica y material de estudio de pilotos y sobrecargos en ICAAS" },
+    { src: fac5Img, alt: "Prácticas de seguridad de vuelo y mantenimiento técnico general en ICAAS" },
+    { src: fac6Img, alt: "Instalaciones del centro de adiestramiento de aviación ICAAS Cancún" },
+    { src: fac7Img, alt: "Sistemas avanzados de instrucción práctica en la escuela de aviación ICAAS" },
   ];
 
   return (

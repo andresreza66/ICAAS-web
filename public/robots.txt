@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vuela-caas.com/sitemap.xml
+Sitemap: https://vuela-icaas.com/sitemap.xml

@@ -29,7 +29,7 @@ export default function Nosotros({ id }: { id: string }) {
       "@type": "AboutPage",
       "name": "Acerca de ICAAS Escuela de Aviación",
       "description": "Detalles históricos, valores de excelencia en adiestramiento aéreo, infraestructura con simuladores e información corporativa de ICAAS.",
-      "url": "https://vuela-caas.com/nosotros"
+      "url": "https://vuela-icaas.com/nosotros"
     }
   });
 

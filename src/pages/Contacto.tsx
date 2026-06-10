@@ -20,7 +20,7 @@ export default function Contacto({ id }: { id: string }) {
       "@type": "ContactPage",
       "name": "Página de Contacto y Admisiones | ICAAS Aviación",
       "description": "Formularios de contacto, ubicación, teléfonos y proceso de registro para la escuela de aviación ICAAS Cancún.",
-      "url": "https://vuela-caas.com/contacto",
+      "url": "https://vuela-icaas.com/contacto",
       "mainEntity": {
         "@type": "EducationalOrganization",
         "name": "ICAAS Aviación",

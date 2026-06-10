@@ -53,7 +53,7 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
       "provider": {
         "@type": "EducationalOrganization",
         "name": "ICAAS Aviación",
-        "sameAs": "https://vuela-caas.com"
+        "sameAs": "https://vuela-icaas.com"
       },
       "educationalCredentialAwarded": "Licencia de Sobrecargo de Aviación",
       "offers": {
@@ -73,7 +73,7 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
       "provider": {
         "@type": "EducationalOrganization",
         "name": "ICAAS Aviación",
-        "sameAs": "https://vuela-caas.com"
+        "sameAs": "https://vuela-icaas.com"
       },
       "educationalCredentialAwarded": "Licencia de Oficial de Operaciones de Aeronaves",
       "offers": {

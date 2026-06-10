@@ -58,7 +58,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
             "name": "ICAAS Aviación",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://vuela-caas.com/logo.png"
+              "url": "https://vuela-icaas.com/logo.png"
             }
           }
         }
@@ -67,7 +67,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
           "@type": "Blog",
           "name": "Blog de Aviación | ICAAS",
           "description": "Publicaciones educativas, guías operacionales del sector aeronáutico y noticias de la escuela de aviación ICAAS.",
-          "url": "https://vuela-caas.com/blog"
+          "url": "https://vuela-icaas.com/blog"
         }
   };
 

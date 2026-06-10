@@ -75,7 +75,7 @@ export function useSEO({
       document.head.appendChild(canonical);
     }
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    const baseUrl = 'https://vuela-caas.com';
+    const baseUrl = 'https://vuela-icaas.com';
     canonical.setAttribute('href', `${baseUrl}${cleanPath}`);
 
     // 8. Open Graph URL

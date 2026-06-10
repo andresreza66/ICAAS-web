@@ -51,7 +51,7 @@ export default function Cursos({ id }: { id: string }) {
       "@type": "ItemList",
       "name": "Cursos de Adiestramiento y Especialización Aeronáutica | ICAAS Cancún",
       "description": "Lista de cursos académicos, temarios y programas de entrenamiento aeronáutico avanzado e interactivo en simuladores de vuelo comerciales.",
-      "url": "https://vuela-caas.com/cursos",
+      "url": "https://vuela-icaas.com/cursos",
       "numberOfItems": 6,
       "itemListElement": [
         {
