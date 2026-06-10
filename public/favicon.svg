@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Definitions for text paths -->
+  <defs>
+    <!-- Top text path (clockwise arc on the top, radius = 210) -->
+    <path id="topTextPath" d="M 62,256 A 194,194 0 0,1 450,256" fill="none" />
+    
+    <!-- Bottom text path (counter-clockwise arc on the bottom, radius = 210) -->
+    <path id="bottomTextPath" d="M 62,256 A 194,194 0 0,0 450,256" fill="none" />
+  </defs>
+
+  <!-- Background solid red circle -->
+  <circle cx="256" cy="256" r="236" fill="#EE3E3A" />
+  
+  <!-- Outer double white thin circular borders -->
+  <circle cx="256" cy="256" r="230" fill="none" stroke="white" stroke-width="2" />
+  <circle cx="256" cy="256" r="172" fill="none" stroke="white" stroke-width="2" />
+
+  <!-- Circular Texts inside the outer border ring -->
+  <!-- Top Text: Centro de Adiestramiento Aeronáutico del Sureste -->
+  <text font-family="'Inter', 'Outfit', 'Helvetica Neue', sans-serif" font-size="14" font-weight="900" fill="white" letter-spacing="3.5">
+    <textPath href="#topTextPath" startOffset="50%" text-anchor="middle">CENTRO DE ADIESTRAMIENTO AERONÁUTICO</textPath>
+  </text>
+  
+  <!-- Bottom Text: CANCUN, Q. ROO -->
+  <text font-family="'Inter', 'Outfit', 'Helvetica Neue', sans-serif" font-size="16" font-weight="900" fill="white" letter-spacing="4">
+    <textPath href="#bottomTextPath" startOffset="50%" text-anchor="middle">CANCUN, Q. ROO.</textPath>
+  </text>
+
+  <!-- Group for Center Runway & branding -->
+  <g transform="translate(0, -6)">
+    <!-- Runway Outline (Perspective shape: Top X=225 to 287, Bottom X=180 to 332, Y=115 to 310) -->
+    <polygon points="230,115 282,115 332,305 180,305" fill="white" />
+    
+    <!-- Red centerline down the center (dashed) -->
+    <line x1="256" y1="120" x2="256" y2="300" stroke="#EE3E3A" stroke-width="4.5" stroke-dasharray="14,10" />
+
+    <!-- Red runway numbers/heading marker "12 R" -->
+    <!-- Number 12 -->
+    <text x="256" y="222" font-family="'Inter', 'Outfit', 'Arial Black', sans-serif" font-size="28" font-weight="900" fill="#EE3E3A" text-anchor="middle" transform="skewX(-1.5)">12</text>
+    <!-- Letter R -->
+    <text x="256" y="254" font-family="'Inter', 'Outfit', 'Arial Black', sans-serif" font-size="28" font-weight="900" fill="#EE3E3A" text-anchor="middle" transform="skewX(-1.5)">R</text>
+
+    <!-- Red vertical threshold bars at the runway bottom -->
+    <!-- Group of alternating stripes -->
+    <g fill="#EE3E3A">
+      <rect x="194" y="278" width="6" height="24" transform="skewX(-12 194 278)" />
+      <rect x="206" y="278" width="6" height="24" transform="skewX(-9 206 278)" />
+      <rect x="218" y="278" width="6" height="24" transform="skewX(-6 218 278)" />
+      <rect x="230" y="278" width="6" height="24" transform="skewX(-3 230 278)" />
+      
+      <rect x="276" y="278" width="6" height="24" transform="skewX(3 276 278)" />
+      <rect x="288" y="278" width="6" height="24" transform="skewX(6 288 278)" />
+      <rect x="300" y="278" width="6" height="24" transform="skewX(9 300 278)" />
+      <rect x="312" y="278" width="6" height="24" transform="skewX(12 312 278)" />
+    </g>
+    
+    <!-- iCAAS Branding text under the runway -->
+    <text x="256" y="372" font-family="'Inter', 'Outfit', 'Arial Black', sans-serif" font-size="52" font-weight="900" fill="white" text-anchor="middle" letter-spacing="-1">iCAAS</text>
+    <text x="256" y="394" font-family="'Inter', 'Outfit', sans-serif" font-size="11" font-weight="900" fill="white" text-anchor="middle" letter-spacing="7">AVIACIÓN</text>
+  </g>
+</svg>
