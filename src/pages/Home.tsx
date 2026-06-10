@@ -1033,6 +1033,10 @@ export default function Home({ id }: { id: string }) {
               {
                 question: "¿Es necesario hablar inglés para inscribirme a la carrera?",
                 answer: "No es obligatorio para iniciar tu formación, pero es fundamental para trabajar en aerolíneas internacionales. Por eso, en ICAAS te facilitamos el dominio del idioma a través de nuestro convenio con Inglés Individual."
+              },
+              {
+                question: "¿Tienen diferentes opciones de pago?",
+                answer: "Sí, contamos con diferentes opciones de pago y planes de financiamiento diseñados para que se ajusten a tus necesidades. Contáctanos para conocer cómo podemos ayudarte a cumplir tu sueño de entrar en el mundo aeronáutico."
               }
             ].map((faq, index) => (
               <FAQItem 
