@@ -131,7 +131,7 @@ export default function Navbar({ id }: { id: string }) {
       <nav
         id={id}
         className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl transition-all duration-500 ${
-          isBlogOpen ? 'z-30 md:z-50 pointer-events-none opacity-0 md:opacity-100 md:pointer-events-auto' : 'z-50'
+          isBlogOpen ? 'z-10 pointer-events-none opacity-0 invisible' : 'z-50'
         }`}
       >
       <div 

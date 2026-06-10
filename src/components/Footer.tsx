@@ -55,11 +55,11 @@ export default function Footer({ id }: { id: string }) {
             <li><Link to="/sobrecargo" className="hover:text-primary transition-colors text-xs flex items-center justify-start gap-1">Sobrecargo de Aviación</Link></li>
             <li><Link to="/oficial" className="hover:text-primary transition-colors text-xs flex items-center justify-start gap-1">Oficial de Operaciones</Link></li>
             <li className="text-white font-extrabold text-[10px] uppercase tracking-wider mt-4 mb-1 text-left">Secciones</li>
-            <li><Link to="/cursos" className="hover:text-white transition-colors">Cursos</Link></li>
-            <li><Link to="/nosotros" className="hover:text-white transition-colors">Beneficios</Link></li>
-            <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+            <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
+            <li><a href="/#carreras" className="hover:text-white transition-colors">Oferta académica</a></li>
             <li><Link to="/nosotros" className="hover:text-white transition-colors">Nosotros</Link></li>
             <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
+            <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
           </ul>
         </div>
 

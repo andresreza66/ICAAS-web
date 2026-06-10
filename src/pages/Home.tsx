@@ -577,7 +577,7 @@ export default function Home({ id }: { id: string }) {
           >
             <span className="text-[10px] text-[#ffffff] tracking-[0.3em] font-bold uppercase mb-4 block mt-8">Inscripciones abiertas 2026</span>
             <h1 className="text-3xl sm:text-4xl md:text-[45px] text-[#EE3E3A] font-bold tracking-tight leading-tight md:leading-[50px] mb-6 md:mb-8 max-w-5xl uppercase">
-              ICAAS Escuela de aviación en Cancún.
+              ICAAS Escuela de aviación en <span className="text-white">Cancún.</span>
             </h1>
             <p className="text-gray-200 text-base sm:text-lg md:text-[20px] leading-relaxed md:leading-[25px] mb-10 font-light max-w-3xl">
               Fórmate en ICAAS con programas diseñados para jóvenes que quieren trabajar en la industria aérea, crecer profesionalmente y construir una carrera con futuro.
@@ -610,31 +610,31 @@ export default function Home({ id }: { id: string }) {
         <div className="absolute bottom-10 right-10 w-64 h-64 bg-red-600/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-12 gap-4 sm:gap-8 lg:gap-16 items-center">
             {/* Copywriter Text Content */}
             <motion.div 
               initial={{ opacity: 0.35, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left"
+              className="col-span-7 space-y-4 sm:space-y-6 flex flex-col items-center text-center"
             >
-              <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/15 px-3 py-1.5 rounded-full w-fit inline-block">
-                Tu Futuro en el Aire Comienza Aquí
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black italic tracking-tight text-secondary uppercase leading-none">
+              <div className="flex items-center justify-center gap-2 mb-6 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+                <span className="text-[9px] font-black uppercase tracking-[0.2em]">Tu Futuro en el Aire Comienza Aquí</span>
+              </div>
+              <h2 className="text-sm sm:text-3xl lg:text-[48px] font-black italic tracking-tight text-secondary leading-none">
                 Lidera el Cielo de la <br />
-                <span className="text-primary font-bold">Aviación Comercial</span>
+                <span className="text-primary font-bold font-sans">Aviación Comercial</span>
               </h2>
               
-              <div className="text-gray-600 text-sm sm:text-base leading-relaxed space-y-4 font-light text-center lg:text-left">
+              <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm lg:text-base leading-relaxed space-y-2 sm:space-y-4 font-light text-center">
                 <p>
                   Si buscas la mejor alternativa para <strong className="font-semibold text-secondary hover:text-primary transition-colors cursor-pointer">estudiar aviación en Cancún</strong>, ICAAS es la <strong className="font-semibold text-secondary">escuela de aviación en Cancún</strong> diseñada para impulsar tu futuro en los cielos de México y el mundo. Nos especializamos en preparar líderes para el sector aeronáutico comercial y privado a través de planes de estudio aprobados y simuladores de última generación.
                 </p>
-                <p>
+                <p className="hidden xs:block sm:block">
                   Dentro de nuestra oferta educativa, la <strong className="font-semibold text-secondary">carrera de sobrecargo de aviación</strong> destaca por su alto nivel de contratación inmediata. Te preparamos y guiamos paso a paso con toda la información necesaria: te indicamos cuáles son los <Link to="/blog?id=0" className="text-primary hover:underline font-medium">requisitos para ser sobrecargo</Link> oficiales ante la AFAC y analizamos detalladamente <Link to="/blog?id=0" className="text-primary hover:underline font-medium">cuánto gana un sobrecargo en México</Link> para que proyectes tu crecimiento a mediano plazo.
                 </p>
-                <p>
+                <p className="hidden md:block">
                   Asimismo, nos enfocamos en brindarte la opción de convertirte en un experto <strong className="font-semibold text-secondary">oficial de operaciones</strong> de aeronaves, capacitando tu perfil técnico en un pilar indispensable para la logística, el despacho de vuelos y la seguridad operacional en tierra. Te invitamos a leer más sobre esta trascendental posición técnica en nuestra nueva publicación <Link to="/blog?id=1" className="text-primary hover:underline font-medium">Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo</Link>, donde explicamos su impacto y campo de acción en detalle. En ICAAS, tu pasión se convierte en una profesión rentable de alcance internacional.
                 </p>
               </div>
@@ -646,32 +646,32 @@ export default function Home({ id }: { id: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="lg:col-span-12 xl:col-span-5 space-y-10 lg:space-y-6"
+              className="col-span-5 space-y-4 lg:space-y-6"
             >
-              <div className="bg-white p-6 sm:p-8 rounded-[32px] border border-gray-100 shadow-xl relative mt-4">
-                <h3 className="text-xl font-black uppercase text-secondary italic tracking-tight mb-4 border-b border-gray-100 pb-3">
+              <div className="bg-white p-3 sm:p-6 lg:p-8 rounded-[16px] sm:rounded-[32px] border border-gray-100 shadow-xl relative mt-4">
+                <h3 className="text-xs sm:text-lg lg:text-xl font-black text-secondary italic tracking-tight mb-2 sm:mb-4 border-b border-gray-100 pb-2 sm:pb-3">
                   ¿Listo para dar el primer paso?
                 </h3>
-                <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+                <p className="text-[9px] sm:text-xs text-gray-500 mb-3 sm:mb-6 leading-relaxed">
                   Elige el canal de contacto preferido de nuestros aspirantes para iniciar tu inscripción o agendar una cita rápida con nuestro equipo de admisiones.
                 </p>
                 
-                <div className="space-y-4">
+                <div className="space-y-1.5 sm:space-y-4">
                   {/* CTA 1: WhatsApp Informes */}
                   <a 
                     href="https://wa.me/529987510172?text=Hola!%20Me%20interesa%20obtener%20informes%20completos%20de%20las%20carreras%20de%20ICAAS%20Aviaci%C3%B3n."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
+                    className="flex items-start gap-1.5 sm:gap-3.5 p-1.5 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
                   >
-                    <div className="bg-emerald-100 text-emerald-600 p-2.5 rounded-xl mt-0.5 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                      <MessageCircle size={20} />
+                    <div className="bg-emerald-100 text-emerald-600 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl mt-0.5 group-hover:bg-emerald-600 group-hover:text-white transition-colors shrink-0">
+                      <MessageCircle className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-secondary group-hover:text-primary transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-[10px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors truncate sm:whitespace-normal">
                         1. Chatea con un Asesor
                       </h4>
-                      <p className="text-[11px] text-gray-400 mt-1 leading-normal">
+                      <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-normal">
                         Atención directa por WhatsApp. Pregunta sobre planes de pago, horarios y becas disponibles hoy.
                       </p>
                     </div>
@@ -680,16 +680,16 @@ export default function Home({ id }: { id: string }) {
                   {/* CTA 2: Selecciona tu carrera */}
                   <a 
                     href="#carreras"
-                    className="flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
+                    className="flex items-start gap-1.5 sm:gap-3.5 p-1.5 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
                   >
-                    <div className="bg-primary/10 text-primary p-2.5 rounded-xl mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
-                      <GraduationCap size={20} />
+                    <div className="bg-primary/10 text-primary p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+                      <GraduationCap className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-secondary group-hover:text-primary transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-[10px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors truncate sm:whitespace-normal">
                         2. Selecciona tu carrera
                       </h4>
-                      <p className="text-[11px] text-gray-400 mt-1 leading-normal">
+                      <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-normal">
                         Explora la carrera de Sobrecargo o de Oficial de Operaciones y descubre tu futuro ideal en el sector aéreo.
                       </p>
                     </div>
@@ -700,16 +700,16 @@ export default function Home({ id }: { id: string }) {
                     href="https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20visita%20para%20conocer%20sus%20instalaciones%20y%20el%20simulador%20en%20Canc%C3%BAn."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
+                    className="flex items-start gap-1.5 sm:gap-3.5 p-1.5 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
                   >
-                    <div className="bg-indigo-100 text-indigo-600 p-2.5 rounded-xl mt-0.5 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                      <Plane size={20} />
+                    <div className="bg-indigo-100 text-indigo-600 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl mt-0.5 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
+                      <Plane className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-secondary group-hover:text-primary transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-[10px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors truncate sm:whitespace-normal">
                         3. Agenda Visita a Nuestras Instalaciones
                       </h4>
-                      <p className="text-[11px] text-gray-400 mt-1 leading-normal">
+                      <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-normal">
                         Ven a conocer nuestro simulador de cabina de Airbus A320 y recorre nuestras aulas presenciales en Cancún.
                       </p>
                     </div>
@@ -724,12 +724,15 @@ export default function Home({ id }: { id: string }) {
       {/* Carreras & Cursos Section */}
       <section id="carreras" className="py-24 bg-white scroll-mt-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6">Elige tu carrera o explora nuestros cursos</h2>
-          </div>
 
           <div className="mb-12">
-            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block text-center">Carreras Profesionales</span>
+            <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Carreras Profesionales</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-center mb-4 text-secondary">Carreras aeronáuticas en <span className="text-primary">Cancún</span></h2>
+            <p className="max-w-3xl text-sm sm:text-base md:text-lg text-gray-500 font-light text-center mx-auto mb-12 leading-relaxed">
+              Forma parte de la próxima generación de profesionales de la aviación con nuestras carreras de Sobrecargo de Aviación y Oficial de Operaciones en Cancún.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-10 gap-3 sm:gap-6">
               {careers.map((career, index) => (
                 <motion.div
@@ -776,7 +779,15 @@ export default function Home({ id }: { id: string }) {
           </div>
 
           <div className="mb-8">
-            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block mt-16 border-t border-gray-100 pt-10 text-center">Cursos y Profesionalización</span>
+            <div className="mt-16 border-t border-gray-100 pt-10 flex flex-col items-center justify-center mb-6">
+              <div className="flex items-center justify-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+                <span className="text-[9px] font-black uppercase tracking-[0.2em]">Cursos y Profesionalización</span>
+              </div>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black text-center mb-4 text-secondary">Cursos aeronáuticos en <span className="text-primary">Cancún</span></h2>
+            <p className="max-w-3xl text-sm sm:text-base md:text-lg text-gray-500 font-light text-center mx-auto mb-12 leading-relaxed">
+              Aprende de expertos de la industria a través de cursos creados para quienes buscan crecer profesionalmente o profundizar su pasión por la aviación.
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
               <CourseCard 
                 title="Introducción al A320"
@@ -834,7 +845,9 @@ export default function Home({ id }: { id: string }) {
             viewport={{ once: true }}
             className="flex flex-col items-center text-center mb-16"
           >
-            <span className="tag-label text-primary mb-6 block">Sobre la escuela</span>
+            <div className="flex items-center justify-center gap-2 mb-6 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Sobre la escuela</span>
+            </div>
             <h2 className="text-3xl sm:text-5xl mb-6 leading-[0.9]">
               Excelencia en el <br /><span className="text-primary italic">Caribe Mexicano.</span>
             </h2>
@@ -844,7 +857,9 @@ export default function Home({ id }: { id: string }) {
           </motion.div>
 
           <div className="mb-10 text-center">
-            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block text-center">Nuestros Valores</span>
+            <div className="flex items-center justify-center gap-2 mb-6 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Nuestros Valores</span>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-24">
@@ -873,7 +888,11 @@ export default function Home({ id }: { id: string }) {
           {/* Subtema: Beneficios y Convenios */}
           <div id="convenios" className="mt-20 scroll-mt-16 text-center">
             <div className="mb-8">
-              <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-[#EE3E3A] mb-6 block mt-16 border-t border-gray-100 pt-10 text-center">Beneficios y Convenios</span>
+              <div className="mt-16 border-t border-gray-100 pt-10 flex flex-col items-center justify-center mb-6">
+                <div className="flex items-center justify-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em]">Beneficios y Convenios</span>
+                </div>
+              </div>
               <p className="text-gray-500 text-sm sm:text-base font-light text-center leading-relaxed max-w-2xl mx-auto mb-10">
                 Diseñamos convenios exclusivos para brindarte valor agregado a tu matrícula y facilitar tu camino hacia el éxito aeronáutico.
               </p>
@@ -932,7 +951,9 @@ export default function Home({ id }: { id: string }) {
           <div id="instalaciones" className="mt-32 scroll-mt-16 text-center">
             <div className="flex flex-col items-center justify-center gap-8 mb-16">
               <div className="max-w-2xl flex flex-col items-center">
-                <span className="tag-label text-primary mb-4 block">Entorno Profesional</span>
+                <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em]">Entorno Profesional</span>
+                </div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic">Instalaciones de Vanguardia</h3>
                 <p className="text-gray-500 text-base sm:text-lg font-light mt-6 leading-relaxed">
                   Espacios diseñados para simular entornos reales de trabajo, equipados con la última tecnología en simulación y ayudas académicas.
@@ -985,7 +1006,9 @@ export default function Home({ id }: { id: string }) {
       <section id="faq" className="py-24 bg-neutral/30 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="tag-label text-primary mb-4 block">Preguntas frecuentes</span>
+            <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Preguntas frecuentes</span>
+            </div>
             <h2 className="text-3xl sm:text-5xl font-black text-secondary tracking-tighter">Despeja tus <span className="text-primary italic">dudas.</span></h2>
           </div>
           
@@ -1043,7 +1066,7 @@ export default function Home({ id }: { id: string }) {
       <section id="contacto" className="py-24 bg-neutral border-t border-gray-100 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-5xl mb-4 text-secondary font-black tracking-tighter">Hablemos del <span className="text-primary">futuro.</span></h2>
+            <h2 className="text-3xl sm:text-5xl mb-4 text-black font-black tracking-tighter"><span className="text-primary">Hablemos</span> del futuro.</h2>
             <p className="text-gray-400 text-base max-w-xl mx-auto font-light">
               ¿Tienes dudas sobre los requisitos o el proceso de inscripción? Nuestro equipo está listo para ayudarte.
             </p>

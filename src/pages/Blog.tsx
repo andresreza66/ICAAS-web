@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight, Calendar, X, Tag } from 'lucide-react';
+import { ArrowRight, Calendar, X, Tag } from 'lucide-react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { BlogPost, DEFAULT_BLOGS } from '../data/blogs';
@@ -17,14 +17,16 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
 
   useEffect(() => {
     if (isStandalone) {
-      window.scrollTo(0, 0);
-
       const blogId = searchParams.get('id');
       if (blogId) {
         const blog = DEFAULT_BLOGS.find(b => b.id === blogId);
         if (blog) {
           setSelectedBlog(blog);
+        } else {
+          setSelectedBlog(null);
         }
+      } else {
+        setSelectedBlog(null);
       }
     }
   }, [isStandalone, searchParams]);
@@ -91,20 +93,16 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header Section */}
-        <div className={`flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16 pb-8 border-b ${isStandalone ? 'border-white/10' : 'border-gray-200'}`}>
-          <div>
-            {isStandalone && (
-              <Link to="/" className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-primary hover:text-red-500 transition-colors mb-4 font-bold">
-                <ArrowLeft size={14} /> Volver al Inicio
-              </Link>
-            )}
-            <h1 className={`text-4xl md:text-5xl font-black italic tracking-tight ${isStandalone ? 'text-white' : 'text-secondary'}`}>
-              Blog de la <span className="text-primary">Escuela</span>
-            </h1>
-            <p className={`mt-4 max-w-2xl text-lg font-light ${isStandalone ? 'text-gray-400' : 'text-gray-500'}`}>
-              Mantente informado con las novedades de la aviación, consejos profesionales y actualizaciones de nuestra comunidad educativa.
-            </p>
+        <div className={`flex flex-col items-center text-center justify-center gap-4 mb-20 pb-8 border-b ${isStandalone ? 'border-white/10' : 'border-gray-200'}`}>
+          <div className="flex items-center justify-center gap-2 mb-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+            <span className="text-[9px] font-black uppercase tracking-[0.2em]">Artículos y Actualizaciones</span>
           </div>
+          <h1 className={`text-4xl md:text-[48px] font-black tracking-tighter leading-none mb-2 ${isStandalone ? 'text-white' : 'text-black'}`}>
+            <span className="text-primary italic">Blog</span> de la Escuela.
+          </h1>
+          <p className={`max-w-2xl text-[18px] leading-relaxed text-center mx-auto font-light ${isStandalone ? 'text-gray-400' : 'text-gray-500'}`}>
+            Mantente informado con las novedades de la aviación, consejos profesionales y actualizaciones de nuestra comunidad educativa.
+          </p>
         </div>
 
         {/* Read Blog Detail Modal */}
@@ -151,7 +149,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                 className="bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col relative group cursor-pointer text-secondary h-full"
                 onClick={() => {
                   if (isStandalone) {
-                    setSelectedBlog(blog);
+                    setSearchParams({ id: blog.id });
                   } else {
                     navigate(`/blog?id=${blog.id}`);
                   }
