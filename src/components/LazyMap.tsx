@@ -45,10 +45,22 @@ export function LazyMap({ src, className = "" }: LazyMapProps) {
             referrerPolicy="no-referrer-when-downgrade"
             title="Ubicación Google Maps"
           ></iframe>
+          {/* Custom floating overlay button in the top-left to replace & cover the default Google Maps iframe widget */}
+          <div className="absolute top-4 left-4 z-20 hidden sm:block">
+            <a 
+              href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-[#12151d]/95 hover:bg-primary text-white text-[10px] font-black uppercase tracking-widest px-4 py-2.5 rounded-xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-white/10 group"
+            >
+              <MapPin size={12} className="text-primary group-hover:text-white transition-colors" />
+              Abrir en Maps
+            </a>
+          </div>
           {/* Custom high-contrast floating button to ensure user gets sent to the exact correct map pin on all devices - hidden on desktop where the integrated card button is shown */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 md:hidden">
             <a 
-              href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic" 
+              href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white text-[11px] font-black uppercase tracking-widest px-5 py-3 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-white/20"

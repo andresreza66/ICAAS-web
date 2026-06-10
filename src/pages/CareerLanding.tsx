@@ -673,12 +673,12 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
                       <Phone size={16} className="text-primary" />
                       998 751 0172
                     </a>
-                    <a href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                    <a href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
                        <MapPin size={16} className="text-primary" />
                        Pabellón Bonampak, Cancún
                     </a>
                     <a 
-                      href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic" 
+                      href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="mt-2 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-[10px] font-black uppercase tracking-wider py-3 px-5 rounded-full shadow-lg hover:scale-105 active:scale-[0.98] transition-all duration-300 border border-white/10 text-center"

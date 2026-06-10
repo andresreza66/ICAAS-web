@@ -30,7 +30,7 @@ export default function Footer({ id }: { id: string }) {
           <div className="flex gap-4 justify-start">
             <a href="https://www.facebook.com/share/1GbFY4fk4J/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
             <a href="https://www.instagram.com/icaascancun?igsh=MWRnN2F4aHcyMWUzcw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Instagram"><Instagram size={20} /></a>
-            <a href="https://maps.app.goo.gl/TPREQbzwRfBHstkQ6?g_st=ic" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Google Maps"><MapPin size={20} /></a>
+            <a href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Google Maps"><MapPin size={20} /></a>
           </div>
         </div>
 
