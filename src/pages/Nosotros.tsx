@@ -117,12 +117,12 @@ export default function Nosotros({ id }: { id: string }) {
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-[#1877F2]/5 rounded-full blur-[110px] pointer-events-none" />
 
-      {/* Historia & Pilares Side-by-Side Container */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
+      {/* Historia & Ventajas Side-by-Side Container */}
+      <div className="max-w-5xl mx-auto px-6 mb-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Nuestra Historia y Excelencia (cuadrada al lado izquierdo) */}
-          <div className="lg:col-span-7 space-y-6 flex flex-col justify-start text-left">
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left">
             <div className="flex items-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit">
               <School size={14} className="text-primary" />
               <span className="text-[9px] font-black uppercase tracking-[0.2em]">Formando el Liderazgo en el Aire</span>
@@ -135,11 +135,11 @@ export default function Nosotros({ id }: { id: string }) {
             </p>
           </div>
 
-          {/* Right Column: Pilares de ICAAS */}
-          <div className="lg:col-span-5 flex flex-col justify-start space-y-6 text-left">
-            <div className="text-left pt-1.5">
-              <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Pilares de ICAAS</h2>
+          {/* Right Column: Ventajas de Ser Alumno */}
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left">
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-1">Convenios Activos</span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Ventajas al Ser Alumno</h2>
             </div>
             
             <motion.div
@@ -147,60 +147,61 @@ export default function Nosotros({ id }: { id: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-[#12151d]/40 rounded-3xl p-6 sm:p-7 border-2 border-white/15 hover:border-white/25 transition-all duration-300 shadow-xl space-y-6"
+              className="bg-[#12151d]/40 rounded-3xl p-6 sm:p-7 border-2 border-white/15 hover:border-white/25 transition-all duration-300 shadow-xl space-y-4"
             >
-              {coreValues.map((val, idx) => {
-                const Icon = val.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="flex gap-4 items-start text-left border-b border-white/5 last:border-b-0 pb-5 last:pb-0 hover:translate-x-1 transition-transform duration-250 group"
-                  >
-                    <div className="bg-primary/10 text-primary p-2.5 rounded-xl flex justify-center items-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors duration-250">
-                      <Icon size={18} />
+              {benefits.map((b, idx) => (
+                <div 
+                  key={idx} 
+                  className="flex flex-col gap-1.5 border-b border-white/5 last:border-b-0 pb-4 last:pb-0 hover:translate-x-1 transition-transform duration-250"
+                >
+                  <div className="flex justify-between items-center gap-2">
+                    <div className="flex gap-2 items-center">
+                      <CheckCircle2 size={14} className="text-primary shrink-0" />
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">{b.title}</h4>
                     </div>
-                    <div>
-                      <h3 className="text-sm font-black text-white uppercase tracking-wide mb-1 group-hover:text-primary transition-colors duration-250">{val.title}</h3>
-                      <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
-                    </div>
+                    <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+                      {b.benefit}
+                    </span>
                   </div>
-                );
-              })}
+                  <p className="text-gray-400 text-[11px] font-light leading-relaxed">{b.desc}</p>
+                </div>
+              ))}
             </motion.div>
           </div>
 
         </div>
       </div>
 
-      {/* Convenios & Beneficios Centered Block */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
-        <div className="text-center flex flex-col items-center mb-12 max-w-3xl mx-auto space-y-4">
-          <span className="text-[9px] font-extrabold text-primary uppercase tracking-widest bg-primary/10 rounded-full px-3 py-1.5 border border-primary/20 w-fit block mx-auto">Convenios Activos</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter leading-tight uppercase">
-            Grandes ventajas <span className="text-primary italic">Al Ser Alumno.</span>
-          </h2>
-          <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-            Trabajamos incansablemente de la mano con líderes empresariales locales y clínicas especializadas  para ofrecerte infraestructura, descuentos y beneficios que ayuden a simplificar tu vida escolar.
-          </p>
+      {/* Pilares Section (Below side-by-side) */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left sm:text-center mt-12">
+        <div className="mb-10 flex flex-col items-start sm:items-center">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
+          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left sm:text-center">Pilares de ICAAS</h2>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          {benefits.map((b, idx) => (
-            <div key={idx} className="bg-[#12151d]/40 p-6 rounded-2xl border-2 border-white/15 shadow-md flex flex-col justify-between hover:border-primary/40 transition-all duration-300">
-              <div>
-                <div className="flex justify-between items-start mb-3 gap-2">
-                  <div className="flex gap-2 items-center">
-                    <CheckCircle2 size={16} className="text-primary shrink-0" />
-                    <h3 className="text-xs font-bold text-white uppercase tracking-wider">{b.title}</h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {coreValues.map((val, idx) => {
+            const Icon = val.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0.35, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start sm:items-center text-left sm:text-center justify-between"
+              >
+                <div className="flex flex-col items-start sm:items-center">
+                  <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-5 flex justify-center items-center">
+                    <Icon size={20} />
                   </div>
-                  <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
-                    {b.benefit}
-                  </span>
+                  <h3 className="text-sm font-black text-white uppercase tracking-wide mb-3">{val.title}</h3>
+                  <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
                 </div>
-                <p className="text-gray-400 text-xs leading-relaxed">{b.desc}</p>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
