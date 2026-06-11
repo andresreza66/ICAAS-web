@@ -117,8 +117,41 @@ export default function Nosotros({ id }: { id: string }) {
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-[#1877F2]/5 rounded-full blur-[110px] pointer-events-none" />
 
+      {/* Pilares Section (At the top) */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left sm:text-center mt-4">
+        <div className="mb-10 flex flex-col items-start sm:items-center">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
+          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left sm:text-center">Pilares de ICAAS</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {coreValues.map((val, idx) => {
+            const Icon = val.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0.35, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start sm:items-center text-left sm:text-center justify-between"
+              >
+                <div className="flex flex-col items-start sm:items-center">
+                  <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-5 flex justify-center items-center">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="text-sm font-black text-white uppercase tracking-wide mb-3">{val.title}</h3>
+                  <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Historia & Ventajas Side-by-Side Container */}
-      <div className="max-w-5xl mx-auto px-6 mb-16 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Nuestra Historia y Excelencia (cuadrada al lado izquierdo) */}
@@ -169,39 +202,6 @@ export default function Nosotros({ id }: { id: string }) {
             </motion.div>
           </div>
 
-        </div>
-      </div>
-
-      {/* Pilares Section (Below side-by-side) */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left sm:text-center mt-12">
-        <div className="mb-10 flex flex-col items-start sm:items-center">
-          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left sm:text-center">Pilares de ICAAS</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {coreValues.map((val, idx) => {
-            const Icon = val.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0.35, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start sm:items-center text-left sm:text-center justify-between"
-              >
-                <div className="flex flex-col items-start sm:items-center">
-                  <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-5 flex justify-center items-center">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="text-sm font-black text-white uppercase tracking-wide mb-3">{val.title}</h3>
-                  <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
 
