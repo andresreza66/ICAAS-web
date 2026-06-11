@@ -21,9 +21,10 @@ interface CareerLandingProps {
 
 const SECTIONS = [
   { id: 'hero', label: 'Inicio', icon: Plane },
-  { id: 'que-es', label: 'Concepto & Actividades', icon: CheckCircle2 },
+  { id: 'que-es', label: '¿Qué es?', icon: CheckCircle2 },
+  { id: 'funciones-y-plan', label: 'Malla & Funciones', icon: Layers },
   { id: 'duracion-y-modalidades', label: 'Duración & Modalidades', icon: Clock },
-  { id: 'plan-estudios-section', label: 'Plan, Perfil & Requisitos', icon: GraduationCap },
+  { id: 'perfil-y-requisitos', label: 'Perfil & Requisitos', icon: GraduationCap },
   { id: 'cta-whatsapp', label: 'Inscripción', icon: MessageSquare },
   { id: 'faq', label: 'Preguntas', icon: Globe }
 ];
@@ -335,35 +336,35 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
       </section>
 
       {/* SECTION 2: Qué es un Sobrecargo / Oficial de Operaciones */}
-      <section id="que-es" className="py-12 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-center">
-        <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6 space-y-10">
+      <section id="que-es" className="py-16 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-left">
+        <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6">
           
-          {/* Top Part: Concepto with text and image grid */}
-          <div className="flex flex-col items-center gap-12">
+          {/* Top Part: Concepto with text left, image right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Column: Text Content */}
-            <div className="w-full max-w-3xl space-y-6 flex flex-col items-center">
-              <span className="text-[10px] uppercase tracking-widest text-primary font-black flex justify-center items-center gap-2">
+            {/* Left Column: Text Content (cuadrada a la izquierda) */}
+            <div className="lg:col-span-7 space-y-6 flex flex-col items-start justify-center text-left">
+              <span className="text-[10px] uppercase tracking-widest text-primary font-black flex justify-start items-center gap-2">
                 <span className="w-6 h-[2px] bg-primary block"></span> CONCEPTO PROFESIONAL
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter leading-tight">
+              <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter leading-tight text-left">
                 {activeCareer.queEs.heading}
               </h2>
-              <div className="space-y-4 text-gray-300 font-light text-base leading-relaxed">
+              <div className="space-y-4 text-gray-300 font-light text-base leading-relaxed text-left">
                 <p>{activeCareer.queEs.text1}</p>
                 <p>{activeCareer.queEs.text2}</p>
               </div>
               
-              <div className="pt-6 border-t border-white/5 w-full">
-                <p className="text-xs font-medium text-gray-300 italic leading-relaxed">
+              <div className="pt-6 border-t border-white/5 w-full text-left">
+                <p className="text-xs font-medium text-gray-400 italic leading-relaxed">
                   {activeCareer.importancia}
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Custom Generated Aspect-Filtered Image */}
-            <div className="w-full max-w-2xl relative">
-              <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-lg group">
+            {/* Right Column: Custom Aspect-Filtered Image */}
+            <div className="lg:col-span-5 w-full relative">
+              <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-xl group">
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                 <img
                   src={activeCareer.queEs.image}
@@ -375,44 +376,83 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
             </div>
 
           </div>
-
-          {/* Bottom Part: Funciones Clave (como subtema) */}
-          <div className="pt-10 border-t border-white/5 space-y-8 flex flex-col items-center">
-            <div className="text-center flex flex-col items-center">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">ACTIVIDADES TÉCNICAS</span>
-              <h3 className="text-2xl sm:text-4xl font-black italic text-white tracking-tighter">
-                Funciones Clave de la Profesión
-              </h3>
-              <p className="text-gray-400 text-xs sm:text-sm font-light mt-2 leading-relaxed max-w-3xl">
-                Durante el adiestramiento académico en ICAAS, dominarás paso a paso las competencias esenciales requeridas por las aerolíneas internacionales:
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-              {activeCareer.funciones.map((func, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0.35, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="bg-[#12151d]/40 rounded-2xl border-2 border-white/15 p-5 flex flex-col items-center text-center justify-between hover:border-white/30 transition-all duration-300 shadow-md"
-                >
-                  <div className="flex flex-col items-center">
-                    <h4 className="text-base font-black text-white mb-2 italic mt-2">{func.title}</h4>
-                    <p className="text-gray-400 font-light text-xs leading-relaxed">{func.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
         </motion.div>
       </section>
 
-      {/* SECTION 3: Duración & Modalidades */}
-      <section id="duracion-y-modalidades" className="py-12 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-center">
+      {/* SECTION 3: Funciones Clave (Izquierda) & Plan de Estudios (Derecha) */}
+      <section id="funciones-y-plan" className="py-16 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-left">
+        <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+            
+            {/* Left Column: Funciones Clave */}
+            <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
+              <div className="space-y-3">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block">ACTIVIDADES TÉCNICAS</span>
+                <h3 className="text-2xl sm:text-4xl font-black italic text-white tracking-tighter">
+                  Funciones Clave de la Profesión
+                </h3>
+                <p className="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">
+                  Durante el adiestramiento académico en ICAAS, dominarás paso a paso las competencias esenciales requeridas por las aerolíneas internacionales:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                {activeCareer.funciones.map((func, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0.35, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    whileHover={{ y: -4 }}
+                    className="bg-[#12151d]/40 rounded-2xl border-2 border-white/15 p-5 flex flex-col justify-between hover:border-white/30 transition-all duration-300 shadow-md min-h-[140px]"
+                  >
+                    <div>
+                      <h4 className="text-sm font-black text-white mb-2 italic">{func.title}</h4>
+                      <p className="text-gray-400 font-light text-[11px] leading-relaxed">{func.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Plan de Estudios */}
+            <div id="plan-estudios" className="lg:col-span-6 bg-[#12151d]/40 rounded-[32px] border-2 border-white/15 p-6 sm:p-8 space-y-6 shadow-xl scroll-mt-20 flex flex-col justify-between">
+              <div className="space-y-3">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-black block">MALLA FORMATIVA VIGENTE</span>
+                <h3 className="text-2xl sm:text-4xl font-black italic text-white tracking-tighter">
+                  Plan de Estudios
+                </h3>
+                <p className="text-gray-400 font-light text-xs sm:text-sm leading-relaxed">
+                  Plan homologado y avalado bajo las normativas estrictas de la <strong className="font-extrabold text-primary">AFAC</strong>, estructurado para darte habilidades precisas listas para ejercer de inmediato:
+                </p>
+              </div>
+
+              <div className="bg-[#161a25]/50 p-4 sm:p-6 rounded-2xl border border-white/10 shadow-md">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[280px] overflow-y-auto custom-scrollbar pr-1.5">
+                  {activeCareer.planEstudios.map((materia, idx) => (
+                    <motion.li 
+                      key={idx} 
+                      initial={{ opacity: 0.35, y: 5 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.05 }}
+                      transition={{ duration: 0.5, delay: Math.min(idx * 0.03, 0.4), ease: "easeOut" }}
+                      className="bg-[#12151d]/60 p-2.5 rounded-xl border border-white/5 flex gap-2.5 items-center hover:shadow-sm transition-shadow"
+                    >
+                      <span className="text-primary italic font-black text-xs shrink-0">/ {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
+                      <span className="text-[11px] font-bold text-white tracking-tight leading-tight">{materia}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </motion.div>
+      </section>
+
+      {/* SECTION 4: Duración & Modalidades */}
+      <section id="duracion-y-modalidades" className="py-16 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-center">
         <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6">
           <div className="bg-[#12151d]/40 rounded-[32px] border-2 border-white/15 p-8 sm:p-12 space-y-8 flex flex-col items-center shadow-xl">
             <div className="max-w-3xl flex flex-col items-center">
@@ -458,173 +498,122 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
         </motion.div>
       </section>
 
-      {/* SECTION 4: Plan de Estudios & Perfil de Alumno */}
-      <section id="plan-estudios-section" className="py-12 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10">
+      {/* SECTION 5: Perfil del Alumno & Requisitos */}
+      <section id="perfil-y-requisitos" className="py-16 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-left">
         <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6 space-y-10">
           
-          {/* Plan de Estudios - En un recuadro limpio */}
-          <div id="plan-estudios" className="bg-[#12151d]/40 rounded-[32px] border-2 border-white/15 p-8 sm:p-12 space-y-10 scroll-mt-20 shadow-xl">
-            <div className="text-center flex flex-col items-center max-w-3xl mx-auto space-y-3">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-primary font-black block">MALLA FORMATIVA VIGENTE</span>
-              <h3 className="text-3xl sm:text-4xl font-black italic text-white tracking-tighter text-center">
-                Plan de Estudios
-              </h3>
-              <p className="text-gray-400 font-light text-xs sm:text-sm leading-relaxed">
-                El cuerpo curricular de materias está homologado y avalado paso a paso bajo las normativas estrictas de la <strong className="font-extrabold text-primary">AFAC</strong>, estructurado para darte habilidades precisas listas para ejercer de inmediato:
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              
-              <div className="lg:col-span-4 space-y-4">
-                {/* Academic Training Badge */}
-                <div className="bg-[#161a25]/50 p-5 rounded-2xl border-2 border-white/15 flex items-start gap-3 shadow-md">
-                  <BookOpen className="text-primary size-5 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-xs text-white uppercase tracking-wider mb-0.5">Adiestramiento Homologado</h4>
-                    <p className="text-gray-400 text-[10px] leading-relaxed">Combinamos clases teóricas en aula inteligente con talleres en simuladores interactivos avanzados en Cancún.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Grid of subjects inside card */}
-              <div className="lg:col-span-8 bg-[#161a25]/50 p-6 sm:p-8 rounded-2xl border-2 border-white/15 shadow-md">
-                <ul className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${activeCareer.id === 'oficial' ? '' : 'max-h-[400px] overflow-y-auto custom-scrollbar pr-2'}`}>
-                  {activeCareer.planEstudios.map((materia, idx) => (
-                    <motion.li 
-                      key={idx} 
-                      initial={{ opacity: 0.35, y: 5 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.05 }}
-                      transition={{ duration: 0.5, delay: Math.min(idx * 0.03, 0.4), ease: "easeOut" }}
-                      className="bg-[#12151d]/60 p-3 rounded-xl border border-white/5 flex gap-3 items-center hover:shadow-sm transition-shadow"
-                    >
-                      <span className="text-primary italic font-black text-xs shrink-0">/ {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
-                      <span className="text-xs font-bold text-white tracking-tight leading-tight">{materia}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
+          <div className="text-left flex flex-col items-start">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">IDENTIDAD ACADÉMICA & INGRESO</span>
+            <h3 className="text-2xl sm:text-4xl font-black italic text-white tracking-tighter text-left">
+              Perfil de Alumno & Requisitos
+            </h3>
+            <p className="text-gray-400 text-xs sm:text-sm font-light mt-2 leading-relaxed max-w-3xl text-left">
+              Analiza las cualidades formativas idóneas de ingreso, las destrezas de egreso y los requisitos de ingreso necesarios para ser admitido oficialmente en ICAAS:
+            </p>
           </div>
 
-          {/* Perfil del Alumno con Requisitos Integrados */}
-          <div id="perfil" className="pt-6 border-t border-white/5 space-y-8 scroll-mt-20 flex flex-col items-center">
-            <div className="text-center flex flex-col items-center">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">IDENTIDAD ACADÉMICA & INGRESO</span>
-              <h3 className="text-2xl sm:text-4xl font-black italic text-white tracking-tighter">
-                Perfil de Alumno & Requisitos
-              </h3>
-              <p className="text-gray-400 text-xs sm:text-sm font-light mt-2 leading-relaxed max-w-3xl">
-                Analiza las cualidades formativas idóneas de ingreso, las destrezas de egreso y los requisitos de ingreso necesarios para ser admitido oficialmente en ICAAS:
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4 w-full">
+            
+            {/* Column 1: Perfiles de Ingreso & Egreso stacked */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
               
-              {/* Column 1: Perfiles de Ingreso & Egreso stacked */}
-              <div className="lg:col-span-7 flex flex-col gap-6">
-                
-                {/* Perfil de Ingreso Card */}
-                <motion.div 
-                  initial={{ opacity: 0.35, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="bg-[#12151d]/40 rounded-[24px] border-2 border-white/15 p-8 flex-1 flex flex-col justify-between hover:border-white/30 transition-all duration-300 shadow-md"
-                >
-                  <div>
-                    <div className="flex justify-between items-center mb-6">
-                      <span className="bg-primary/10 text-primary text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest">PERFIL DE INGRESO</span>
-                      <div className="text-primary w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Users size={16} />
-                      </div>
-                    </div>
-                    <h4 className="text-lg font-black text-white italic mb-3">¿Cuáles son las cualidades idóneas para ingresar?</h4>
-                    <p className="text-gray-300 font-light text-xs sm:text-sm leading-relaxed mb-4">{activeCareer.perfil.ingreso}</p>
-                  </div>
-                  <div className="pt-4 border-t border-white/5">
-                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold block">Ideal para jóvenes con vocación en Cancún</span>
-                  </div>
-                </motion.div>
-
-                {/* Perfil de Egreso Card */}
-                <motion.div 
-                  initial={{ opacity: 0.35, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.1 }}
-                  transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="bg-[#12151d]/40 rounded-[24px] border-2 border-white/15 p-8 flex-1 flex flex-col justify-between hover:border-white/30 transition-all duration-300 shadow-md"
-                >
-                  <div>
-                    <div className="flex justify-between items-center mb-6">
-                      <span className="bg-primary/10 text-primary text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest">PERFIL DE EGRESO</span>
-                      <div className="text-primary w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <GraduationCap size={16} />
-                      </div>
-                    </div>
-                    <h4 className="text-lg font-black text-white italic mb-3">¿Qué competencias profesionales dominarás al egresar?</h4>
-                    <p className="text-gray-300 font-light text-xs sm:text-sm leading-relaxed mb-4">{activeCareer.perfil.egreso}</p>
-                  </div>
-                  <div className="pt-4 border-t border-white/5">
-                    <span className="text-[9px] uppercase tracking-wider text-primary font-extrabold block">Listo para comenzar a ejercer con éxito en el ámbito laboral</span>
-                  </div>
-                </motion.div>
-
-              </div>
-
-              {/* Column 2: Requisitos de Inscripción inside a gorgeous dark card / box (recuadro) */}
+              {/* Perfil de Ingreso Card */}
               <motion.div 
-                id="requisitos" 
                 initial={{ opacity: 0.35, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4 }}
-                className="lg:col-span-5 bg-[#12151d]/85 text-white rounded-[32px] p-8 flex flex-col justify-between hover:shadow-xl border border-white/10 transition-all duration-350 shadow-md scroll-mt-20"
+                className="bg-[#12151d]/40 rounded-[24px] border-2 border-white/15 p-8 flex-1 flex flex-col justify-between hover:border-white/30 transition-all duration-300 shadow-md text-left"
               >
-                <div className="space-y-6">
-                  <div className="flex justify-between items-center">
-                    <span className="bg-primary/20 text-primary text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest border border-primary/25">REQUISITOS ADMISIÓN</span>
-                    <div className="text-primary w-8 h-8 rounded-lg bg-primary/25 flex items-center justify-center">
-                      <ShieldCheck size={18} />
+                <div>
+                  <div className="flex justify-between items-center mb-6">
+                    <span className="bg-primary/10 text-primary text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest animate-pulse">PERFIL DE INGRESO</span>
+                    <div className="text-primary w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Users size={16} />
                     </div>
                   </div>
-                  
-                  <div>
-                    <h4 className="text-xl font-black italic tracking-tight mb-2 text-[#ee3e3a]">Expediente Escolar Requerido</h4>
-                    <p className="text-gray-300 text-xs font-light leading-relaxed">
-                      Para iniciar tu proceso de alta formal de matrícula regulada por el gobierno federal en ICAAS, es obligatorio conformar el siguiente expediente:
-                    </p>
-                  </div>
-
-                  <div className="space-y-2.5 pt-2">
-                    {activeCareer.requisitos.map((req, idx) => (
-                      <div key={idx} className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                        <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white shrink-0 mt-0.5">
-                          <Check size={10} className="stroke-[3]" />
-                        </div>
-                        <span className="text-[11px] font-bold text-gray-100 leading-snug">{req}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <h4 className="text-lg font-black text-white italic mb-3">¿Cuáles son las cualidades idóneas para ingresar?</h4>
+                  <p className="text-gray-300 font-light text-xs sm:text-sm leading-relaxed mb-4">{activeCareer.perfil.ingreso}</p>
                 </div>
+                <div className="pt-4 border-t border-white/5 text-left">
+                  <span className="text-[9px] uppercase tracking-wider text-gray-400 font-extrabold block">Ideal para jóvenes con vocación en Cancún</span>
+                </div>
+              </motion.div>
 
-                <div className="mt-6 pt-5 border-t border-white/10 bg-white/5 -mx-8 -mb-8 p-6 rounded-b-[32px] flex gap-3 text-gray-200">
-                  <AlertTriangle className="size-5 shrink-0 text-primary animate-pulse" />
-                  <p className="text-[10px] leading-relaxed font-semibold">
-                    <span className="text-primary font-black uppercase tracking-wider block mb-0.5">Beneficio ICAAS</span>
-                    Recuerda tramitrar tu Constancia Psicofísica clase 3. Obtén hasta un 15% de descuento directo en SkyMedik.
-                  </p>
+              {/* Perfil de Egreso Card */}
+              <motion.div 
+                initial={{ opacity: 0.35, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4 }}
+                className="bg-[#12151d]/40 rounded-[24px] border-2 border-white/15 p-8 flex-1 flex flex-col justify-between hover:border-white/30 transition-all duration-300 shadow-md text-left"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-6">
+                    <span className="bg-primary/10 text-primary text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest">PERFIL DE EGRESO</span>
+                    <div className="text-primary w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <GraduationCap size={16} />
+                    </div>
+                  </div>
+                  <h4 className="text-lg font-black text-white italic mb-3">¿Qué competencias profesionales dominarás al egresar?</h4>
+                  <p className="text-gray-300 font-light text-xs sm:text-sm leading-relaxed mb-4">{activeCareer.perfil.egreso}</p>
+                </div>
+                <div className="pt-4 border-t border-white/5 text-left">
+                  <span className="text-[9px] uppercase tracking-wider text-primary font-extrabold block">Listo para comenzar a ejercer con éxito en el ámbito laboral</span>
                 </div>
               </motion.div>
 
             </div>
-          </div>
 
+            {/* Column 2: Requisitos de Inscripción inside a gorgeous dark card / box (recuadro) */}
+            <motion.div 
+              id="requisitos" 
+              initial={{ opacity: 0.35, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4 }}
+              className="lg:col-span-5 bg-[#12151d]/85 text-white rounded-[32px] p-8 flex flex-col justify-between hover:shadow-xl border border-white/10 transition-all duration-350 shadow-md scroll-mt-20 text-left"
+            >
+              <div className="space-y-6">
+                <div className="flex justify-between items-center">
+                  <span className="bg-primary/20 text-primary text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest border border-primary/25">REQUISITOS ADMISIÓN</span>
+                  <div className="text-primary w-8 h-8 rounded-lg bg-primary/25 flex items-center justify-center">
+                    <ShieldCheck size={18} />
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="text-xl font-black italic tracking-tight mb-2 text-[#ee3e3a]">Expediente Escolar Requerido</h4>
+                  <p className="text-gray-300 text-xs font-light leading-relaxed">
+                    Para iniciar tu proceso de alta formal de matrícula regulada por el gobierno federal en ICAAS, es obligatorio conformar el siguiente expediente:
+                  </p>
+                </div>
+
+                <div className="space-y-2.5 pt-2">
+                  {activeCareer.requisitos.map((req, idx) => (
+                    <div key={idx} className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors text-left">
+                      <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center text-white shrink-0 mt-0.5">
+                        <Check size={10} className="stroke-[3]" />
+                      </div>
+                      <span className="text-[11px] font-bold text-gray-100 leading-snug">{req}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 pt-5 border-t border-white/10 bg-white/5 -mx-8 -mb-8 p-6 rounded-b-[32px] flex gap-3 text-gray-200 text-left">
+                <AlertTriangle className="size-5 shrink-0 text-primary animate-pulse" />
+                <p className="text-[10px] leading-relaxed font-semibold">
+                  <span className="text-primary font-black uppercase tracking-wider block mb-0.5">Beneficio ICAAS</span>
+                  Recuerda tramitar tu Constancia Psicofísica clase 3. Obtén hasta un 15% de descuento directo en SkyMedik.
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
         </motion.div>
       </section>
 
@@ -651,6 +640,33 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
               <MessageSquare size={18} fill="currentColor" />
               Quiero más información
             </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* SECTION 9: FAQ específica */}
+      <section id="faq" className="py-16 bg-transparent scroll-mt-20 relative z-10">
+        <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">RESOLVIENDO TUS PREGUNTAS</span>
+            <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter">
+              Preguntas Frecuentes
+            </h2>
+            <p className="text-gray-400 text-xs sm:text-sm font-light mt-3 leading-relaxed">
+              Encuentra respuestas inmediatas a las dudas recurrentes sobre la formación oficial de {activeCareer.title}:
+            </p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto space-y-4">
+            {activeCareer.faqs.map((faq, index) => (
+              <CareerFAQItem 
+                key={index} 
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openFAQIndex === index}
+                onToggle={() => { setOpenFAQIndex(openFAQIndex === index ? null : index); }}
+              />
+            ))}
           </div>
         </motion.div>
       </section>
@@ -689,33 +705,6 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
                   </div>
                </div>
             </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* SECTION 9: FAQ específica */}
-      <section id="faq" className="py-16 bg-transparent scroll-mt-20 relative z-10">
-        <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">RESOLVIENDO TUS PREGUNTAS</span>
-            <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter">
-              Preguntas Frecuentes
-            </h2>
-            <p className="text-gray-400 text-xs sm:text-sm font-light mt-3 leading-relaxed">
-              Encuentra respuestas inmediatas a las dudas recurrentes sobre la formación oficial de {activeCareer.title}:
-            </p>
-          </div>
-          
-          <div className="max-w-3xl mx-auto space-y-4">
-            {activeCareer.faqs.map((faq, index) => (
-              <CareerFAQItem 
-                key={index} 
-                question={faq.question}
-                answer={faq.answer}
-                isOpen={openFAQIndex === index}
-                onToggle={() => { setOpenFAQIndex(openFAQIndex === index ? null : index); }}
-              />
-            ))}
           </div>
         </motion.div>
       </section>

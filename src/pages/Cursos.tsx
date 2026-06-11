@@ -597,8 +597,80 @@ export default function Cursos({ id }: { id: string }) {
         </div>
       </div>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-transparent relative z-10 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12 flex flex-col items-center">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">RESPUESTAS RÁPIDAS</span>
+            <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter uppercase leading-none">
+              Preguntas <span className="text-primary">Frecuentes</span>
+            </h2>
+            <p className="text-gray-400 text-xs sm:text-sm mt-3 text-center">
+              Todo lo que necesitas saber sobre nuestros cursos, especializaciones y formatos de adiestramiento.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                question: "¿A quiénes están dirigidos los cursos de especialización de ICAAS?",
+                answer: "Están dirigidos tanto a profesionales en activo (sobrecargos, pilotos, oficiales de operaciones) que buscan ascender o actualizarse, como a personas apasionadas sin experiencia previa que deseen iniciar su formación en aviación."
+              },
+              {
+                question: "¿Qué validez oficial tienen estos cursos?",
+                answer: "Nuestros cursos están avalados bajo directrices formales por el centro de capacitación ICAAS corporativo. Al concluir exitosamente, recibes una constancia de adiestramiento y diploma que certifican tus nuevas habilidades y potencian de forma directa tu perfil laboral."
+              },
+              {
+                question: "¿Ofrecen capacitación práctica con simuladores?",
+                answer: "Sí. Para programas avanzados y técnicos de alta exigencia, contamos con adiestramiento técnico presencial y tecnología de simulación de cabina que reproduce escenarios reales, brindando experiencia de vuelo interactiva."
+              },
+              {
+                question: "¿Cómo puedo inscribirme en un curso de aficionados o especialización?",
+                answer: "El proceso es muy sencillo e inmediato. Haz clic en 'Detalles' del curso que capture tu atención, consulta los requisitos de ingreso y presiona el botón de WhatsApp para chatear directamente con un asesor de admisiones de ICAAS, quien resolverá tus dudas e iniciará tu registro."
+              }
+            ].map((faq, index) => {
+              const isOpen = openFAQIndex === index;
+              return (
+                <div 
+                   key={index}
+                   className="bg-[#12151d]/40 rounded-2xl border-2 border-white/15 overflow-hidden shadow-md transition-all duration-300 hover:border-white/25"
+                >
+                  <button
+                    onClick={() => setOpenFAQIndex(isOpen ? null : index)}
+                    className="w-full px-6 py-5 text-left flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
+                  >
+                    <span className="font-extrabold text-sm sm:text-base text-white tracking-tight">{faq.question}</span>
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-primary shrink-0"
+                    >
+                      <ChevronDown size={20} />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 font-light text-left">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Map Section */}
-      <section className="py-16 bg-transparent relative z-10">
+      <section className="py-16 bg-transparent relative z-10 border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-10 flex flex-col items-center">
             <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">UBICACIÓN ESTRATÉGICA</span>
@@ -641,78 +713,6 @@ export default function Cursos({ id }: { id: string }) {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 bg-transparent relative z-10 border-t border-white/5">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12 flex flex-col items-center">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block mb-2">RESPUESTAS RÁPIDAS</span>
-            <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter uppercase leading-none">
-              Preguntas <span className="text-primary">Frecuentes</span>
-            </h2>
-            <p className="text-gray-400 text-xs sm:text-sm mt-3 text-center">
-              Todo lo que necesitas saber sobre nuestros cursos, especializaciones y formatos de adiestramiento.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              {
-                question: "¿A quiénes están dirigidos los cursos de especialización de ICAAS?",
-                answer: "Están dirigidos tanto a profesionales en activo (sobrecargos, pilotos, oficiales de operaciones) que buscan ascender o actualizarse, como a personas apasionadas sin experiencia previa que deseen iniciar su formación en aviación."
-              },
-              {
-                question: "¿Qué validez oficial tienen estos cursos?",
-                answer: "Nuestros cursos están avalados bajo directrices formales por el centro de capacitación ICAAS corporativo. Al concluir exitosamente, recibes una constancia de adiestramiento y diploma que certifican tus nuevas habilidades y potencian de forma directa tu perfil laboral."
-              },
-              {
-                question: "¿Ofrecen capacitación práctica con simuladores?",
-                answer: "Sí. Para programas avanzados y técnicos de alta exigencia, contamos con adiestramiento técnico presencial y tecnología de simulación de cabina que reproduce escenarios reales, brindando experiencia de vuelo interactiva."
-              },
-              {
-                question: "¿Cómo puedo inscribirme en un curso de aficionados o especialización?",
-                answer: "El proceso es muy sencillo e inmediato. Haz clic en 'Detalles' del curso que capture tu atención, consulta los requisitos de ingreso y presiona el botón de WhatsApp para chatear directamente con un asesor de admisiones de ICAAS, quien resolverá tus dudas e iniciará tu registro."
-              }
-            ].map((faq, index) => {
-              const isOpen = openFAQIndex === index;
-              return (
-                <div 
-                  key={index}
-                  className="bg-[#12151d]/40 rounded-2xl border-2 border-white/15 overflow-hidden shadow-md transition-all duration-300 hover:border-white/25"
-                >
-                  <button
-                    onClick={() => setOpenFAQIndex(isOpen ? null : index)}
-                    className="w-full px-6 py-5 text-left flex justify-between items-center gap-4 hover:bg-white/5 transition-colors"
-                  >
-                    <span className="font-extrabold text-sm sm:text-base text-white tracking-tight">{faq.question}</span>
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="text-primary shrink-0"
-                    >
-                      <ChevronDown size={20} />
-                    </motion.div>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 font-light text-left">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>

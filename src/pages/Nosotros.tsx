@@ -117,46 +117,58 @@ export default function Nosotros({ id }: { id: string }) {
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-[#1877F2]/5 rounded-full blur-[110px] pointer-events-none" />
 
-      {/* Header Container */}
-      <div className="max-w-5xl mx-auto px-6 mb-20 relative z-10 flex flex-col items-center text-center">
-        <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
-          <School size={14} className="text-primary" />
-          <span className="text-[9px] font-black uppercase tracking-[0.2em]">Formando el Liderazgo en el Aire</span>
-        </div>
-        <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tighter leading-none mb-6 uppercase">
-          Nuestra <span className="text-primary italic">Historia & Excelencia.</span>
-        </h1>
-        <p className="text-gray-400 max-w-2xl text-sm sm:text-base leading-relaxed">
-          Ubicada en la ciudad de Cancún, donde se encuentra unos de los principales aeropuertos internacionales del país, ICAAS nace como respuesta a la creciente demanda de adiestramiento aeronáutico especializado que cumplan los estandares internacionales de seguridad y capacidad. Guiados por instructores con experiencia basta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
-        </p>
-      </div>
+      {/* Historia & Pilares Side-by-Side Container */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: Nuestra Historia y Excelencia (cuadrada al lado izquierdo) */}
+          <div className="lg:col-span-7 space-y-6 flex flex-col justify-start text-left">
+            <div className="flex items-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit">
+              <School size={14} className="text-primary" />
+              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Formando el Liderazgo en el Aire</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-black text-white tracking-tighter leading-tight uppercase">
+              Nuestra <span className="text-primary italic">Historia & Excelencia.</span>
+            </h1>
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
+              Ubicada en la ciudad de Cancún, donde se encuentra unos de los principales aeropuertos internacionales del país, ICAAS nace como respuesta a la creciente demanda de adiestramiento aeronáutico especializado que cumplan los estandares internacionales de seguridad y capacidad. Guiados por instructores con experience basta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
+            </p>
+          </div>
 
-      {/* Core Values Section */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-center">
-        <div className="mb-10 flex flex-col items-center">
-          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">Pilares de ICAAS</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {coreValues.map((val, idx) => {
-            const Icon = val.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/35 transition-all duration-300 flex flex-col items-center text-center"
-              >
-                <div className="bg-primary/10 text-primary p-3.5 rounded-2xl mb-5 flex justify-center items-center">
-                  <Icon size={24} />
-                </div>
-                <h3 className="text-base font-black text-white uppercase tracking-wide mb-3">{val.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{val.desc}</p>
-              </motion.div>
-            );
-          })}
+          {/* Right Column: Pilares de ICAAS */}
+          <div className="lg:col-span-5 flex flex-col justify-start space-y-6 text-left">
+            <div className="text-left pt-1.5">
+              <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Pilares de ICAAS</h2>
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0.35, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-[#12151d]/40 rounded-3xl p-6 sm:p-7 border-2 border-white/15 hover:border-white/25 transition-all duration-300 shadow-xl space-y-6"
+            >
+              {coreValues.map((val, idx) => {
+                const Icon = val.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="flex gap-4 items-start text-left border-b border-white/5 last:border-b-0 pb-5 last:pb-0 hover:translate-x-1 transition-transform duration-250 group"
+                  >
+                    <div className="bg-primary/10 text-primary p-2.5 rounded-xl flex justify-center items-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors duration-250">
+                      <Icon size={18} />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-black text-white uppercase tracking-wide mb-1 group-hover:text-primary transition-colors duration-250">{val.title}</h3>
+                      <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
+
         </div>
       </div>
 
@@ -225,44 +237,8 @@ export default function Nosotros({ id }: { id: string }) {
         </div>
       </div>
 
-      {/* Map Section */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
-        <div className="h-[350px] w-full relative overflow-hidden bg-neutral-900 rounded-[24px] border border-white/5 shadow-xl">
-          <LazyMap 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.189569766952!2d-86.82772592534596!3d21.144863384260935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2c0628287399%3A0x6339d1b6cf0728c3!2sPabell%C3%B3n%20Bonampak!5e0!3m2!1ses-419!2smx!4v1716934523910!5m2!1ses-419!2smx"
-            className="w-full h-full grayscale-[0.8] contrast-[1.2] opacity-80 border-0"
-          />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block w-full max-w-sm">
-             <div className="bg-[#12151d]/95 backdrop-blur-xl p-8 rounded-[32px] border border-white/10 shadow-2xl text-white text-left">
-                <span className="text-[10px] uppercase tracking-widest text-primary mb-2 block font-black">Nuestra Sede</span>
-                <h3 className="text-2xl font-black text-white mb-4 italic">ICAAS</h3>
-                <p className="text-[10px] text-gray-400 font-light leading-relaxed mb-6">Ubicados en Pabellón Bonampak, Av. Sayil, Manzana 5, Lote 2, Locales 205 y 206, Supermanzana 6, Cancún, Quintana Roo.</p>
-                <div className="flex flex-col gap-3">
-                  <a href="https://wa.me/529987510172" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
-                    <Phone size={16} className="text-primary" />
-                    998 751 0172
-                  </a>
-                  <a href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
-                     <MapPin size={16} className="text-primary" />
-                     Pabellón Bonampak, Cancún
-                  </a>
-                  <a 
-                    href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="mt-2 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-[10px] font-black uppercase tracking-wider py-3 px-5 rounded-full shadow-lg hover:scale-105 active:scale-[0.98] transition-all duration-300 border border-white/10 text-center"
-                  >
-                    <MapPin size={12} className="text-white" />
-                    Abrir en Google Maps
-                  </a>
-                </div>
-             </div>
-          </div>
-        </div>
-      </div>
-
       {/* Immersive FAQ Accordion */}
-      <div id="faqs" className="max-w-4xl mx-auto px-6 relative z-10">
+      <div id="faqs" className="max-w-4xl mx-auto px-6 mb-24 relative z-10">
         <div className="text-center mb-12">
           <HelpCircle className="mx-auto text-primary size-8 mb-4 stroke-1 animate-bounce" />
           <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">Preguntas Frecuentes</h2>
@@ -310,6 +286,42 @@ export default function Nosotros({ id }: { id: string }) {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
+        <div className="h-[350px] w-full relative overflow-hidden bg-neutral-900 rounded-[24px] border border-white/5 shadow-xl">
+          <LazyMap 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.189569766952!2d-86.82772592534596!3d21.144863384260935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2c0628287399%3A0x6339d1b6cf0728c3!2sPabell%C3%B3n%20Bonampak!5e0!3m2!1ses-419!2smx!4v1716934523910!5m2!1ses-419!2smx"
+            className="w-full h-full grayscale-[0.8] contrast-[1.2] opacity-80 border-0"
+          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block w-full max-w-sm">
+             <div className="bg-[#12151d]/95 backdrop-blur-xl p-8 rounded-[32px] border border-white/10 shadow-2xl text-white text-left">
+                <span className="text-[10px] uppercase tracking-widest text-primary mb-2 block font-black">Nuestra Sede</span>
+                <h3 className="text-2xl font-black text-white mb-4 italic">ICAAS</h3>
+                <p className="text-[10px] text-gray-400 font-light leading-relaxed mb-6">Ubicados en Pabellón Bonampak, Av. Sayil, Manzana 5, Lote 2, Locales 205 y 206, Supermanzana 6, Cancún, Quintana Roo.</p>
+                <div className="flex flex-col gap-3">
+                  <a href="https://wa.me/529987510172" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                    <Phone size={16} className="text-primary" />
+                    998 751 0172
+                  </a>
+                  <a href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white font-black text-[10px] tracking-widest uppercase hover:text-primary transition-colors">
+                     <MapPin size={16} className="text-primary" />
+                     Pabellón Bonampak, Cancún
+                  </a>
+                  <a 
+                    href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="mt-2 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-[10px] font-black uppercase tracking-wider py-3 px-5 rounded-full shadow-lg hover:scale-105 active:scale-[0.98] transition-all duration-300 border border-white/10 text-center"
+                  >
+                    <MapPin size={12} className="text-white" />
+                    Abrir en Google Maps
+                  </a>
+                </div>
+             </div>
+          </div>
         </div>
       </div>
 
