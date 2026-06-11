@@ -117,60 +117,27 @@ export default function Nosotros({ id }: { id: string }) {
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-[#1877F2]/5 rounded-full blur-[110px] pointer-events-none" />
 
-      {/* Pilares Section (At the top) */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left sm:text-center mt-4">
-        <div className="mb-10 flex flex-col items-start sm:items-center">
-          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left sm:text-center">Pilares de ICAAS</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {coreValues.map((val, idx) => {
-            const Icon = val.icon;
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0.35, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start sm:items-center text-left sm:text-center justify-between"
-              >
-                <div className="flex flex-col items-start sm:items-center">
-                  <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-5 flex justify-center items-center">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="text-sm font-black text-white uppercase tracking-wide mb-3">{val.title}</h3>
-                  <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Historia & Ventajas Side-by-Side Container */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
+      {/* Main Grid: Historia & Excelencia on Left, Ventajas on Right */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 pt-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Nuestra Historia y Excelencia (cuadrada al lado izquierdo) */}
-          <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left">
-            <div className="flex items-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit">
+          {/* Left Column: Nuestra Historia & Excelencia */}
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left p-1">
+            <div className="flex items-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mt-1.5">
               <School size={14} className="text-primary" />
               <span className="text-[9px] font-black uppercase tracking-[0.2em]">Formando el Liderazgo en el Aire</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-black text-white tracking-tighter leading-tight uppercase">
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl font-black text-white tracking-tighter leading-tight uppercase">
               Nuestra <span className="text-primary italic">Historia & Excelencia.</span>
             </h1>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
-              Ubicada en la ciudad de Cancún, donde se encuentra unos de los principales aeropuertos internacionales del país, ICAAS nace como respuesta a la creciente demanda de adiestramiento aeronáutico especializado que cumplan los estandares internacionales de seguridad y capacidad. Guiados por instructores con experience basta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
+              Ubicada en la ciudad de Cancún, donde se encuentra unos de los principales aeropuertos internacionales del país, ICAAS nace como response a la creciente demanda de adiestramiento aeronáutico especializado que cumplan los estandares internacionales de seguridad y capacidad. Guiados por instructores con experience basta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
             </p>
           </div>
 
           {/* Right Column: Ventajas de Ser Alumno */}
           <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left">
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 pt-1.5">
               <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-1">Convenios Activos</span>
               <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Ventajas al Ser Alumno</h2>
             </div>
@@ -202,6 +169,39 @@ export default function Nosotros({ id }: { id: string }) {
             </motion.div>
           </div>
 
+        </div>
+      </div>
+
+      {/* Pilares Section (Below side-by-side grid) */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left sm:text-center mt-12">
+        <div className="mb-10 flex flex-col items-start sm:items-center">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
+          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left sm:text-center">Pilares de ICAAS</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {coreValues.map((val, idx) => {
+            const Icon = val.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0.35, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start sm:items-center text-left sm:text-center justify-between"
+              >
+                <div className="flex flex-col items-start sm:items-center">
+                  <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-5 flex justify-center items-center">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="text-sm font-black text-white uppercase tracking-wide mb-3">{val.title}</h3>
+                  <p className="text-gray-400 text-xs font-light leading-relaxed">{val.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
