@@ -617,24 +617,24 @@ export default function Home({ id }: { id: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="col-span-7 space-y-4 sm:space-y-6 flex flex-col items-center text-center"
+              className="col-span-12 md:col-span-7 space-y-4 sm:space-y-6 flex flex-col items-center text-center"
             >
               <div className="flex items-center justify-center gap-2 mb-6 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
                 <span className="text-[9px] font-black uppercase tracking-[0.2em]">Tu Futuro en el Aire Comienza Aquí</span>
               </div>
-              <h2 className="text-sm sm:text-3xl lg:text-[48px] font-black italic tracking-tight text-secondary leading-none">
-                Lidera el Cielo de la <br />
+              <h2 className="text-2xl sm:text-3xl lg:text-[48px] font-black italic tracking-tight text-secondary leading-tight md:leading-none text-center">
+                Lidera el Cielo de la <br className="hidden sm:inline" />
                 <span className="text-primary font-bold font-sans">Aviación Comercial</span>
               </h2>
               
-              <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm lg:text-base leading-relaxed space-y-2 sm:space-y-4 font-light text-center">
+              <div className="text-gray-600 text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed space-y-2 sm:space-y-4 font-light text-center">
                 <p>
                   Si buscas la mejor alternativa para <strong className="font-semibold text-secondary hover:text-primary transition-colors cursor-pointer">estudiar aviación en Cancún</strong>, ICAAS es la <strong className="font-semibold text-secondary">escuela de aviación en Cancún</strong> diseñada para impulsar tu futuro en los cielos de México y el mundo. Nos especializamos en preparar líderes para el sector aeronáutico comercial y privado a través de planes de estudio aprobados y simuladores de última generación.
                 </p>
-                <p className="hidden xs:block sm:block">
+                <p>
                   Dentro de nuestra oferta educativa, la <strong className="font-semibold text-secondary">carrera de sobrecargo de aviación</strong> destaca por su alto nivel de contratación inmediata. Te preparamos y guiamos paso a paso con toda la información necesaria: te indicamos cuáles son los <Link to="/blog?id=0" className="text-primary hover:underline font-medium">requisitos para ser sobrecargo</Link> oficiales ante la AFAC y analizamos detalladamente <Link to="/blog?id=0" className="text-primary hover:underline font-medium">cuánto gana un sobrecargo en México</Link> para que proyectes tu crecimiento a mediano plazo.
                 </p>
-                <p className="hidden md:block">
+                <p>
                   Asimismo, nos enfocamos en brindarte la opción de convertirte en un experto <strong className="font-semibold text-secondary">oficial de operaciones</strong> de aeronaves, capacitando tu perfil técnico en un pilar indispensable para la logística, el despacho de vuelos y la seguridad operacional en tierra. Te invitamos a leer más sobre esta trascendental posición técnica en nuestra nueva publicación <Link to="/blog?id=1" className="text-primary hover:underline font-medium">Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo</Link>, donde explicamos su impacto y campo de acción en detalle. En ICAAS, tu pasión se convierte en una profesión rentable de alcance internacional.
                 </p>
               </div>
@@ -646,70 +646,70 @@ export default function Home({ id }: { id: string }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="col-span-5 space-y-4 lg:space-y-6"
+              className="col-span-12 md:col-span-5 space-y-4 lg:space-y-6"
             >
-              <div className="bg-white p-3 sm:p-6 lg:p-8 rounded-[16px] sm:rounded-[32px] border border-gray-100 shadow-xl relative mt-4">
-                <h3 className="text-xs sm:text-lg lg:text-xl font-black text-secondary italic tracking-tight mb-2 sm:mb-4 border-b border-gray-100 pb-2 sm:pb-3">
+              <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-[16px] sm:rounded-[32px] border border-gray-100 shadow-xl relative mt-4">
+                <h3 className="text-sm sm:text-lg lg:text-xl font-black text-secondary italic tracking-tight mb-2 sm:mb-4 border-b border-gray-100 pb-2 sm:pb-3 text-left">
                   ¿Listo para dar el primer paso?
                 </h3>
-                <p className="text-[9px] sm:text-xs text-gray-500 mb-3 sm:mb-6 leading-relaxed">
+                <p className="text-[10px] sm:text-xs text-gray-500 mb-3 sm:mb-6 leading-relaxed text-left">
                   Elige el canal de contacto preferido de nuestros aspirantes para iniciar tu inscripción o agendar una cita rápida con nuestro equipo de admisiones.
                 </p>
                 
                 <div className="space-y-1.5 sm:space-y-4">
                   {/* CTA 1: WhatsApp Informes */}
                   <a 
-                    href="https://wa.me/529987510172?text=Hola!%20Me%20interesa%20obtener%20informes%20completos%20de%20las%20carreras%20de%20ICAAS%20Aviaci%C3%B3n."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-1.5 sm:gap-3.5 p-1.5 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
+                     href="https://wa.me/529987510172?text=Hola!%20Me%20interesa%20obtener%20informes%20completos%20de%20las%20carreras%20de%20ICAAS%20Aviaci%C3%B3n."
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="flex items-start text-left gap-3.5 p-2 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
                   >
                     <div className="bg-emerald-100 text-emerald-600 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl mt-0.5 group-hover:bg-emerald-600 group-hover:text-white transition-colors shrink-0">
-                      <MessageCircle className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                      <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-[10px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors truncate sm:whitespace-normal">
+                      <h4 className="text-[11px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors">
                         1. Chatea con un Asesor
                       </h4>
-                      <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-normal">
+                      <p className="text-[10px] sm:text-[11px] text-gray-400 mt-1 leading-normal">
                         Atención directa por WhatsApp. Pregunta sobre planes de pago, horarios y becas disponibles hoy.
                       </p>
                     </div>
                   </a>
 
-                  {/* CTA 2: Selecciona tu carrera */}
+                  {/* CTA 2: Flexibilidad Carreras */}
                   <a 
-                    href="#carreras"
-                    className="flex items-start gap-1.5 sm:gap-3.5 p-1.5 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
+                     href="#carreras"
+                     className="flex items-start text-left gap-3.5 p-2 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
                   >
                     <div className="bg-primary/10 text-primary p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
-                      <GraduationCap className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                      <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-[10px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors truncate sm:whitespace-normal">
+                      <h4 className="text-[11px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors">
                         2. Selecciona tu carrera
                       </h4>
-                      <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-normal">
+                      <p className="text-[10px] sm:text-[11px] text-gray-400 mt-1 leading-normal">
                         Explora la carrera de Sobrecargo o de Oficial de Operaciones y descubre tu futuro ideal en el sector aéreo.
                       </p>
                     </div>
                   </a>
 
-                  {/* CTA 3: Visita de Instalaciones / Simulador */}
+                  {/* CTA 3: Visitas Presenciales */}
                   <a 
-                    href="https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20visita%20para%20conocer%20sus%20instalaciones%20y%20el%20simulador%20en%20Canc%C3%BAn."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-1.5 sm:gap-3.5 p-1.5 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
+                     href="https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20visita%20para%20conocer%20sus%20instalaciones%20y%20el%20simulador%20en%20Canc%C3%BAn."
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="flex items-start text-left gap-3.5 p-2 sm:p-3.5 rounded-xl sm:rounded-2xl hover:bg-neutral/40 transition-all border border-transparent hover:border-gray-150 group"
                   >
                     <div className="bg-indigo-100 text-indigo-600 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl mt-0.5 group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
-                      <Plane className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
+                      <Plane className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-[10px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors truncate sm:whitespace-normal">
+                      <h4 className="text-[11px] sm:text-xs font-black tracking-wider text-secondary group-hover:text-primary transition-colors">
                         3. Agenda Visita a Nuestras Instalaciones
                       </h4>
-                      <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-normal">
+                      <p className="text-[10px] sm:text-[11px] text-gray-400 mt-1 leading-normal">
                         Ven a conocer nuestro simulador de cabina de Airbus A320 y recorre nuestras aulas presenciales en Cancún.
                       </p>
                     </div>
