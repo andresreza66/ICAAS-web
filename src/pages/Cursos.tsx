@@ -89,7 +89,6 @@ export default function Cursos({ id }: { id: string }) {
       format: "Presencial (Teórico y práctico en cabina)",
       targetAudience: "Aspirantes a aerolínea, pilotos comerciales formándose, y aviadores en transición técnica de aeronaves de pistón o turbohélices a reactores comerciales.",
       requirements: [
-        "Licencia de Piloto Comercial aprobada (o en proceso de formación teórica)",
         "Nivel de inglés técnico aeronáutico recomendado",
         "Muchas ganas de dominar la filosofía de automatización de Airbus"
       ],
@@ -271,13 +270,12 @@ export default function Cursos({ id }: { id: string }) {
       categoryLabel: "Simulación & Práctica para Aficionados",
       fichaCode: "ICAAS-SIM-STD",
       format: "Sesión práctica en entrenador sintético de vuelo con Capitán Asesor",
-      targetAudience: "Pilotos activos que deseen mantener vigencia de capacidades instrumentales, aspirantes a exámenes de ingreso de aerolínea comercial, o alumnos pilotos en busca de horas prácticas instruidas de alta fidelidad.",
+      targetAudience: "Pilotos activos que deseen practicar vuelo por instrumentos, aspirantes a exámenes de ingreso de aerolínea, alumnos pilotos en busca de horas práctica o aficionados a la aviación que quieran experimentar el vuelo.",
       requirements: [
-        "Ser alumno matriculado en escuela de vuelo de aviación o piloto comercial graduado",
         "Programación agendada con anticipación vía coordinación de ICAAS"
       ],
       description: "Acelera y despega en nuestros sofisticados entrenadores sintéticos de vuelo. Experimenta el realismo absoluto con escenarios meteorológicos reales, fallas controladas y planes de vuelo simulados guiados por pilotos asesores de ICAAS.",
-      overviewDescription: "Consolida tus reflejos, procedimientos instrumentales IFR y memoria muscular mediante prácticas técnicas de alta concentración guiadas por nuestros capitanes adiestradores en un simulador ágil que reproduce condiciones reales de vuelo en múltiples escenarios aeroportuarios del mundo.",
+      overviewDescription: "Practica y perfecciona los procedimientos de vuelo por instrumentos mediante sesiones guiadas por instructores especializados. Utiliza equipos de última generación que recrean escenarios operacionales complejos y situaciones reales de vuelo, permitiéndote fortalecer tus habilidades en un entorno seguro y controlado. Ya sea para mantener tu nivel de competencia o disfrutar de la aviación como aficionado, esta experiencia está diseñada para ti.",
       puntosImportantes: [
         "Configuración activa de clima extremo: tormentas, vientos cruzados, niebla cerrada.",
         "Familiarización instrumental, radio Navegación y gestión de cartas Jeppesen.",
@@ -933,9 +931,14 @@ export default function Cursos({ id }: { id: string }) {
               <div className="p-6 border-t border-white/10 bg-[#10121a] flex flex-col sm:flex-row gap-4 justify-between items-center shrink-0">
                 <div className="flex gap-4">
                   <div className="flex flex-col text-center w-full">
-                    <span className="text-[8px] uppercase tracking-widest text-gray-400">Soporte Técnico de Admisiones</span>
+                    <span className="text-[8px] uppercase tracking-widest text-gray-400">
+                      {selectedCourse.id === 'hora-de-simulador' ? 'Para más información' : 'Soporte Técnico de Admisiones'}
+                    </span>
                     <span className="text-xs font-black text-white flex items-center gap-1.5 mt-0.5">
-                      <BadgeInfo size={12} className="text-primary" /> Ficha Informativa Oficial {selectedCourse.fichaCode}
+                      <BadgeInfo size={12} className="text-primary" />{' '}
+                      {selectedCourse.id === 'hora-de-simulador'
+                        ? 'Chatea con nuestros asesores de venta'
+                        : `Ficha Informativa Oficial ${selectedCourse.fichaCode}`}
                     </span>
                   </div>
                 </div>
@@ -947,7 +950,10 @@ export default function Cursos({ id }: { id: string }) {
                     rel="noopener noreferrer"
                     className="flex-grow sm:flex-grow-0 bg-[#25D366] text-white font-black uppercase tracking-widest text-[9px] px-6 py-4 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform"
                   >
-                    <MessageCircle size={14} fill="currentColor" /> Descargar Ficha PDF / Cotizar en WhatsApp
+                    <MessageCircle size={14} fill="currentColor" />{' '}
+                    {selectedCourse.id === 'hora-de-simulador'
+                      ? 'Cotizar en WhatsApp'
+                      : 'Descargar Ficha PDF / Cotizar en WhatsApp'}
                   </a>
                 </div>
               </div>
