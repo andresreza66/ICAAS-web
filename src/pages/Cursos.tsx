@@ -932,11 +932,11 @@ export default function Cursos({ id }: { id: string }) {
                 <div className="flex gap-4">
                   <div className="flex flex-col text-center w-full">
                     <span className="text-[8px] uppercase tracking-widest text-gray-400">
-                      {selectedCourse.id === 'hora-de-simulador' ? 'Para más información' : 'Soporte Técnico de Admisiones'}
+                      {['hora-de-simulador', 'simulador-vr'].includes(selectedCourse.id) ? 'Para más información' : 'Soporte Técnico de Admisiones'}
                     </span>
                     <span className="text-xs font-black text-white flex items-center gap-1.5 mt-0.5">
                       <BadgeInfo size={12} className="text-primary" />{' '}
-                      {selectedCourse.id === 'hora-de-simulador'
+                      {['hora-de-simulador', 'simulador-vr'].includes(selectedCourse.id)
                         ? 'Chatea con nuestros asesores de venta'
                         : `Ficha Informativa Oficial ${selectedCourse.fichaCode}`}
                     </span>
@@ -951,7 +951,7 @@ export default function Cursos({ id }: { id: string }) {
                     className="flex-grow sm:flex-grow-0 bg-[#25D366] text-white font-black uppercase tracking-widest text-[9px] px-6 py-4 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform"
                   >
                     <MessageCircle size={14} fill="currentColor" />{' '}
-                    {selectedCourse.id === 'hora-de-simulador'
+                    {['hora-de-simulador', 'simulador-vr'].includes(selectedCourse.id)
                       ? 'Cotizar en WhatsApp'
                       : 'Descargar Ficha PDF / Cotizar en WhatsApp'}
                   </a>
