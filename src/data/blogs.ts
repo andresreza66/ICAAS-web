@@ -191,5 +191,79 @@ export const DEFAULT_BLOGS: BlogPost[] = [
     imageUrl: 'https://cdn.marblism.com/YYqNffD2m6Q.jpg',
     date: '09 Jun 2026',
     category: 'Carrera'
+  },
+  {
+    id: '2',
+    title: 'Guía definitiva del examen médico aeronáutico: Todo lo que necesitas para aprobar',
+    excerpt: 'El examen médico aeronáutico, oficialmente denominado Evaluación de Aptitud Psicofísica Integral, constituye el primer y más estricto filtro para cualquier aspirante que desee ingresar a la industria aérea.',
+    content: `<h1>Guía definitiva del examen médico aeronáutico: Todo lo que necesitas para aprobar</h1>
+<p><img src="https://cdn.marblism.com/qNYbHNCRY9g.webp" alt="Consultorio médico aeronáutico moderno y minimalista con vista a pista de aterrizaje"></p>
+<p>El <strong>examen médico aeronáutico</strong>, oficialmente denominado <strong>Evaluación de Aptitud Psicofísica Integral</strong>, constituye el primer y más estricto filtro para cualquier aspirante que desee ingresar a la industria aérea. Este procedimiento es regulado por la <strong>Agencia Federal de Aviación Civil (AFAC)</strong> y tiene como objetivo certificar que el personal técnico aeronáutico posee las condiciones físicas y mentales necesarias para garantizar la <strong>seguridad operacional</strong>.</p>
+<p>En <strong>ICAAS Aviación</strong>, como centro de formación líder en el Caribe Mexicano, establecemos este requisito como el paso inicial obligatorio para los inscritos en la <strong>Carrera de Sobrecargo de Aviación</strong> y la <strong>Carrera de Oficial de Operaciones</strong>. Sin la <strong>Constancia de Aptitud Psicofísica</strong>, es legalmente imposible obtener una licencia técnica o realizar prácticas profesionales.</p>
+<h2>Marco Normativo y Clasificación</h2>
+<p>El proceso se rige bajo los <strong>Requisitos Médicos relativos al Personal Técnico Aeronáutico</strong> y la <strong>Circular Obligatoria CO-DMED-08/22</strong>. Esta normativa clasifica la <strong>Evaluación de Aptitud Psicofísica Integral</strong> en tres clases según la función del personal aeronáutico:</p>
+<ol>
+<li><strong>Clase 1:</strong> Aplicable a <strong>Pilotos Comerciales</strong>. La vigencia del certificado es de <strong>1 año</strong>.</li>
+<li><strong>Clase 2:</strong> Aplicable a <strong>Pilotos Privados</strong>. La vigencia del certificado es de <strong>2 años</strong>.</li>
+<li><strong>Clase 3:</strong> Aplicable a <strong>personal de tierra</strong> como <strong>Oficial de Operaciones</strong>, <strong>mecánicos</strong> y <strong>Sobrecargo de Aviación</strong>. La vigencia del certificado es de <strong>3 años</strong>.</li>
+</ol>
+<p>La renovación debe realizarse antes del vencimiento correspondiente para mantener la vigencia del documento médico aplicable a cada licencia o función técnica.</p>
+<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal de operaciones aeroportuarias realizando inspección de seguridad en plataforma"></p>
+<h2>Requisitos Documentales Obligatorios</h2>
+<p>Para iniciar el proceso de evaluación ante la <strong>AFAC</strong> o un <strong>Tercero Autorizado</strong>, el aspirante debe presentar la siguiente documentación en original y copia legible:</p>
+<ul>
+<li><strong>Identificación Oficial Vigente (INE o Pasaporte):</strong> Es indispensable que los datos coincidan plenamente con el resto de la documentación.</li>
+<li><strong>Clave Única de Registro de Población (CURP):</strong> Formato actualizado y descargado directamente del sistema oficial.</li>
+<li><strong>Acta de Nacimiento:</strong> Documento que acredite la nacionalidad y edad legal del aspirante.</li>
+<li><strong>Comprobante de domicilio:</strong> Con una antigüedad no mayor a tres meses.</li>
+<li><strong>Comprobante de pago de derechos:</strong> El costo varía anualmente conforme a la Ley Federal de Derechos.</li>
+</ul>
+<h2>Protocolo de Laboratorio: Estudios Clínicos Requeridos</h2>
+<p>El examen médico aeronáutico no se limita a una revisión física general; requiere una serie de estudios de laboratorio específicos que deben realizarse en instituciones acreditadas. Los parámetros evaluados son los siguientes:</p>
+<h3>1. Química Sanguínea de 6 Elementos</h3>
+<p>Evalúa niveles de glucosa, urea, creatinina, ácido úrico, colesterol y triglicéridos. Este estudio es fundamental para detectar trastornos metabólicos o enfermedades renales que podrían comprometer la salud del tripulante en altitudes de crucero.</p>
+<h3>2. Hemoglobina Glicosilada (HbA1c)</h3>
+<p>A diferencia de la glucosa capilar, la <strong>HbA1c</strong> proporciona un promedio del control de azúcar en la sangre de los últimos tres meses. Es un requisito estricto para descartar diabetes mellitus no controlada.</p>
+<h3>3. Biometría Hemática (BH)</h3>
+<p>Analiza los componentes de la sangre: glóbulos rojos, blancos y plaquetas. Se utiliza para detectar anemias, infecciones o trastornos de la coagulación que son incompatibles con la vida a bordo.</p>
+<h3>4. Examen General de Orina (EGO)</h3>
+<p>Permite identificar indicadores de infección, daño renal o la presencia de sustancias no permitidas.</p>
+<h3>5. Prueba de VIH</h3>
+<p>Es un requisito estándar dentro de los protocolos de salud aeronáutica para el personal de nuevo ingreso.</p>
+<h3>6. Examen Toxicológico de 5 Reactivos</h3>
+<p>Este estudio rastrea la presencia de sustancias psicotrópicas o estupefacientes (marihuana, cocaína, anfetaminas, metanfetaminas y opiáceos). Un resultado positivo es causa de <strong>No Aptitud</strong> inmediata y permanente según la normativa de <strong>AFAC</strong>.</p>
+<p><img src="https://cdn.marblism.com/c3EerLwvgfn.webp" alt="Documentación oficial y resultados de laboratorio para trámite aeronáutico"></p>
+<h2>Proceso de Cita en Cancún: AFAC y Terceros Autorizados</h2>
+<p>Existen dos vías para realizar este procedimiento en la región de Quintana Roo:</p>
+<h3>Unidades Médicas de la AFAC</h3>
+<p>El proceso tradicional implica generar una cita a través del portal oficial de la <strong>AFAC</strong>. No obstante, debido a la alta demanda, las fechas suelen estar saturadas con meses de antelación.</p>
+<h3>Terceros Autorizados: La Alianza con SkyMedik</h3>
+<p>Para agilizar el proceso de nuestros estudiantes, <strong>ICAAS Aviación</strong> cuenta con convenios exclusivos con aliados estratégicos como <strong>SkyMedik</strong>. Estos son centros médicos privados debidamente autorizados por la autoridad aeronáutica para realizar la <strong>Evaluación de Aptitud Psicofísica Integral</strong> y emitir la constancia de aptitud de manera más expedita.</p>
+<p>Realizar el examen con un tercero autorizado garantiza que los estándares clínicos se cumplan bajo una supervisión médica especializada en aeronáutica, evitando retrasos en el inicio de la formación académica.</p>
+<h2>Recomendaciones Técnicas para el Día del Examen</h2>
+<p>Para asegurar que los resultados de laboratorio no se vean alterados por factores externos, el aspirante debe seguir estrictamente las siguientes instrucciones:</p>
+<ol>
+<li><strong>Ayuno Obligatorio:</strong> Mantener un ayuno total de al menos 10 a 12 horas previas a la toma de muestras. Solo se permite el consumo de agua simple.</li>
+<li><strong>Hidratación:</strong> Es recomendable beber abundante agua simple el día anterior para facilitar la toma de muestras sanguíneas y asegurar una muestra de orina óptima.</li>
+<li><strong>Descanso:</strong> Dormir un mínimo de 8 horas. La fatiga puede alterar los resultados de las pruebas psicométricas y de presión arterial.</li>
+<li><strong>Uso de Lentes:</strong> Si el aspirante utiliza graduación, debe presentarse con sus lentes de armazón (no solo de contacto). La <strong>agudeza visual</strong> será evaluada con y sin corrección.</li>
+<li><strong>Evitar Sustancias:</strong> No consumir medicamentos (a menos que sean bajo prescripción crónica informada), cafeína o alcohol 48 horas antes de la cita.</li>
+</ol>
+<p><img src="https://cdn.marblism.com/o3nTIHaa9yn.webp" alt="Aspirante a sobrecargo realizando pruebas de agudeza visual en clínica especializada"></p>
+<h2>Evaluación Física y Psicológica</h2>
+<p>Una vez entregados los resultados de laboratorio, el médico examinador procederá con:</p>
+<ul>
+<li><strong>Somatometría:</strong> Medición de peso, talla e Índice de Masa Corporal (IMC).</li>
+<li><strong>Audiometría:</strong> Evaluación de la capacidad auditiva en diferentes frecuencias, vital para la comunicación por radio y la seguridad en cabina.</li>
+<li><strong>Electrocardiograma:</strong> Registro de la actividad eléctrica del corazón para descartar arritmias o patologías cardiacas.</li>
+<li><strong>Valoración Psicológica:</strong> Entrevista y pruebas psicométricas que evalúan la estabilidad emocional, capacidad de respuesta ante emergencias y rasgos de personalidad compatibles con el entorno laboral aeronáutico.</li>
+</ul>
+<h2>Conclusión del Proceso</h2>
+<p>Si el aspirante cumple con todos los estándares, la unidad médica emitirá la <strong>Constancia de Aptitud Psicofísica</strong>. Este documento es el que permite al estudiante continuar con su formación en nuestras <a href="https://vuela-icaas.com">instalaciones de vanguardia</a> y, eventualmente, tramitar su licencia ante la <strong>Dirección General de Aeronáutica Civil</strong>.</p>
+<p>Si usted aspira a inscribirse en la <strong>Carrera de Sobrecargo</strong> o de <strong>Oficial de Operaciones</strong> en <strong>ICAAS</strong>, le instamos a iniciar este trámite con antelación. La precisión en la entrega de documentos y el cumplimiento de los requisitos de laboratorio son los pilares que aseguran un ingreso exitoso a la industria aérea profesional.</p>
+<p>Para más información sobre nuestros programas y convenios con centros médicos autorizados, consulte nuestra oferta académica en el sitio oficial de <strong>ICAAS Aviación</strong>.</p>`,
+    imageUrl: 'https://cdn.marblism.com/qNYbHNCRY9g.webp',
+    date: '15 Jun 2026',
+    category: 'Examen Médico'
   }
 ];
