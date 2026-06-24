@@ -1,4 +1,5 @@
 import img1 from '../assets/images/regenerated_image_1780955032601.webp';
+import cancunImg from '../assets/images/cancun_city_view_1782322773336.jpg';
 
 export interface BlogPost {
   id: string;
@@ -249,7 +250,7 @@ export const DEFAULT_BLOGS: BlogPost[] = [
 <li><strong>Uso de Lentes:</strong> Si el aspirante utiliza graduación, debe presentarse con sus lentes de armazón (no solo de contacto). La <strong>agudeza visual</strong> será evaluada con y sin corrección.</li>
 <li><strong>Evitar Sustancias:</strong> No consumir medicamentos (a menos que sean bajo prescripción crónica informada), cafeína o alcohol 48 horas antes de la cita.</li>
 </ol>
-<p><img src="https://cdn.marblism.com/o3nTIHaa9yn.webp" alt="Aspirante a sobrecargo realizando pruebas de agudeza visual en clínica especializada"></p>
+<p><img src="https://cdn.marblism.com/o3nTIHaa9yn.webp" alt="Aspirante a sobrecargo realizando pruebas de agudeza visual en clínica especializada" referrerPolicy="no-referrer"></p>
 <h2>Evaluación Física y Psicológica</h2>
 <p>Una vez entregados los resultados de laboratorio, el médico examinador procederá con:</p>
 <ul>
@@ -265,5 +266,61 @@ export const DEFAULT_BLOGS: BlogPost[] = [
     imageUrl: 'https://cdn.marblism.com/qNYbHNCRY9g.webp',
     date: '15 Jun 2026',
     category: 'Examen Médico'
+  },
+  {
+    id: '3',
+    title: 'Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional',
+    excerpt: 'La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los estándares internacionales de seguridad y servicio. Seleccionar una escuela de aviación en Cancún es una decisión estratégica.',
+    content: `<h1>Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional</h1>
+<p><img src="${cancunImg}" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
+<p>La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los <strong>estándares internacionales de seguridad y servicio</strong>. Seleccionar una <strong>escuela de aviación en Cancún</strong> no es solo una elección geográfica, sino una decisión estratégica fundamentada en la proximidad a uno de los centros de operaciones aéreas más activos de América Latina. <strong>ICAAS Aviación</strong> se posiciona como una institución clave para aquellos que buscan <strong>estudiar aviación en Cancún</strong>, ofreciendo programas diseñados para satisfacer las exigencias de aerolíneas globales y el sector de aviación ejecutiva.</p>
+<h2>Entorno Operativo: Ventajas de la Ubicación en el Caribe Mexicano</h2>
+<p>El Aeropuerto Internacional de Cancún (CUN) registra uno de los mayores volúmenes de tráfico de pasajeros internacionales en el país. Esta densidad operativa proporciona un entorno de aprendizaje real y constante. <strong>Estudiar aviación en Cancún</strong> permite al estudiante familiarizarse con el flujo de trabajo de aerolíneas de diversos continentes, protocolos de seguridad aeroportuaria y la logística de un hub de conexión global.</p>
+<h3>Exposición a la Industria Real</h3>
+<p>La ubicación estratégica de <strong>ICAAS Aviación</strong> facilita que los aspirantes a <strong>Sobrecargo de Aviación</strong> y <strong>Oficial de Operaciones</strong> observen de cerca la dinámica de la aviación comercial y privada. El contacto directo con la operatividad diaria del aeropuerto reduce la curva de aprendizaje al momento de integrarse al mercado laboral, ya que los estudiantes comprenden la infraestructura y los procesos necesarios para el despacho y atención de vuelos internacionales de gran escala.</p>
+<h2>Infraestructura y Tecnología de Entrenamiento en ICAAS</h2>
+<p>La formación técnica requiere de herramientas que repliquen con precisión las condiciones laborales. <strong>ICAAS Aviación</strong> dispone de instalaciones de vanguardia diseñadas para el entrenamiento práctico y teórico de alta exigencia.</p>
+<p><img src="https://cdn.marblism.com/04XY-b2sF_z.jpg" alt="Instructores y alumnos de ICAAS en sesión de entrenamiento en simulador de vuelo avanzado A320" referrerPolicy="no-referrer"></p>
+<h3>Entrenamiento en Simulador A320</h3>
+<p>Uno de los pilares de nuestra oferta académica es la <strong>Introducción al A320</strong> y el uso de <strong>simuladores de vuelo avanzados</strong>. Estos sistemas permiten a los estudiantes de Oficial de Operaciones y aspirantes a tripulantes de cabina experimentar escenarios críticos en un entorno controlado. El uso de tecnología de pantallas envolventes y paneles digitales asegura que el alumno domine los sistemas de navegación y comunicación antes de su primer vuelo real.</p>
+<h3>Aulas Especializadas</h3>
+<p>Las aulas de <strong>ICAAS</strong> están equipadas con tecnología audiovisual y mobiliario ergonómico que optimiza la retención de conocimientos técnicos. Cada espacio está diseñado para facilitar la instrucción de materias como <strong>Aerodinámica</strong>, <strong>Reglamentación Aérea</strong>, <strong>Meteorología</strong> y <strong>Servicios de Emergencia</strong>. La disposición de los espacios promueve la disciplina y el rigor profesional desde el primer día de clases.</p>
+<p><img src="https://cdn.marblism.com/HujHNfVLSvU.webp" alt="Aula moderna de ICAAS equipada con tecnología para la enseñanza de cursos teóricos de aviación" referrerPolicy="no-referrer"></p>
+<h2>Alianzas Estratégicas: Ventajas Competitivas de los Alumnos</h2>
+<p>La formación integral en aviación va más allá de los conocimientos técnicos; requiere certificaciones de salud y competencias lingüísticas específicas. <strong>ICAAS Aviación</strong> mantiene convenios exclusivos que simplifican y potencian la carrera de sus estudiantes.</p>
+<h3>Convenio con SkyMedik: Aptitud Psicofísica</h3>
+<p>Para ejercer cualquier función técnica en aeronáutica, es imperativo obtener y mantener vigente la <strong>Evaluación de Aptitud Psicofísica Integral</strong>. A través de nuestra alianza con <strong>SkyMedik</strong>, los alumnos acceden a procesos de evaluación médica ágiles y certificados, asegurando que cumplen con los requisitos de salud estipulados por la <strong>Agencia Federal de Aviación Civil (AFAC)</strong>.</p>
+<h3>Convenio con Inglés Individual: Competencia Lingüística</h3>
+<p>El idioma inglés es el estándar universal en la aviación. La colaboración con <strong>Inglés Individual</strong> garantiza que el estudiante desarrolle el nivel de dominio necesario para aprobar los exámenes de competencia lingüística (RTARI) y comunicarse eficientemente en entornos internacionales. Esta formación es fundamental para los interesados en la <strong>Carrera de Sobrecargo de Aviación</strong> y el sector de <strong>Sobrecargo Ejecutivo</strong> (aviación de lujo).</p>
+<h2>Programas Académicos Especializados</h2>
+<p>ICAAS ofrece un catálogo de programas enfocados en la empleabilidad inmediata y la especialización en sectores de alto valor.</p>
+<ol>
+<li><strong>Carrera de Sobrecargo de Aviación</strong>: Formación técnica en seguridad, servicio a bordo y atención de emergencias bajo estándares de aerolíneas comerciales.</li>
+<li><strong>Carrera de Oficial de Operaciones</strong>: Instrucción en despacho de vuelos, cálculo de combustible, peso y balance, y gestión de planes de vuelo.</li>
+<li><strong>Sobrecargo Ejecutivo</strong>: Especialización para el sector de aviación privada de lujo, enfocada en atención VIP y protocolos de alta gama.</li>
+<li><strong>Cursos de Seguridad y Gestión</strong>: Entrenamiento avanzado en <strong>CRM</strong> (Crew Resource Management), <strong>CFIT</strong> (Controlled Flight Into Terrain) y <strong>ALAR</strong> (Approach and Landing Accident Reduction).</li>
+</ol>
+<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Oficial de operaciones realizando inspección técnica en plataforma bajo los estándares de seguridad de ICAAS" referrerPolicy="no-referrer"></p>
+<h2>Estándares Globales y Proyección Profesional</h2>
+<p>La metodología de enseñanza en nuestra <strong>escuela de aviación en Cancún</strong> se basa en manuales y procedimientos de aerolíneas de clase mundial. Este enfoque asegura que el egresado no solo cumpla con los requisitos mínimos legales, sino que posea las competencias necesarias para destacar en procesos de selección competitivos.</p>
+<h3>Vocación de Servicio y Disciplina</h3>
+<p>El perfil de ingreso en <strong>ICAAS Aviación</strong> se centra en jóvenes con una sólida vocación de servicio. La industria aérea premia la resiliencia, la disciplina y la capacidad de resolver problemas bajo presión. Estudiar en un entorno que exige puntualidad estricta y uso correcto del uniforme prepara al estudiante para la cultura organizacional de las grandes compañías aéreas.</p>
+<h3>Desarrollo de Carrera en la Aviación Privada</h3>
+<p>Cancún es uno de los destinos con mayor tráfico de jets privados en México. Esto abre un mercado laboral exclusivo para los egresados de la especialidad en <strong>Aviación Ejecutiva</strong>. Los altos estándares de servicio y discreción enseñados en nuestros programas permiten a los egresados acceder a puestos con remuneraciones superiores a la media del sector comercial.</p>
+<h2>Requisitos para Iniciar la Formación</h2>
+<p>Para integrarse a la industria a través de <strong>ICAAS Aviación</strong>, los aspirantes deben cumplir con los siguientes criterios básicos:</p>
+<ul>
+<li><strong>Edad</strong>: Ser mayor de 18 años (o estar próximo a cumplirlos).</li>
+<li><strong>Educación</strong>: Certificado de bachillerato concluido.</li>
+<li><strong>Nacionalidad</strong>: Mexicana por nacimiento (según requerimientos de la AFAC para licencias técnicas).</li>
+<li><strong>Salud</strong>: Capacidad para obtener el Examen Médico de Aptitud Psicofísica Clase II o III según corresponda.</li>
+</ul>
+<h2>Conclusión: El Primer Paso hacia la Profesionalización</h2>
+<p>Elegir dónde formarse es el factor determinante para el éxito en el sector aeronáutico. La combinación de una ubicación privilegiada, instructores con experiencia real en la industria, tecnología de simulación de última generación y alianzas estratégicas convierte a <strong>ICAAS Aviación</strong> en la opción líder para quienes desean <strong>estudiar aviación en Cancún</strong>.</p>
+<p>La industria aérea mexicana se encuentra en una fase de expansión sostenida. Formarse bajo estándares globales en un centro neurálgico como Cancún garantiza que el egresado esté preparado para los retos técnicos y operativos de 2026 y los años venideros.</p>
+<p>Para obtener más información sobre el proceso de inscripción, planes de estudio y costos, visite el sitio oficial de <a href="https://vuela-icaas.com">ICAAS Aviación</a> y comience su proceso de admisión hoy mismo.</p>`,
+    imageUrl: cancunImg,
+    date: '24 Jun 2026',
+    category: 'Carrera'
   }
 ];

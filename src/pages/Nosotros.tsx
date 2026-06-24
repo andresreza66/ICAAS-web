@@ -131,7 +131,7 @@ export default function Nosotros({ id }: { id: string }) {
               Nuestra <span className="text-primary italic">Historia & Excelencia.</span>
             </h1>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
-              Ubicada en la ciudad de Cancún, donde se encuentra unos de los principales aeropuertos internacionales del país, ICAAS nace como response a la creciente demanda de adiestramiento aeronáutico especializado que cumplan los estandares internacionales de seguridad y capacidad. Guiados por instructores con experience basta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
+              Ubicada en la ciudad de Cancún, donde se encuentra uno de los principales aeropuertos internacionales del país, ICAAS nace como respuesta a la creciente demanda de adiestramiento aeronáutico especializado que cumpla con los estándares internacionales de seguridad y capacidad. Guiados por instructores con experiencia vasta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
             </p>
           </div>
 
