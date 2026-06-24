@@ -12,6 +12,10 @@ export default function FloatingButtons() {
   // Hide on contact page
   const isContactPage = pathname === '/contacto' || pathname.startsWith('/contacto');
 
+  // Check if a blog post is open
+  const searchParams = new URLSearchParams(location.search);
+  const isBlogOpen = pathname.startsWith('/blog') && !!searchParams.get('id');
+
   useEffect(() => {
     if (isContactPage) {
       setIsVisible(false);
@@ -69,7 +73,7 @@ export default function FloatingButtons() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 15 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="fixed bottom-5 right-5 z-[100] flex flex-row md:flex-col gap-2.5 select-none items-center"
+          className={`fixed bottom-5 right-5 z-[100] ${isBlogOpen ? 'hidden md:flex' : 'flex'} flex-row md:flex-col gap-2.5 select-none items-center`}
         >
           {/* Facebook Button */}
           <a 

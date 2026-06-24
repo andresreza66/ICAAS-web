@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Calendar, X, Tag } from 'lucide-react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
@@ -12,8 +13,14 @@ interface BlogProps {
 
 export default function Blog({ id = "page-blog", isStandalone = true }: BlogProps) {
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
+  const [mounted, setMounted] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     if (isStandalone) {
@@ -30,6 +37,17 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
       }
     }
   }, [isStandalone, searchParams]);
+
+  useEffect(() => {
+    if (selectedBlog) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedBlog]);
 
   const blogSEO = {
     title: selectedBlog 
@@ -106,33 +124,36 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
         </div>
 
         {/* Read Blog Detail Modal */}
-        <AnimatePresence>
-          {selectedBlog && (
-            <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={handleClose}>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                onClick={e => e.stopPropagation()}
-                className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col pt-12 sm:pt-16"
-              >
-                <button onClick={handleClose} className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors z-10">
-                  <X size={24} />
-                </button>
-                
-                <div className="p-6 sm:p-12 sm:pt-6 overflow-y-auto flex-grow">
-                  <div className="flex items-center gap-4 mb-8">
-                     <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">{selectedBlog.category}</span>
-                     <span className="flex items-center gap-1.5 text-gray-400 text-[10px] font-bold uppercase tracking-wider"><Calendar size={12} /> {selectedBlog.date}</span>
+        {mounted && createPortal(
+          <AnimatePresence>
+            {selectedBlog && (
+              <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={handleClose}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  onClick={e => e.stopPropagation()}
+                  className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col pt-12 sm:pt-16"
+                >
+                  <button onClick={handleClose} className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors z-10">
+                    <X size={24} />
+                  </button>
+                  
+                  <div className="p-6 sm:p-12 sm:pt-6 overflow-y-auto flex-grow">
+                    <div className="flex items-center gap-4 mb-8">
+                       <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">{selectedBlog.category}</span>
+                       <span className="flex items-center gap-1.5 text-gray-400 text-[10px] font-bold uppercase tracking-wider"><Calendar size={12} /> {selectedBlog.date}</span>
+                    </div>
+                    <div className="prose prose-sm sm:prose-base max-w-none text-gray-600 leading-relaxed space-y-4">
+                       <div dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
+                    </div>
                   </div>
-                  <div className="prose prose-sm sm:prose-base max-w-none text-gray-600 leading-relaxed space-y-4">
-                     <div dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
 
         {/* Blog Grid */}
         {DEFAULT_BLOGS.length === 0 ? (
