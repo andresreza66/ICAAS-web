@@ -386,5 +386,70 @@ export const DEFAULT_BLOGS: BlogPost[] = [
     imageUrl: 'https://cdn.marblism.com/hSWRMnLUlBr.JPG',
     date: '03 Jul 2026',
     category: 'Idiomas'
+  },
+  {
+    id: '5',
+    title: 'Primeros Auxilios, Ditching y Servicio: Las 3 Prácticas de Sobrecargo que Cambiarán tu Carrera',
+    excerpt: 'La formación de un Sobrecargo de Aviación se fundamenta en la adquisición de competencias técnicas diseñadas para garantizar la seguridad del vuelo y la integridad de los pasajeros. Conoce las tres prácticas clave.',
+    content: `<h1>Primeros Auxilios, Ditching y Servicio: Las 3 Prácticas de Sobrecargo que Cambiarán tu Carrera</h1>
+<p><img src="https://cdn.marblism.com/4W0fwpAovC9.webp" alt="Estudiante de sobrecargo en cabina de entrenamiento moderna con acentos en rojo"></p>
+<p>La formación de un <strong>Sobrecargo de Aviación</strong> se fundamenta en la adquisición de competencias técnicas diseñadas para garantizar la seguridad del vuelo y la integridad de los pasajeros. En <a href="https://vuela-icaas.com">ICAAS Aviación</a>, el programa de capacitación integra tres ejes prácticos obligatorios según los estándares de la <strong>Agencia Federal de Aviación Civil (AFAC)</strong>: Primeros Auxilios, Servicio a Bordo y Procedimientos de Emergencia (Ditching).</p>
+<p>El dominio de estas disciplinas no solo es un requisito legal para la obtención y revalidación de la licencia, sino que constituye la base operativa de la profesión en escenarios de alta exigencia. A continuación, se detallan los componentes técnicos y los objetivos de aprendizaje de cada fase de entrenamiento.</p>
+<hr>
+<h2>1. Prácticas de Primeros Auxilios y Medicina Aeronáutica</h2>
+<p>La función principal de la tripulación de cabina en situaciones médicas es proporcionar <strong>asistencia vital inmediata</strong> hasta que el pasajero pueda ser atendido por profesionales de la salud en tierra. El entrenamiento en <a href="https://vuela-icaas.com/sobrecargo">ICAAS Aviación</a> capacita al alumno para identificar síntomas críticos y ejecutar protocolos de intervención bajo presión.</p>
+<h3>Componentes Técnicos del Módulo:</h3>
+<ul>
+<li><strong>RCP (Reanimación Cardio-Pulmonar):</strong> Ejecución técnica de compresiones torácicas y ventilaciones en adultos, niños y lactantes. El entrenamiento incluye el uso del <strong>Desfibrilador Externo Automático (DEA)</strong>.  </li>
+<li><strong>Maniobra de Heimlich:</strong> Procedimientos para la desobstrucción de vías aéreas en pasajeros conscientes e inconscientes.  </li>
+<li><strong>Manejo de Equipos Médicos:</strong> Operación del <strong>First Aid Kit (FAK)</strong> y el <strong>Emergency Medical Kit (EMK)</strong>, identificando suministros como analgésicos, antihistamínicos, equipos de venoclisis y esfigmomanómetros.  </li>
+<li><strong>Administración de Oxígeno:</strong> Uso de botellas de oxígeno portátil y máscaras suplementarias para pasajeros con insuficiencia respiratoria o hipoxia.  </li>
+<li><strong>Protocolos de Emergencia Médica:</strong> Gestión de eventos comunes como síncopes, crisis epilépticas, shock anafiláctico, hipoglucemia y quemaduras.</li>
+</ul>
+<p><img src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor de ICAAS Aviación guiando a estudiante en procedimientos técnicos"></p>
+<p>La práctica se realiza en un entorno que simula las restricciones de espacio de una aeronave, obligando al estudiante a aplicar la lógica de <strong>triaje y comunicación clara</strong> con el resto de la tripulación y la cabina de mando.</p>
+<hr>
+<h2>2. Servicios a Bordo: Gestión de Operaciones en Cabina</h2>
+<p>El servicio a bordo en la aviación moderna no se limita a la hospitalidad; es un proceso logístico estructurado que debe ejecutarse sin comprometer la seguridad operacional. Esta práctica se enfoca en la <strong>eficiencia procedimental</strong> y el cumplimiento de estándares de aerolíneas de alta gama.</p>
+<h3>Áreas de Capacitación Operativa:</h3>
+<ul>
+<li><strong>Configuración del Galley:</strong> Organización y aseguramiento de compartimentos de almacenamiento, manejo de sistemas de cierre y operación de hornos y cafeteras.  </li>
+<li><strong>Gestión de Alimentos y Bebidas:</strong> Protocolos de higiene, manejo de líquidos calientes y distribución optimizada mediante el uso de <em>trolleys</em>.  </li>
+<li><strong>Atención a Pasajeros VIP y Necesidades Especiales:</strong> Protocolos específicos para la atención de menores sin acompañante, personas con movilidad reducida (PMR) y pasajeros en aviación ejecutiva.  </li>
+<li><strong>Briefings de Seguridad:</strong> Ejecución de demostraciones de seguridad (cinturones, chalecos, mascarillas) con precisión técnica y comunicación asertiva.</li>
+</ul>
+<p><img src="https://cdn.marblism.com/s9IhNvaK4w6.JPG" alt="Simulador de cabina real para entrenamiento de servicio a bordo en ICAAS Aviación"></p>
+<p>En <a href="https://vuela-icaas.com/sobrecargo">ICAAS Aviación</a>, los alumnos utilizan un <strong>módulo de galley real</strong>, lo que permite familiarizarse con el peso, las dimensiones y los mecanismos de seguridad de los equipos antes de su ingreso al sector laboral.</p>
+<hr>
+<h2>3. Procedimientos de Emergencia y Ditching (Amerizaje)</h2>
+<p>El <strong>ditching</strong> es el procedimiento de evacuación de una aeronave sobre una superficie acuática. Dada la ubicación estratégica de nuestra escuela en el Caribe Mexicano, esta práctica adquiere una relevancia crítica debido a las rutas de vuelo predominantemente sobre el mar.</p>
+<h3>Objetivos de la Práctica de Ditching:</h3>
+<ul>
+<li><strong>Evacuación de Emergencia:</strong> Aplicación de <strong>comandos de voz</strong> para dirigir a los pasajeros hacia las salidas de emergencia de manera ordenada y rápida.  </li>
+<li><strong>Uso de Equipos de Supervivencia:</strong> Correcta colocación y activación de chalecos salvavidas, despliegue de balsas y uso de kits de supervivencia marítima.  </li>
+<li><strong>Técnicas de Supervivencia en Agua:</strong> Formaciones de grupo para conservar el calor corporal, rescate de pasajeros heridos y protocolos de señalización para búsqueda y rescate (SAR).  </li>
+<li><strong>Apertura de Salidas de Emergencia:</strong> Operación manual de puertas y ventanillas de emergencia en condiciones simuladas de estrés.</li>
+</ul>
+<p><img src="https://cdn.marblism.com/5aSkrbKAjK-.webp" alt="Simulación de práctica de ditching en entorno acuático controlado"></p>
+<p>Si sucede una evacuación acuática, el sobrecargo debe ser capaz de <strong>tomar el mando absoluto de su sección</strong> y garantizar que todos los pasajeros abandonen la aeronave en el tiempo reglamentario.</p>
+<hr>
+<h2>El Valor Diferencial de Entrenar en ICAAS Aviación (Cancún)</h2>
+<p>La formación en aviación exige un equilibrio entre la teoría académica y la simulación técnica avanzada. ICAAS Aviación se distingue por ofrecer infraestructuras que replican fielmente el entorno laboral de las principales aerolíneas globales.</p>
+<h3>Instalaciones de Vanguardia:</h3>
+<ol>
+<li><strong>Ubicación Estratégica:</strong> Estar en Cancún permite realizar las prácticas de ditching en escenarios realistas que reflejan las condiciones geográficas de la región.  </li>
+<li><strong>Convenios Exclusivos:</strong> Alianzas con entidades como <strong>SkyMedik</strong> e <strong>Inglés Individual</strong> refuerzan la formación en medicina y bilingüismo, competencias esenciales para el perfil de sobrecargo ejecutivo.</li>
+</ol>
+<p><img src="https://cdn.marblism.com/EHvrUDq7qIs.jpg" alt="Entrenamiento en simulador A320 en las instalaciones de ICAAS Aviación"></p>
+<h3>Instrucciones para Iniciar tu Carrera:</h3>
+<ol>
+<li><strong>Verifica los Requisitos:</strong> Asegúrate de cumplir con los criterios de edad, escolaridad y estado de salud exigidos por la AFAC.  </li>
+<li><strong>Consulta las Fechas de Inicio:</strong> Los programas de <a href="https://vuela-icaas.com/sobrecargo">Carrera de Sobrecargo</a> tienen aperturas programadas a lo largo del año.  </li>
+<li><strong>Agenda una Visita:</strong> Conoce nuestras instalaciones en Cancún para observar de cerca el equipamiento técnico y los simuladores.</li>
+</ol>
+<p>Para obtener más información detallada sobre costos, duración y procesos de inscripción, contacta directamente con nuestro equipo de admisiones a través de nuestra sección de <a href="https://vuela-icaas.com/contacto">Contacto</a>.</p>`,
+    imageUrl: 'https://cdn.marblism.com/4W0fwpAovC9.webp',
+    date: '03 Jul 2026',
+    category: 'Sobrecargo'
   }
 ];
