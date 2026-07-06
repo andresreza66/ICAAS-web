@@ -11,7 +11,7 @@ export interface BlogPost {
   category: string;
 }
 
-export const DEFAULT_BLOGS: BlogPost[] = [
+const ALL_BLOGS: BlogPost[] = [
   {
     id: '0',
     title: 'Guía definitiva para ser sobrecargo en México: Todo lo que necesitas para tener éxito',
@@ -449,7 +449,26 @@ export const DEFAULT_BLOGS: BlogPost[] = [
 </ol>
 <p>Para obtener más información detallada sobre costos, duración y procesos de inscripción, contacta directamente con nuestro equipo de admisiones a través de nuestra sección de <a href="https://vuela-icaas.com/contacto">Contacto</a>.</p>`,
     imageUrl: 'https://cdn.marblism.com/4W0fwpAovC9.webp',
-    date: '03 Jul 2026',
+    date: '06 Jul 2026',
     category: 'Sobrecargo'
   }
 ];
+
+const months: Record<string, number> = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+};
+
+const parseBlogDate = (dateStr: string): number => {
+  const parts = dateStr.split(' ');
+  if (parts.length === 3) {
+    const day = parseInt(parts[0], 10);
+    const month = months[parts[1]] !== undefined ? months[parts[1]] : 0;
+    const year = parseInt(parts[2], 10);
+    return new Date(year, month, day).getTime();
+  }
+  return 0;
+};
+
+export const DEFAULT_BLOGS: BlogPost[] = [...ALL_BLOGS].sort((a, b) => parseBlogDate(b.date) - parseBlogDate(a.date));
+
