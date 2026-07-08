@@ -536,7 +536,7 @@ const ALL_BLOGS: BlogPost[] = [
 </ul>
 <p><img src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor uniformado en aula moderna de ICAAS Aviación impartiendo clase introductoria"></p>`,
     imageUrl: 'https://cdn.marblism.com/GuO_DPs1JcM.png',
-    date: '08 Jul 2026',
+    date: '07 Jul 2026',
     category: 'Aviación'
   }
 ];
