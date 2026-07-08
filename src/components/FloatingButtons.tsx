@@ -14,7 +14,7 @@ export default function FloatingButtons() {
 
   // Check if a blog post is open
   const searchParams = new URLSearchParams(location.search);
-  const isBlogOpen = pathname.startsWith('/blog') && !!searchParams.get('id');
+  const isBlogOpen = (pathname.startsWith('/blog/') && pathname.length > 6) || (pathname.startsWith('/blog') && !!searchParams.get('id'));
 
   useEffect(() => {
     if (isContactPage) {

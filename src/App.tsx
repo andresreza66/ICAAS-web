@@ -68,6 +68,7 @@ export default function App() {
               <Route path="/nosotros" element={<Nosotros id="page-nosotros" />} />
               <Route path="/contacto" element={<Contacto id="page-contacto" />} />
               <Route path="/blog" element={<Blog id="page-blog" isStandalone={true} />} />
+              <Route path="/blog/:slug" element={<Blog id="page-blog-post" isStandalone={true} />} />
               <Route path="*" element={<Home id="page-home" />} />
             </Routes>
           </Suspense>

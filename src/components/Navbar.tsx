@@ -111,7 +111,7 @@ export default function Navbar({ id }: { id: string }) {
     { name: 'Blog', id: 'blog', path: '/blog' },
   ];
 
-  const isBlogOpen = currentPath.startsWith('/blog') && new URLSearchParams(location.search).has('id');
+  const isBlogOpen = currentPath.startsWith('/blog/') && currentPath.length > 6 || currentPath.startsWith('/blog') && new URLSearchParams(location.search).has('id');
 
   return (
     <>

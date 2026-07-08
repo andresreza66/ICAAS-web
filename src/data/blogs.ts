@@ -3,6 +3,7 @@ import cancunImg from '../assets/images/cancun_city_view_1782322773336.jpg';
 
 export interface BlogPost {
   id: string;
+  slug: string;
   title: string;
   excerpt: string;
   content: string;
@@ -14,6 +15,7 @@ export interface BlogPost {
 const ALL_BLOGS: BlogPost[] = [
   {
     id: '0',
+    slug: 'guia-definitiva-para-ser-sobrecargo-en-mexico',
     title: 'Guía definitiva para ser sobrecargo en México: Todo lo que necesitas para tener éxito',
     excerpt: 'El sector aeronáutico en México exige perfiles técnicos altamente capacitados para garantizar la seguridad y eficiencia de las operaciones de vuelo. Conoce todo sobre la carrera de sobrecargo de aviación.',
     content: `<h1>Guía definitiva para ser sobrecargo en México: Todo lo que necesitas para tener éxito</h1>
@@ -122,6 +124,7 @@ const ALL_BLOGS: BlogPost[] = [
   },
   {
     id: '1',
+    slug: 'oficial-de-operaciones-aeronauticas-la-mente-maestra',
     title: 'Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo',
     excerpt: 'La seguridad y eficiencia de un vuelo no dependen exclusivamente de la tripulación en cabina. Conoce el papel del Oficial de Operaciones Aeronáuticas (despachador de vuelo).',
     content: `<h1>Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo</h1>
@@ -195,6 +198,7 @@ const ALL_BLOGS: BlogPost[] = [
   },
   {
     id: '2',
+    slug: 'guia-definitiva-del-examen-medico-aeronautico',
     title: 'Guía definitiva del examen médico aeronáutico: Todo lo que necesitas para aprobar',
     excerpt: 'El examen médico aeronáutico, oficialmente denominado Evaluación de Aptitud Psicofísica Integral, constituye el primer y más estricto filtro para cualquier aspirante que desee ingresar a la industria aérea.',
     content: `<h1>Guía definitiva del examen médico aeronáutico: Todo lo que necesitas para aprobar</h1>
@@ -269,6 +273,7 @@ const ALL_BLOGS: BlogPost[] = [
   },
   {
     id: '3',
+    slug: 'por-que-estudiar-en-una-escuela-de-aviacion-en-cancun',
     title: 'Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional',
     excerpt: 'La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los estándares internacionales de seguridad y servicio. Seleccionar una escuela de aviación en Cancún es una decisión estratégica.',
     content: `<h1>Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional</h1>
@@ -323,6 +328,7 @@ const ALL_BLOGS: BlogPost[] = [
   },
   {
     id: '4',
+    slug: 'por-que-el-ingles-es-tu-pasaporte-al-exito',
     title: 'Por qué el inglés es tu pasaporte al éxito como sobrecargo u oficial de operaciones',
     excerpt: 'En la industria aeronáutica moderna, el dominio del idioma inglés ha dejado de ser un valor agregado para convertirse en un estándar operativo obligatorio. Descubre el impacto de la competencia lingüística.',
     content: `<h1>Por qué el inglés es tu pasaporte al éxito como sobrecargo u oficial de operaciones</h1>
@@ -389,6 +395,7 @@ const ALL_BLOGS: BlogPost[] = [
   },
   {
     id: '5',
+    slug: 'primeros-auxilios-ditching-y-servicio',
     title: 'Primeros Auxilios, Ditching y Servicio: Las 3 Prácticas de Sobrecargo que Cambiarán tu Carrera',
     excerpt: 'La formación de un Sobrecargo de Aviación se fundamenta en la adquisición de competencias técnicas diseñadas para garantizar la seguridad del vuelo y la integridad de los pasajeros. Conoce las tres prácticas clave.',
     content: `<h1>Primeros Auxilios, Ditching y Servicio: Las 3 Prácticas de Sobrecargo que Cambiarán tu Carrera</h1>
@@ -454,6 +461,7 @@ const ALL_BLOGS: BlogPost[] = [
   },
   {
     id: '6',
+    slug: '48-nuevas-rutas-aereas-en-mexico-oportunidades-laborales',
     title: '48 Nuevas Rutas Aéreas en México: Oportunidades Laborales para tu Carrera en Aviación',
     excerpt: 'La industria aeronáutica en México registra una expansión sin precedentes al cierre del primer semestre de 2026, abriendo oportunidades laborales.',
     content: `<h1>48 Nuevas Rutas Aéreas en México: Oportunidades Laborales para tu Carrera en Aviación</h1>

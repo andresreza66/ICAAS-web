@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Calendar, X, Tag } from 'lucide-react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams, useParams } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { BlogPost, DEFAULT_BLOGS } from '../data/blogs';
 
@@ -15,6 +15,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
   const [mounted, setMounted] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,18 +26,22 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
   useEffect(() => {
     if (isStandalone) {
       const blogId = searchParams.get('id');
-      if (blogId) {
-        const blog = DEFAULT_BLOGS.find(b => b.id === blogId);
-        if (blog) {
-          setSelectedBlog(blog);
-        } else {
-          setSelectedBlog(null);
-        }
+      
+      let blog: BlogPost | undefined;
+      
+      if (slug) {
+        blog = DEFAULT_BLOGS.find(b => b.slug === slug);
+      } else if (blogId) {
+        blog = DEFAULT_BLOGS.find(b => b.id === blogId);
+      }
+
+      if (blog) {
+        setSelectedBlog(blog);
       } else {
         setSelectedBlog(null);
       }
     }
-  }, [isStandalone, searchParams]);
+  }, [isStandalone, searchParams, slug]);
 
   useEffect(() => {
     if (selectedBlog) {
@@ -57,7 +62,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
       ? selectedBlog.excerpt 
       : "Lee artículos, noticias y guías de aviación con temática para Sobrecargos (Asistentes de Vuelo), Oficiales de Operación de Aeronaves y aspirantes de aviación en Cancún.",
     path: selectedBlog 
-      ? `/blog?id=${selectedBlog.id}` 
+      ? `/blog/${selectedBlog.slug}` 
       : "/blog",
     structuredData: selectedBlog 
       ? {
@@ -93,8 +98,12 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
 
   const handleClose = () => {
     setSelectedBlog(null);
-    if (isStandalone && searchParams.has('id')) {
-      setSearchParams({}, { replace: true });
+    if (isStandalone) {
+      if (searchParams.has('id')) {
+        setSearchParams({}, { replace: true });
+      } else if (slug) {
+        navigate('/blog');
+      }
     }
   };
 
@@ -170,9 +179,9 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                 className="bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col relative group cursor-pointer text-secondary h-full"
                 onClick={() => {
                   if (isStandalone) {
-                    setSearchParams({ id: blog.id });
+                    navigate(`/blog/${blog.slug}`);
                   } else {
-                    navigate(`/blog?id=${blog.id}`);
+                    navigate(`/blog/${blog.slug}`);
                   }
                 }}
               >
