@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 interface SEOProps {
   title: string;
   description: string;
+  keywords?: string;
   path?: string;
   ogType?: string;
   ogImage?: string;
@@ -12,6 +13,7 @@ interface SEOProps {
 export function useSEO({
   title,
   description,
+  keywords,
   path = '',
   ogType = 'website',
   ogImage = '/logo.png',
@@ -29,6 +31,17 @@ export function useSEO({
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', description);
+
+    // 2.5 Meta Keywords
+    if (keywords) {
+      let metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.setAttribute('name', 'keywords');
+        document.head.appendChild(metaKeywords);
+      }
+      metaKeywords.setAttribute('content', keywords);
+    }
 
     // 3. Open Graph Title
     let ogTitle = document.querySelector('meta[property="og:title"]');

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Calendar, X, Tag } from 'lucide-react';
+import { ArrowRight, Calendar, X, Tag, Link as LinkIcon, Check, Share2 } from 'lucide-react';
 import { Link, useNavigate, useSearchParams, useParams } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { BlogPost, DEFAULT_BLOGS } from '../data/blogs';
@@ -10,6 +10,56 @@ interface BlogProps {
   id?: string;
   isStandalone?: boolean;
 }
+
+const ShareButtons = ({ blog, isSmall = false }: { blog: BlogPost, isSmall?: boolean }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(`${window.location.origin}/blog/${blog.slug}`);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const shareNativeOrCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const url = `${window.location.origin}/blog/${blog.slug}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: blog.title,
+          text: blog.excerpt,
+          url: url
+        });
+      } catch (err) {
+        console.log('Share canceled', err);
+      }
+    } else {
+      handleCopyLink(e);
+    }
+  };
+
+  return (
+    <div className={`flex flex-wrap items-center ${isSmall ? 'gap-2' : 'gap-3'}`}>
+      <button 
+        onClick={shareNativeOrCopy}
+        className={`px-4 ${isSmall ? 'h-8 text-[12px]' : 'h-10 text-sm'} rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors gap-2 font-medium border border-gray-200`}
+        title="Compartir"
+      >
+        <Share2 size={isSmall ? 14 : 16} />
+        Compartir
+      </button>
+      <button 
+        onClick={handleCopyLink}
+        className={`px-4 ${isSmall ? 'h-8 text-[12px]' : 'h-10 text-sm'} rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors ml-auto sm:ml-4 gap-2 font-medium border border-gray-200`}
+        title="Copiar enlace"
+      >
+        {copied ? <Check size={isSmall ? 14 : 16} className="text-green-500" /> : <LinkIcon size={isSmall ? 14 : 16} />}
+        {copied ? 'Copiado' : 'Copiar enlace'}
+      </button>
+    </div>
+  );
+};
 
 export default function Blog({ id = "page-blog", isStandalone = true }: BlogProps) {
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
@@ -56,11 +106,12 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
 
   const blogSEO = {
     title: selectedBlog 
-      ? `${selectedBlog.title} | Blog ICAAS Aviación` 
+      ? `${selectedBlog.seoTitle || selectedBlog.title} | Blog ICAAS Aviación` 
       : "Blog de Aviación y Consejos del Sector Aéreo | ICAAS",
     description: selectedBlog 
       ? selectedBlog.excerpt 
       : "Lee artículos, noticias y guías de aviación con temática para Sobrecargos (Asistentes de Vuelo), Oficiales de Operación de Aeronaves y aspirantes de aviación en Cancún.",
+    keywords: selectedBlog?.keywords,
     path: selectedBlog 
       ? `/blog/${selectedBlog.slug}` 
       : "/blog",
@@ -156,6 +207,14 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                     <div className="prose prose-sm sm:prose-base max-w-none text-gray-600 leading-relaxed space-y-4">
                        <div dangerouslySetInnerHTML={{ __html: selectedBlog.content }} />
                     </div>
+
+                    {/* Share Section */}
+                    <div className="mt-12 pt-8 border-t border-gray-100">
+                      <h4 className="text-sm font-bold text-secondary mb-4 uppercase tracking-widest flex items-center gap-2">
+                        <Share2 size={16} /> Compartir artículo
+                      </h4>
+                      <ShareButtons blog={selectedBlog} />
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -206,9 +265,12 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                   </p>
                   
                   <div className="mt-auto">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#EE3E3A] flex items-center gap-2 group-hover:gap-3 transition-all">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#EE3E3A] flex items-center gap-2 group-hover:gap-3 transition-all mb-4">
                       Leer artículo <ArrowRight size={12} />
                     </span>
+                    <div className="border-t border-gray-100 pt-4 mt-4" onClick={(e) => e.stopPropagation()}>
+                      <ShareButtons blog={blog} isSmall={true} />
+                    </div>
                   </div>
                 </div>
               </motion.div>

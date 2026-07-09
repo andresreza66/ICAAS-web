@@ -28,7 +28,7 @@ import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
 import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
 import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
 import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
-import fac7Img from '../assets/images/regenerated_image_1777586277135_opt.png';
+import fac7Img from '../assets/images/regenerated_image_1783520144201.jpg';
 
 export default function Home({ id }: { id: string }) {
   const navigate = useNavigate();
@@ -384,13 +384,55 @@ export default function Home({ id }: { id: string }) {
   const [openFAQIndex, setOpenFAQIndex] = React.useState<number | null>(null);
 
   const facilitiesImages = [
-    { src: fac1Img, alt: "Entrenamiento en simulador de vuelo ICAAS Cancún" },
-    { src: fac2Img, alt: "Aulas de teoría y clases de aviación en ICAAS Cancún" },
-    { src: fac3Img, alt: "Estudiantes de aviación comercial en la escuela ICAAS Cancún" },
-    { src: fac4Img, alt: "Biblioteca técnica y material de estudio de pilotos y sobrecargos en ICAAS" },
-    { src: fac5Img, alt: "Prácticas de seguridad de vuelo y mantenimiento técnico general en ICAAS" },
-    { src: fac6Img, alt: "Instalaciones del centro de adiestramiento de aviación ICAAS Cancún" },
-    { src: fac7Img, alt: "Sistemas avanzados de instrucción práctica en la escuela de aviación ICAAS" },
+    { 
+      src: fac1Img, 
+      alt: "Simulador de vuelo profesional en ICAAS Cancún", 
+      title: "Simulador de vuelo - ICAAS Escuela de Aviación",
+      name: "Simulador de Vuelo Profesional",
+      description: "Estudiantes de aviación de ICAAS Cancún realizando entrenamiento práctico en simulador de vuelo certificado de última tecnología."
+    },
+    { 
+      src: fac2Img, 
+      alt: "Aulas modernas para clases teóricas de aviación en Cancún", 
+      title: "Aulas de teoría - ICAAS Escuela de Aviación",
+      name: "Aulas de Teoría Aeronáutica",
+      description: "Salones de clases modernos y equipados para la enseñanza teórica de pilotos, sobrecargos y oficiales de operaciones en Cancún."
+    },
+    { 
+      src: fac3Img, 
+      alt: "Estudiantes de aviación interactuando en las instalaciones de ICAAS Cancún", 
+      title: "Comunidad estudiantil - ICAAS Escuela de Aviación",
+      name: "Estudiantes de Aviación Comercial",
+      description: "Comunidad académica de ICAAS interactuando y compartiendo experiencias en el campus de Cancún."
+    },
+    { 
+      src: fac4Img, 
+      alt: "Biblioteca técnica con material de estudio para pilotos y sobrecargos", 
+      title: "Biblioteca técnica - ICAAS Escuela de Aviación",
+      name: "Biblioteca Técnica de Aviación",
+      description: "Colección completa de manuales de vuelo, reglamentación aérea y material de estudio técnico para la formación aeronáutica."
+    },
+    { 
+      src: fac5Img, 
+      alt: "Prácticas de seguridad de vuelo y equipo de emergencia", 
+      title: "Talleres prácticos - ICAAS Escuela de Aviación",
+      name: "Taller de Prácticas de Seguridad",
+      description: "Entrenamiento práctico con equipos de seguridad de cabina, toboganes de evacuación y simulacros de emergencia de sobrecargo."
+    },
+    { 
+      src: fac6Img, 
+      alt: "Instalaciones principales del centro de adiestramiento aeronáutico ICAAS Cancún", 
+      title: "Campus Cancún - ICAAS Escuela de Aviación",
+      name: "Campus Principal ICAAS Cancún",
+      description: "Edificio central e instalaciones administrativas y académicas de la mejor escuela de aviación en Quintana Roo, México."
+    },
+    { 
+      src: fac7Img, 
+      alt: "Sistemas avanzados de instrucción práctica en la escuela de aviación ICAAS", 
+      title: "Instrucción Práctica de Vanguardia - ICAAS",
+      name: "Sistemas de Instrucción Práctica",
+      description: "Equipos interactivos, maquetas de cabina y tecnología multimedia avanzada para facilitar el aprendizaje de los alumnos."
+    },
   ];
 
   return (
@@ -968,16 +1010,22 @@ export default function Home({ id }: { id: string }) {
               <div 
                 onClick={() => setLightboxIndex(0)}
                 className="h-32 sm:h-40 md:h-full col-span-2 md:col-span-2 md:row-span-2 rounded-[20px] sm:rounded-[24px] md:rounded-[40px] overflow-hidden relative group cursor-pointer"
+                itemScope
+                itemType="https://schema.org/ImageObject"
               >
                 <img 
+                  itemProp="contentUrl"
                   src={facilitiesImages[0].src} 
                   alt={facilitiesImages[0].alt} 
+                  title={facilitiesImages[0].title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   loading="eager"
                   fetchPriority="high"
                   decoding="sync"
                   referrerPolicy="no-referrer"
                 />
+                <meta itemProp="name" content={facilitiesImages[0].name} />
+                <meta itemProp="description" content={facilitiesImages[0].description} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
@@ -987,15 +1035,21 @@ export default function Home({ id }: { id: string }) {
                   key={index}
                   onClick={() => setLightboxIndex(index + 1)}
                   className="h-28 sm:h-36 md:h-full rounded-[20px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden relative group cursor-pointer"
+                  itemScope
+                  itemType="https://schema.org/ImageObject"
                 >
-                <img 
-                  src={img.src} 
-                  alt={img.alt} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
+                  <img 
+                    itemProp="contentUrl"
+                    src={img.src} 
+                    alt={img.alt} 
+                    title={img.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                  />
+                  <meta itemProp="name" content={img.name} />
+                  <meta itemProp="description" content={img.description} />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               ))}

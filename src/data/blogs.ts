@@ -5,6 +5,8 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
+  seoTitle?: string;
+  keywords?: string;
   excerpt: string;
   content: string;
   imageUrl: string;
@@ -19,7 +21,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Guía definitiva para ser sobrecargo en México: Todo lo que necesitas para tener éxito',
     excerpt: 'El sector aeronáutico en México exige perfiles técnicos altamente capacitados para garantizar la seguridad y eficiencia de las operaciones de vuelo. Conoce todo sobre la carrera de sobrecargo de aviación.',
     content: `<h1>Guía definitiva para ser sobrecargo en México: Todo lo que necesitas para tener éxito</h1>
-<p><img src="https://cdn.marblism.com/ry-DR85gfBT.webp" alt="Profesional de aviación en cabina de pasajeros moderna"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/ry-DR85gfBT.webp" alt="Profesional de aviación en cabina de pasajeros moderna"></p>
 <p>El sector aeronáutico en México exige perfiles técnicos altamente capacitados para garantizar la seguridad y eficiencia de las operaciones de vuelo. La <strong>carrera de sobrecargo de aviación</strong> es una de las funciones críticas dentro de una aerolínea, regulada por estrictos estándares internacionales y nacionales. Este documento detalla los procedimientos técnicos, las normativas vigentes y los parámetros salariales necesarios para incorporarse a esta industria.</p>
 <h2>Perfil técnico y requisitos para ser sobrecargo</h2>
 <p>Para acceder a la formación profesional y posterior contratación en una aerolínea mexicana, el aspirante debe cumplir con una serie de criterios administrativos y físicos obligatorios. El cumplimiento de estos <strong>requisitos para ser sobrecargo</strong> es indispensable para la obtención de la licencia otorgada por la Agencia Federal de Aviación Civil (AFAC).</p>
@@ -41,7 +43,7 @@ const ALL_BLOGS: BlogPost[] = [
 </ul>
 <h3>Dominio de idiomas</h3>
 <p>El estándar de la industria exige un nivel de <strong>inglés técnico y conversacional</strong> intermedio-alto. La comunicación entre tripulantes y los manuales de procedimientos de aeronaves como el A320 se encuentran frecuentemente en este idioma. ICAAS integra convenios con instituciones especializadas para garantizar que el alumno alcance las competencias lingüísticas necesarias para la operación internacional.</p>
-<p><img src="https://cdn.marblism.com/WOlAvZBlHn0.webp" alt="Entrenamiento en simulador y cabina de procedimientos"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/WOlAvZBlHn0.webp" alt="Entrenamiento en simulador y cabina de procedimientos"></p>
 <h2>Estructura de la carrera de sobrecargo de aviación</h2>
 <p>La formación técnica se divide en fases teóricas y prácticas diseñadas para instruir al personal en la gestión de riesgos y el servicio a bordo bajo estándares globales. Seleccionar una <strong>escuela de sobrecargos México</strong> que cuente con las certificaciones adecuadas es el primer paso crítico para el éxito profesional.</p>
 <h3>Fase Teórica: Plan de Estudios</h3>
@@ -62,7 +64,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Servicio a bordo</strong>: Protocolos de atención, manejo de alimentos y bebidas, y atención a pasajeros con necesidades especiales.</li>
 </ol>
 <p>ICAAS ofrece un enfoque especializado en aeronaves de alta demanda como el <strong>Airbus A320</strong>, proporcionando una ventaja competitiva inmediata en los procesos de reclutamiento de las principales aerolíneas comerciales.</p>
-<p><img src="https://cdn.marblism.com/0GTTlvxHaSg.webp" alt="Demostración de equipo de seguridad y procedimientos técnicos"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/0GTTlvxHaSg.webp" alt="Demostración de equipo de seguridad y procedimientos técnicos"></p>
 <h2>Cuánto gana un sobrecargo en México: Proyección 2026</h2>
 <p>La remuneración en el sector aeronáutico se compone de varios elementos que exceden el sueldo base. Entender esta estructura es fundamental para evaluar el retorno de inversión de la carrera profesional.</p>
 <h3>Desglose de ingresos mensuales</h3>
@@ -92,7 +94,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Autogestión</strong>: En muchas operations ejecutivas, el sobrecargo es responsable de la coordinación total del catering y suministros de la cabina.</li>
 </ul>
 <p>Este nicho ofrece salarios competitivos y una exposición a entornos laborales de alto perfil, ideales para quienes poseen vocación de servicio excepcional.</p>
-<p><img src="https://cdn.marblism.com/TcoENmr4V1E.webp" alt="Interior de cabina ejecutiva y servicio de alta gama"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/TcoENmr4V1E.webp" alt="Interior de cabina ejecutiva y servicio de alta gama"></p>
 <h2>Por qué elegir ICAAS como su escuela de sobrecargos México</h2>
 <p>Ubicada estratégicamente en Cancún, Quintana Roo, <a href="https://vuela-icaas.com">ICAAS</a> se posiciona como el centro de formación líder en el Caribe Mexicano. La ubicación en uno de los centros de conexión aérea más importantes de América Latina permite a los estudiantes un contacto directo con el entorno operativo real.</p>
 <h3>Ventajas Competitivas de ICAAS</h3>
@@ -109,7 +111,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Agende una visita</strong>: Conozca las instalaciones en Cancún y resuelva dudas técnicas sobre el programa de estudios.</li>
 <li><strong>Inicie su certificación</strong>: Complete el proceso de inscripción y asegure su lugar en la industria con mayor crecimiento global.</li>
 </ul>
-<p><img src="${img1}" alt="Instalaciones de ICAAS en Cancún para formación aeronáutica"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${img1}" alt="Instalaciones de ICAAS en Cancún para formación aeronáutica"></p>
 <h2>Instrucciones finales para el éxito profesional</h2>
 <ol>
 <li><strong>Mantenga la disciplina operativa</strong>: La puntualidad y el cumplimiento de estándares son críticos en aviación.</li>
@@ -128,7 +130,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo',
     excerpt: 'La seguridad y eficiencia de un vuelo no dependen exclusivamente de la tripulación en cabina. Conoce el papel del Oficial de Operaciones Aeronáuticas (despachador de vuelo).',
     content: `<h1>Oficial de Operaciones Aeronáuticas: La mente maestra detrás de cada vuelo</h1>
-<p><img src="https://cdn.marblism.com/YYqNffD2m6Q.jpg" alt="Profesional en centro de control de operaciones aéreas monitoreando rutas de vuelo y clima en pantallas de alta tecnología"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/YYqNffD2m6Q.jpg" alt="Profesional en centro de control de operaciones aéreas monitoreando rutas de vuelo y clima en pantallas de alta tecnología"></p>
 <p>La seguridad y eficiencia de un vuelo no dependen exclusivamente de la tripulación en cabina. Detrás de cada despegue existe una figura estratégica fundamental: el <strong>Oficial de Operaciones Aeronáuticas</strong> (OOA), también conocido como despachador de vuelos. Este profesional es responsable de la planificación, el control y el seguimiento técnico que garantizan que una aeronave cumpla con los estándares operativos y legales antes de iniciar su trayecto.</p>
 <p>En <strong>ICAAS</strong>, como <strong>escuela de aviación en Cancún</strong>, formamos especialistas capaces de gestionar la complejidad del entorno aeroportuario bajo normativas nacionales e internacionales.</p>
 <h2>1. Definición y Propósito del Oficial de Operaciones</h2>
@@ -142,7 +144,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Despacho de Aeronaves:</strong> Autorización técnica del vuelo tras verificar que todos los sistemas y documentos están en orden.</li>
 <li><strong>Seguimiento de Vuelo:</strong> Monitoreo constante de la posición y el progreso de la aeronave desde el centro de control terrestre.</li>
 </ul>
-<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal operativo realizando inspección técnica en plataforma aeroportuaria previo al despacho del vuelo"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal operativo realizando inspección técnica en plataforma aeroportuaria previo al despacho del vuelo"></p>
 <h2>2. Requisitos para Estudiar la Carrera de Oficial de Operaciones</h2>
 <p>Para ingresar al programa de formación profesional en <strong>ICAAS</strong>, el aspirante debe cumplir con una serie de requisitos administrativos y médicos estipulados por la <strong>Agencia Federal de Aviación Civil (AFAC)</strong>.</p>
 <h3>Perfil de Ingreso</h3>
@@ -164,7 +166,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Telecomunicaciones:</strong> Procedimientos de comunicación por radio y fraseología estándar.</li>
 <li><strong>Reglamentación Aérea:</strong> Marco legal nacional e internacional (OACI).</li>
 </ol>
-<p><img src="https://cdn.marblism.com/HujHNfVLSvU.webp" alt="Instalaciones de aula moderna en ICAAS preparadas para la instrucción teórica en operaciones aeronáuticas"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/HujHNfVLSvU.webp" alt="Instalaciones de aula moderna en ICAAS preparadas para la instrucción teórica en operaciones aeronáuticas"></p>
 <h2>4. Campo Laboral y Sueldos en México (2026)</h2>
 <p>El mercado laboral para un <strong>oficial de operaciones aeronáuticas</strong> es amplio, abarcando desde aerolíneas comerciales de pasajeros hasta empresas de carga y aviación ejecutiva.</p>
 <h3>Perspectiva Salarial</h3>
@@ -172,7 +174,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Aerolíneas de bajo costo con bases operativas importantes (como Volaris o Viva Aerobus) suelen ofrecer salarios competitivos, especialmente para personal con certificaciones en equipos específicos como el <strong>Airbus A320</strong>.</p>
 <h2>5. La Importancia de la Tecnología en el Despacho</h2>
 <p>Hoy en día, el oficial de operaciones utiliza sistemas digitales avanzados para el cálculo de performance y monitoreo satelital. En <strong>ICAAS</strong>, integramos herramientas digitales en la formación académica para asegurar que el alumno esté familiarizado con el entorno tecnológico real de un despacho moderno.</p>
-<p><img src="https://cdn.marblism.com/9DM7VAx-LqO.webp" alt="Estaciones de trabajo digitales utilizadas para simulaciones de despacho y planificación de vuelos en ICAAS"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/9DM7VAx-LqO.webp" alt="Estaciones de trabajo digitales utilizadas para simulaciones de despacho y planificación de vuelos en ICAAS"></p>
 <h2>6. ¿Por qué elegir ICAAS como tu Escuela de Aviación en Cancún?</h2>
 <p>Seleccionar el centro de adiestramiento adecuado es determinante para la inserción laboral. <strong>ICAAS</strong> ofrece beneficios exclusivos que nos posicionan como líderes en el sureste mexicano:</p>
 <ol>
@@ -181,7 +183,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Cuerpo Docente:</strong> Instructores activos en la industria aérea con amplia experiencia en despacho y control.</li>
 <li><strong>Convenios Institucionales:</strong> Alianzas con entidades como Inglés Individual para fortalecer el perfil técnico del alumno.</li>
 </ol>
-<p><img src="https://cdn.marblism.com/L6IATLabyUL.webp" alt="Simulador de vuelo avanzado utilizado para comprender la perspectiva de la cabina y optimizar la coordinación entre tierra y aire"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/L6IATLabyUL.webp" alt="Simulador de vuelo avanzado utilizado para comprender la perspectiva de la cabina y optimizar la coordinación entre tierra y aire"></p>
 <h2>7. Instrucciones para Iniciar tu Carrera Profesional</h2>
 <p>Si cumples con los requisitos mencionados y deseas formar parte de la industria aérea como <strong>Oficial de Operaciones Aeronáuticas</strong>, sigue estos pasos:</p>
 <ol>
@@ -202,7 +204,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Guía definitiva del examen médico aeronáutico: Todo lo que necesitas para aprobar',
     excerpt: 'El examen médico aeronáutico, oficialmente denominado Evaluación de Aptitud Psicofísica Integral, constituye el primer y más estricto filtro para cualquier aspirante que desee ingresar a la industria aérea.',
     content: `<h1>Guía definitiva del examen médico aeronáutico: Todo lo que necesitas para aprobar</h1>
-<p><img src="https://cdn.marblism.com/qNYbHNCRY9g.webp" alt="Consultorio médico aeronáutico moderno y minimalista con vista a pista de aterrizaje"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/qNYbHNCRY9g.webp" alt="Consultorio médico aeronáutico moderno y minimalista con vista a pista de aterrizaje"></p>
 <p>El <strong>examen médico aeronáutico</strong>, oficialmente denominado <strong>Evaluación de Aptitud Psicofísica Integral</strong>, constituye el primer y más estricto filtro para cualquier aspirante que desee ingresar a la industria aérea. Este procedimiento es regulado por la <strong>Agencia Federal de Aviación Civil (AFAC)</strong> y tiene como objetivo certificar que el personal técnico aeronáutico posee las condiciones físicas y mentales necesarias para garantizar la <strong>seguridad operacional</strong>.</p>
 <p>En <strong>ICAAS Aviación</strong>, como centro de formación líder en el Caribe Mexicano, establecemos este requisito como el paso inicial obligatorio para los inscritos en la <strong>Carrera de Sobrecargo de Aviación</strong> y la <strong>Carrera de Oficial de Operaciones</strong>. Sin la <strong>Constancia de Aptitud Psicofísica</strong>, es legalmente imposible obtener una licencia técnica o realizar prácticas profesionales.</p>
 <h2>Marco Normativo y Clasificación</h2>
@@ -213,7 +215,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Clase 3:</strong> Aplicable a <strong>personal de tierra</strong> como <strong>Oficial de Operaciones</strong>, <strong>mecánicos</strong> y <strong>Sobrecargo de Aviación</strong>. La vigencia del certificado es de <strong>3 años</strong>.</li>
 </ol>
 <p>La renovación debe realizarse antes del vencimiento correspondiente para mantener la vigencia del documento médico aplicable a cada licencia o función técnica.</p>
-<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal de operaciones aeroportuarias realizando inspección de seguridad en plataforma"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal de operaciones aeroportuarias realizando inspección de seguridad en plataforma"></p>
 <h2>Requisitos Documentales Obligatorios</h2>
 <p>Para iniciar el proceso de evaluación ante la <strong>AFAC</strong> o un <strong>Tercero Autorizado</strong>, el aspirante debe presentar la siguiente documentación en original y copia legible:</p>
 <ul>
@@ -237,7 +239,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Es un requisito estándar dentro de los protocolos de salud aeronáutica para el personal de nuevo ingreso.</p>
 <h3>6. Examen Toxicológico de 5 Reactivos</h3>
 <p>Este estudio rastrea la presencia de sustancias psicotrópicas o estupefacientes (marihuana, cocaína, anfetaminas, metanfetaminas y opiáceos). Un resultado positivo es causa de <strong>No Aptitud</strong> inmediata y permanente según la normativa de <strong>AFAC</strong>.</p>
-<p><img src="https://cdn.marblism.com/c3EerLwvgfn.webp" alt="Documentación oficial y resultados de laboratorio para trámite aeronáutico"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/c3EerLwvgfn.webp" alt="Documentación oficial y resultados de laboratorio para trámite aeronáutico"></p>
 <h2>Proceso de Cita en Cancún: AFAC y Terceros Autorizados</h2>
 <p>Existen dos vías para realizar este procedimiento en la región de Quintana Roo:</p>
 <h3>Unidades Médicas de la AFAC</h3>
@@ -254,7 +256,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Uso de Lentes:</strong> Si el aspirante utiliza graduación, debe presentarse con sus lentes de armazón (no solo de contacto). La <strong>agudeza visual</strong> será evaluada con y sin corrección.</li>
 <li><strong>Evitar Sustancias:</strong> No consumir medicamentos (a menos que sean bajo prescripción crónica informada), cafeína o alcohol 48 horas antes de la cita.</li>
 </ol>
-<p><img src="https://cdn.marblism.com/o3nTIHaa9yn.webp" alt="Aspirante a sobrecargo realizando pruebas de agudeza visual en clínica especializada" referrerPolicy="no-referrer"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/o3nTIHaa9yn.webp" alt="Aspirante a sobrecargo realizando pruebas de agudeza visual en clínica especializada" referrerPolicy="no-referrer"></p>
 <h2>Evaluación Física y Psicológica</h2>
 <p>Una vez entregados los resultados de laboratorio, el médico examinador procederá con:</p>
 <ul>
@@ -277,7 +279,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional',
     excerpt: 'La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los estándares internacionales de seguridad y servicio. Seleccionar una escuela de aviación en Cancún es una decisión estratégica.',
     content: `<h1>Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional</h1>
-<p><img src="${cancunImg}" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${cancunImg}" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
 <p>La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los <strong>estándares internacionales de seguridad y servicio</strong>. Seleccionar una <strong>escuela de aviación en Cancún</strong> no es solo una elección geográfica, sino una decisión estratégica fundamentada en la proximidad a uno de los centros de operaciones aéreas más activos de América Latina. <strong>ICAAS Aviación</strong> se posiciona como una institución clave para aquellos que buscan <strong>estudiar aviación en Cancún</strong>, ofreciendo programas diseñados para satisfacer las exigencias de aerolíneas globales y el sector de aviación ejecutiva.</p>
 <h2>Entorno Operativo: Ventajas de la Ubicación en el Caribe Mexicano</h2>
 <p>El Aeropuerto Internacional de Cancún (CUN) registra uno de los mayores volúmenes de tráfico de pasajeros internacionales en el país. Esta densidad operativa proporciona un entorno de aprendizaje real y constante. <strong>Estudiar aviación en Cancún</strong> permite al estudiante familiarizarse con el flujo de trabajo de aerolíneas de diversos continentes, protocolos de seguridad aeroportuaria y la logística de un hub de conexión global.</p>
@@ -288,7 +290,7 @@ const ALL_BLOGS: BlogPost[] = [
 
 <h3>Aulas Especializadas</h3>
 <p>Las aulas de <strong>ICAAS</strong> están equipadas con tecnología audiovisual y mobiliario ergonómico que optimiza la retención de conocimientos técnicos. Cada espacio está diseñado para facilitar la instrucción de materias como <strong>Aerodinámica</strong>, <strong>Reglamentación Aérea</strong>, <strong>Meteorología</strong> y <strong>Procedimientos de emergencia y Servicio a bordo</strong>. La disposición de los espacios promueve la disciplina y el rigor profesional desde el primer día de clases.</p>
-<p><img src="https://cdn.marblism.com/HujHNfVLSvU.webp" alt="Aula moderna de ICAAS equipada con tecnología para la enseñanza de cursos teóricos de aviación" referrerPolicy="no-referrer"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/HujHNfVLSvU.webp" alt="Aula moderna de ICAAS equipada con tecnología para la enseñanza de cursos teóricos de aviación" referrerPolicy="no-referrer"></p>
 <h2>Alianzas Estratégicas: Ventajas Competitivas de los Alumnos</h2>
 <p>La formación integral en aviación va más allá de los conocimientos técnicos; requiere certificaciones de salud y competencias lingüísticas específicas. <strong>ICAAS Aviación</strong> mantiene convenios exclusivos que simplifican y potencian la carrera de sus estudiantes.</p>
 <h3>Convenio con SkyMedik: Aptitud Psicofísica</h3>
@@ -303,7 +305,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Sobrecargo Ejecutivo</strong>: Especialización para el sector de aviación privada de lujo, enfocada en atención VIP y protocolos de alta gama.</li>
 <li><strong>Cursos de Seguridad y Gestión</strong>: Entrenamiento avanzado en <strong>CRM</strong> (Crew Resource Management), <strong>CFIT</strong> (Controlled Flight Into Terrain) y <strong>ALAR</strong> (Approach and Landing Accident Reduction).</li>
 </ol>
-<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Oficial de operaciones realizando inspección técnica en plataforma bajo los estándares de seguridad de ICAAS" referrerPolicy="no-referrer"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Oficial de operaciones realizando inspección técnica en plataforma bajo los estándares de seguridad de ICAAS" referrerPolicy="no-referrer"></p>
 <h2>Estándares Globales y Proyección Profesional</h2>
 <p>La metodología de enseñanza en nuestra <strong>escuela de aviación en Cancún</strong> se basa en manuales y procedimientos de aerolíneas de clase mundial. Este enfoque asegura que el egresado no solo cumpla con los requisitos mínimos legales, sino que posea las competencias necesarias para destacar en procesos de selección competitivos.</p>
 <h3>Vocación de Servicio y Disciplina</h3>
@@ -332,7 +334,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Por qué el inglés es tu pasaporte al éxito como sobrecargo u oficial de operaciones',
     excerpt: 'En la industria aeronáutica moderna, el dominio del idioma inglés ha dejado de ser un valor agregado para convertirse en un estándar operativo obligatorio. Descubre el impacto de la competencia lingüística.',
     content: `<h1>Por qué el inglés es tu pasaporte al éxito como sobrecargo u oficial de operaciones</h1>
-<p><img src="https://cdn.marblism.com/hSWRMnLUlBr.JPG" alt="Futuros profesionales de la aviación en ICAAS recibiendo formación integral en inglés y procedimientos operativos en Cancún"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/hSWRMnLUlBr.JPG" alt="Futuros profesionales de la aviación en ICAAS recibiendo formación integral en inglés y procedimientos operativos en Cancún"></p>
 <p>En la industria aeronáutica moderna, el dominio del idioma inglés ha dejado de ser un valor agregado para convertirse en un estándar operativo obligatorio. Si bien el <strong>inglés técnico aeronáutico</strong> es fundamental para la seguridad y el cumplimiento de protocolos estandarizados por la OACI, el <strong>inglés conversacional</strong> es el factor que determina la calidad del servicio, la eficiencia en la resolución de conflictos y, sobre todo, el crecimiento en la carrera profesional.</p>
 <p>Para quienes buscan integrarse a una <a href="https://vuela-icaas.com">escuela de aviación en Cancún</a>, comprender la diferencia entre estos dos niveles de competencia lingüística es el primer paso para asegurar una posición en aerolíneas de alcance global.</p>
 <hr>
@@ -343,7 +345,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Inglés Conversacional (Fluidez General):</strong> Se refiere a la capacidad de mantener diálogos fluidos, comprender diversos acentos, negociar situaciones imprevistas y proyectar confianza al interactuar con pasajeros y colegas de distintas nacionalidades.</li>
 </ul>
 <p>Dominar el aspecto técnico sin contar con fluidez conversacional limita la capacidad de respuesta ante situaciones no estandarizadas, lo cual es crítico en el entorno dinámico de una aeronave o un centro de control.</p>
-<p><img src="https://cdn.marblism.com/kmsLk6BP0RD.JPG" alt="Estudiantes de aviación en ICAAS Cancún enfocados en su formación profesional teórica"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/kmsLk6BP0RD.JPG" alt="Estudiantes de aviación en ICAAS Cancún enfocados en su formación profesional teórica"></p>
 <hr>
 <h2>2. Impacto en la Carrera de Sobrecargo de Aviación</h2>
 <p>Para los aspirantes a tripulantes de cabina, el inglés es una herramienta de gestión de seguridad y servicio. Los <strong>requisitos para ser sobrecargo</strong> en México incluyen, invariablemente, un nivel de inglés que permita el desempeño de las siguientes funciones críticas:</p>
@@ -360,7 +362,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>En un centro de operaciones, el oficial debe realizar briefings de vuelo a pilotos de diversas nacionalidades. Explicar las restricciones de un NOTAM, las condiciones de peso y balance o las alternativas de ruta requiere una fluidez que evite malentendidos operativos.</p>
 <h3>Acceso a documentación y certificaciones</h3>
 <p>La mayor parte de la documentación técnica avanzada de fabricantes como Boeing o Airbus, así como las normativas internacionales de la FAA o EASA, se publica originalmente en inglés. Contar con una base conversacional sólida facilita la comprensión de estos textos complejos y permite al oficial acceder a cursos de actualización internacionales.</p>
-<p><img src="https://cdn.marblism.com/fofon2WlHKR.jpg" alt="Instructor de ICAAS impartiendo clase técnica sobre procedimientos operativos en aula moderna"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/fofon2WlHKR.jpg" alt="Instructor de ICAAS impartiendo clase técnica sobre procedimientos operativos en aula moderna"></p>
 <hr>
 <h2>4. Estudiar aviación en Cancún: El beneficio de la ubicación estratégica</h2>
 <p><strong>Estudiar aviación en Cancún</strong> ofrece una ventaja competitiva única: el contacto directo con uno de los aeropuertos con mayor tráfico internacional de América Latina. En este entorno, el uso del inglés es cotidiano. Los alumnos de ICAAS se forman en un hub donde la interacción con aerolíneas de todo el mundo es la norma, no la excepción.</p>
@@ -374,7 +376,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Enfoque en Fluidez y Pronunciación:</strong> El método se centra en que el alumno hable con naturalidad desde las primeras etapas, eliminando el "miedo" a la comunicación oral.  </li>
 <li><strong>Flexibilidad:</strong> El programa de 12 meses es compatible con los horarios de la <strong>carrera de sobrecargo</strong> y el curso de <strong>oficial de operaciones</strong>.</li>
 </ol>
-<p><img src="https://cdn.marblism.com/Ex0lelfOgQR.JPG" alt="Recepción de ICAAS en Cancún, el punto de inicio para la formación de futuros líderes aeronáuticos"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/Ex0lelfOgQR.JPG" alt="Recepción de ICAAS en Cancún, el punto de inicio para la formación de futuros líderes aeronáuticos"></p>
 <hr>
 <h2>6. Pasos para garantizar tu inserción laboral</h2>
 <p>Para los interesados en el sector aéreo, se recomienda seguir este flujo de preparación basado en lógica operativa:</p>
@@ -399,7 +401,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Primeros Auxilios, Ditching y Servicio: Las 3 Prácticas de Sobrecargo que Cambiarán tu Carrera',
     excerpt: 'La formación de un Sobrecargo de Aviación se fundamenta en la adquisición de competencias técnicas diseñadas para garantizar la seguridad del vuelo y la integridad de los pasajeros. Conoce las tres prácticas clave.',
     content: `<h1>Primeros Auxilios, Ditching y Servicio: Las 3 Prácticas de Sobrecargo que Cambiarán tu Carrera</h1>
-<p><img src="https://cdn.marblism.com/4W0fwpAovC9.webp" alt="Estudiante de sobrecargo en cabina de entrenamiento moderna con acentos en rojo"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/4W0fwpAovC9.webp" alt="Estudiante de sobrecargo en cabina de entrenamiento moderna con acentos en rojo"></p>
 <p>La formación de un <strong>Sobrecargo de Aviación</strong> se fundamenta en la adquisición de competencias técnicas diseñadas para garantizar la seguridad del vuelo y la integridad de los pasajeros. En <a href="https://vuela-icaas.com">ICAAS Aviación</a>, el programa de capacitación integra tres ejes prácticos obligatorios según los estándares de la <strong>Agencia Federal de Aviación Civil (AFAC)</strong>: Primeros Auxilios, Servicio a Bordo y Procedimientos de Emergencia (Ditching).</p>
 <p>El dominio de estas disciplinas no solo es un requisito legal para la obtención y revalidación de la licencia, sino que constituye la base operativa de la profesión en escenarios de alta exigencia. A continuación, se detallan los componentes técnicos y los objetivos de aprendizaje de cada fase de entrenamiento.</p>
 <hr>
@@ -413,7 +415,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Administración de Oxígeno:</strong> Uso de botellas de oxígeno portátil y máscaras suplementarias para pasajeros con insuficiencia respiratoria o hipoxia.  </li>
 <li><strong>Protocolos de Emergencia Médica:</strong> Gestión de eventos comunes como síncopes, crisis epilépticas, shock anafiláctico, hipoglucemia y quemaduras.</li>
 </ul>
-<p><img src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor de ICAAS Aviación guiando a estudiante en procedimientos técnicos"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor de ICAAS Aviación guiando a estudiante en procedimientos técnicos"></p>
 <p>La práctica se realiza en un entorno que simula las restricciones de espacio de una aeronave, obligando al estudiante a aplicar la lógica de <strong>triaje y comunicación clara</strong> con el resto de la tripulación y la cabina de mando.</p>
 <hr>
 <h2>2. Servicios a Bordo: Gestión de Operaciones en Cabina</h2>
@@ -425,7 +427,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Atención a Pasajeros VIP y Necesidades Especiales:</strong> Protocolos específicos para la atención de menores sin acompañante, personas con movilidad reducida (PMR) y pasajeros en aviación ejecutiva.  </li>
 <li><strong>Briefings de Seguridad:</strong> Ejecución de demostraciones de seguridad (cinturones, chalecos, mascarillas) con precisión técnica y comunicación asertiva.</li>
 </ul>
-<p><img src="https://cdn.marblism.com/s9IhNvaK4w6.JPG" alt="Simulador de cabina real para entrenamiento de servicio a bordo en ICAAS Aviación"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/s9IhNvaK4w6.JPG" alt="Simulador de cabina real para entrenamiento de servicio a bordo en ICAAS Aviación"></p>
 <p>En <a href="https://vuela-icaas.com/sobrecargo">ICAAS Aviación</a>, los alumnos utilizan un <strong>módulo de galley real</strong>, lo que permite familiarizarse con el peso, las dimensiones y los mecanismos de seguridad de los equipos antes de su ingreso al sector laboral.</p>
 <hr>
 <h2>3. Procedimientos de Emergencia y Ditching (Amerizaje)</h2>
@@ -437,7 +439,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Técnicas de Supervivencia en Agua:</strong> Formaciones de grupo para conservar el calor corporal, rescate de pasajeros heridos y protocolos de señalización para búsqueda y rescate (SAR).  </li>
 <li><strong>Apertura de Salidas de Emergencia:</strong> Operación manual de puertas y ventanillas de emergencia en condiciones simuladas de estrés.</li>
 </ul>
-<p><img src="https://cdn.marblism.com/5aSkrbKAjK-.webp" alt="Simulación de práctica de ditching en entorno acuático controlado"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/5aSkrbKAjK-.webp" alt="Simulación de práctica de ditching en entorno acuático controlado"></p>
 <p>Si sucede una evacuación acuática, el sobrecargo debe ser capaz de <strong>tomar el mando absoluto de su sección</strong> y garantizar que todos los pasajeros abandonen la aeronave en el tiempo reglamentario.</p>
 <hr>
 <h2>El Valor Diferencial de Entrenar en ICAAS Aviación (Cancún)</h2>
@@ -447,7 +449,7 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Ubicación Estratégica:</strong> Estar en Cancún permite realizar las prácticas de ditching en escenarios realistas que reflejan las condiciones geográficas de la región.  </li>
 <li><strong>Convenios Exclusivos:</strong> Alianzas con entidades como <strong>SkyMedik</strong> e <strong>Inglés Individual</strong> refuerzan la formación en medicina y bilingüismo, competencias esenciales para el perfil de sobrecargo ejecutivo.</li>
 </ol>
-<p><img src="https://cdn.marblism.com/EHvrUDq7qIs.jpg" alt="Entrenamiento en simulador A320 en las instalaciones de ICAAS Aviación"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/EHvrUDq7qIs.jpg" alt="Entrenamiento en simulador A320 en las instalaciones de ICAAS Aviación"></p>
 <h3>Instrucciones para Iniciar tu Carrera:</h3>
 <ol>
 <li><strong>Verifica los Requisitos:</strong> Asegúrate de cumplir con los criterios de edad, escolaridad y estado de salud exigidos por la AFAC.  </li>
@@ -465,7 +467,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: '48 Nuevas Rutas Aéreas en México: Oportunidades Laborales para tu Carrera en Aviación',
     excerpt: 'La industria aeronáutica en México registra una expansión sin precedentes al cierre del primer semestre de 2026, abriendo oportunidades laborales.',
     content: `<h1>48 Nuevas Rutas Aéreas en México: Oportunidades Laborales para tu Carrera en Aviación</h1>
-<p><img src="https://cdn.marblism.com/GuO_DPs1JcM.png" alt="Sobrecargos de aviación en uniforme rojo caminando frente a una aeronave en plataforma aeroportuaria"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/GuO_DPs1JcM.png" alt="Sobrecargos de aviación en uniforme rojo caminando frente a una aeronave en plataforma aeroportuaria"></p>
 <p>La industria aeronáutica en México registra una expansión sin precedentes al cierre del primer semestre de 2026. Según datos oficiales de la <strong>Secretaría de Turismo</strong>, <strong>Infobae</strong> y <strong>A21</strong>, durante el mes de junio se activaron <strong>48 nuevas rutas aéreas</strong>, distribuidas en 29 conexiones nacionales y 19 internacionales. Este incremento eleva el acumulado anual a <strong>102 anuncios de nuevas rutas</strong>, consolidando una demanda crítica de personal técnico especializado para la operación y seguridad de los vuelos.</p>
 <p>Esta dinámica de mercado representa una oportunidad directa para quienes buscan integrarse al sector a través de una <strong>formación aeronáutica en México</strong> de alto nivel. La apertura de rutas no solo implica mayor conectividad, sino la necesidad operativa de incrementar las plantillas de <strong>sobrecargos de aviación</strong> y <strong>oficiales de operaciones aeronáuticas</strong>.</p>
 <h2>Análisis de la Expansión: 48 Nuevas Rutas en Junio 2026</h2>
@@ -500,7 +502,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>El aumento de frecuencias y la apertura de vuelos de largo alcance (como Monterrey-Madrid o Cancún-Brasilia) requiere un mayor número de <strong>sobrecargos de aviación</strong>. Las aerolíneas priorizan perfiles con formación bajo estándares internacionales, dominio de protocolos de seguridad y capacidad de servicio en entornos multiculturales.</p>
 <h3>2. Oficiales de Operaciones Aeronáuticas</h3>
 <p>La gestión de 102 nuevas rutas en lo que va del año demanda un control técnico riguroso en tierra. El <strong>oficial de operaciones</strong> es responsable de la planificación de vuelo, el cálculo de peso y balance, y la coordinación de despacho. Sin este personal, la expansión de la red aérea sería técnicamente inviable.</p>
-<p><img src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal de operaciones realizando inspección técnica en rampa bajo el fuselaje de un avión"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/rR5v1GBKbC3.webp" alt="Personal de operaciones realizando inspección técnica en rampa bajo el fuselaje de un avión"></p>
 <hr>
 <h2>¿Cómo prepararse? Programas Profesionales en ICAAS Aviación</h2>
 <p>Ante este escenario de <strong>oportunidades laborales en aviación en México</strong>, la preparación técnica es el factor determinante para el ingreso a las aerolíneas. En <strong>ICAAS Aviación</strong>, nuestra <strong>escuela de aviación en Cancún</strong>, ofrecemos programas diseñados bajo los lineamientos de las autoridades aeronáuticas y las necesidades reales de la industria.</p>
@@ -521,16 +523,6 @@ const ALL_BLOGS: BlogPost[] = [
 <li>Más información en: <a href="https://vuela-icaas.com/oficial">Oficial de Operaciones Aeronáuticas</a>.</li>
 </ul>
 <hr>
-<h2>Ventaja Competitiva: Estudiar Aviación en Cancún</h2>
-<p>La ubicación estratégica de <strong>ICAAS Aviación</strong> en el Caribe Mexicano proporciona una ventaja táctica para los estudiantes. Con la reciente apertura de la ruta <strong>Cancún – Brasilia</strong>, la zona se consolida como uno de los centros de operaciones aéreas más activos del continente.</p>
-<p><strong>Factores diferenciadores de ICAAS:</strong></p>
-<ol>
-<li><strong>Instalaciones de Vanguardia:</strong> Aulas modernas y entrenamiento en simuladores que replican escenarios reales.  </li>
-<li><strong>Convenios Estratégicos:</strong> Alianzas con empresas como <strong>SkyMedik</strong> y centros de idiomas que complementan la formación integral.  </li>
-<li><strong>Enfoque en Seguridad y Gestión:</strong> Cursos especializados en gestión de riesgos y seguridad operacional, altamente valorados por las aerolíneas que operan las nuevas rutas de 2026.  </li>
-<li><strong>Conexión con la Industry:</strong> Al estar situados en un hub internacional, nuestros alumnos tienen contacto directo con la operatividad diaria de aerolíneas globales.</li>
-</ol>
-<hr>
 <h2>Conclusión: Tu Futuro en la Aviación Comienza Ahora</h2>
 <p>La expansión de <strong>48 nuevas rutas aéreas en México</strong> es un indicador claro de la salud y el crecimiento del sector. La industria requiere profesionales listos para operar de inmediato, con certificaciones válidas y habilidades técnicas actualizadas. <strong>Estudiar aviación en Cancún</strong> permite una inmersión directa en este mercado en expansión.</p>
 <p>La <strong>formación aeronáutica en México</strong> ha evolucionado para responder a estándares globales. Si tu objetivo es formar parte de las tripulaciones o del equipo de operaciones que gestionará estas nuevas conexiones nacionales e internacionales, el momento de iniciar tu formación es ahora.</p>
@@ -542,11 +534,11 @@ const ALL_BLOGS: BlogPost[] = [
 <li><strong>Contacto directo vía WhatsApp:</strong> <a href="https://wa.me/529987510172">9987510172</a>  </li>
 <li><strong>Sitio web oficial:</strong> <a href="https://vuela-icaas.com">vuela-icaas.com</a></li>
 </ul>
-<p><img src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor uniformado en aula moderna de ICAAS Aviación impartiendo clase introductoria"></p>`,
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor uniformado en aula moderna de ICAAS Aviación impartiendo clase introductoria"></p>`,
     imageUrl: 'https://cdn.marblism.com/GuO_DPs1JcM.png',
     date: '07 Jul 2026',
     category: 'Aviación'
-  }
+  },
 ];
 
 const months: Record<string, number> = {
