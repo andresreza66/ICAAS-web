@@ -15,6 +15,7 @@ export interface BlogPost {
   imageUrl: string;
   date: string;
   category: string;
+  categories?: string[];
 }
 
 const ALL_BLOGS: BlogPost[] = [
@@ -125,7 +126,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Para obtener más información sobre cómo iniciar su carrera profesional, visite nuestra sección de <a href="https://vuela-icaas.com">programas académicos</a> o comuníquese directamente con nuestro equipo de admisiones técnicas.</p>`,
     imageUrl: 'https://cdn.marblism.com/ry-DR85gfBT.webp',
     date: '08 Jun 2026',
-    category: 'Carrera'
+    category: 'Sobrecargo'
   },
   {
     id: '1',
@@ -199,7 +200,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Para más información sobre nuestros programas de estudio, visita nuestra sección de <a href="/oficial">Carrera de Oficial de Operaciones</a> o consulta nuestro artículo sobre <a href="/sobrecargo">Requisitos para ser Sobrecargo</a> para conocer otras opciones en la industria.</p>`,
     imageUrl: 'https://cdn.marblism.com/YYqNffD2m6Q.jpg',
     date: '09 Jun 2026',
-    category: 'Carrera'
+    category: 'Oficial de operaciones'
   },
   {
     id: '2',
@@ -329,7 +330,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Para obtener más información sobre el proceso de inscripción, planes de estudio y costos, visite el sitio oficial de <a href="https://vuela-icaas.com">ICAAS Aviación</a> y comience su proceso de admisión hoy mismo.</p>`,
     imageUrl: imgCancun,
     date: '24 Jun 2026',
-    category: 'Carrera'
+    category: 'Cancún'
   },
   {
     id: '4',
@@ -462,7 +463,8 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Para obtener más información detallada sobre costos, duración y procesos de inscripción, contacta directamente con nuestro equipo de admisiones a través de nuestra sección de <a href="https://vuela-icaas.com/contacto">Contacto</a>.</p>`,
     imageUrl: 'https://cdn.marblism.com/4W0fwpAovC9.webp',
     date: '06 Jul 2026',
-    category: 'Sobrecargo'
+    category: 'Sobrecargo',
+    categories: ['Sobrecargo', 'Prácticas']
   },
   {
     id: '6',
@@ -540,7 +542,8 @@ const ALL_BLOGS: BlogPost[] = [
 <p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/C7nYGDxfVoQ.jpg" alt="Instructor uniformado en aula moderna de ICAAS Aviación impartiendo clase introductoria"></p>`,
     imageUrl: 'https://cdn.marblism.com/GuO_DPs1JcM.png',
     date: '07 Jul 2026',
-    category: 'Aviación'
+    category: 'Aviación',
+    categories: ['Aviación', 'México']
   },
   {
     id: '7',
@@ -606,7 +609,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p><a href="https://vuela-icaas.com" title="Conoce ICAAS Escuela de Aviación en Cancún">Conoce más sobre ICAAS</a></p>`,
     imageUrl: imgAzafata,
     date: '10 Jul 2026',
-    category: 'Aviación'
+    category: 'Sobrecargo'
   }
 ];
 

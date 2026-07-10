@@ -226,8 +226,12 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                   
                   {/* Scrollable content area */}
                   <div className="p-6 sm:p-12 pt-16 sm:pt-20 overflow-y-auto flex-grow">
-                    <div className="flex items-center gap-4 mb-8 pb-4 border-b border-gray-100">
-                       <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">{selectedBlog.category}</span>
+                    <div className="flex items-center flex-wrap gap-4 mb-8 pb-4 border-b border-gray-100">
+                      <div className="flex flex-wrap gap-2">
+                        {(selectedBlog.categories || [selectedBlog.category]).map((cat) => (
+                           <span key={cat} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">{cat}</span>
+                        ))}
+                      </div>
                        <span className="flex items-center gap-1.5 text-gray-400 text-[10px] font-bold uppercase tracking-wider"><Calendar size={12} /> {selectedBlog.date}</span>
                     </div>
                     <div className="prose prose-sm sm:prose-base max-w-none text-gray-600 leading-relaxed space-y-4">
@@ -272,10 +276,12 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
               >
                 <div className="h-56 relative overflow-hidden">
                   <img src={blog.imageUrl} alt={blog.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-secondary px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg flex items-center gap-1">
-                      <Tag size={10} className="text-primary"/> {blog.category}
-                    </span>
+                  <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
+                    {(blog.categories || [blog.category]).map((cat) => (
+                      <span key={cat} className="bg-white/90 backdrop-blur-sm text-secondary px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg flex items-center gap-1">
+                        <Tag size={10} className="text-primary"/> {cat}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 
