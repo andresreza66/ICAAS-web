@@ -2,6 +2,7 @@ import img1 from '../assets/images/regenerated_image_1780955032601.webp';
 import imgAzafata from '../assets/images/sobrecargo_profesion_1783564307988.jpg';
 import imgCopiloto from '../assets/images/primer_oficial_1783564318171.jpg';
 import imgEntrenamiento from '../assets/images/entrenamiento_sobrecargo_1783564328793.jpg';
+import imgCancun from '../assets/images/cancun_city_view_1782322773336.jpg';
 
 export interface BlogPost {
   id: string;
@@ -281,7 +282,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional',
     excerpt: 'La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los estándares internacionales de seguridad y servicio. Seleccionar una escuela de aviación en Cancún es una decisión estratégica.',
     content: `<h1>Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional</h1>
-<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="/cancun_city_view_1782322773336.jpg" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${imgCancun}" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
 <p>La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los <strong>estándares internacionales de seguridad y servicio</strong>. Seleccionar una <strong>escuela de aviación en Cancún</strong> no es solo una elección geográfica, sino una decisión estratégica fundamentada en la proximidad a uno de los centros de operaciones aéreas más activos de América Latina. <strong>ICAAS Aviación</strong> se posiciona como una institución clave para aquellos que buscan <strong>estudiar aviación en Cancún</strong>, ofreciendo programas diseñados para satisfacer las exigencias de aerolíneas globales y el sector de aviación ejecutiva.</p>
 <h2>Entorno Operativo: Ventajas de la Ubicación en el Caribe Mexicano</h2>
 <p>El Aeropuerto Internacional de Cancún (CUN) registra uno de los mayores volúmenes de tráfico de pasajeros internacionales en el país. Esta densidad operativa proporciona un entorno de aprendizaje real y constante. <strong>Estudiar aviación en Cancún</strong> permite al estudiante familiarizarse con el flujo de trabajo de aerolíneas de diversos continentes, protocolos de seguridad aeroportuaria y la logística de un hub de conexión global.</p>
@@ -326,7 +327,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Elegir dónde formarse es el factor determinante para el éxito en el sector aeronáutico. La combinación de una ubicación privilegiada, instructores con experiencia real en la industria, tecnología de simulación de última generación y alianzas estratégicas convierte a <strong>ICAAS Aviación</strong> en la opción líder para quienes desean <strong>estudiar aviación en Cancún</strong>.</p>
 <p>La industria aérea mexicana se encuentra en una fase de expansión sostenida. Formarse bajo estándares globales en un centro neurálgico como Cancún garantiza que el egresado esté preparado para los retos técnicos y operativos de 2026 y los años venideros.</p>
 <p>Para obtener más información sobre el proceso de inscripción, planes de estudio y costos, visite el sitio oficial de <a href="https://vuela-icaas.com">ICAAS Aviación</a> y comience su proceso de admisión hoy mismo.</p>`,
-    imageUrl: '/cancun_city_view_1782322773336.jpg',
+    imageUrl: imgCancun,
     date: '24 Jun 2026',
     category: 'Carrera'
   },
