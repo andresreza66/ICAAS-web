@@ -407,11 +407,6 @@ export default function Cursos({ id }: { id: string }) {
 
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[8px] font-mono tracking-wider bg-white/5 text-gray-300 border border-white/5 px-2 py-0.5 rounded">
-                      {course.fichaCode}
-                    </span>
-                  </div>
                   <h3 className="text-2xl font-black tracking-tight text-white mb-2 group-hover:text-primary transition-colors uppercase">
                     {course.title}
                   </h3>
@@ -760,18 +755,6 @@ export default function Cursos({ id }: { id: string }) {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#141720] via-[#141720]/50 to-black/40" />
-                  
-                  {/* Ficha Stamp Ribbon */}
-                  <div className="absolute top-6 left-6 flex flex-col gap-1 text-center">
-                    <div className="flex gap-2 items-center">
-                      <span className="bg-primary/95 text-white text-[8px] font-black tracking-[0.2em] px-3.5 py-1.5 rounded-lg border border-primary/20 uppercase">
-                        {selectedCourse.categoryLabel}
-                      </span>
-                      <span className="bg-black/60 border border-white/10 text-[8px] font-mono text-gray-300 px-2.5 py-1.5 rounded-lg font-bold">
-                        REG: {selectedCourse.fichaCode}
-                      </span>
-                    </div>
-                  </div>
 
                   <div className="absolute bottom-6 left-6 pr-12 text-center w-[calc(100%-48px)] flex flex-col items-center">
                     <p className="text-primary font-mono text-xs font-black tracking-[0.1em] mb-1 uppercase">Ficha de Información Técnica</p>
@@ -885,7 +868,7 @@ export default function Cursos({ id }: { id: string }) {
                     <div className="pt-6 border-t border-white/5">
                       <div className="flex items-center gap-2 mb-3">
                         <Activity size={18} className="text-blue-400" />
-                        <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-400">Perfil de Prácticas y Simulación</h4>
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-400">Resumen del curso</h4>
                       </div>
                       <div className="bg-[#12141c] border border-blue-400/20 p-5 rounded-2xl">
                         <p className="text-xs text-gray-300 leading-relaxed italic">
@@ -932,13 +915,11 @@ export default function Cursos({ id }: { id: string }) {
                 <div className="flex gap-4">
                   <div className="flex flex-col text-center w-full">
                     <span className="text-[8px] uppercase tracking-widest text-gray-400">
-                      {['hora-de-simulador', 'simulador-vr'].includes(selectedCourse.id) ? 'Para más información' : 'Soporte Técnico de Admisiones'}
+                      Para más información
                     </span>
                     <span className="text-xs font-black text-white flex items-center gap-1.5 mt-0.5">
                       <BadgeInfo size={12} className="text-primary" />{' '}
-                      {['hora-de-simulador', 'simulador-vr'].includes(selectedCourse.id)
-                        ? 'Chatea con nuestros asesores de venta'
-                        : `Ficha Informativa Oficial ${selectedCourse.fichaCode}`}
+                      Chatea con nuestros asesores de venta
                     </span>
                   </div>
                 </div>
@@ -951,9 +932,7 @@ export default function Cursos({ id }: { id: string }) {
                     className="flex-grow sm:flex-grow-0 bg-[#25D366] text-white font-black uppercase tracking-widest text-[9px] px-6 py-4 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform"
                   >
                     <MessageCircle size={14} fill="currentColor" />{' '}
-                    {['hora-de-simulador', 'simulador-vr'].includes(selectedCourse.id)
-                      ? 'Cotizar en WhatsApp'
-                      : 'Descargar Ficha PDF / Cotizar en WhatsApp'}
+                    Solicita más información
                   </a>
                 </div>
               </div>
