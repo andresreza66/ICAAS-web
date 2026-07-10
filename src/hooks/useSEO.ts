@@ -77,7 +77,10 @@ export function useSEO({
       ogImg.setAttribute('property', 'og:image');
       document.head.appendChild(ogImg);
     }
-    const fullOgImage = ogImage.startsWith('http') ? ogImage : `${window.location.origin}${ogImage}`;
+    const baseUrl = 'https://vuela-icaas.com';
+    const fullOgImage = ogImage.startsWith('http') 
+      ? ogImage 
+      : `${baseUrl}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
     ogImg.setAttribute('content', fullOgImage);
 
     // 7. Canonical link
@@ -88,7 +91,6 @@ export function useSEO({
       document.head.appendChild(canonical);
     }
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    const baseUrl = 'https://vuela-icaas.com';
     canonical.setAttribute('href', `${baseUrl}${cleanPath}`);
 
     // 8. Open Graph URL

@@ -16,14 +16,14 @@ const ShareButtons = ({ blog, isSmall = false }: { blog: BlogPost, isSmall?: boo
 
   const handleCopyLink = (e: React.MouseEvent) => {
     e.stopPropagation();
-    navigator.clipboard.writeText(`${window.location.origin}/blog/${blog.slug}`);
+    navigator.clipboard.writeText(`https://vuela-icaas.com/blog/${blog.slug}`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const shareNativeOrCopy = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    const url = `${window.location.origin}/blog/${blog.slug}`;
+    const url = `https://vuela-icaas.com/blog/${blog.slug}`;
     if (navigator.share) {
       try {
         await navigator.share({
@@ -112,6 +112,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
       ? selectedBlog.excerpt 
       : "Lee artículos, noticias y guías de aviación con temática para Sobrecargos (Asistentes de Vuelo), Oficiales de Operación de Aeronaves y aspirantes de aviación en Cancún.",
     keywords: selectedBlog?.keywords,
+    ogImage: selectedBlog?.imageUrl,
     path: selectedBlog 
       ? `/blog/${selectedBlog.slug}` 
       : "/blog",

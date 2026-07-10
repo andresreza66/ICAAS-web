@@ -1,5 +1,7 @@
 import img1 from '../assets/images/regenerated_image_1780955032601.webp';
-import cancunImg from '../assets/images/cancun_city_view_1782322773336.jpg';
+import imgAzafata from '../assets/images/sobrecargo_profesion_1783564307988.jpg';
+import imgCopiloto from '../assets/images/primer_oficial_1783564318171.jpg';
+import imgEntrenamiento from '../assets/images/entrenamiento_sobrecargo_1783564328793.jpg';
 
 export interface BlogPost {
   id: string;
@@ -279,7 +281,7 @@ const ALL_BLOGS: BlogPost[] = [
     title: 'Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional',
     excerpt: 'La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los estándares internacionales de seguridad y servicio. Seleccionar una escuela de aviación en Cancún es una decisión estratégica.',
     content: `<h1>Por qué estudiar en una escuela de aviación en Cancún cambiará tu futuro profesional</h1>
-<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${cancunImg}" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="/cancun_city_view_1782322773336.jpg" alt="Vista aérea de la hermosa ciudad de Cancún, Quintana Roo, con sus playas de agua turquesa y zona hotelera" referrerPolicy="no-referrer"></p>
 <p>La industria aeronáutica en México demanda perfiles técnicos con una formación alineada a los <strong>estándares internacionales de seguridad y servicio</strong>. Seleccionar una <strong>escuela de aviación en Cancún</strong> no es solo una elección geográfica, sino una decisión estratégica fundamentada en la proximidad a uno de los centros de operaciones aéreas más activos de América Latina. <strong>ICAAS Aviación</strong> se posiciona como una institución clave para aquellos que buscan <strong>estudiar aviación en Cancún</strong>, ofreciendo programas diseñados para satisfacer las exigencias de aerolíneas globales y el sector de aviación ejecutiva.</p>
 <h2>Entorno Operativo: Ventajas de la Ubicación en el Caribe Mexicano</h2>
 <p>El Aeropuerto Internacional de Cancún (CUN) registra uno de los mayores volúmenes de tráfico de pasajeros internacionales en el país. Esta densidad operativa proporciona un entorno de aprendizaje real y constante. <strong>Estudiar aviación en Cancún</strong> permite al estudiante familiarizarse con el flujo de trabajo de aerolíneas de diversos continentes, protocolos de seguridad aeroportuaria y la logística de un hub de conexión global.</p>
@@ -324,7 +326,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Elegir dónde formarse es el factor determinante para el éxito en el sector aeronáutico. La combinación de una ubicación privilegiada, instructores con experiencia real en la industria, tecnología de simulación de última generación y alianzas estratégicas convierte a <strong>ICAAS Aviación</strong> en la opción líder para quienes desean <strong>estudiar aviación en Cancún</strong>.</p>
 <p>La industria aérea mexicana se encuentra en una fase de expansión sostenida. Formarse bajo estándares globales en un centro neurálgico como Cancún garantiza que el egresado esté preparado para los retos técnicos y operativos de 2026 y los años venideros.</p>
 <p>Para obtener más información sobre el proceso de inscripción, planes de estudio y costos, visite el sitio oficial de <a href="https://vuela-icaas.com">ICAAS Aviación</a> y comience su proceso de admisión hoy mismo.</p>`,
-    imageUrl: cancunImg,
+    imageUrl: '/cancun_city_view_1782322773336.jpg',
     date: '24 Jun 2026',
     category: 'Carrera'
   },
@@ -539,6 +541,72 @@ const ALL_BLOGS: BlogPost[] = [
     date: '07 Jul 2026',
     category: 'Aviación'
   },
+  {
+    id: '7',
+    slug: 'azafata-aeromoza-sobrecargo-evolucion-terminos-aviacion',
+    title: '¿Azafata, aeromoza o sobrecargo? La evolución de los términos en la aviación',
+    excerpt: 'El lenguaje de la aviación ha cambiado con los años. Conoce por qué los términos profesionales como sobrecargo de aviación y primer oficial representan mejor la realidad actual de la industria.',
+    content: `<h1>¿Azafata, aeromoza o sobrecargo? La evolución de los términos en la aviación</h1>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${imgAzafata}" alt="Sobrecargo de aviación moderno en la cabina de pasajeros" title="Sobrecargo de aviación profesional" referrerpolicy="no-referrer"></p>
+<p>El lenguaje de la aviación ha evolucionado a la par de su tecnología y profesionalismo. En los inicios de la aviación comercial, los términos utilizados para referirse a las tripulaciones reflejaban una industria naciente y visiones tradicionales. Hoy en día, la preparación técnica, la seguridad operacional y la equidad de género han redefinido estas profesiones, impulsando el uso de términos más precisos como <strong>Sobrecargo de Aviación</strong> y <strong>Primer Oficial</strong>.</p>
+<h2>¿Por qué “aeromoza” ya no representa la profesión actual?</h2>
+<p>La palabra “aeromoza” suele asociarse con una imagen tradicional de la aviación comercial, especialmente de décadas pasadas. En ese contexto, el trabajo a bordo se relacionaba más con la hospitalidad, la imagen personal y el servicio.</p>
+<p>Sin embargo, la realidad actual es muy diferente.</p>
+<p>Hoy, quienes estudian la carrera de <strong>Sobrecargo de Aviación</strong> reciben formación en temas como:</p>
+<ul>
+<li>Seguridad aérea.</li>
+<li>Primeros auxilios.</li>
+<li>Procedimientos de emergencia.</li>
+<li>Factores humanos.</li>
+<li>Comunicación efectiva.</li>
+<li>Reglamentación aeronáutica.</li>
+<li>Servicio a bordo.</li>
+<li>Trabajo en equipo con la tripulación.</li>
+</ul>
+<p>Por eso, usar únicamente términos como “aeromoza” puede quedarse corto frente a todas las responsabilidades que implica esta profesión.</p>
+<p>El sobrecargo moderno es una figura clave en la operación aérea. Su preparación va mucho más allá de servir alimentos o dar la bienvenida a los pasajeros. Es una persona capacitada para responder ante situaciones críticas y mantener el orden, la seguridad y la calma dentro de la cabina.</p>
+<h2>El cambio también refleja una industria más profesional e inclusiva</h2>
+<p>Otra razón por la que términos como “azafata” o “aeromoza” han quedado en desuso es que suelen estar asociados a una visión femenina de la profesión. Durante muchos años, el imaginario popular relacionó este trabajo casi exclusivamente con mujeres.</p>
+<p>Hoy, la carrera de sobrecargo está abierta a mujeres y hombres que deseen desarrollarse profesionalmente en la aviación. Por eso, el término <strong>sobrecargo de aviación</strong> resulta más adecuado: es profesional, incluyente y refleja mejor la realidad de la industria.</p>
+<p>La aviación actual necesita personas preparadas, disciplinadas, empáticas y capaces de tomar decisiones bajo presión, sin importar su género. Lo importante es la formación, la actitud de servicio, la responsabilidad y el compromiso con la seguridad.</p>
+<h2>¿Y qué pasa con la palabra “copiloto”?</h2>
+<p>Otro término que muchas personas usan de forma cotidiana es “copiloto”. Aunque sigue siendo común escucharlo, dentro de la aviación profesional cada vez se prefiere hablar de <strong>primer oficial</strong>.</p>
+<p>El motivo es similar: la palabra “copiloto” puede dar la impresión equivocada de que se trata de alguien secundario o menos importante dentro de la cabina de mando. En realidad, el primer oficial es un piloto profesional, capacitado y certificado, que forma parte activa de la operación del vuelo.</p>
+<p>El comandante o capitán tiene la máxima autoridad a bordo, pero el primer oficial cumple funciones esenciales en la navegación, comunicación, monitoreo de sistemas, toma de decisiones y seguridad del vuelo.</p>
+<p>Por eso, aunque “copiloto” sigue siendo una palabra conocida por el público, “primer oficial” representa mejor el nivel de responsabilidad y profesionalismo de este puesto.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${imgCopiloto}" alt="Capitán y primer oficial trabajando en equipo dentro de la cabina de vuelo de un avión" title="Primer oficial en aviación" referrerpolicy="no-referrer"></p>
+<p>El primer oficial cumple funciones esenciales dentro de la cabina de mando.</p>
+<h2>La aviación ha cambiado, y el lenguaje también</h2>
+<p>La evolución de estos términos no significa que las palabras antiguas sean ofensivas en todos los contextos ni que las personas las usen con mala intención. Muchas veces se utilizan por costumbre o desconocimiento.</p>
+<p>Sin embargo, aprender el lenguaje correcto de la aviación ayuda a comprender mejor cómo funciona esta industria y cuál es el verdadero valor de cada profesión.</p>
+<p>Decir <strong>sobrecargo de aviación</strong> en lugar de “azafata” o “aeromoza” es reconocer que esta persona está entrenada para mucho más que brindar servicio. Es reconocer su papel en la seguridad del vuelo.</p>
+<p>Decir <strong>primer oficial</strong> en lugar de “copiloto” es entender que se trata de un piloto profesional con responsabilidades reales dentro de la cabina de mando.</p>
+<p>El lenguaje evoluciona porque las profesiones también evolucionan.</p>
+<h2>La evolución del trabajo del sobrecargo</h2>
+<p>En los primeros años de la aviación comercial, el trabajo a bordo estaba muy relacionado con la atención personalizada al pasajero. Con el crecimiento de las aerolíneas, el aumento en la cantidad de vuelos y el desarrollo de aeronaves más grandes, el papel del personal de cabina se volvió cada vez más técnico y especializado.</p>
+<p>Hoy, el sobrecargo de aviación debe estar preparado para actuar en distintos escenarios: desde atender a un pasajero nervioso hasta responder ante una emergencia médica, una evacuación o una situación inesperada durante el vuelo.</p>
+<p>Además, el sobrecargo representa a la aerolínea frente al pasajero. Es una figura que combina seguridad, comunicación, servicio, liderazgo y criterio profesional.</p>
+<p>Por eso, estudiar para ser sobrecargo implica desarrollar habilidades técnicas y humanas. No se trata solamente de conocer procedimientos, sino también de saber comunicarse, trabajar bajo presión, resolver problemas y mantener una actitud profesional en todo momento.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="${imgEntrenamiento}" alt="Estudiantes de sobrecargo de aviación practicando procedimientos de seguridad en una cabina de entrenamiento" title="Formación de sobrecargos de aviación" referrerpolicy="no-referrer"></p>
+<p>La formación profesional permite que los futuros sobrecargos desarrollar habilidades técnicas y humanas.</p>
+<h2>¿Por qué es importante aprender estos términos desde la formación?</h2>
+<p>Para quienes desean iniciar una carrera en aviación, conocer el vocabulario correcto es parte del proceso de profesionalización.</p>
+<p>Desde el primer día de formación, los estudiantes aprenden que la aviación tiene su propio lenguaje, sus propios procedimientos y una cultura basada en la seguridad. Usar los términos adecuados ayuda a integrarse mejor a esta industria y a comprender la responsabilidad que implica cada puesto.</p>
+<p>En ICAAS Escuela de Aviación en Cancún, la formación de futuros sobrecargos y oficiales de operaciones está orientada a preparar profesionales capaces de integrarse a una industria exigente, dinámica y en constante evolución.</p>
+<p>La aviación no solo requiere pasión por volar. También requiere disciplina, preparación y respeto por cada función dentro de la operación aérea.</p>
+<h2>Conclusión</h2>
+<p>Palabras como “azafata”, “aeromoza” o “copiloto” forman parte de la historia de la aviación, pero la industria actual exige términos más precisos y profesionales.</p>
+<p>Hoy hablamos de <strong>sobrecargos de aviación</strong> y <strong>primeros oficiales</strong> porque estas palabras reflejan mejor la preparación, responsabilidad y evolución de cada puesto.</p>
+<p>La forma en que nombramos una profesión también comunica cómo la valoramos. Por eso, usar el lenguaje correcto es una manera de reconocer el papel fundamental que cada profesional tiene en la seguridad y eficiencia de un vuelo.</p>
+<p>Si te apasiona el mundo de la aviación y quieres prepararte para formar parte de esta industria, en ICAAS puedes iniciar tu formación como <strong>Sobrecargo de Aviación</strong> u <strong>Oficial de Operaciones</strong> en Cancún.</p>
+<p><strong>Tu carrera en la aviación puede comenzar hoy.</strong></p>
+<h2>Estudia aviación en Cancún con ICAAS</h2>
+<p>En ICAAS Escuela de Aviación te preparamos para iniciar tu camino profesional en la industria aérea. Conoce nuestras carreras de <strong>Sobrecargo de Aviación</strong> y <strong>Oficial de Operaciones</strong>.</p>
+<p><a href="https://vuela-icaas.com" title="Conoce ICAAS Escuela de Aviación en Cancún">Conoce más sobre ICAAS</a></p>`,
+    imageUrl: imgAzafata,
+    date: '10 Jul 2026',
+    category: 'Aviación'
+  }
 ];
 
 const months: Record<string, number> = {
