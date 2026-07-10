@@ -11,7 +11,7 @@ interface BlogProps {
   isStandalone?: boolean;
 }
 
-const ShareButtons = ({ blog, isSmall = false }: { blog: BlogPost, isSmall?: boolean }) => {
+const ShareButtons = ({ blog, isSmall = false, onlyIcons = false }: { blog: BlogPost, isSmall?: boolean, onlyIcons?: boolean }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = (e: React.MouseEvent) => {
@@ -38,6 +38,27 @@ const ShareButtons = ({ blog, isSmall = false }: { blog: BlogPost, isSmall?: boo
       handleCopyLink(e);
     }
   };
+
+  if (onlyIcons) {
+    return (
+      <div className="flex items-center gap-2">
+        <button 
+          onClick={shareNativeOrCopy}
+          className="bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center size-10"
+          title="Compartir"
+        >
+          <Share2 size={20} />
+        </button>
+        <button 
+          onClick={handleCopyLink}
+          className="bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center size-10"
+          title="Copiar enlace"
+        >
+          {copied ? <Check size={20} className="text-green-500" /> : <LinkIcon size={20} />}
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className={`flex flex-wrap items-center ${isSmall ? 'gap-2' : 'gap-3'}`}>
@@ -194,14 +215,18 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   onClick={e => e.stopPropagation()}
-                  className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col pt-12 sm:pt-16"
+                  className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col"
                 >
-                  <button onClick={handleClose} className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors z-10">
-                    <X size={24} />
-                  </button>
+                  <div className="absolute top-4 right-4 sm:top-5 sm:right-6 flex items-center gap-2 z-20">
+                    <ShareButtons blog={selectedBlog} onlyIcons={true} />
+                    <button onClick={handleClose} className="bg-gray-100 text-gray-500 p-2 rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center size-10" title="Cerrar">
+                      <X size={24} />
+                    </button>
+                  </div>
                   
-                  <div className="p-6 sm:p-12 sm:pt-6 overflow-y-auto flex-grow">
-                    <div className="flex items-center gap-4 mb-8">
+                  {/* Scrollable content area */}
+                  <div className="p-6 sm:p-12 pt-16 sm:pt-20 overflow-y-auto flex-grow">
+                    <div className="flex items-center gap-4 mb-8 pb-4 border-b border-gray-100">
                        <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">{selectedBlog.category}</span>
                        <span className="flex items-center gap-1.5 text-gray-400 text-[10px] font-bold uppercase tracking-wider"><Calendar size={12} /> {selectedBlog.date}</span>
                     </div>
