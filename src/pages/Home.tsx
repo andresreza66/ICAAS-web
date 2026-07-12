@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
@@ -7,145 +7,33 @@ import {
   CheckCircle2, Award, Briefcase, GraduationCap,
   Layers, Star, Zap, Eye, Target, Sparkles, MapPin, Info,
   Check, Mail, Phone, Send, Instagram, Facebook, MessageCircle, X, ChevronLeft, ChevronRight, Plus,
-  Building2, Languages, Stethoscope, Users2, ChevronDown, Image as ImageIcon
+  Building2, Languages, Stethoscope, Users2
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
 import { trackEvent } from '../lib/analytics';
 import Blog from './Blog';
 
 // Import images from assets to allow Vite to bundle them correctly
-import heroImg from '../assets/images/home_hero_azafata.jpg';
+import heroImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
 import ejecutivoImg from '../assets/images/regenerated_image_1777628075067_opt.jpg';
 import genericImg from '../assets/images/regenerated_image_1777580804672_opt.png';
-import sobrecargoImg from '../assets/images/sobrecargo_profesion_1783564307988.jpg';
+import sobrecargoImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import oficialImg from '../assets/images/regenerated_image_1777626580593_opt.jpg';
 import simuladorVRImg from '../assets/images/regenerated_image_1777904006862.jpg';
 import horaSimuladorImg from '../assets/images/regenerated_image_1777927339271.png';
-// Salones and Biblioteca imports
-import fac1Img from '../assets/images/nosotros_fac1.jpg';
-import fac4Img from '../assets/images/nosotros_fac4.jpg';
-import fac6Img from '../assets/images/nosotros_fac6.jpg';
-import salImg2 from '../assets/images/nosotros_sal2.png';
-import salImg3 from '../assets/images/nosotros_sal3.jpg';
-
-// Additional imports for areas comunes
-import acFachada from '../assets/images/nosotros_fachada_de_la_escuela.jpg';
-import acRecepcion from '../assets/images/nosotros_recepcion_con_letrero.jpg';
-import acPasillo from '../assets/images/regenerated_image_1783872666124.jpg';
-import acOficinaAdmin from '../assets/images/nosotros_oficina_administrativa.jpg';
-import acOficinaControl from '../assets/images/nosotros_oficina_de_control_escolar.jpg';
-
-// Imports for digital library (biblioteca) uploaded images
-import libImg1 from '../assets/images/regenerated_image_1783867891839.jpg';
-import libImg2 from '../assets/images/regenerated_image_1783867893953.jpg';
-import libImg3 from '../assets/images/regenerated_image_1783867895153.jpg';
-
-// Additional thematic assets
-import trainerSinteticoUpdated from '../assets/images/regenerated_image_1783868704590.jpg';
-import trainerSintetico from '../assets/images/nosotros_trainer_sintetico.jpg';
-import simuladorVuelo from '../assets/images/nosotros_simulador_vuelo.jpg';
-import garmin1000 from '../assets/images/nosotros_garmin_1000.jpg';
-import airbusA320 from '../assets/images/nosotros_airbus_a320.jpg';
-
-// New entrenadores images
-import entrenadorImg1 from '../assets/images/regenerated_image_1783868585570.jpg';
-import entrenadorImg2 from '../assets/images/regenerated_image_1783740864025.jpg';
-import entrenadorImg3 from '../assets/images/regenerated_image_1783873142875.jpg';
-
-import mockupCabina from '../assets/images/nosotros_mockup_cabina.jpg';
-import entrenamientoSobrecargo from '../assets/images/nosotros_entrenamiento_sobrecargo.jpg';
-
-// New mockup images
-import mockupImg3 from '../assets/images/regenerated_image_1783869290954.jpg';
-import mockupImg4 from '../assets/images/regenerated_image_1783869292183.jpg';
-import mockupImg5 from '../assets/images/regenerated_image_1783869293613.jpg';
-import mockupImg6 from '../assets/images/regenerated_image_1783869295458.jpg';
-import mockupImg7 from '../assets/images/regenerated_image_1783869297082.jpg';
-import mockupImg8 from '../assets/images/regenerated_image_1783869298979.jpg';
-import mockupImg9 from '../assets/images/regenerated_image_1783869300321.jpg';
-import mockupImg10 from '../assets/images/regenerated_image_1783869301882.jpg';
-import mockupImg11 from '../assets/images/regenerated_image_1783870120419.jpg';
-import mockupImg12 from '../assets/images/regenerated_image_1783870121558.jpg';
-
-const categories = [
-  { id: 'areas-comunes', label: 'Áreas Comunes', desc: 'Espacios modernos diseñados para el confort, el estudio y la convivencia de nuestros alumnos.' },
-  { id: 'salones', label: 'Salones', desc: 'Aulas climatizadas y equipadas con tecnología multimedia para instrucción teórica.' },
-  { id: 'biblioteca', label: 'Biblioteca digital', desc: 'Sala de consulta con acceso a briefings operacionales, manuales oficiales y computadoras.' },
-  { id: 'entrenadores', label: 'Entrenadores sintéticos', desc: 'Simuladores de vuelo equipados con tecnología de vanguardia para prácticas de vuelo y despacho.' },
-  { id: 'mockup', label: 'Mockup de cabina de pasajeros', desc: 'Taller especializado que recrea una cabina de pasajeros real para el adiestramiento de sobrecargos.' }
-];
-
-const categoryImages: Record<string, string[]> = {
-  'areas-comunes': [
-    acFachada,
-    acRecepcion,
-    acPasillo,
-    acOficinaAdmin,
-    acOficinaControl
-  ],
-  'salones': [
-    fac1Img,
-    fac6Img,
-    salImg2,
-    salImg3
-  ],
-  'biblioteca': [
-    fac4Img,
-    libImg1,
-    libImg2,
-    libImg3
-  ],
-  'entrenadores': [
-    trainerSinteticoUpdated,
-    trainerSintetico,
-    simuladorVuelo,
-    garmin1000,
-    airbusA320,
-    entrenadorImg1,
-    entrenadorImg2,
-    entrenadorImg3
-  ],
-  'mockup': [
-    mockupCabina,
-    entrenamientoSobrecargo,
-    mockupImg3,
-    mockupImg4,
-    mockupImg5,
-    mockupImg6,
-    mockupImg7,
-    mockupImg8,
-    mockupImg9,
-    mockupImg10,
-    mockupImg11,
-    mockupImg12
-  ]
-};
+import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg'; 
+import fac2Img from '../assets/images/regenerated_image_1777925795640.png';
+import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
+import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
+import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
+import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
+import fac7Img from '../assets/images/regenerated_image_1783520144201.jpg';
 
 export default function Home({ id }: { id: string }) {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  
-  const [activeTab, setActiveTab] = useState('areas-comunes');
-  const [carouselIndex, setCarouselIndex] = useState<number>(0);
-  const [activeImageIdx, setActiveImageIdx] = useState<number | null>(null);
-
-  // Auto-advance carousel
-  useEffect(() => {
-    const currentImages = categoryImages[activeTab] || [];
-    if (currentImages.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setCarouselIndex((prev) => (prev + 1) % currentImages.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [activeTab]);
-
-  useEffect(() => {
-    setCarouselIndex(0);
-  }, [activeTab]);
 
   useSEO({
     title: "ICAAS Aviación | Escuela de Aviación en Cancún ✈️",
@@ -492,7 +380,60 @@ export default function Home({ id }: { id: string }) {
   ];
 
   const [selectedCareer, setSelectedCareer] = React.useState<null | typeof careers[0]>(null);
+  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
   const [openFAQIndex, setOpenFAQIndex] = React.useState<number | null>(null);
+
+  const facilitiesImages = [
+    { 
+      src: fac1Img, 
+      alt: "Simulador de vuelo profesional en ICAAS Cancún", 
+      title: "Simulador de vuelo - ICAAS Escuela de Aviación",
+      name: "Simulador de Vuelo Profesional",
+      description: "Estudiantes de aviación de ICAAS Cancún realizando entrenamiento práctico en simulador de vuelo certificado de última tecnología."
+    },
+    { 
+      src: fac2Img, 
+      alt: "Aulas modernas para clases teóricas de aviación en Cancún", 
+      title: "Aulas de teoría - ICAAS Escuela de Aviación",
+      name: "Aulas de Teoría Aeronáutica",
+      description: "Salones de clases modernos y equipados para la enseñanza teórica de pilotos, sobrecargos y oficiales de operaciones en Cancún."
+    },
+    { 
+      src: fac3Img, 
+      alt: "Estudiantes de aviación interactuando en las instalaciones de ICAAS Cancún", 
+      title: "Comunidad estudiantil - ICAAS Escuela de Aviación",
+      name: "Estudiantes de Aviación Comercial",
+      description: "Comunidad académica de ICAAS interactuando y compartiendo experiencias en el campus de Cancún."
+    },
+    { 
+      src: fac4Img, 
+      alt: "Biblioteca técnica con material de estudio para pilotos y sobrecargos", 
+      title: "Biblioteca técnica - ICAAS Escuela de Aviación",
+      name: "Biblioteca Técnica de Aviación",
+      description: "Colección completa de manuales de vuelo, reglamentación aérea y material de estudio técnico para la formación aeronáutica."
+    },
+    { 
+      src: fac5Img, 
+      alt: "Prácticas de seguridad de vuelo y equipo de emergencia", 
+      title: "Talleres prácticos - ICAAS Escuela de Aviación",
+      name: "Taller de Prácticas de Seguridad",
+      description: "Entrenamiento práctico con equipos de seguridad de cabina, toboganes de evacuación y simulacros de emergencia de sobrecargo."
+    },
+    { 
+      src: fac6Img, 
+      alt: "Instalaciones principales del centro de adiestramiento aeronáutico ICAAS Cancún", 
+      title: "Campus Cancún - ICAAS Escuela de Aviación",
+      name: "Campus Principal ICAAS Cancún",
+      description: "Edificio central e instalaciones administrativas y académicas de la mejor escuela de aviación en Quintana Roo, México."
+    },
+    { 
+      src: fac7Img, 
+      alt: "Sistemas avanzados de instrucción práctica en la escuela de aviación ICAAS", 
+      title: "Instrucción Práctica de Vanguardia - ICAAS",
+      name: "Sistemas de Instrucción Práctica",
+      description: "Equipos interactivos, maquetas de cabina y tecnología multimedia avanzada para facilitar el aprendizaje de los alumnos."
+    },
+  ];
 
   return (
     <div id={id} className="overflow-hidden">
@@ -614,47 +555,39 @@ export default function Home({ id }: { id: string }) {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {activeImageIdx !== null && (
+        {lightboxIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-            onClick={() => setActiveImageIdx(null)}
+            onClick={() => setLightboxIndex(null)}
           >
             <button
               className="absolute top-6 right-6 p-4 text-white hover:text-primary z-50"
-              onClick={() => setActiveImageIdx(null)}
+              onClick={() => setLightboxIndex(null)}
             >
               <X size={32} />
             </button>
             <button
               className="absolute left-6 p-4 text-white hover:text-primary z-50"
-              onClick={(e) => { 
-                e.stopPropagation(); 
-                const currentImages = categoryImages[activeTab] || [];
-                setActiveImageIdx((activeImageIdx - 1 + currentImages.length) % currentImages.length); 
-              }}
+              onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + facilitiesImages.length) % facilitiesImages.length); }}
             >
               <ChevronLeft size={48} />
             </button>
             <button
               className="absolute right-6 p-4 text-white hover:text-primary z-50"
-              onClick={(e) => { 
-                e.stopPropagation(); 
-                const currentImages = categoryImages[activeTab] || [];
-                setActiveImageIdx((activeImageIdx + 1) % currentImages.length); 
-              }}
+              onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % facilitiesImages.length); }}
             >
               <ChevronRight size={48} />
             </button>
             <motion.img
-              key={activeImageIdx}
+              key={lightboxIndex}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              src={(categoryImages[activeTab] || [])[activeImageIdx]}
-              alt="Instalación ICAAS Cancún"
+              src={facilitiesImages[lightboxIndex].src}
+              alt={facilitiesImages[lightboxIndex].alt}
               className="max-w-full max-h-[80vh] object-contain rounded-2xl"
               onClick={(e) => e.stopPropagation()}
               decoding="async"
@@ -1060,185 +993,67 @@ export default function Home({ id }: { id: string }) {
 
           {/* New Facilities Subsection */}
           <div id="instalaciones" className="mt-32 scroll-mt-16 text-center">
-            <div className="mb-10 text-center flex flex-col items-center">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary block mb-2">Instalaciones de altura</span>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-secondary uppercase tracking-tight">Nuestras Instalaciones en Cancún</h3>
-            </div>
-
-            {/* Category Selection */}
-            <div className="mb-6">
-              {/* Mobile Dropdown */}
-              <div className="block sm:hidden max-w-xs mx-auto">
-                <div className="relative">
-                  <select
-                    value={activeTab}
-                    onChange={(e) => {
-                      setActiveTab(e.target.value);
-                      setCarouselIndex(0);
-                      setActiveImageIdx(null);
-                    }}
-                    className="w-full appearance-none bg-white border border-gray-200 text-secondary text-xs font-bold uppercase tracking-widest py-3 pl-4 pr-10 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm"
-                  >
-                    {categories.map((cat) => (
-                      <option key={cat.id} value={cat.id}>
-                        {cat.label}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-primary">
-                    <ChevronDown size={16} />
-                  </div>
+            <div className="flex flex-col items-center justify-center gap-8 mb-16">
+              <div className="max-w-2xl flex flex-col items-center">
+                <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
+                  <span className="text-[9px] font-black uppercase tracking-[0.2em]">Entorno Profesional</span>
                 </div>
-              </div>
-              
-              {/* Desktop Tabs */}
-              <div className="hidden sm:flex flex-wrap justify-center gap-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => {
-                      setActiveTab(cat.id);
-                      setCarouselIndex(0);
-                      setActiveImageIdx(null);
-                    }}
-                    className={`px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
-                      activeTab === cat.id
-                        ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105'
-                        : 'bg-gray-50 text-gray-500 hover:text-secondary border border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic">Instalaciones de Vanguardia</h3>
+                <p className="text-gray-500 text-base sm:text-lg font-light mt-6 leading-relaxed">
+                  Espacios diseñados para simular entornos reales de trabajo, equipados con la última tecnología en simulación y ayudas académicas.
+                </p>
               </div>
             </div>
 
-            {/* Active Category Description */}
-            <div className="text-center mb-10 max-w-2xl mx-auto">
-              <p className="text-gray-500 text-xs sm:text-sm font-light italic leading-relaxed">
-                "{categories.find(c => c.id === activeTab)?.desc}"
-              </p>
-            </div>
+            <div className="grid grid-cols-2 md:grid-cols-5 md:grid-rows-2 gap-3 sm:gap-6 h-auto md:h-[320px]">
+              {/* Main Feature Image */}
+              <div 
+                onClick={() => setLightboxIndex(0)}
+                className="h-32 sm:h-40 md:h-full col-span-2 md:col-span-2 md:row-span-2 rounded-[20px] sm:rounded-[24px] md:rounded-[40px] overflow-hidden relative group cursor-pointer"
+                itemScope
+                itemType="https://schema.org/ImageObject"
+              >
+                <img 
+                  itemProp="contentUrl"
+                  src={facilitiesImages[0].src} 
+                  alt={facilitiesImages[0].alt} 
+                  title={facilitiesImages[0].title}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
+                  referrerPolicy="no-referrer"
+                />
+                <meta itemProp="name" content={facilitiesImages[0].name} />
+                <meta itemProp="description" content={facilitiesImages[0].description} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
 
-            {/* Sleek Carousel Container */}
-            {(() => {
-              const currentImages = categoryImages[activeTab] || [];
-              const imagesWithSrc = currentImages;
-
-              if (imagesWithSrc.length === 0) {
-                return (
-                  <div className="h-60 rounded-2xl bg-gray-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-                    <ImageIcon size={32} className="text-gray-400 mb-3" />
-                    <p className="text-xs text-gray-500">Próximamente más imágenes disponibles.</p>
-                  </div>
-                );
-              }
-
-              const currentItem = imagesWithSrc[carouselIndex] || imagesWithSrc[0];
-
-              return (
-                <div className="relative max-w-4xl mx-auto flex flex-col items-center">
-                  {/* Main Visual Frame */}
-                  <div className="relative w-[240px] h-[240px] xs:w-[280px] xs:h-[280px] sm:w-[360px] sm:h-[360px] md:w-[400px] md:h-[400px] rounded-3xl overflow-hidden bg-gray-100 border border-gray-200 shadow-xl group">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={carouselIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="w-full h-full"
-                      >
-                        {currentItem && (
-                          <div className="relative w-full h-full">
-                            <img
-                              src={currentItem}
-                              alt="Instalación ICAAS Cancún"
-                              className="w-full h-full object-cover cursor-zoom-in"
-                              onClick={() => setActiveImageIdx(carouselIndex)}
-                              referrerPolicy="no-referrer"
-                            />
-                          </div>
-                        )}
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Left Arrow Button */}
-                    {imagesWithSrc.length > 1 && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setCarouselIndex((carouselIndex + imagesWithSrc.length - 1) % imagesWithSrc.length);
-                        }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-primary text-secondary p-3 rounded-full border border-gray-200 hover:border-transparent transition-all duration-300 backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-lg z-20 flex justify-center items-center"
-                        aria-label="Imagen anterior"
-                      >
-                        <ChevronLeft size={20} className="stroke-[2.5]" />
-                      </button>
-                    )}
-
-                    {/* Right Arrow Button */}
-                    {imagesWithSrc.length > 1 && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setCarouselIndex((carouselIndex + 1) % imagesWithSrc.length);
-                        }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-primary text-secondary p-3 rounded-full border border-gray-200 hover:border-transparent transition-all duration-300 backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-lg z-20 flex justify-center items-center"
-                        aria-label="Siguiente imagen"
-                      >
-                        <ChevronRight size={20} className="stroke-[2.5]" />
-                      </button>
-                    )}
-
-                    {/* Tap to zoom indicator */}
-                    {currentItem && (
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-gray-200 text-secondary text-[10px] uppercase tracking-wider font-black flex items-center gap-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 shadow-sm">
-                        <ImageIcon size={11} className="text-primary" /> Ampliar vista
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Outside Caption */}
-                  <div className="mt-5 text-center px-4 min-h-[44px]">
-                    <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
-                      Imagen {carouselIndex + 1} de {imagesWithSrc.length}
-                    </p>
-                  </div>
-
-                  {/* Interactive Thumbnail Strip */}
-                  {imagesWithSrc.length > 1 && (
-                    <div className="mt-4 flex justify-center gap-2 overflow-x-auto max-w-full py-2 px-4 scrollbar-none scroll-smooth">
-                      {imagesWithSrc.map((image, idx) => {
-                        const isActive = idx === carouselIndex;
-                        return (
-                          <div
-                            key={idx}
-                            className={`relative w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 transition-all duration-300 border-2 ${
-                              isActive
-                                ? 'border-primary scale-105 shadow-md shadow-primary/20'
-                                : 'border-gray-200 opacity-70 hover:opacity-100 hover:border-gray-300'
-                            }`}
-                          >
-                            {image && (
-                              <div className="w-full h-full relative group/thumb">
-                                <img
-                                  src={image}
-                                  alt="Miniatura"
-                                  className="w-full h-full object-cover cursor-pointer"
-                                  onClick={() => setCarouselIndex(idx)}
-                                  referrerPolicy="no-referrer"
-                                />
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
+              {/* Smaller Grid Images */}
+              {facilitiesImages.slice(1).map((img, index) => (
+                <div 
+                  key={index}
+                  onClick={() => setLightboxIndex(index + 1)}
+                  className="h-28 sm:h-36 md:h-full rounded-[20px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden relative group cursor-pointer"
+                  itemScope
+                  itemType="https://schema.org/ImageObject"
+                >
+                  <img 
+                    itemProp="contentUrl"
+                    src={img.src} 
+                    alt={img.alt} 
+                    title={img.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                  />
+                  <meta itemProp="name" content={img.name} />
+                  <meta itemProp="description" content={img.description} />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-              );
-            })()}
+              ))}
+            </div>
           </div>
         </div>
       </section>

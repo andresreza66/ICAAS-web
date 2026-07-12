@@ -9,12 +9,13 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 
-import Home from './pages/Home';
-import CareerLanding from './pages/CareerLanding';
-import Cursos from './pages/Cursos';
-import Nosotros from './pages/Nosotros';
-import Contacto from './pages/Contacto';
-import Blog from './pages/Blog';
+// Code splitting / Dynamic Imports for high-performance and fast cellular load on mobile
+const Home = lazy(() => import('./pages/Home'));
+const CareerLanding = lazy(() => import('./pages/CareerLanding'));
+const Cursos = lazy(() => import('./pages/Cursos'));
+const Nosotros = lazy(() => import('./pages/Nosotros'));
+const Contacto = lazy(() => import('./pages/Contacto'));
+const Blog = lazy(() => import('./pages/Blog'));
 
 import { initGA, trackPageView } from './lib/analytics';
 
