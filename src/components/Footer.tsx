@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Plane, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import logoImg from '../assets/images/icaas_logo_actual.png';
+import logoImg from '../assets/images/regenerated_image_1777580804672_opt.png';
 
 export default function Footer({ id }: { id: string }) {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);

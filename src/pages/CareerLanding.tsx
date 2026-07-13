@@ -10,7 +10,7 @@ import {
 import { LazyMap } from '../components/LazyMap';
 
 // Import images
-import sobrecargoImg from '../assets/images/sobrecargo_profesion_1783564307988.jpg';
+import sobrecargoImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
 import oficialImg from '../assets/images/regenerated_image_1777626580593_opt.jpg';
 import sobrecargoQueEsImg from '../assets/images/sobrecargo_que_es_1779821539661.png';
 import oficialQueEsImg from '../assets/images/oficial_que_es_1779821556889.png';

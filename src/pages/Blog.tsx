@@ -275,12 +275,7 @@ export default function Blog({ id = "page-blog", isStandalone = true }: BlogProp
                 }}
               >
                 <div className="h-56 relative overflow-hidden">
-                  <img 
-                    src={blog.imageUrl} 
-                    alt={blog.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                    referrerPolicy="no-referrer"
-                  />
+                  <img src={blog.imageUrl} alt={blog.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
                     {(blog.categories || [blog.category]).map((cat) => (
                       <span key={cat} className="bg-white/90 backdrop-blur-sm text-secondary px-3 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg flex items-center gap-1">

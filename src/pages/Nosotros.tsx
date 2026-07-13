@@ -3,114 +3,22 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useSEO } from '../hooks/useSEO';
 import {   Award, Shield, Users, ArrowRight, CheckCircle2, Zap,
   HelpCircle, ChevronDown, Image, Building, School, Info, Star,
-  Phone, MapPin, ChevronLeft, ChevronRight
+  Phone, MapPin
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
 
 // Import local assets for building layout correctly
-import fac1Img from '../assets/images/nosotros_fac1.jpg'; 
-import fac4Img from '../assets/images/nosotros_fac4.jpg';
-import fac6Img from '../assets/images/nosotros_fac6.jpg';
-
-// Additional imports for areas comunes uploaded images
-import acFachada from '../assets/images/nosotros_fachada_de_la_escuela.jpg';
-import acRecepcion from '../assets/images/nosotros_recepcion_con_letrero.jpg';
-import acPasillo from '../assets/images/regenerated_image_1783969976149.jpg';
-import acOficinaAdmin from '../assets/images/nosotros_oficina_administrativa.jpg';
-import acOficinaControl from '../assets/images/nosotros_oficina_de_control_escolar.jpg';
-import acAreaComun2 from '../assets/images/nosotros_ac2.jpg';
-import acAreaComun3 from '../assets/images/nosotros_ac3.jpg';
-import acPasilloCentral from '../assets/images/nosotros_pasillo_central.jpg';
-import salImg3 from '../assets/images/nosotros_sal3.jpg';
-
-// Imports for digital library (biblioteca) uploaded images
-import libImg1 from '../assets/images/regenerated_image_1783867891839.jpg';
-import libImg2 from '../assets/images/regenerated_image_1783867893953.jpg';
-import libImg3 from '../assets/images/regenerated_image_1783867895153.jpg';
-
-// Additional thematic assets
-import trainerSinteticoUpdated from '../assets/images/regenerated_image_1783868704590.jpg';
-import trainerSintetico from '../assets/images/nosotros_trainer_sintetico.jpg';
-import simuladorVuelo from '../assets/images/nosotros_simulador_vuelo.jpg';
-import garmin1000 from '../assets/images/nosotros_garmin_1000.jpg';
-import mockupCabina from '../assets/images/nosotros_mockup_cabina.jpg';
-import airbusA320 from '../assets/images/nosotros_airbus_a320.jpg';
-
-// New entrenadores images
-import entrenadorImg1 from '../assets/images/regenerated_image_1783868585570.jpg';
-import entrenadorImg2 from '../assets/images/regenerated_image_1783740864025.jpg';
-import entrenadorImg3 from '../assets/images/regenerated_image_1783873142875.jpg';
-import entrenamientoSobrecargo from '../assets/images/nosotros_entrenamiento_sobrecargo.jpg';
-import logoImg from '../assets/images/icaas_logo_actual.png';
-
-// New mockup images
-import mockupImg3 from '../assets/images/regenerated_image_1783869290954.jpg';
-import mockupImg4 from '../assets/images/regenerated_image_1783869292183.jpg';
-import mockupImg5 from '../assets/images/regenerated_image_1783869293613.jpg';
-import mockupImg6 from '../assets/images/regenerated_image_1783869295458.jpg';
-import mockupImg7 from '../assets/images/regenerated_image_1783869297082.jpg';
-import mockupImg8 from '../assets/images/regenerated_image_1783869298979.jpg';
-import mockupImg9 from '../assets/images/regenerated_image_1783869300321.jpg';
-import mockupImg10 from '../assets/images/regenerated_image_1783869301882.jpg';
-
-import { Gallery } from '../components/Gallery';
-
-const categories = [
-  { id: 'areas-comunes', label: 'Áreas comunes', desc: 'Espacios modernos diseñados para el confort, el estudio y la convivencia de nuestros alumnos.' },
-  { id: 'salones', label: 'Salones', desc: 'Aulas climatizadas y equipadas con tecnología multimedia para instrucción teórica.' },
-  { id: 'biblioteca', label: 'Biblioteca digital', desc: 'Sala de consulta con acceso a briefings operacionales, manuales oficiales y computadoras.' },
-  { id: 'entrenadores', label: 'Entrenadores sintéticos', desc: 'Simuladores de vuelo equipados con tecnología de vanguardia para prácticas de vuelo y despacho.' },
-  { id: 'mockup', label: 'Mockup de cabina de pasajeros', desc: 'Taller especializado que recrea una cabina de pasajeros real para el adiestramiento de sobrecargos.' }
-];
-
-const categoryImages: Record<string, string[]> = {
-  'areas-comunes': [
-    acFachada,
-    acRecepcion,
-    acPasillo,
-    acOficinaAdmin,
-    acOficinaControl,
-    acAreaComun2,
-    acAreaComun3,
-    acPasilloCentral
-  ],
-  'salones': [
-    fac1Img,
-    fac6Img,
-    salImg3
-  ],
-  'biblioteca': [
-    fac4Img,
-    libImg1,
-    libImg2,
-    libImg3
-  ],
-  'entrenadores': [
-    trainerSinteticoUpdated,
-    trainerSintetico,
-    simuladorVuelo,
-    garmin1000,
-    airbusA320,
-    entrenadorImg1,
-    entrenadorImg2,
-    entrenadorImg3
-  ],
-  'mockup': [
-    mockupCabina,
-    entrenamientoSobrecargo,
-    mockupImg3,
-    mockupImg4,
-    mockupImg5,
-    mockupImg6,
-    mockupImg7,
-    mockupImg8,
-    mockupImg9,
-    mockupImg10
-  ]
-};
+import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg'; 
+import fac2Img from '../assets/images/regenerated_image_1777925795640.png';
+import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
+import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
+import fac5Img from '../assets/images/regenerated_image_1779992817546.png';
+import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
+import fac7Img from '../assets/images/regenerated_image_1777586277135_opt.png';
 
 export default function Nosotros({ id }: { id: string }) {
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
+  const [activeImageIdx, setActiveImageIdx] = useState<number | null>(null);
 
   useSEO({
     title: "Nosotros y Convenios de Aviación | Escuela ICAAS Cancún",
@@ -170,6 +78,15 @@ export default function Nosotros({ id }: { id: string }) {
     }
   ];
 
+  const galleryImages = [
+    { id: 1, title: "RECEPCIÓN", label: "Área de atención para alumnos y futuros alumnos.", img: fac3Img },
+    { id: 2, title: "SALONES", label: "Aulas para instrucción teórica.", img: fac1Img },
+    { id: 3, title: "SIMULADORES", label: "Entrenadores sintéticos de vuelo", img: fac2Img },
+    { id: 4, title: "BIBLIOTECA DIGITAL", label: "Sala ejecutiva para alumnos y briefings.", img: fac4Img },
+    { id: 5, title: "CABINA MOCKUP", label: "Taller para las prácticas de Sobrecargo.", img: fac6Img },
+    { id: 6, title: "ENTRADA", label: "Entrada principal de nuestras instalaciones.", img: fac5Img }
+  ];
+
   const faqs = [
     {
       q: "¿Qué carreras y cursos de aviación ofrecen en Cancún?",
@@ -200,79 +117,66 @@ export default function Nosotros({ id }: { id: string }) {
       <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[350px] h-[350px] bg-[#1877F2]/5 rounded-full blur-[110px] pointer-events-none" />
 
-      {/* Hero Header Section */}
-      <section id="hero" className="relative mb-16 z-10 max-w-5xl mx-auto px-6 flex flex-col items-center text-center">
-        <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/20 rounded-full px-4 py-1.5 w-fit">
-          <School size={14} className="text-primary animate-pulse" />
-          <span className="text-[9px] font-black uppercase tracking-[0.2em]">Escuela de Aviación ICAAS</span>
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl flex flex-col items-center"
-        >
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black italic tracking-tighter leading-none mb-4 uppercase text-white">
-            Nuestra <span className="text-primary">Historia & Excelencia</span>
-          </h1>
-          <p className="text-gray-400 max-w-2xl text-base sm:text-lg leading-relaxed">
-            Formando profesionales y líderes de la industria aeronáutica con los más altos estándares y tecnología de vanguardia en el sureste.
-          </p>
-        </motion.div>
-      </section>
+      {/* Main Grid: Historia & Excelencia on Left, Ventajas on Right */}
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: Nuestra Historia & Excelencia */}
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left p-1">
+            <div className="flex items-center gap-2 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mt-1.5">
+              <School size={14} className="text-primary" />
+              <span className="text-[9px] font-black uppercase tracking-[0.2em]">Formando el Liderazgo en el Aire</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-4xl font-black text-white tracking-tighter leading-tight uppercase">
+              Nuestra <span className="text-primary italic">Historia & Excelencia.</span>
+            </h1>
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
+              Ubicada en la ciudad de Cancún, donde se encuentra uno de los principales aeropuertos internacionales del país, ICAAS nace como respuesta a la creciente demanda de adiestramiento aeronáutico especializado que cumpla con los estándares internacionales de seguridad y capacidad. Guiados por instructores con experiencia vasta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
+            </p>
+          </div>
 
-      {/* SECTION: ¿Quiénes somos? */}
-      <section id="quienes-somos" className="py-12 mb-20 relative z-10 max-w-4xl mx-auto px-6">
-        <div className="bg-[#12151d]/40 rounded-3xl p-8 md:p-12 border-2 border-white/10 hover:border-primary/20 hover:bg-[#12151d]/50 transition-all duration-300 shadow-2xl text-center flex flex-col items-center">
-          <span className="text-[10px] uppercase tracking-widest text-primary font-black flex items-center gap-2 mb-6">
-            <span className="w-6 h-[2px] bg-primary block"></span> CONCEPTO INSTITUCIONAL <span className="w-6 h-[2px] bg-primary block"></span>
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black italic text-white tracking-tighter leading-tight uppercase mb-6">
-            ¿Quiénes <span className="text-primary">somos?</span>
-          </h2>
-          <p className="text-gray-300 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Ubicada en la ciudad de Cancún, donde se encuentra uno de los principales aeropuertos internacionales del país, ICAAS nace como respuesta a la creciente demanda de adiestramiento aeronáutico especializado que cumpla con los estándares internacionales de seguridad y capacidad. Guiados por instructores con experiencia vasta en el medio aeronáutico, no limitamos el conocimiento al pizarrón: formamos profesionales con las competencias para afrontar problemas y situaciones reales durante la operación diaria.
-          </p>
-        </div>
-      </section>
-
-      {/* Center Section: Ventajas de Ser Alumno with independent side-by-side cards */}
-      <div className="max-w-6xl mx-auto px-6 mb-24 relative z-10 text-left">
-        <div className="space-y-1.5 mb-10">
-          <span className="text-[10px] font-black uppercase tracking-widest text-primary block">Convenios Activos</span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">Ventajas al Ser Alumno</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((b, idx) => (
+          {/* Right Column: Ventajas de Ser Alumno */}
+          <div className="lg:col-span-6 space-y-6 flex flex-col justify-start text-left">
+            <div className="space-y-1.5 pt-1.5">
+              <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-1">Convenios Activos</span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">Ventajas al Ser Alumno</h2>
+            </div>
+            
             <motion.div
-              key={idx}
               initial={{ opacity: 0.35, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-[#12151d]/40 rounded-3xl p-6 sm:p-7 border-2 border-white/10 hover:border-primary/30 hover:bg-[#12151d]/60 transition-all duration-300 shadow-xl flex flex-col items-start justify-between text-left gap-4 h-full"
+              transition={{ duration: 0.6 }}
+              className="bg-[#12151d]/40 rounded-3xl p-6 sm:p-7 border-2 border-white/15 hover:border-white/25 transition-all duration-300 shadow-xl space-y-4"
             >
-              <div className="flex flex-col items-start gap-3 w-full">
-                <div className="p-3 rounded-full bg-primary/10 text-primary border border-primary/15">
-                  <CheckCircle2 size={20} className="text-primary" />
+              {benefits.map((b, idx) => (
+                <div 
+                  key={idx} 
+                  className="flex flex-col gap-1.5 border-b border-white/5 last:border-b-0 pb-4 last:pb-0 hover:translate-x-1 transition-transform duration-250"
+                >
+                  <div className="flex justify-between items-center gap-2">
+                    <div className="flex gap-2 items-center">
+                      <CheckCircle2 size={14} className="text-primary shrink-0" />
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">{b.title}</h4>
+                    </div>
+                    <span className="text-[9px] font-black uppercase px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+                      {b.benefit}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-[11px] font-light leading-relaxed">{b.desc}</p>
                 </div>
-                <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">{b.title}</h4>
-                <span className="text-[10px] font-black uppercase px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 w-fit">
-                  {b.benefit}
-                </span>
-              </div>
-              <p className="text-gray-400 text-[11px] font-light leading-relaxed mt-2">{b.desc}</p>
+              ))}
             </motion.div>
-          ))}
+          </div>
+
         </div>
       </div>
 
       {/* Pilares Section (Below side-by-side grid) */}
-      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left mt-12">
-        <div className="mb-10 flex flex-col items-start">
+      <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10 text-left sm:text-center mt-12">
+        <div className="mb-10 flex flex-col items-start sm:items-center">
           <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Filosofía de Trabajo</span>
-          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left">Pilares de ICAAS</h2>
+          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight text-left sm:text-center">Pilares de ICAAS</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -286,9 +190,9 @@ export default function Nosotros({ id }: { id: string }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start text-left justify-between"
+                className="bg-[#12151d]/40 rounded-3xl p-6 shadow-md border-2 border-white/15 hover:border-white/25 transition-all duration-300 flex flex-col items-start sm:items-center text-left sm:text-center justify-between"
               >
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-start sm:items-center">
                   <div className="bg-primary/10 text-primary p-3 rounded-2xl mb-5 flex justify-center items-center">
                     <Icon size={20} />
                   </div>
@@ -304,12 +208,34 @@ export default function Nosotros({ id }: { id: string }) {
       {/* Interactive Gallery Section */}
       <div className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
         <div className="mb-10 text-center flex flex-col items-center">
-          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Instalaciones de altura</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary block mb-2">Seguridad Física & Práctica Real</span>
           <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight">Nuestras Instalaciones en Cancún</h2>
         </div>
 
-        {/* Reusable Gallery Component (Dark Theme) */}
-        <Gallery categories={categories} categoryImages={categoryImages} theme="dark" />
+        {/* Horizontal scroll on mobile, grid on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {galleryImages.map((image, idx) => (
+            <motion.div
+              key={image.id}
+              onClick={() => setActiveImageIdx(idx)}
+              whileHover={{ scale: 1.02 }}
+              className="group relative h-60 rounded-2xl overflow-hidden cursor-pointer bg-neutral-900 shadow-sm border border-white/5"
+            >
+              <img
+                src={image.img}
+                alt={image.label}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-[10px] uppercase tracking-widest text-primary font-black mb-1 block">{image.title}</span>
+                <p className="text-xs font-bold leading-tight line-clamp-2">{image.label}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* Immersive FAQ Accordion */}
@@ -395,10 +321,73 @@ export default function Nosotros({ id }: { id: string }) {
                     Abrir en Google Maps
                   </a>
                 </div>
-              </div>
-            </div>
+             </div>
           </div>
         </div>
       </div>
+
+      {/* Lightbox / Zoom Dialog for Facilities */}
+      <AnimatePresence>
+        {activeImageIdx !== null && (
+          <div className="fixed inset-0 z-[150] flex items-center justify-center p-4">
+            
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+              onClick={() => setActiveImageIdx(null)}
+            />
+
+            {/* Carousel Item with Controls */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative max-w-4xl w-full max-h-[85vh] z-10 rounded-[24px] overflow-hidden bg-neutral-900 border border-white/10 flex flex-col shadow-2xl"
+            >
+              <button
+                onClick={() => setActiveImageIdx(null)}
+                className="absolute top-4 right-4 bg-black/60 hover:bg-black text-white p-2.5 rounded-full border border-white/10 transition-colors z-20"
+                aria-label="Cerrar vista"
+              >
+                ✕
+              </button>
+
+              <div className="relative flex-grow h-[60vh] flex items-center justify-center">
+                <img
+                  src={galleryImages[activeImageIdx].img}
+                  alt={galleryImages[activeImageIdx].label}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+
+              <div className="bg-black/80 p-5 border-t border-white/5 flex justify-between items-center text-white">
+                <div>
+                  <span className="text-[11px] uppercase tracking-widest text-primary font-black mb-1 block">{galleryImages[activeImageIdx].title}</span>
+                  <p className="text-xs sm:text-sm font-bold">{galleryImages[activeImageIdx].label}</p>
+                </div>
+                <div className="flex gap-2">
+                  <button 
+                    onClick={() => setActiveImageIdx((activeImageIdx + galleryImages.length - 1) % galleryImages.length)}
+                    className="bg-white/10 p-2.5 rounded-xl text-white hover:bg-primary transition-colors text-xs font-bold"
+                  >
+                    Ant.
+                  </button>
+                  <button 
+                    onClick={() => setActiveImageIdx((activeImageIdx + 1) % galleryImages.length)}
+                    className="bg-white/10 p-2.5 rounded-xl text-white hover:bg-primary transition-colors text-xs font-bold"
+                  >
+                    Sig.
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+    </div>
   );
 }

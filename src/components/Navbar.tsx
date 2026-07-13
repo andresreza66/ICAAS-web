@@ -2,7 +2,7 @@ import { useState, useEffect, MouseEvent } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import logoImg from '../assets/images/icaas_logo_actual.png';
+import logoImg from '../assets/images/regenerated_image_1777580804672_opt.png';
 
 export default function Navbar({ id }: { id: string }) {
   const [isOpen, setIsOpen] = useState(false);

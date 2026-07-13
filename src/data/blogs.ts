@@ -1,5 +1,5 @@
 import img1 from '../assets/images/regenerated_image_1780955032601.webp';
-import imgAzafata from '../assets/images/blog_azafata_main_1783716072965.jpg';
+import imgAzafata from '../assets/images/sobrecargo_profesion_1783564307988.jpg';
 import imgCopiloto from '../assets/images/primer_oficial_1783564318171.jpg';
 import imgEntrenamiento from '../assets/images/entrenamiento_sobrecargo_1783564328793.jpg';
 import imgCancun from '../assets/images/cancun_city_view_1782322773336.jpg';
@@ -806,7 +806,7 @@ const ALL_BLOGS: BlogPost[] = [
   </a>
 </section>`,
     imageUrl: imgTrainerSintetico,
-    date: '13 Jul 2026',
+    date: '10 Jul 2026',
     category: 'Aviación',
     categories: ['Aviación', 'Prácticas', 'Tecnología']
   }
