@@ -45,7 +45,24 @@ for (const block of blogBlocks) {
         const assetsDir = path.resolve('dist/assets');
         try {
           const files = fs.readdirSync(assetsDir);
-          const matchingFile = files.find(f => f.startsWith(originalFilename) && f.endsWith(extension));
+          let matchingFile = files.find(f => f.startsWith(originalFilename) && f.endsWith(extension));
+          if (!matchingFile) {
+            const resolvedImportPath = path.resolve('src/data', importPath);
+            if (fs.existsSync(resolvedImportPath)) {
+              const originalSize = fs.statSync(resolvedImportPath).size;
+              matchingFile = files.find(f => {
+                if (f.endsWith(extension)) {
+                  const fullPath = path.join(assetsDir, f);
+                  try {
+                    return fs.statSync(fullPath).size === originalSize;
+                  } catch (e) {
+                    return false;
+                  }
+                }
+                return false;
+              });
+            }
+          }
           if (matchingFile) {
             imageUrl = `/assets/${matchingFile}`;
           } else {

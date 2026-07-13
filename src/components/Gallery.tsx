@@ -23,6 +23,8 @@ export function Gallery({ categories, categoryImages, defaultTab, theme = 'light
   const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
+  const activeImageRef = React.useRef<HTMLImageElement>(null);
+
   // Auto-advance carousel
   useEffect(() => {
     const currentImages = categoryImages[activeTab] || [];
@@ -42,6 +44,25 @@ export function Gallery({ categories, categoryImages, defaultTab, theme = 'light
 
   const currentImages = categoryImages[activeTab] || [];
   const imagesWithSrc = currentImages;
+  const currentItem = imagesWithSrc[carouselIndex] || imagesWithSrc[0];
+
+  // If image is already complete (cached), set it as loaded immediately
+  useEffect(() => {
+    if (currentItem && activeImageRef.current) {
+      if (activeImageRef.current.complete) {
+        setLoadedImages(prev => ({ ...prev, [currentItem]: true }));
+      } else {
+        const img = activeImageRef.current;
+        const handleLoad = () => {
+          setLoadedImages(prev => ({ ...prev, [currentItem]: true }));
+        };
+        img.addEventListener('load', handleLoad);
+        return () => {
+          img.removeEventListener('load', handleLoad);
+        };
+      }
+    }
+  }, [currentItem]);
 
   return (
     <div className="gallery-component relative">
@@ -123,8 +144,6 @@ export function Gallery({ categories, categoryImages, defaultTab, theme = 'light
           );
         }
 
-        const currentItem = imagesWithSrc[carouselIndex] || imagesWithSrc[0];
-
         return (
           <div className="relative max-w-4xl mx-auto flex flex-col items-center">
             {/* Main Visual Frame */}
@@ -144,11 +163,10 @@ export function Gallery({ categories, categoryImages, defaultTab, theme = 'light
                     <div className="relative w-full h-full bg-[#12151d]">
                       {/* Image is always rendered so that the AI Studio edit overlay can detect it and let the user replace/upload images */}
                       <img
+                        ref={activeImageRef}
                         src={currentItem}
                         alt={`Vista ${categories.find(c => c.id === activeTab)?.label}`}
-                        className={`w-full h-full object-cover cursor-zoom-in transition-all duration-700 group-hover:scale-105 absolute inset-0 z-0 ${
-                          loadedImages[currentItem] ? 'opacity-100' : 'opacity-20'
-                        }`}
+                        className="w-full h-full object-cover cursor-zoom-in transition-all duration-700 group-hover:scale-105 absolute inset-0 z-0 opacity-100"
                         onClick={() => setActiveImageIdx(carouselIndex)}
                         loading="lazy"
                         decoding="async"
@@ -238,9 +256,7 @@ export function Gallery({ categories, categoryImages, defaultTab, theme = 'light
                           <img
                             src={image}
                             alt="Miniatura"
-                            className={`w-full h-full object-cover cursor-pointer transition-opacity duration-300 absolute inset-0 z-0 ${
-                              loadedImages[image] ? 'opacity-100' : 'opacity-20'
-                            }`}
+                            className="w-full h-full object-cover cursor-pointer transition-opacity duration-300 absolute inset-0 z-0 opacity-100"
                             loading="lazy"
                             referrerPolicy="no-referrer"
                             onLoad={() => setLoadedImages(prev => ({ ...prev, [image]: true }))}
