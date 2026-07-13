@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
@@ -7,34 +7,128 @@ import {
   CheckCircle2, Award, Briefcase, GraduationCap,
   Layers, Star, Zap, Eye, Target, Sparkles, MapPin, Info,
   Check, Mail, Phone, Send, Instagram, Facebook, MessageCircle, X, ChevronLeft, ChevronRight, Plus,
-  Building2, Languages, Stethoscope, Users2
+  Building2, Languages, Stethoscope, Users2, ChevronDown, Image as ImageIcon
 } from 'lucide-react';
 import { LazyMap } from '../components/LazyMap';
 import { trackEvent } from '../lib/analytics';
 import Blog from './Blog';
 
 // Import images from assets to allow Vite to bundle them correctly
-import heroImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
+import heroImg from '../assets/images/hero_cielo_ventana_avion_1783971696123.jpg';
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
 import ejecutivoImg from '../assets/images/regenerated_image_1777628075067_opt.jpg';
-import genericImg from '../assets/images/regenerated_image_1777580804672_opt.png';
-import sobrecargoImg from '../assets/images/regenerated_image_1777628071663_opt.jpg';
+import genericImg from '../assets/images/icaas_logo_actual.png';
+import sobrecargoImg from '../assets/images/sobrecargo_profesion_1783564307988.jpg';
 import oficialImg from '../assets/images/regenerated_image_1777626580593_opt.jpg';
 import simuladorVRImg from '../assets/images/regenerated_image_1777904006862.jpg';
-import horaSimuladorImg from '../assets/images/regenerated_image_1777927339271.png';
-import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg'; 
-import fac2Img from '../assets/images/regenerated_image_1777925795640.png';
-import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
-import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
-import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
-import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
-import fac7Img from '../assets/images/regenerated_image_1783520144201.jpg';
+import horaSimuladorImg from '../assets/images/regenerated_image_1783968249573.jpg';
+// Salones and Biblioteca imports
+import fac1Img from '../assets/images/nosotros_fac1.jpg';
+import fac4Img from '../assets/images/nosotros_fac4.jpg';
+import fac6Img from '../assets/images/nosotros_fac6.jpg';
+import salImg3 from '../assets/images/nosotros_sal3.jpg';
+
+// Additional imports for areas comunes
+import acFachada from '../assets/images/nosotros_fachada_de_la_escuela.jpg';
+import acRecepcion from '../assets/images/nosotros_recepcion_con_letrero.jpg';
+import acPasillo from '../assets/images/regenerated_image_1783969976149.jpg';
+import acOficinaAdmin from '../assets/images/nosotros_oficina_administrativa.jpg';
+import acOficinaControl from '../assets/images/nosotros_oficina_de_control_escolar.jpg';
+import acAreaComun2 from '../assets/images/nosotros_ac2.jpg';
+import acAreaComun3 from '../assets/images/nosotros_ac3.jpg';
+import acPasilloCentral from '../assets/images/nosotros_pasillo_central.jpg';
+
+// Imports for digital library (biblioteca) uploaded images
+import libImg1 from '../assets/images/regenerated_image_1783867891839.jpg';
+import libImg2 from '../assets/images/regenerated_image_1783867893953.jpg';
+import libImg3 from '../assets/images/regenerated_image_1783867895153.jpg';
+
+// Additional thematic assets
+import trainerSinteticoUpdated from '../assets/images/regenerated_image_1783868704590.jpg';
+import trainerSintetico from '../assets/images/nosotros_trainer_sintetico.jpg';
+import simuladorVuelo from '../assets/images/nosotros_simulador_vuelo.jpg';
+import garmin1000 from '../assets/images/nosotros_garmin_1000.jpg';
+import airbusA320 from '../assets/images/nosotros_airbus_a320.jpg';
+
+// New entrenadores images
+import entrenadorImg1 from '../assets/images/regenerated_image_1783868585570.jpg';
+import entrenadorImg2 from '../assets/images/regenerated_image_1783740864025.jpg';
+import entrenadorImg3 from '../assets/images/regenerated_image_1783873142875.jpg';
+
+import mockupCabina from '../assets/images/nosotros_mockup_cabina.jpg';
+import entrenamientoSobrecargo from '../assets/images/nosotros_entrenamiento_sobrecargo.jpg';
+
+// New mockup images
+import mockupImg3 from '../assets/images/regenerated_image_1783869290954.jpg';
+import mockupImg4 from '../assets/images/regenerated_image_1783869292183.jpg';
+import mockupImg5 from '../assets/images/regenerated_image_1783869293613.jpg';
+import mockupImg6 from '../assets/images/regenerated_image_1783869295458.jpg';
+import mockupImg7 from '../assets/images/regenerated_image_1783869297082.jpg';
+import mockupImg8 from '../assets/images/regenerated_image_1783869298979.jpg';
+import mockupImg9 from '../assets/images/regenerated_image_1783869300321.jpg';
+import mockupImg10 from '../assets/images/regenerated_image_1783869301882.jpg';
+
+import { Gallery } from '../components/Gallery';
+
+const categories = [
+  { id: 'areas-comunes', label: 'Áreas comunes', desc: 'Espacios modernos diseñados para el confort, el estudio y la convivencia de nuestros alumnos.' },
+  { id: 'salones', label: 'Salones', desc: 'Aulas climatizadas y equipadas con tecnología multimedia para instrucción teórica.' },
+  { id: 'biblioteca', label: 'Biblioteca digital', desc: 'Sala de consulta con acceso a briefings operacionales, manuales oficiales y computadoras.' },
+  { id: 'entrenadores', label: 'Entrenadores sintéticos', desc: 'Simuladores de vuelo equipados con tecnología de vanguardia para prácticas de vuelo y despacho.' },
+  { id: 'mockup', label: 'Mockup de cabina de pasajeros', desc: 'Taller especializado que recrea una cabina de pasajeros real para el adiestramiento de sobrecargos.' }
+];
+
+const categoryImages: Record<string, string[]> = {
+  'areas-comunes': [
+    acFachada,
+    acRecepcion,
+    acPasillo,
+    acOficinaAdmin,
+    acOficinaControl,
+    acAreaComun2,
+    acAreaComun3,
+    acPasilloCentral
+  ],
+  'salones': [
+    fac1Img,
+    fac6Img,
+    salImg3
+  ],
+  'biblioteca': [
+    fac4Img,
+    libImg1,
+    libImg2,
+    libImg3
+  ],
+  'entrenadores': [
+    trainerSinteticoUpdated,
+    trainerSintetico,
+    simuladorVuelo,
+    garmin1000,
+    airbusA320,
+    entrenadorImg1,
+    entrenadorImg2,
+    entrenadorImg3
+  ],
+  'mockup': [
+    mockupCabina,
+    entrenamientoSobrecargo,
+    mockupImg3,
+    mockupImg4,
+    mockupImg5,
+    mockupImg6,
+    mockupImg7,
+    mockupImg8,
+    mockupImg9,
+    mockupImg10
+  ]
+};
 
 export default function Home({ id }: { id: string }) {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
+  
   useSEO({
     title: "ICAAS Aviación | Escuela de Aviación en Cancún ✈️",
     description: "Fórmate como Sobrecargo u Oficial de Operaciones en Cancún con ICAAS. Programas profesionales con altos estándares y simuladores. ¡Inicia tu carrera hoy!",
@@ -380,60 +474,7 @@ export default function Home({ id }: { id: string }) {
   ];
 
   const [selectedCareer, setSelectedCareer] = React.useState<null | typeof careers[0]>(null);
-  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
   const [openFAQIndex, setOpenFAQIndex] = React.useState<number | null>(null);
-
-  const facilitiesImages = [
-    { 
-      src: fac1Img, 
-      alt: "Simulador de vuelo profesional en ICAAS Cancún", 
-      title: "Simulador de vuelo - ICAAS Escuela de Aviación",
-      name: "Simulador de Vuelo Profesional",
-      description: "Estudiantes de aviación de ICAAS Cancún realizando entrenamiento práctico en simulador de vuelo certificado de última tecnología."
-    },
-    { 
-      src: fac2Img, 
-      alt: "Aulas modernas para clases teóricas de aviación en Cancún", 
-      title: "Aulas de teoría - ICAAS Escuela de Aviación",
-      name: "Aulas de Teoría Aeronáutica",
-      description: "Salones de clases modernos y equipados para la enseñanza teórica de pilotos, sobrecargos y oficiales de operaciones en Cancún."
-    },
-    { 
-      src: fac3Img, 
-      alt: "Estudiantes de aviación interactuando en las instalaciones de ICAAS Cancún", 
-      title: "Comunidad estudiantil - ICAAS Escuela de Aviación",
-      name: "Estudiantes de Aviación Comercial",
-      description: "Comunidad académica de ICAAS interactuando y compartiendo experiencias en el campus de Cancún."
-    },
-    { 
-      src: fac4Img, 
-      alt: "Biblioteca técnica con material de estudio para pilotos y sobrecargos", 
-      title: "Biblioteca técnica - ICAAS Escuela de Aviación",
-      name: "Biblioteca Técnica de Aviación",
-      description: "Colección completa de manuales de vuelo, reglamentación aérea y material de estudio técnico para la formación aeronáutica."
-    },
-    { 
-      src: fac5Img, 
-      alt: "Prácticas de seguridad de vuelo y equipo de emergencia", 
-      title: "Talleres prácticos - ICAAS Escuela de Aviación",
-      name: "Taller de Prácticas de Seguridad",
-      description: "Entrenamiento práctico con equipos de seguridad de cabina, toboganes de evacuación y simulacros de emergencia de sobrecargo."
-    },
-    { 
-      src: fac6Img, 
-      alt: "Instalaciones principales del centro de adiestramiento aeronáutico ICAAS Cancún", 
-      title: "Campus Cancún - ICAAS Escuela de Aviación",
-      name: "Campus Principal ICAAS Cancún",
-      description: "Edificio central e instalaciones administrativas y académicas de la mejor escuela de aviación en Quintana Roo, México."
-    },
-    { 
-      src: fac7Img, 
-      alt: "Sistemas avanzados de instrucción práctica en la escuela de aviación ICAAS", 
-      title: "Instrucción Práctica de Vanguardia - ICAAS",
-      name: "Sistemas de Instrucción Práctica",
-      description: "Equipos interactivos, maquetas de cabina y tecnología multimedia avanzada para facilitar el aprendizaje de los alumnos."
-    },
-  ];
 
   return (
     <div id={id} className="overflow-hidden">
@@ -553,63 +594,19 @@ export default function Home({ id }: { id: string }) {
         )}
       </AnimatePresence>
 
-      {/* Lightbox Modal */}
-      <AnimatePresence>
-        {lightboxIndex !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-            onClick={() => setLightboxIndex(null)}
-          >
-            <button
-              className="absolute top-6 right-6 p-4 text-white hover:text-primary z-50"
-              onClick={() => setLightboxIndex(null)}
-            >
-              <X size={32} />
-            </button>
-            <button
-              className="absolute left-6 p-4 text-white hover:text-primary z-50"
-              onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + facilitiesImages.length) % facilitiesImages.length); }}
-            >
-              <ChevronLeft size={48} />
-            </button>
-            <button
-              className="absolute right-6 p-4 text-white hover:text-primary z-50"
-              onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % facilitiesImages.length); }}
-            >
-              <ChevronRight size={48} />
-            </button>
-            <motion.img
-              key={lightboxIndex}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              src={facilitiesImages[lightboxIndex].src}
-              alt={facilitiesImages[lightboxIndex].alt}
-              className="max-w-full max-h-[80vh] object-contain rounded-2xl"
-              onClick={(e) => e.stopPropagation()}
-              decoding="async"
-              referrerPolicy="no-referrer"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Hero Section */}
       <section id="inicio" className="relative min-h-[95vh] pt-32 pb-20 flex items-center overflow-hidden bg-black">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <img
             src={heroImg}
             alt="Avión despegando al atardecer"
-            className="w-full h-full object-cover scale-105 opacity-60"
+            className="w-full h-full object-cover scale-105 opacity-60 pointer-events-auto"
             style={{ backgroundColor: '#000000' }}
             fetchPriority="high"
             loading="eager"
             decoding="sync"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
@@ -832,47 +829,63 @@ export default function Home({ id }: { id: string }) {
             <p className="max-w-3xl text-sm sm:text-base md:text-lg text-gray-500 font-light text-center mx-auto mb-12 leading-relaxed">
               Aprende de expertos de la industria a través de cursos creados para quienes buscan crecer profesionalmente o profundizar su pasión por la aviación.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+            {/* Cursos Destacados / Principales */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
               <CourseCard 
                 title="Introducción al A320"
                 tagline="Airbus Series"
                 desc="Curso técnico profundo sobre los sistemas, filosofía y operación de la familia A320."
                 icon={Plane}
+                featured={true}
+                image={a320Img}
               />
               <CourseCard 
                 title="Sobrecargo Ejecutivo"
                 tagline="Curso VIP"
                 desc="Aviación privada de lujo. Protocolo VIP, gastronomía y servicio de primera clase."
                 icon={Sparkles}
+                featured={true}
+                image={ejecutivoImg}
               />
+            </div>
+
+            {/* Grid de Otros Cursos en un tamaño menor (small=true) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
               <CourseCard 
                 title="CFIT"
                 tagline="Controlled Flight"
                 desc="Prevención de impacto contra el terreno sin pérdida de control."
                 icon={ShieldCheck}
+                small={true}
               />
               <CourseCard 
                 title="ALAR"
                 tagline="Approach/Landing"
                 desc="Estrategias críticas para la fase más compleja del vuelo."
                 icon={Target}
+                small={true}
               />
               <CourseCard 
                 title="CRM"
                 tagline="Resource Mgmt"
                 desc="Optimización del trabajo en equipo y toma de decisiones."
                 icon={Users}
+                small={true}
               />
               <CourseCard 
                 title="Hora de Simulador"
                 tagline="Entrenamiento"
                 desc="Horas de vuelo en nuestros entrenadores sintéticos."
                 icon={Target}
+                small={true}
               />
-              <div className="flex flex-col justify-center items-center h-full p-2">
-                <Link to="/cursos" className="flex flex-col text-center items-center justify-center gap-3 bg-primary hover:opacity-90 text-white px-4 py-6 rounded-[24px] sm:rounded-[28px] font-bold uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 text-[10px] sm:text-xs shadow-xl w-full h-full md:min-h-[220px]">
-                  <span>Ver todos los Cursos y Especializaciones</span>
-                  <ArrowRight size={20} />
+              <div className="flex flex-col justify-center items-center h-full">
+                <Link 
+                  to="/cursos" 
+                  className="flex flex-col text-center items-center justify-center gap-2 bg-primary hover:bg-primary/95 text-white p-3 sm:p-4 rounded-[18px] sm:rounded-[22px] font-black uppercase tracking-widest transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 active:scale-95 text-[9px] sm:text-[11px] shadow-lg hover:shadow-[0_15px_30px_-10px_rgba(238,62,58,0.35)] w-full h-full min-h-[150px] md:min-h-[170px] border-2 border-transparent"
+                >
+                  <span>Ver todos los Cursos</span>
+                  <ArrowRight size={16} className="text-white mt-1 animate-pulse" />
                 </Link>
               </div>
             </div>
@@ -993,67 +1006,13 @@ export default function Home({ id }: { id: string }) {
 
           {/* New Facilities Subsection */}
           <div id="instalaciones" className="mt-32 scroll-mt-16 text-center">
-            <div className="flex flex-col items-center justify-center gap-8 mb-16">
-              <div className="max-w-2xl flex flex-col items-center">
-                <div className="flex items-center justify-center gap-2 mb-4 bg-primary/10 text-primary border border-primary/15 rounded-full px-4 py-1.5 w-fit mx-auto">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em]">Entorno Profesional</span>
-                </div>
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic">Instalaciones de Vanguardia</h3>
-                <p className="text-gray-500 text-base sm:text-lg font-light mt-6 leading-relaxed">
-                  Espacios diseñados para simular entornos reales de trabajo, equipados con la última tecnología en simulación y ayudas académicas.
-                </p>
-              </div>
+            <div className="mb-10 text-center flex flex-col items-center">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary block mb-2">Instalaciones de altura</span>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-secondary uppercase tracking-tight">Nuestras Instalaciones en Cancún</h3>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 md:grid-rows-2 gap-3 sm:gap-6 h-auto md:h-[320px]">
-              {/* Main Feature Image */}
-              <div 
-                onClick={() => setLightboxIndex(0)}
-                className="h-32 sm:h-40 md:h-full col-span-2 md:col-span-2 md:row-span-2 rounded-[20px] sm:rounded-[24px] md:rounded-[40px] overflow-hidden relative group cursor-pointer"
-                itemScope
-                itemType="https://schema.org/ImageObject"
-              >
-                <img 
-                  itemProp="contentUrl"
-                  src={facilitiesImages[0].src} 
-                  alt={facilitiesImages[0].alt} 
-                  title={facilitiesImages[0].title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="sync"
-                  referrerPolicy="no-referrer"
-                />
-                <meta itemProp="name" content={facilitiesImages[0].name} />
-                <meta itemProp="description" content={facilitiesImages[0].description} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-
-              {/* Smaller Grid Images */}
-              {facilitiesImages.slice(1).map((img, index) => (
-                <div 
-                  key={index}
-                  onClick={() => setLightboxIndex(index + 1)}
-                  className="h-28 sm:h-36 md:h-full rounded-[20px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden relative group cursor-pointer"
-                  itemScope
-                  itemType="https://schema.org/ImageObject"
-                >
-                  <img 
-                    itemProp="contentUrl"
-                    src={img.src} 
-                    alt={img.alt} 
-                    title={img.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                  />
-                  <meta itemProp="name" content={img.name} />
-                  <meta itemProp="description" content={img.description} />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              ))}
-            </div>
+            {/* Reusable Gallery Component */}
+            <Gallery categories={categories} categoryImages={categoryImages} />
           </div>
         </div>
       </section>
@@ -1250,20 +1209,25 @@ export default function Home({ id }: { id: string }) {
   );
 }
 
-function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = false, image }: { title: string, tagline: string, desc: string, icon?: any, featured?: boolean, image?: string }) {
+function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = false, image, small = false }: { title: string, tagline: string, desc: string, icon?: any, featured?: boolean, image?: string, small?: boolean }) {
   return (
     <div 
-      className={`p-4 sm:p-5 lg:p-6 rounded-[24px] sm:rounded-[28px] hover:shadow-[0_20px_40px_-15px_rgba(238,62,58,0.2)] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 border-2 group flex flex-col h-full relative overflow-hidden bg-white text-secondary border-gray-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] hover:border-primary/40 cursor-default md:min-h-[220px]`}>
+      className={`${
+        small 
+          ? 'p-3 sm:p-4 rounded-[18px] sm:rounded-[22px] md:min-h-[170px]' 
+          : 'p-4 sm:p-5 lg:p-6 rounded-[24px] sm:rounded-[28px] md:min-h-[220px]'
+      } hover:shadow-[0_20px_40px_-15px_rgba(238,62,58,0.2)] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 border-2 group flex flex-col h-full relative overflow-hidden bg-white text-secondary border-gray-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] hover:border-primary/40 cursor-default`}
+    >
       {featured && image && (
         <>
-                <img 
-                  src={image} 
-                  alt={title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                />
+          <img 
+            src={image} 
+            alt={title} 
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
+            loading="lazy"
+            decoding="async"
+            referrerPolicy="no-referrer"
+          />
           <div className="absolute inset-0 bg-secondary/60 group-hover:bg-secondary/40 transition-colors z-[1]" />
         </>
       )}
@@ -1272,16 +1236,32 @@ function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = fals
            <div className="bg-primary text-white text-[6px] sm:text-[8px] font-black px-2 py-1 sm:px-3 sm:py-1.5 rounded uppercase tracking-[0.3em]">Especializado</div>
         </div>
       )}
-      <div className={`flex flex-col items-center justify-center relative z-10 ${featured ? 'mb-1 sm:mb-8' : 'mb-3 sm:mb-6'} w-full`}>
-        <span className="text-[7px] sm:text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] block text-primary bg-primary/5 px-2.5 py-1 rounded-md border border-primary/10 mb-2">{tagline}</span>
-        {!featured && <div className="p-1.5 sm:p-2 bg-gray-50 rounded-lg group-hover:bg-primary/5 transition-colors border border-gray-100 group-hover:border-primary/20"><Icon className="text-gray-400 group-hover:text-primary transition-colors shrink-0 size-4 sm:size-5" /></div>}
+      <div className={`flex flex-col items-center justify-center relative z-10 ${featured ? 'mb-1 sm:mb-8' : (small ? 'mb-1 sm:mb-2' : 'mb-3 sm:mb-6')} w-full`}>
+        <span className={`${
+          small 
+            ? 'text-[6px] sm:text-[8px] tracking-[0.15em] mb-1' 
+            : 'text-[7px] sm:text-[9px] lg:text-[10px] tracking-[0.2em] mb-2'
+        } font-black uppercase block text-primary bg-primary/5 px-2.5 py-1 rounded-md border border-primary/10`}>{tagline}</span>
+        {!featured && (
+          <div className={`${
+            small ? 'p-1 sm:p-1.5' : 'p-1.5 sm:p-2'
+          } bg-gray-50 rounded-lg group-hover:bg-primary/5 transition-colors border border-gray-100 group-hover:border-primary/20`}>
+            <Icon className={`text-gray-400 group-hover:text-primary transition-colors shrink-0 ${
+              small ? 'size-3.5 sm:size-4' : 'size-4 sm:size-5'
+            }`} />
+          </div>
+        )}
       </div>
       <div className={`relative z-10 flex flex-col flex-grow items-center text-center ${featured ? 'mb-2 sm:mb-4 max-w-lg mx-auto' : ''}`}>
         <h3 className={`font-black tracking-tight leading-tight transition-transform italic mr-1 ${
-          featured ? 'text-lg md:text-3xl lg:text-4xl mb-1 sm:mb-2' : 'text-sm sm:text-lg lg:text-xl mb-1 sm:mb-2'
+          featured 
+            ? 'text-lg md:text-3xl lg:text-4xl mb-1 sm:mb-2' 
+            : (small ? 'text-xs sm:text-base lg:text-lg mb-1' : 'text-sm sm:text-lg lg:text-xl mb-1 sm:mb-2')
         } ${featured ? 'text-white' : 'text-secondary'}`}>{title}</h3>
         <p className={`font-medium leading-relaxed ${
-          featured ? 'text-[11px] sm:text-sm text-gray-300 line-clamp-3 sm:line-clamp-2' : 'text-[9.5px] sm:text-[11px] text-gray-500/90 line-clamp-3'
+          featured 
+            ? 'text-[11px] sm:text-sm text-gray-300 line-clamp-3 sm:line-clamp-2' 
+            : (small ? 'text-[8.5px] sm:text-[10px] text-gray-500/90 line-clamp-2' : 'text-[9.5px] sm:text-[11px] text-gray-500/90 line-clamp-3')
         }`}>{desc}</p>
       </div>
       

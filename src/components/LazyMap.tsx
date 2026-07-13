@@ -45,15 +45,15 @@ export function LazyMap({ src, className = "" }: LazyMapProps) {
             referrerPolicy="no-referrer-when-downgrade"
             title="Ubicación Google Maps"
           ></iframe>
-          {/* Custom floating overlay button in the top-left to replace & cover the default Google Maps iframe widget */}
-          <div className="absolute top-4 left-4 z-20 hidden sm:block">
+          {/* Custom floating overlay container in the top-left to replace & cover the default Google Maps iframe widget */}
+          <div className="absolute top-0 left-0 z-20 bg-[#12151d] p-3 sm:p-4 rounded-br-2xl border-r border-b border-white/10 shadow-2xl flex items-center justify-center min-w-[155px] sm:min-w-[190px]">
             <a 
               href="https://maps.app.goo.gl/hC8aT9iViyz498NV7" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-[#12151d]/95 hover:bg-primary text-white text-[10px] font-black uppercase tracking-widest px-4 py-2.5 rounded-xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-white/10 group"
+              className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/95 text-white text-[10px] sm:text-[11px] font-black uppercase tracking-widest px-4 py-2.5 rounded-xl shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 border border-white/10 group"
             >
-              <MapPin size={12} className="text-primary group-hover:text-white transition-colors" />
+              <MapPin size={12} className="text-white group-hover:scale-110 transition-transform" />
               Abrir en Maps
             </a>
           </div>

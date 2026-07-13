@@ -12,9 +12,9 @@ import { LazyMap } from '../components/LazyMap';
 // Import image assets
 import a320Img from '../assets/images/regenerated_image_1777733588143_opt.jpg';
 import ejecutivoImg from '../assets/images/regenerated_image_1777628075067_opt.jpg';
-import genericImg from '../assets/images/regenerated_image_1777580804672_opt.png';
+import genericImg from '../assets/images/icaas_logo_actual.png';
 import simuladorVRImg from '../assets/images/regenerated_image_1777904006862.jpg';
-import horaSimuladorImg from '../assets/images/regenerated_image_1777927339271.png';
+import horaSimuladorImg from '../assets/images/regenerated_image_1783968249573.jpg';
 
 interface CourseType {
   id: string;
