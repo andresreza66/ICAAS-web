@@ -29,9 +29,9 @@ import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
 import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
 import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
 import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
-import fac7Img from '../assets/images/regenerated_image_1783520144201.jpg';
-import fac8Img from '../assets/images/facility_study_lounge_1784053254670.jpg';
-import fac9Img from '../assets/images/facility_dispatch_lab_1784053265785.jpg';
+import fac7Img from '../assets/images/regenerated_image_1784057664449.png';
+import fac8Img from '../assets/images/regenerated_image_1784057669315.png';
+import fac9Img from '../assets/images/regenerated_image_1784057672566.png';
 
 export default function Home({ id }: { id: string }) {
   const navigate = useNavigate();
