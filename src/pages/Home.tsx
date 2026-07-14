@@ -23,15 +23,15 @@ import sobrecargoImg from '../assets/images/regenerated_image_1777628071663_opt.
 import oficialImg from '../assets/images/regenerated_image_1777626580593_opt.jpg';
 import simuladorVRImg from '../assets/images/regenerated_image_1777904006862.jpg';
 import horaSimuladorImg from '../assets/images/regenerated_image_1777927339271.png';
-import fac1Img from '../assets/images/cabin_mockup_one_1784053169390.jpg'; 
+import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg'; 
 import fac2Img from '../assets/images/regenerated_image_1784055045581.jpg';
-import fac3Img from '../assets/images/cabin_mockup_three_1784053192197.jpg';
-import fac4Img from '../assets/images/cabin_mockup_four_1784053201238.jpg';
-import fac5Img from '../assets/images/trainer_flight_one_1784053211958.jpg';
-import fac6Img from '../assets/images/trainer_flight_two_1784053221393.jpg';
-import fac7Img from '../assets/images/trainer_flight_three_1784053230504.jpg';
-import fac8Img from '../assets/images/trainer_flight_four_1784053241013.jpg';
-import fac9Img from '../assets/images/cabin_mockup_two_1784053182602.jpg';
+import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
+import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
+import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
+import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
+import fac7Img from '../assets/images/regenerated_image_1783520144201.jpg';
+import fac8Img from '../assets/images/facility_study_lounge_1784053254670.jpg';
+import fac9Img from '../assets/images/facility_dispatch_lab_1784053265785.jpg';
 
 export default function Home({ id }: { id: string }) {
   const navigate = useNavigate();
