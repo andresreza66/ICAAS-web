@@ -23,12 +23,14 @@ import oficialImg from '../assets/images/regenerated_image_1777626580593_opt.jpg
 import simuladorVRImg from '../assets/images/regenerated_image_1777904006862.jpg';
 import horaSimuladorImg from '../assets/images/regenerated_image_1777927339271.png';
 import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg'; 
-import fac2Img from '../assets/images/regenerated_image_1777925795640.png';
+import fac2Img from '../assets/images/regenerated_image_1784055045581.jpg';
 import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
 import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
 import fac5Img from '../assets/images/regenerated_image_1777628083463_opt.jpg';
 import fac6Img from '../assets/images/regenerated_image_1777733645280_opt.jpg';
 import fac7Img from '../assets/images/regenerated_image_1783520144201.jpg';
+import fac8Img from '../assets/images/facility_study_lounge_1784053254670.jpg';
+import fac9Img from '../assets/images/facility_dispatch_lab_1784053265785.jpg';
 
 export default function Home({ id }: { id: string }) {
   const navigate = useNavigate();
@@ -433,6 +435,20 @@ export default function Home({ id }: { id: string }) {
       name: "Sistemas de Instrucción Práctica",
       description: "Equipos interactivos, maquetas de cabina y tecnología multimedia avanzada para facilitar el aprendizaje de los alumnos."
     },
+    { 
+      src: fac8Img, 
+      alt: "Estudiantes en área de estudio y lounge de aviación", 
+      title: "Área de estudio - ICAAS Escuela de Aviación",
+      name: "Área de Estudio y Convivencia",
+      description: "Un espacio de estudio colaborativo diseñado para que los alumnos de aviación trabajen en proyectos y compartan conocimientos."
+    },
+    { 
+      src: fac9Img, 
+      alt: "Laboratorio de despacho y meteorología de operaciones de vuelo", 
+      title: "Laboratorio de operaciones - ICAAS Escuela de Aviación",
+      name: "Laboratorio de Despacho de Vuelos",
+      description: "Sistemas avanzados de cómputo para la planificación de rutas, análisis de clima y despacho de aeronaves."
+    }
   ];
 
   return (
@@ -1005,36 +1021,12 @@ export default function Home({ id }: { id: string }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 md:grid-rows-2 gap-3 sm:gap-6 h-auto md:h-[320px]">
-              {/* Main Feature Image */}
-              <div 
-                onClick={() => setLightboxIndex(0)}
-                className="h-32 sm:h-40 md:h-full col-span-2 md:col-span-2 md:row-span-2 rounded-[20px] sm:rounded-[24px] md:rounded-[40px] overflow-hidden relative group cursor-pointer"
-                itemScope
-                itemType="https://schema.org/ImageObject"
-              >
-                <img 
-                  itemProp="contentUrl"
-                  src={facilitiesImages[0].src} 
-                  alt={facilitiesImages[0].alt} 
-                  title={facilitiesImages[0].title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="sync"
-                  referrerPolicy="no-referrer"
-                />
-                <meta itemProp="name" content={facilitiesImages[0].name} />
-                <meta itemProp="description" content={facilitiesImages[0].description} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-
-              {/* Smaller Grid Images */}
-              {facilitiesImages.slice(1).map((img, index) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-3 sm:gap-6">
+              {facilitiesImages.map((img, index) => (
                 <div 
                   key={index}
-                  onClick={() => setLightboxIndex(index + 1)}
-                  className="h-28 sm:h-36 md:h-full rounded-[20px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden relative group cursor-pointer"
+                  onClick={() => setLightboxIndex(index)}
+                  className="aspect-video sm:aspect-4/3 rounded-[20px] sm:rounded-[24px] overflow-hidden relative group cursor-pointer border border-gray-150 shadow-md"
                   itemScope
                   itemType="https://schema.org/ImageObject"
                 >
@@ -1050,7 +1042,7 @@ export default function Home({ id }: { id: string }) {
                   />
                   <meta itemProp="name" content={img.name} />
                   <meta itemProp="description" content={img.description} />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
             </div>

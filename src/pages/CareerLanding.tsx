@@ -15,6 +15,17 @@ import oficialImg from '../assets/images/regenerated_image_1777626580593_opt.jpg
 import sobrecargoQueEsImg from '../assets/images/sobrecargo_que_es_1779821539661.png';
 import oficialQueEsImg from '../assets/images/oficial_que_es_1779821556889.png';
 
+// Import newly generated images for the grids
+import cabin1 from '../assets/images/cabin_mockup_one_1784053169390.jpg';
+import cabin2 from '../assets/images/cabin_mockup_two_1784053182602.jpg';
+import cabin3 from '../assets/images/cabin_mockup_three_1784053192197.jpg';
+import cabin4 from '../assets/images/cabin_mockup_four_1784053201238.jpg';
+
+import trainer1 from '../assets/images/trainer_flight_one_1784053211958.jpg';
+import trainer2 from '../assets/images/trainer_flight_two_1784053221393.jpg';
+import trainer3 from '../assets/images/trainer_flight_three_1784053230504.jpg';
+import trainer4 from '../assets/images/trainer_flight_four_1784053241013.jpg';
+
 interface CareerLandingProps {
   careerKey: 'sobrecargo' | 'oficial';
 }
@@ -38,7 +49,8 @@ const cinematicFadeIn = {
 
 export default function CareerLanding({ careerKey }: CareerLandingProps) {
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
-  const [activeSection, setActiveSection] = useState('hero');  useEffect(() => {
+  const [activeSection, setActiveSection] = useState('hero');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as any });
   }, [careerKey]);
 
@@ -123,6 +135,17 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
         text1: "El Sobrecargo de Aviación (oficialmente Tripulante de Cabina de Pasajeros o TCP) es el profesional aeronáutico encargado primordialmente de salvaguardar la seguridad de los pasajeros a bordo de una aeronave y, de manera complementaria, de asegurar su máximo confort y servicio a bordo.",
         text2: "Lejos de limitarse a la hospitalidad, el sobrecargo es un elemento técnico clave capacitado minuciosamente bajo regulaciones internacionales para gestionar la seguridad de los pasajeros a bordo de la aeronave.",
         image: sobrecargoQueEsImg
+      },
+      imagesGrid: {
+        title: "Mockup de Cabina de Pasajeros",
+        subtitle: "Entrenamiento inmersivo en cabina real",
+        description: "En ICAAS contamos con un mockup de cabina de pasajeros que cuenta con 12 asientos, half galley y cumple rigurosamente con todo lo necesario para las prácticas operacionales y de seguridad que deben realizar los sobrecargos.",
+        images: [
+          { src: cabin1, alt: "Mockup de cabina de pasajeros Airbus A320" },
+          { src: cabin2, alt: "Puerta de evacuación y galley de entrenamiento" },
+          { src: cabin3, alt: "Filas de asientos y compartimentos superiores de cabina" },
+          { src: cabin4, alt: "Práctica de seguridad y servicio a bordo" }
+        ]
       },
       funciones: [
         {
@@ -215,6 +238,17 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
         text1: "El Oficial de Operaciones con Capacidad RTAR (internacionalmente conocido como Flight Dispatcher o Despachador de Vuelo) es la máxima autoridad terrestre responsable de la planificación y seguridad de los vuelos a cargo.",
         text2: "En conjunto obligatorio y coordinado con el Capitán al mando, un Oficial analiza las condiciones meteorológicas desde el punto de partida hasta el punto de llegada, traza las rutas de navegación aérea más seguras y eficientes, calcula el peso y balance preciso de la aeronave para su vuelo, determina el remanente adecuado de combustible y elabora el plan de vuelo para autorizar y liberar de forma segura cada despegue.",
         image: oficialQueEsImg
+      },
+      imagesGrid: {
+        title: "Entrenador Sintético de Vuelo",
+        subtitle: "Precisión y simulación en tierra",
+        description: "Nuestro entrenador sintético de vuelo avanzado simula con total exactitud las condiciones de vuelo, meteorología compleja y fallos de sistemas. Esto permite a los futuros Oficiales de Operaciones planificar, despachar y dar seguimiento en tiempo real a operaciones bajo reglas de vuelo por instrumentos (IFR).",
+        images: [
+          { src: trainer1, alt: "Consola del entrenador sintético de vuelo" },
+          { src: trainer2, alt: "Cabina del simulador de vuelo con instrumental digital" },
+          { src: trainer3, alt: "Instrucción práctica y monitoreo de despacho" },
+          { src: trainer4, alt: "Simulación de aproximación instrumental y despegue" }
+        ]
       },
       funciones: [
         {
@@ -380,6 +414,8 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
           </div>
         </motion.div>
       </section>
+
+
 
       {/* SECTION 3: Funciones Clave (Izquierda) & Plan de Estudios (Derecha) */}
       <section id="funciones-y-plan" className="py-16 bg-transparent border-b border-white/5 scroll-mt-20 relative z-10 text-left">
@@ -619,6 +655,50 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
         </motion.div>
       </section>
 
+      {/* 4-Image Grid: Mockup de Cabina / Entrenador Sintético */}
+      <section id="infraestructura" className="py-16 bg-[#12151d]/10 border-b border-white/5 scroll-mt-20 relative z-10 text-left">
+        <motion.div {...cinematicFadeIn} className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="space-y-3 max-w-2xl">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-black block">INFRAESTRUCTURA DE ADIESTRAMIENTO</span>
+              <h2 className="text-2xl sm:text-4xl font-black italic text-white tracking-tighter">
+                {activeCareer.imagesGrid.title}
+              </h2>
+              <p className="text-gray-400 font-light text-xs sm:text-sm leading-relaxed">
+                {activeCareer.imagesGrid.description}
+              </p>
+            </div>
+            <div className="text-xs font-bold text-primary italic border border-primary/20 rounded-full px-4 py-1.5 bg-primary/10 w-fit shrink-0">
+              {activeCareer.imagesGrid.subtitle}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {activeCareer.imagesGrid.images.map((img: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0.35, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4 }}
+                onClick={() => setLightboxIndex(idx)}
+                className="aspect-square sm:aspect-4/3 rounded-2xl sm:rounded-3xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-lg bg-[#12151d]/40 hover:border-white/25 transition-all duration-350"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* SECTION 8: CTA a Whatsapp (Inscripciones directas) */}
       <section id="cta-whatsapp" className="py-16 bg-[#12151d]/25 border-b border-white/5 text-center relative overflow-hidden relative z-10">
         <div className="absolute inset-0 bg-transparent z-0 pointer-events-none" />
@@ -711,7 +791,55 @@ export default function CareerLanding({ careerKey }: CareerLandingProps) {
         </motion.div>
       </section>
 
-
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <button
+              className="absolute top-6 right-6 p-4 text-white hover:text-primary z-50"
+              onClick={() => setLightboxIndex(null)}
+            >
+              <span className="text-2xl font-black">✕</span>
+            </button>
+            <button
+              className="absolute left-6 p-4 text-white hover:text-primary z-50"
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                setLightboxIndex((lightboxIndex - 1 + activeCareer.imagesGrid.images.length) % activeCareer.imagesGrid.images.length); 
+              }}
+            >
+              <ChevronRight className="rotate-180 size-12" />
+            </button>
+            <button
+              className="absolute right-6 p-4 text-white hover:text-primary z-50"
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                setLightboxIndex((lightboxIndex + 1) % activeCareer.imagesGrid.images.length); 
+              }}
+            >
+              <ChevronRight className="size-12" />
+            </button>
+            <motion.img
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              src={activeCareer.imagesGrid.images[lightboxIndex].src}
+              alt={activeCareer.imagesGrid.images[lightboxIndex].alt}
+              className="max-w-full max-h-[80vh] object-contain rounded-2xl"
+              onClick={(e) => e.stopPropagation()}
+              decoding="async"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

@@ -9,13 +9,26 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 
+// Wrapper for lazy imports to handle chunk loading errors (stale cache) by reloading the page
+function withChunkReload(importFn: () => Promise<any>) {
+  return lazy(async () => {
+    try {
+      return await importFn();
+    } catch (error) {
+      console.error('Error loading chunk, reloading page...', error);
+      window.location.reload();
+      return { default: () => <LoadingFallback /> }; // Return fallback while reloading
+    }
+  });
+}
+
 // Code splitting / Dynamic Imports for high-performance and fast cellular load on mobile
-const Home = lazy(() => import('./pages/Home'));
-const CareerLanding = lazy(() => import('./pages/CareerLanding'));
-const Cursos = lazy(() => import('./pages/Cursos'));
-const Nosotros = lazy(() => import('./pages/Nosotros'));
-const Contacto = lazy(() => import('./pages/Contacto'));
-const Blog = lazy(() => import('./pages/Blog'));
+const Home = withChunkReload(() => import('./pages/Home'));
+const CareerLanding = withChunkReload(() => import('./pages/CareerLanding'));
+const Cursos = withChunkReload(() => import('./pages/Cursos'));
+const Nosotros = withChunkReload(() => import('./pages/Nosotros'));
+const Contacto = withChunkReload(() => import('./pages/Contacto'));
+const Blog = withChunkReload(() => import('./pages/Blog'));
 
 import { initGA, trackPageView } from './lib/analytics';
 
