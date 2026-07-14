@@ -1,3 +1,4 @@
+// Workspace update to trigger GitHub export
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
