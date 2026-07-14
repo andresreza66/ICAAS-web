@@ -9,7 +9,7 @@ import { LazyMap } from '../components/LazyMap';
 
 // Import local assets for building layout correctly
 import fac1Img from '../assets/images/regenerated_image_1777904478940.jpg'; 
-import fac2Img from '../assets/images/regenerated_image_1777925795640.png';
+import fac2Img from '../assets/images/regenerated_image_1784058114876.jpg';
 import fac3Img from '../assets/images/regenerated_image_1777925799329.jpg';
 import fac4Img from '../assets/images/regenerated_image_1777628082337_opt.jpg';
 import fac5Img from '../assets/images/regenerated_image_1779992817546.png';
