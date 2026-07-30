@@ -1005,6 +1005,75 @@ const ALL_BLOGS: BlogPost[] = [
     date: '27 Jul 2026',
     category: 'Orientación vocacional',
     categories: ['Sobrecargo', 'Oficial de operaciones', 'Carreras', 'Aviación']
+  },
+  {
+    id: '12',
+    slug: 'que-carreras-de-aviacion-puedes-estudiar-sin-ser-piloto',
+    title: '¿Qué carreras de aviación puedes estudiar sin ser piloto?',
+    seoTitle: '¿Qué carreras de aviación puedes estudiar sin ser piloto? | ICAAS',
+    keywords: 'carreras de aviacion sin ser piloto, sobrecargo de aviacion, oficial de operaciones, estudiar aviacion cancun, cursos de aviacion',
+    excerpt: 'La industria aeronáutica requiere un ecosistema de profesionales técnicos especializados. Conoce las carreras de aviación que puedes estudiar sin necesidad de contar con una licencia de piloto.',
+    content: `<h1>¿Qué carreras de aviación puedes estudiar sin ser piloto?</h1>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/H1LpraS9-3-.webp" alt="Sobrecargos y oficiales de operaciones profesionales en aeropuerto moderno" referrerpolicy="no-referrer"></p>
+<p>La industria aeronáutica requiere un ecosistema de profesionales técnicos especializados que garantizan la seguridad y eficiencia de las operaciones sin necesidad de contar con una licencia de piloto comercial. En <strong>ICAAS Aviación</strong>, la formación se centra en roles críticos de soporte y ejecución técnica que permiten la continuidad del transporte aéreo comercial y privado.</p>
+<p>A continuación, se detallan las opciones académicas para profesionalizarse en el sector aeronáutico desde perspectivas operativas y de servicio.</p>
+<h2>1. Carrera de Sobrecargo de Aviación</h2>
+<p>El <strong>Sobrecargo de Aviación</strong> es el responsable directo de la seguridad de los pasajeros y de la gestión de emergencias en la cabina de pasajeros. No es un rol limitado al servicio; es una función de seguridad operativa regulada por la <strong>AFAC</strong>.</p>
+<h3>Funciones Principales</h3>
+<ul>
+<li><strong>Gestión de emergencias</strong>: Ejecución de evacuaciones en tierra o agua (ditching).</li>
+<li><strong>Primeros Auxilios</strong>: Atención de contingencias médicas a bordo mediante el uso de botiquines especializados y desfibriladores (DEA).</li>
+<li><strong>Seguridad Preventiva</strong>: Verificación de equipos de emergencia (extintores, máscaras de oxígeno, chalecos salvavidas) antes del despegue.</li>
+<li><strong>Servicio a Bordo</strong>: Gestión de protocolos de hospitalidad y atención al cliente bajo estándares internacionales.</li>
+</ul>
+<h3>Requisitos Técnicos en ICAAS</h3>
+<p>En nuestra escuela de aviación en Cancún, el programa incluye entrenamiento en <strong>Simulador de Cabina de pasajeros</strong>, permitiendo a los alumnos practicar procedimientos reales en un entorno controlado. Los egresados pueden optar por la especialidad en <a href="https://vuela-icaas.com/sobrecargo">Sobrecargo Ejecutivo</a>, enfocada en la aviación privada de lujo y protocolos VIP.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/LoUcIe_bvBD.webp" alt="Sobrecargos en entrenamiento práctico de cabina con equipo de emergencia" referrerpolicy="no-referrer"></p>
+<h2>2. Carrera de Oficial de Operaciones</h2>
+<p>El <strong>Oficial de Operaciones</strong> (o Despachador de Vuelos) es el cerebro técnico detrás de cada itinerario. Su función es planificar y supervisar todos los aspectos técnicos del vuelo desde tierra.</p>
+<h3>Áreas de Responsabilidad</h3>
+<ul>
+<li><strong>Planificación de Vuelo</strong>: Cálculo de rutas óptimas considerando meteorología y restricciones de espacio aéreo.</li>
+<li><strong>Peso y Balance</strong>: Determinación del centro de gravedad de la aeronave para asegurar un despegue y vuelo estables.</li>
+<li><strong>Cálculo de Combustible</strong>: Análisis del combustible necesario para la ruta, el alterno y las reservas legales.</li>
+<li><strong>Despacho y Seguimiento</strong>: Coordinación con la tripulación de mando y servicios de tránsito aéreo.</li>
+</ul>
+<p>Esta carrera es ideal para perfiles con capacidad analítica y enfoque en la resolución de problemas lógicos. Consulta los detalles del programa aquí: <a href="https://vuela-icaas.com/oficial">Oficial de Operaciones en Cancún</a>.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/Q4ViyIR3wIT.webp" alt="Oficial de operaciones en centro de despacho analizando rutas de vuelo" referrerpolicy="no-referrer"></p>
+<h2>3. Cursos de Especialización y Gestión (Continuidad Profesional)</h2>
+<p>Una vez obtenida la licencia técnica, la industria exige capacitación continua para mantener los estándares de seguridad (<strong>Safety Management Systems</strong>). <strong>ICAAS Aviación</strong> provee módulos específicos para profesionales activos y recién egresados.</p>
+<h3>Introducción al A320</h3>
+<p>Este curso técnico profundiza en la filosofía de operación de la familia Airbus A320, el avión más utilizado por las aerolíneas en México. Está dirigido a <strong>egresados de la carrera de piloto comercial</strong> que aspiran a incorporarse a una aerolínea y requieren una base de transición hacia operaciones en equipos Airbus. No corresponde a una formación para las carreras de <strong>Sobrecargo de Aviación</strong> ni de <strong>Oficial de Operaciones</strong>.</p>
+<h3>Seguridad y Factores Humanos</h3>
+<ul>
+<li><strong>CRM (Crew Resource Management)</strong>: Optimización del trabajo en equipo para reducir errores humanos.</li>
+<li><strong>CFIT (Controlled Flight Into Terrain)</strong>: Protocolos para la prevención de impactos contra el terreno.</li>
+<li><strong>ALAR (Approach-and-Landing Accident Reduction)</strong>: Estrategias críticas para la fase de aproximación y aterrizaje.</li>
+</ul>
+<p>Puedes revisar la oferta completa de formación técnica en nuestra sección de <a href="https://vuela-icaas.com/cursos">Cursos Especializados</a>.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/dHZO83LTPhi.webp" alt="Pilotos en curso de introducción al A320 dentro de simulador" referrerpolicy="no-referrer"></p>
+<h2>Ventajas Competitivas de Estudiar en ICAAS</h2>
+<p>La elección de una institución educativa debe basarse en la infraestructura y los avales legales. <strong>ICAAS Aviación</strong> (Permiso AFAC: F-213) ofrece beneficios estructurados para optimizar la inserción laboral:</p>
+<ol>
+<li><strong>Ubicación Estratégica</strong>: Sede en Cancún, uno de los centros de operaciones aéreas con mayor tráfico internacional en el Caribe.</li>
+<li><strong>Convenios de Salud</strong>: Alianza con <strong>SkyMedik</strong> para obtener un <strong>15% de descuento</strong> en el examen médico de aptitud psicofísica.</li>
+<li><strong>Dominio del Idioma</strong>: Convenio con <strong>Inglés Individual</strong> que otorga un <strong>50% de descuento</strong> en cursos de 12 meses, requisito indispensable para aerolíneas internacionales.</li>
+<li><strong>Instalaciones Técnicas</strong>: Aulas equipadas con simuladores de última generación y laboratorios de meteorología y despacho.</li>
+</ol>
+<h2>Proceso de Inscripción</h2>
+<p>Si tu objetivo es integrarte a la industria aérea en roles de alta responsabilidad técnica o de servicio, sigue estos pasos:</p>
+<ol>
+<li><strong>Validar Requisitos</strong>: Asegúrate de contar con el certificado de bachillerato concluido.</li>
+<li><strong>Agendar Visita</strong>: Conoce nuestras instalaciones en Pabellón Bonampak, Cancún.</li>
+<li><strong>Examen Médico</strong>: Realiza el proceso de aptitud psicofísica ante la AFAC.</li>
+<li><strong>Inscripción</strong>: Formaliza tu ingreso para las próximas aperturas de grupo.</li>
+</ol>
+<p>Para recibir asesoría directa sobre las fechas de inicio y costos, accede a nuestro formulario de <a href="https://vuela-icaas.com/contacto">Contacto</a> o comunícate vía WhatsApp al <strong>998 751 0172</strong>.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/JTNdyMzNvdq.webp" alt="Estudiante de aviación recibiendo asesoría profesional en oficina moderna" referrerpolicy="no-referrer"></p>`,
+    imageUrl: 'https://cdn.marblism.com/H1LpraS9-3-.webp',
+    date: '30 Jul 2026',
+    category: 'Orientación vocacional',
+    categories: ['Carreras', 'Aviación', 'Sobrecargo', 'Oficial de operaciones']
   }
 ];
 
