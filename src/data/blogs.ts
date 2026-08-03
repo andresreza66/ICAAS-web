@@ -1074,6 +1074,71 @@ const ALL_BLOGS: BlogPost[] = [
     date: '30 Jul 2026',
     category: 'Orientación vocacional',
     categories: ['Carreras', 'Aviación', 'Sobrecargo', 'Oficial de operaciones']
+  },
+  {
+    id: '13',
+    slug: 'aviacion-explicada-para-principiantes-preguntas-aviones',
+    title: 'Aviación Explicada para Principiantes: 6 preguntas que siempre te hiciste sobre los aviones',
+    seoTitle: 'Aviación Explicada para Principiantes: 6 preguntas sobre aviones | ICAAS',
+    keywords: 'aviacion para principiantes, caja negra avion, luces de navegacion avion, galley sobrecargo, jumpseat avion, ventanillas avion',
+    excerpt: 'El sector de la aviación civil opera bajo normativas internacionales estrictas diseñadas para maximizar la seguridad operacional. Respondemos a seis preguntas críticas sobre los aviones.',
+    content: `<h1>Aviación Explicada para Principiantes: 6 preguntas que siempre te hiciste sobre los aviones</h1>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/YfJDR0zzvmr.webp" alt="Cabina de avión comercial moderna con pasajeros sentados y ambiente operativo realista" referrerpolicy="no-referrer"></p>
+<p>El sector de la <strong>aviación civil</strong> opera bajo normativas internacionales estrictas diseñadas para maximizar la <strong>seguridad operacional</strong>. Para quienes inician su formación en una <a href="https://vuela-icaas.com">escuela de aviación en Cancún</a>, comprender los fundamentos técnicos detrás de los procedimientos cotidianos es esencial. </p>
+<p>Este documento detalla las funciones operativas y de seguridad de seis elementos críticos presentes en las aeronaves modernas.</p>
+<h2>1. El Registrador de Vuelo: La "Caja Negra"</h2>
+<p>Contrario a su denominación popular, la <strong>caja negra</strong> es un dispositivo pintado de color <strong>naranja fluorescente</strong> para garantizar su visibilidad en escenarios de búsqueda y rescate. Este sistema se compone de dos unidades fundamentales:</p>
+<ul>
+<li><strong>FDR (Flight Data Recorder):</strong> Registra parámetros técnicos como la <strong>altitud</strong>, la <strong>velocidad</strong>, el <strong>empuje de los motores</strong> y la <strong>configuración de los flaps</strong>. Los modelos avanzados pueden monitorear más de 1,000 variables de forma simultánea.</li>
+<li><strong>CVR (Cockpit Voice Recorder):</strong> Almacena las comunicaciones por radio y los sonidos ambientales dentro de la cabina de mando, incluyendo alarmas y diálogos de la tripulación.</li>
+</ul>
+<p>El propósito funcional de estos equipos es facilitar la reconstrucción técnica de eventos tras un incidente, permitiendo la mejora continua de los estándares de seguridad global.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/1zlmVi1BwBY.webp" alt="Caja negra naranja en contexto de investigación técnica aeronáutica" referrerpolicy="no-referrer"></p>
+<h2>2. Gestión de Iluminación en Cabina durante Críticas de Vuelo</h2>
+<p>La atenuación de las luces de cabina durante el despegue y el aterrizaje responde a un protocolo de <strong>seguridad preventiva</strong>. Estas fases se consideran las más críticas de la operación aérea.</p>
+<p>La reducción de la intensidad lumínica permite que la visión de los pasajeros y la tripulación se <strong>adapte a la luz exterior</strong>. En caso de una evacuación de emergencia, el ojo humano ya estará ajustado a la oscuridad o a la luz ambiental, facilitando la identificación de las <strong>luces de emergencia</strong> en el suelo y permitiendo una salida del avión en menos de <strong>90 segundos</strong>, cumpliendo con la normativa de certificación.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/jC-Iy1rk7ko.webp" alt="Pasajeros en cabina con luces atenuadas durante una fase nocturna de aterrizaje" referrerpolicy="no-referrer"></p>
+<h2>3. Sistema de Luces de Navegación: Roja, Verde y Blanca</h2>
+<p>Las aeronaves utilizan un sistema de luces de posición estandarizado internacionalmente para permitir la identificación de la <strong>orientación y trayectoria</strong> del avión por parte de otros tráficos y controladores.</p>
+<ul>
+<li><strong>Luz Roja:</strong> Ubicada en la punta del <strong>ala izquierda</strong> (babor).</li>
+<li><strong>Luz Verde:</strong> Ubicada en la punta del <strong>ala derecha</strong> (estribor).</li>
+<li><strong>Luz Blanca:</strong> Situada en el cono de cola de la aeronave.</li>
+</ul>
+<p>Si un piloto observa una luz roja a la derecha y una verde a la izquierda, el avión se dirige <strong>de frente</strong>. Si solo visualiza la luz blanca, la aeronave se está <strong>alejando</strong>. Este código visual es fundamental para evitar colisiones aéreas en condiciones de baja visibilidad o vuelo nocturno.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/GVZqucsy-eH.webp" alt="Primer plano de ala de avión con luces de navegación roja y verde" referrerpolicy="no-referrer"></p>
+<h2>4. El Galley: Centro de Operaciones de Servicio</h2>
+<p>El <strong>galley</strong> es el área técnica destinada a la preparación de alimentos y almacenamiento de suministros. A diferencia de una cocina convencional, este espacio debe cumplir con requerimientos de <strong>seguridad estructural</strong>:</p>
+<ol>
+<li><strong>Aseguramiento de Cargas:</strong> Todos los <strong>carros (trolleys)</strong> y recipientes deben estar bloqueados mediante sistemas de anclaje mecánicos antes de las fases de despegue y aterrizaje.</li>
+<li><strong>Control Eléctrico:</strong> Cuenta con disyuntores específicos para gestionar hornos y cafeteras sin comprometer los sistemas críticos de la aeronave.</li>
+<li><strong>Higiene Operativa:</strong> Las superficies deben mantenerse libres de objetos sueltos para evitar proyecciones en caso de <strong>turbulencia severa</strong>.</li>
+</ol>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/fQPngUOTu9P.webp" alt="Galley de avión con sobrecargo realizando tareas operativas de servicio" referrerpolicy="no-referrer"></p>
+<h2>5. El Jumpseat: Asientos para Tripulación de Cabina</h2>
+<p>El <strong>jumpseat</strong> es un asiento plegable diseñado para la tripulación de cabina (sobrecargos). Su diseño prioriza la funcionalidad sobre el confort, incluyendo <strong>arneses de seguridad de cuatro o cinco puntos</strong>.</p>
+<p>Se ubican estratégicamente junto a las <strong>salidas de emergencia</strong> para permitir que la tripulación inicie los protocolos de evacuación de inmediato. El uso del jumpseat es obligatorio durante las fases de rodaje, despegue, aterrizaje y cuando la señal de cinturones está encendida por turbulencia. Para quienes aspiran a ocupar estos asientos, la <a href="https://vuela-icaas.com/sobrecargo">Carrera de Sobrecargo de Aviación</a> proporciona el entrenamiento técnico necesario para su operación.</p>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/y-qKQlAQOte.webp" alt="Tripulante de cabina sentado en jumpseat junto a puerta de emergencia" referrerpolicy="no-referrer"></p>
+<h2>6. Protocolo de Persianas en Ventanillas</h2>
+<p>Mantener las persianas abiertas durante el despegue y aterrizaje es una instrucción directa orientada a la <strong>conciencia situacional</strong>. Este procedimiento permite:</p>
+<ul>
+<li><strong>Identificación Externa:</strong> Que la tripulación y los pasajeros puedan detectar anomalías visibles, como humo o fuego en los motores.</li>
+<li><strong>Evaluación de Riesgos:</strong> Determinar qué lado de la aeronave es seguro para el desplégue de toboganes en caso de emergencia (evitando obstáculos o incendios externos).</li>
+<li><strong>Visibilidad para Rescate:</strong> Facilitar que los servicios de emergencia externos vean el interior de la cabina y localicen focos de fuego o pasajeros en necesidad de asistencia.</li>
+</ul>
+<p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/YoTa5Xa9aGd.webp" alt="Ventanilla de avión con persiana abierta mostrando el ala desde el interior" referrerpolicy="no-referrer"></p>
+<h3>Formación Profesional en ICAAS Aviación</h3>
+<p>La comprensión de estos sistemas es solo el primer paso para una carrera exitosa en la industria aérea. En <strong>ICAAS Aviación</strong>, formamos especialistas capaces de gestionar estos protocolos bajo los más altos estándares globales.</p>
+<p>Si tu objetivo es dominar la operación técnica de una aeronave, consulta nuestros programas:</p>
+<ul>
+<li><a href="https://vuela-icaas.com/oficial">Curso de Oficial de Operaciones</a></li>
+<li><a href="https://vuela-icaas.com/cursos">Entrenamiento en Simulador A320</a></li>
+</ul>
+<p><strong>Procedimiento:</strong> Para inscripciones o consultas técnicas, contacta a nuestro equipo de admisiones en Cancún a través de nuestra sección de <a href="https://vuela-icaas.com/contacto">contacto</a>.</p>`,
+    imageUrl: 'https://cdn.marblism.com/YfJDR0zzvmr.webp',
+    date: '3 Aug 2026',
+    category: 'Aviación',
+    categories: ['Aviación', 'Seguridad', 'Curiosidades', 'Principiantes']
   }
 ];
 
