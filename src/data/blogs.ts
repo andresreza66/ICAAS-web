@@ -1157,7 +1157,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>Antes del abordaje, el personal realiza una inspección detallada de los componentes del galley:</p>
 <ul>
 <li><strong>Hornos y Cafeteras:</strong> Comprobación de seguros, funcionamiento eléctrico y limpieza.</li>
-<li><strong>Latches y Seguros:</strong> Verificación mecánica de todos los cierres de compartimentos para evitar aperturas accidentalmente durante el despegue o turbulencia.</li>
+<li><strong>Latches y Seguros:</strong> Verificación mecánica de todos los cierres de compartimentos para evitar aperturas accidentales durante el despegue o turbulencia.</li>
 <li><strong>Inventario de Catering:</strong> Cotejo de suministros contra el manifiesto de carga del vuelo.</li>
 </ul>
 <h3>Gestión de Residuos y Seguridad</h3>
@@ -1191,7 +1191,7 @@ const ALL_BLOGS: BlogPost[] = [
 </ul>
 <p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/I0rPISBjx9f.webp" alt="Instructor de aviación detallando la organización de equipos de servicio" referrerpolicy="no-referrer"></p>
 <h2>4. Coordinación de Tripulación y CRM</h2>
-<p>El éxito del servicio a bordo depende de la <strong>Gestión de Recursos de la Tripulación (CRM)</strong>. La comunicación entre los sobrecargos y la cabina de mando es fundamental para sincronizar los tiempos de servicio con las fases del vuelo.</p>
+<p>El éxito del servicio a bordo depende de la <strong>Gestión de Recursos de la Tripulación (CRM)</strong>. La comunicación entre los sobrecargos y la cabina de mando es fundamental para synchronizar los tiempos de servicio con las fases del vuelo.</p>
 <h3>Sincronización con la Cabina de Mando</h3>
 <p>El sobrecargo debe estar atento a las señales del Capitán:</p>
 <ul>
