@@ -1189,7 +1189,7 @@ const ALL_BLOGS: BlogPost[] = [
 <p>La certificación final emitida por <a href="https://vuela-icaas.com">ICAAS Aviación</a> valida las competencias profesionales ante la industria aeronáutica global.</p>
 <ul>
 <li>Si un estudiante no alcanza el puntaje mínimo aprobatorio en los exámenes teóricos o prácticos de evacuación, meteorología o normativas, <strong>aplica</strong> de inmediato el protocolo de regularización académica, sin distinción de género o antecedentes.</li>
-<li><strong>Verifica</strong> que el porcentaje de aprobación esté documentado en las actas de evaluación interna bajo criterios strictly cuantitativos.</li>
+<li><strong>Verifica</strong> que el porcentaje de aprobación esté documentado en las actas de evaluación interna bajo criterios estrictamente cuantitativos.</li>
 </ul>
 <p><img class="w-full h-auto rounded-xl shadow-md my-8" src="https://cdn.marblism.com/fzga2hi_CoQ.webp" alt="Inspección operativa en plataforma aeroportuaria" referrerpolicy="no-referrer"></p>
 <hr>
