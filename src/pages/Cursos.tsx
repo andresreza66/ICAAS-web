@@ -36,6 +36,7 @@ interface CourseType {
   nota?: string;
   image: string;
   whatsapp: string;
+  proximamente?: boolean;
 }
 
 export default function Cursos({ id }: { id: string }) {
@@ -116,7 +117,8 @@ export default function Cursos({ id }: { id: string }) {
       duracion: "24 h Teoría / 20 h Simulador de Vuelo",
       paquetes: [],
       image: a320Img,
-      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20curso%20de%20Introducci%C3%B3n%20al%20A320."
+      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20pr%C3%B3ximo%20curso%20de%20Introducci%C3%B3n%20al%20A320.",
+      proximamente: true
     },
     {
       id: "ejecutivo",
@@ -193,7 +195,8 @@ export default function Cursos({ id }: { id: string }) {
       duracion: "8 horas teórico-prácticas",
       paquetes: [],
       image: genericImg,
-      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20curso%20de%20CRM."
+      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20pr%C3%B3ximo%20curso%20de%20CRM.",
+      proximamente: true
     },
     {
       id: "cfit",
@@ -227,7 +230,8 @@ export default function Cursos({ id }: { id: string }) {
       duracion: "8 horas teórico-prácticas",
       paquetes: [],
       image: genericImg,
-      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20curso%20de%20CFIT."
+      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20pr%C3%B3ximo%20curso%20de%20CFIT.",
+      proximamente: true
     },
     {
       id: "alar",
@@ -260,7 +264,8 @@ export default function Cursos({ id }: { id: string }) {
       duracion: "8 horas",
       paquetes: [],
       image: genericImg,
-      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20curso%20de%20ALAR."
+      whatsapp: "https://wa.me/529987510172?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20el%20pr%C3%B3ximo%20curso%20de%20ALAR.",
+      proximamente: true
     },
     {
       id: "hora-de-simulador",
@@ -396,9 +401,15 @@ export default function Cursos({ id }: { id: string }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#12151d] via-transparent to-black/35" />
                 
-                <span className="absolute top-4 right-4 bg-primary text-white text-[8px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase shadow-lg shadow-black/40">
-                  ESPECIALIDAD
-                </span>
+                {course.proximamente ? (
+                  <span className="absolute top-4 right-4 bg-amber-500 text-black text-[8px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase shadow-lg shadow-black/40 flex items-center gap-1">
+                    <Sparkles size={11} className="text-black" /> PRÓXIMAMENTE
+                  </span>
+                ) : (
+                  <span className="absolute top-4 right-4 bg-primary text-white text-[8px] font-black tracking-widest px-3 py-1.5 rounded-full uppercase shadow-lg shadow-black/40">
+                    ESPECIALIDAD
+                  </span>
+                )}
 
                 <span className="absolute bottom-4 left-4 bg-black/75 backdrop-blur-md text-[9px] font-bold text-gray-200 px-3.5 py-1.5 rounded-lg border border-white/5 uppercase tracking-wider">
                   {course.tagline}
@@ -407,6 +418,13 @@ export default function Cursos({ id }: { id: string }) {
 
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    {course.proximamente && (
+                      <span className="text-[8px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">
+                        Próximamente disponible
+                      </span>
+                    )}
+                  </div>
                   <h3 className="text-2xl font-black tracking-tight text-white mb-2 group-hover:text-primary transition-colors uppercase">
                     {course.title}
                   </h3>
@@ -472,6 +490,13 @@ export default function Cursos({ id }: { id: string }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#12151d] via-transparent to-black/20" />
 
+                {course.proximamente && (
+                  <span className="absolute top-3.5 right-3.5 flex items-center gap-1 bg-amber-500 text-black text-[8px] font-black tracking-widest px-2.5 py-1 rounded-full uppercase shadow-lg shadow-black/40">
+                    <Sparkles size={10} className="text-black" />
+                    PRÓXIMAMENTE
+                  </span>
+                )}
+
                 <span className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-[9px] font-bold text-gray-300 px-3 py-1 rounded-md border border-white/5 uppercase tracking-wider">
                   {course.tagline}
                 </span>
@@ -483,6 +508,11 @@ export default function Cursos({ id }: { id: string }) {
                     <span className="text-[8px] font-mono tracking-wider bg-white/5 text-gray-400 border border-white/5 px-2 py-0.5 rounded">
                       {course.fichaCode}
                     </span>
+                    {course.proximamente && (
+                      <span className="text-[8px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded">
+                        Próximamente
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-lg font-bold tracking-tight text-white mb-2 group-hover:text-primary transition-colors uppercase leading-tight">
                     {course.title}
@@ -757,7 +787,13 @@ export default function Cursos({ id }: { id: string }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#141720] via-[#141720]/50 to-black/40" />
 
                   <div className="absolute bottom-6 left-6 pr-12 text-center w-[calc(100%-48px)] flex flex-col items-center">
-                    <p className="text-primary font-mono text-xs font-black tracking-[0.1em] mb-1 uppercase">Ficha de Información Técnica</p>
+                    {selectedCourse.proximamente ? (
+                      <span className="inline-flex items-center gap-1.5 bg-amber-500 text-black text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-2 shadow-lg">
+                        <Sparkles size={11} /> Próximamente disponible
+                      </span>
+                    ) : (
+                      <p className="text-primary font-mono text-xs font-black tracking-[0.1em] mb-1 uppercase">Ficha de Información Técnica</p>
+                    )}
                     <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tighter uppercase leading-none">
                       {selectedCourse.title}
                     </h2>
@@ -766,6 +802,20 @@ export default function Cursos({ id }: { id: string }) {
 
                 {/* Info and content (Technical dossier representation) */}
                 <div className="p-6 sm:p-8 space-y-8 text-center">
+
+                  {selectedCourse.proximamente && (
+                    <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex items-start sm:items-center gap-3.5 text-left">
+                      <Clock className="text-amber-400 size-6 shrink-0 mt-0.5 sm:mt-0" />
+                      <div>
+                        <span className="text-[9px] font-black text-amber-400 uppercase tracking-widest block mb-0.5">
+                          Programa en Próxima Apertura
+                        </span>
+                        <p className="text-gray-300 text-xs leading-relaxed">
+                          Este curso no está disponible de inmediato, pero estará habilitado próximamente. Contáctanos por WhatsApp para solicitar información y registrarte en la lista de espera prioritaria.
+                        </p>
+                      </div>
+                    </div>
+                  )}
                   
                   {/* Quick stats board */}
                   <div className="bg-[#11131a] border border-white/5 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-center text-center">
@@ -932,7 +982,7 @@ export default function Cursos({ id }: { id: string }) {
                     className="flex-grow sm:flex-grow-0 bg-[#25D366] text-white font-black uppercase tracking-widest text-[9px] px-6 py-4 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform"
                   >
                     <MessageCircle size={14} fill="currentColor" />{' '}
-                    Solicita más información
+                    {selectedCourse.proximamente ? 'Informes y Pre-registro' : 'Solicita más información'}
                   </a>
                 </div>
               </div>

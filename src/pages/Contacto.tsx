@@ -175,10 +175,10 @@ export default function Contacto({ id }: { id: string }) {
                             <option value="Oficial de Operaciones" className="font-normal">Oficial de Operaciones</option>
                           </optgroup>
                           <optgroup label="Cursos" className="bg-[#161a25] text-white font-bold">
-                            <option value="CFIT" className="font-normal">CFIT</option>
-                            <option value="ALAR" className="font-normal">ALAR</option>
-                            <option value="CRM" className="font-normal">CRM</option>
-                            <option value="Introducción al A320" className="font-normal">Introducción al A320</option>
+                            <option value="CFIT (Próximamente)" className="font-normal">CFIT (Próximamente)</option>
+                            <option value="ALAR (Próximamente)" className="font-normal">ALAR (Próximamente)</option>
+                            <option value="CRM (Próximamente)" className="font-normal">CRM (Próximamente)</option>
+                            <option value="Introducción al A320 (Próximamente)" className="font-normal">Introducción al A320 (Próximamente)</option>
                             <option value="Sobrecargo Ejecutivo" className="font-normal">Sobrecargo Ejecutivo</option>
                             <option value="Simulador VR" className="font-normal">Simulador VR</option>
                             <option value="Hora de Simulador" className="font-normal">Hora de Simulador</option>

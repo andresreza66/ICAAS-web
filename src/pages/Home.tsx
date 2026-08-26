@@ -849,13 +849,7 @@ export default function Home({ id }: { id: string }) {
             <p className="max-w-3xl text-sm sm:text-base md:text-lg text-gray-500 font-light text-center mx-auto mb-12 leading-relaxed">
               Aprende de expertos de la industria a través de cursos creados para quienes buscan crecer profesionalmente o profundizar su pasión por la aviación.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-              <CourseCard 
-                title="Introducción al A320"
-                tagline="Airbus Series"
-                desc="Curso técnico profundo sobre los sistemas, filosofía y operación de la familia A320."
-                icon={Plane}
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <CourseCard 
                 title="Sobrecargo Ejecutivo"
                 tagline="Curso VIP"
@@ -863,31 +857,19 @@ export default function Home({ id }: { id: string }) {
                 icon={Sparkles}
               />
               <CourseCard 
-                title="CFIT"
-                tagline="Controlled Flight"
-                desc="Prevención de impacto contra el terreno sin pérdida de control."
-                icon={ShieldCheck}
-              />
-              <CourseCard 
-                title="ALAR"
-                tagline="Approach/Landing"
-                desc="Estrategias críticas para la fase más compleja del vuelo."
+                title="Entrenador Sintético"
+                tagline="Práctica Homologada"
+                desc="Sesiones de práctica en simulador de vuelo con Capitán Asesor."
                 icon={Target}
               />
               <CourseCard 
-                title="CRM"
-                tagline="Resource Mgmt"
-                desc="Optimización del trabajo en equipo y toma de decisiones."
-                icon={Users}
-              />
-              <CourseCard 
-                title="Hora de Simulador"
-                tagline="Entrenamiento"
-                desc="Horas de vuelo en nuestros entrenadores sintéticos."
-                icon={Target}
+                title="Simulador VR"
+                tagline="Realidad Virtual"
+                desc="Entrenamiento inmersivo con cascos de Realidad Virtual y mandos 3D."
+                icon={Layers}
               />
               <div className="flex flex-col justify-center items-center h-full p-2">
-                <Link to="/cursos" className="flex flex-col text-center items-center justify-center gap-3 bg-primary hover:opacity-90 text-white px-4 py-6 rounded-[24px] sm:rounded-[28px] font-bold uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 text-[10px] sm:text-xs shadow-xl w-full h-full md:min-h-[220px]">
+                <Link to="/cursos" className="flex flex-col text-center items-center justify-center gap-3 bg-primary hover:opacity-90 text-white px-4 py-6 rounded-[24px] sm:rounded-[28px] font-bold uppercase tracking-widest transition-transform hover:scale-105 active:scale-95 text-[10px] sm:text-xs shadow-xl w-full h-full min-h-[180px] md:min-h-[220px]">
                   <span>Ver todos los Cursos y Especializaciones</span>
                   <ArrowRight size={20} />
                 </Link>
@@ -1173,10 +1155,6 @@ export default function Home({ id }: { id: string }) {
                              <option value="Oficial de Operaciones">Oficial de Operaciones</option>
                            </optgroup>
                            <optgroup label="Cursos">
-                             <option value="CFIT">CFIT</option>
-                             <option value="ALAR">ALAR</option>
-                             <option value="CRM">CRM</option>
-                             <option value="Introducción al A320">Introducción al A320</option>
                              <option value="Sobrecargo Ejecutivo">Sobrecargo Ejecutivo</option>
                              <option value="Simulador VR">Simulador VR</option>
                              <option value="Hora de Simulador">Hora de Simulador</option>
@@ -1243,10 +1221,17 @@ export default function Home({ id }: { id: string }) {
   );
 }
 
-function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = false, image }: { title: string, tagline: string, desc: string, icon?: any, featured?: boolean, image?: string }) {
+function CourseCard({ title, tagline, desc, icon: Icon = Layers, featured = false, image, proximamente = false }: { title: string, tagline: string, desc: string, icon?: any, featured?: boolean, image?: string, proximamente?: boolean }) {
   return (
     <div 
       className={`p-4 sm:p-5 lg:p-6 rounded-[24px] sm:rounded-[28px] hover:shadow-[0_20px_40px_-15px_rgba(238,62,58,0.2)] hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 border-2 group flex flex-col h-full relative overflow-hidden bg-white text-secondary border-gray-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)] hover:border-primary/40 cursor-default md:min-h-[220px]`}>
+      {proximamente && !featured && (
+        <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+          <span className="bg-amber-500/15 text-amber-800 border border-amber-500/30 text-[7px] sm:text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1">
+            <Sparkles size={8} className="text-amber-600" /> Próx.
+          </span>
+        </div>
+      )}
       {featured && image && (
         <>
                 <img 
